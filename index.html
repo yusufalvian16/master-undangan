@@ -23,7 +23,7 @@
     <div class="flex h-screen w-screen justify-end">
       <div class="hidden md:block flex-grow bg-blue-900 h-full">
         <section
-          class="min-h-screen flex flex-col justify-center items-center bg-[url('./images/furnitur/bg.jpg')] bg-cover py-16 px-4"
+          class="min-h-screen flex flex-col justify-center items-center bg-[url('../images/furnitur/bg.jpg')] bg-cover py-16 px-4"
         >
           <h2 class="text-2xl font-bold mb-4">The Wedding off</h2>
 
@@ -32,14 +32,20 @@
       </div>
 
       <div
-        class="relative w-full md:w-[450px] h-full overflow-y-auto shadow-2xl bg-white"
+        id="main-container"
+        class="relative w-full md:w-[450px] h-full shadow-2xl bg-white"
+        style="height: 100vh; overflow: hidden;"
       >
+        <!-- Landing Page - Halaman Selamat Datang -->
         <div
           id="landing-page"
-          class="overflow-hidden relative w-full h-screen flex flex-col justify-center items-center bg-[url('./images/galery/portrait/3.webp')] bg-cover bg-center text-center transition-opacity duration-1000 ease-in-out opacity-100 z-10"
+          class="absolute inset-0 w-full h-full flex flex-col justify-center items-center bg-[url('../images/galery/portrait/8.webp')] bg-cover bg-center text-center transition-opacity duration-1000 ease-in-out opacity-100"
+          style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 990; overflow: hidden; touch-action: none;"
         >
-          <div id="wave-bunga">
-            <div class="absolute z-10 w-28 -top-8 -left-5 animate-in-top-left">
+          <!-- Wave Bunga Dekorasi -->
+          <div id="wave-bunga-landing" class="absolute inset-0 pointer-events-none">
+            <!-- Top Left -->
+            <div class="absolute z-10 w-28 -top-8 -left-5">
               <div class="relative w-full h-full sway origin-top-left">
                 <img
                   src="./images/furnitur/wave/top-left.png"
@@ -48,8 +54,7 @@
                 />
               </div>
             </div>
-
-            <div class="absolute z-10 w-28 -top-8 -left-5 animate-in-top-left">
+            <div class="absolute z-10 w-28 -top-8 -left-5">
               <div class="relative w-full h-full sway-alt origin-top-left">
                 <img
                   src="./images/furnitur/wave/top-left-2aa.png"
@@ -59,9 +64,8 @@
               </div>
             </div>
 
-            <div
-              class="absolute z-10 w-28 -left-5 -bottom-8 animate-in-bottom-left"
-            >
+            <!-- Bottom Left -->
+            <div class="absolute z-10 w-28 -left-5 -bottom-8">
               <div class="relative w-full h-full sway origin-bottom-left">
                 <img
                   src="./images/furnitur/wave/top-left.png"
@@ -70,10 +74,7 @@
                 />
               </div>
             </div>
-
-            <div
-              class="absolute z-10 w-28 -left-5 -bottom-8 animate-in-bottom-left"
-            >
+            <div class="absolute z-10 w-28 -left-5 -bottom-8">
               <div class="relative w-full h-full sway-alt origin-bottom-left">
                 <img
                   src="./images/furnitur/wave/top-left-2aa.png"
@@ -83,9 +84,8 @@
               </div>
             </div>
 
-            <div
-              class="absolute z-10 w-28 -top-8 -right-5 animate-in-top-right"
-            >
+            <!-- Top Right -->
+            <div class="absolute z-10 w-28 -top-8 -right-5">
               <div class="relative w-full h-full sway origin-top-right">
                 <img
                   src="./images/furnitur/wave/top-left.png"
@@ -94,10 +94,7 @@
                 />
               </div>
             </div>
-
-            <div
-              class="absolute z-10 w-28 -top-8 -right-5 animate-in-top-right"
-            >
+            <div class="absolute z-10 w-28 -top-8 -right-5">
               <div class="relative w-full h-full sway-alt origin-top-right">
                 <img
                   src="./images/furnitur/wave/top-left-2aa.png"
@@ -107,9 +104,8 @@
               </div>
             </div>
 
-            <div
-              class="absolute z-10 w-28 -right-5 -bottom-8 animate-in-bottom-right"
-            >
+            <!-- Bottom Right -->
+            <div class="absolute z-10 w-28 -right-5 -bottom-8">
               <div class="relative w-full h-full sway origin-bottom-right">
                 <img
                   src="./images/furnitur/wave/top-left.png"
@@ -118,10 +114,7 @@
                 />
               </div>
             </div>
-
-            <div
-              class="absolute z-10 w-28 -right-5 -bottom-8 animate-in-bottom-right"
-            >
+            <div class="absolute z-10 w-28 -right-5 -bottom-8">
               <div class="relative w-full h-full sway-alt origin-bottom-right">
                 <img
                   src="./images/furnitur/wave/top-left-2aa.png"
@@ -131,30 +124,58 @@
               </div>
             </div>
           </div>
+
+          <!-- Background Overlay - Gradient untuk readability -->
           <div
-            class="absolute bottom-0 left-0 w-full h-full bg-[url('./images/furnitur/bg.jpg')] bg-cover bg-center bg-no-repeat mask-t-from-30% mask-t-to-70%"
-          >
-            <div class="flex items-end justify-end flex-col h-full pb-10">
-              <div class="flex flex-col items-center mb-8 self-center">
-                <h2 class="text-4xl font-bold mb-4">Selamat Datang</h2>
+            class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/40 via-black/20 to-transparent pointer-events-none z-10"
+          ></div>
 
-                <p class="text-xl text-center">
-                  Kepada Yth. Bapak/Ibu/Saudara/i
-                </p>
-
-                <p class="text-2xl font-semibold mt-2">Nama Tamu</p>
-
-                <p class="mt-8 text-center max-w-md">
-                  Dengan segala hormat dan kerendahan hati, kami mengundang Anda
-                  untuk menjadi saksi hari bahagia kami.
-                </p>
+          <!-- Dekorasi elemen floating -->
+          <div class="absolute top-20 left-10 text-4xl animate-float opacity-30 pointer-events-none">💐</div>
+          <div class="absolute top-32 right-16 text-3xl animate-float-slow opacity-25 pointer-events-none">🌸</div>
+          <div class="absolute bottom-40 left-20 text-3xl animate-float opacity-30 pointer-events-none" style="animation-delay: 1s;">🌺</div>
+          <div class="absolute bottom-32 right-10 text-4xl animate-float-slow opacity-25 pointer-events-none" style="animation-delay: 0.5s;">🌷</div>
+          
+          <!-- Konten Selamat Datang -->
+          <div class="relative z-30 flex flex-col items-center justify-end h-full pb-10 px-4">
+            <!-- Card untuk konten selamat datang -->
+            <div class="glass-effect rounded-3xl p-4 md:p-6 mb-8 shadow-2xl elegant-border max-w-md w-full animate-fade-in-up" style="max-height: 50vh; overflow-y: auto;">
+              <!-- Ornamental divider atas -->
+              <div class="ornamental-divider w-24 mb-2">
+                <span class="text-primary-400 text-xl">❦</span>
               </div>
-              <div class="self-center mb-8">
+              
+              <h2 class="text-2xl md:text-3xl font-bold mb-2 text-gradient-primary sparkle">
+                Selamat Datang
+              </h2>
+
+              <p class="text-sm md:text-base text-center text-gray-700 font-medium mb-1">
+                Kepada Yth. Bapak/Ibu/Saudara/i
+              </p>
+
+              <p class="text-lg md:text-xl font-semibold mt-1 text-primary-700 decoration-heart">
+                Nama Tamu
+              </p>
+
+              <div class="ornamental-divider w-24 my-3">
+                <span class="text-primary-400 text-lg">❦</span>
+              </div>
+
+              <p class="mt-2 text-center text-xs md:text-sm text-gray-600 leading-relaxed mx-auto">
+                Dengan segala hormat dan kerendahan hati, kami mengundang Anda
+                untuk menjadi saksi hari bahagia kami.
+              </p>
+              
+              <div class="animate-fade-in-up mt-4" style="animation-delay: 0.3s;">
                 <button
                   id="open-invite-btn"
-                  class="px-8 py-3 bg-pink-600 text-white font-semibold rounded-full shadow-lg hover:bg-pink-700 transition-colors duration-300"
+                  class="button-main animate-pulse-glow text-sm md:text-base px-6 py-2 relative overflow-hidden group w-full"
                 >
-                  Buka Undangan
+                  <span class="relative z-10 flex items-center justify-center gap-2">
+                    <i class="bi bi-envelope-heart text-lg"></i>
+                    Buka Undangan
+                  </span>
+                  <span class="absolute inset-0 animate-shimmer"></span>
                 </button>
               </div>
             </div>
@@ -163,7 +184,8 @@
 
         <div
           id="main-invite-page"
-          class="scroll-smooth absolute inset-0 w-full h-screen overflow-y-auto overflow-x-hidden bg-gray-100 opacity-0 pointer-events-none transition-opacity duration-1000 ease-in-out z-0"
+          class="scroll-smooth w-full overflow-x-hidden bg-gray-100 opacity-0 pointer-events-none transition-opacity duration-1000 ease-in-out z-0"
+          style="display: none;"
         >
           <!-- Notification Popup -->
           <div
@@ -188,99 +210,141 @@
           </div>
 
           <nav
-            class="fixed bottom-0 bg-white border-t border-gray-200 shadow-lg z-50 md:max-w-[450px] w-full rounded-t-3xl"
+            id="main-navbar"
+            class="fixed bottom-0 bg-white border-t border-gray-200 shadow-lg md:max-w-[450px] w-full rounded-t-3xl"
+            style="z-index: 200; display: none;"
           >
             <div
-              class="flex h-[4rem] justify-around items-center mx-auto px-10"
+              class="flex h-[4rem] justify-around items-center mx-auto px-2"
             >
               <a
                 href="#welcome-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 transition-colors duration-200 p-2"
+                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
                 data-target-id="welcome-section"
               >
-                <i class="bi bi-heart-fill text-[1.25rem] mb-1 menu-icon"></i>
-                <span class="menu-item-text menu-text">Home</span>
+                <i class="bi bi-heart-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+                <span class="menu-item-text menu-text text-[0.7rem]">Home</span>
               </a>
               <a
                 href="#mempelai-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 transition-colors duration-200 p-2"
+                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
                 data-target-id="mempelai-section"
               >
-                <i class="bi bi-people-fill text-[1.25rem] mb-1 menu-icon"></i>
-                <span class="menu-item-text menu-text">Mempelai</span>
+                <i class="bi bi-people-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+                <span class="menu-item-text menu-text text-[0.7rem]">Mempelai</span>
               </a>
               <a
                 href="#waktu-lokasi-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 transition-colors duration-200 p-2"
+                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
                 data-target-id="waktu-lokasi-section"
               >
-                <i class="bi bi-geo-alt-fill text-[1.25rem] mb-1 menu-icon"></i>
-                <span class="menu-item-text menu-text">Lokasi</span>
+                <i class="bi bi-geo-alt-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+                <span class="menu-item-text menu-text text-[0.7rem]">Lokasi</span>
+              </a>
+              <a
+                href="#kisah-cinta-section"
+                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+                data-target-id="kisah-cinta-section"
+              >
+                <i class="bi bi-heart-pulse-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+                <span class="menu-item-text menu-text text-[0.7rem]">Story</span>
               </a>
               <a
                 href="#galeri-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 transition-colors duration-200 p-2"
+                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
                 data-target-id="galeri-section"
               >
-                <i class="bi bi-image-fill text-[1.25rem] mb-1 menu-icon"></i>
-                <span class="menu-item-text menu-text">Galeri</span>
+                <i class="bi bi-image-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+                <span class="menu-item-text menu-text text-[0.7rem]">Galeri</span>
+              </a>
+              <a
+                href="#gift-section"
+                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+                data-target-id="gift-section"
+              >
+                <i class="bi bi-gift-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+                <span class="menu-item-text menu-text text-[0.7rem]">Gift</span>
               </a>
               <a
                 href="#pesan-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-blue-600 transition-colors duration-300 p-2"
+                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300 p-1.5"
                 data-target-id="pesan-section"
               >
                 <i
-                  class="bi bi-chat-dots-fill text-[1.25rem] mb-1 menu-icon"
+                  class="bi bi-chat-dots-fill text-[1.1rem] mb-0.5 menu-icon"
                 ></i>
-                <span class="menu-item-text menu-text">Pesan</span>
+                <span class="menu-item-text menu-text text-[0.7rem]">Pesan</span>
               </a>
             </div>
           </nav>
 
           <section
             id="welcome-section"
-            class="wedding-section h-screen bg-[url('./images/galery/portrait/12.webp')] bg-size-[cover_100%] bg-center bg-no-repeat"
-          >
-            <div class="h-full bg-white/70 backdrop-blur-sm">
+            class="wedding-section min-h-screen bg-[url('../images/galery/portrait/12.webp')] bg-cover bg-center bg-no-repeat relative overflow-hidden"
+            style="position: relative !important; z-index: 1 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">
+            <!-- Dekorasi background -->
+            <div class="absolute inset-0 bg-gradient-to-b from-primary-50/30 via-transparent to-white/80"></div>
+            <div class="absolute top-10 left-5 text-3xl animate-float opacity-20">💕</div>
+            <div class="absolute top-20 right-8 text-2xl animate-float-slow opacity-15">✨</div>
+            <div class="absolute bottom-20 left-8 text-2xl animate-float opacity-20" style="animation-delay: 1s;">💖</div>
+            <div class="absolute bottom-10 right-5 text-3xl animate-float-slow opacity-15" style="animation-delay: 0.5s;">💝</div>
+            
+            <div class="min-h-screen bg-white/60 backdrop-blur-sm relative z-10 flex items-center">
               <div
-                class="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-white from-50% to-transparent -z-10"
+                class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-white from-60% to-transparent -z-10"
               ></div>
               <div
-                class="flex flex-col items-center justify-center h-full text-center gap-16"
+                class="flex flex-col items-center justify-center w-full min-h-screen text-center gap-12 px-4 py-16"
               >
-                <div>
+                <!-- Ornamental divider atas -->
+                <div class="ornamental-divider w-40 mb-2">
+                  <span class="text-primary-500 text-3xl">❦</span>
+                </div>
+                
+                <div class="animate-fade-in-up">
                   <!-- Title head -->
-                  <p class="text-2xl">THE WEDDING OF</p>
-                </div>
-                <div>
-                  <!-- image -->
-                  <img
-                    src="./images/galery/portrait/12.webp"
-                    alt="profil Undangan Pernikahan"
-                    class="w-60 h-60 rounded-full object-cover mb-4 border-2 border-gray-300 mx-auto"
-                  />
-                </div>
-                <div>
-                  <!-- nama,tanggal,save to google calender -->
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Quidem ea maxime magnam autem corporis illum iusto molestiae
-                    obcaecati! Quis itaque exercitationem nemo odio officia
-                    facere praesentium dolorem enim aliquam, incidunt nostrum
-                    eius sint esse reprehenderit, a repellat? Neque
-                    exercitationem facere quos unde quia non, omnis ipsa quae
-                    reprehenderit! Dolorem deserunt officia porro quidem
-                    debitis? Numquam, adipisci eum. Rem est consequatur
-                    accusantium aspernatur harum. Adipisci rem eius maiores
-                    neque aliquam reiciendis natus cupiditate quae rerum?
-                    Voluptas neque aliquid ut ipsa necessitatibus eius impedit
-                    repudiandae pariatur cumque asperiores repellendus nesciunt,
-                    minus, cum saepe. Veniam fugit excepturi ipsum explicabo
-                    cupiditate, labore ratione fuga.
+                  <p class="text-2xl font-light tracking-widest text-primary-600 mb-2 sparkle">
+                    THE WEDDING OF
                   </p>
                 </div>
+                
+                <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                  <!-- image dengan efek elegant -->
+                  <div class="relative inline-block elegant-border rounded-full p-1 animate-pulse-glow">
+                    <img
+                      src="./images/galery/portrait/12.webp"
+                      alt="profil Undangan Pernikahan"
+                      class="w-48 h-48 md:w-60 md:h-60 rounded-full object-cover border-4 border-white shadow-2xl mx-auto"
+                    />
+                    <!-- Dekorasi di sekitar foto -->
+                    <div class="absolute -top-2 -left-2 text-2xl animate-sparkle">🌸</div>
+                    <div class="absolute -top-2 -right-2 text-2xl animate-sparkle" style="animation-delay: 0.5s;">🌺</div>
+                    <div class="absolute -bottom-2 -left-2 text-2xl animate-sparkle" style="animation-delay: 1s;">🌷</div>
+                    <div class="absolute -bottom-2 -right-2 text-2xl animate-sparkle" style="animation-delay: 1.5s;">💐</div>
+                  </div>
+                </div>
+                
+                <div class="animate-fade-in-up max-w-2xl" style="animation-delay: 0.4s;">
+                  <!-- nama,tanggal -->
+                  <h1 class="text-4xl md:text-5xl font-bold text-gradient-primary mb-4 sparkle">
+                    Rian & Nisa
+                  </h1>
+                  <div class="ornamental-divider w-32 my-4">
+                    <span class="text-primary-400 text-xl">❦</span>
+                  </div>
+                  <p class="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+                    Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan
+                    pernikahan putra-putri kami. Merupakan suatu kehormatan dan kebahagiaan
+                    bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan
+                    doa restu kepada kami.
+                  </p>
+                  <div class="mt-6 flex items-center justify-center gap-2 text-primary-600">
+                    <i class="bi bi-calendar-heart text-xl"></i>
+                    <span class="text-lg font-semibold">28 Desember 2025</span>
+                  </div>
+                </div>
               </div>
+            </div>
               <!-- <div>
                 <h2 class="text-4xl font-bold mb-4">Selamat Datang</h2>
 
@@ -408,23 +472,65 @@
           <!-- Doa Section -->
           <section
             id="doa-section"
-            class="wedding-section min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-primary to-primary/80 py-16 px-4"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-primary-600 via-primary-500 to-primary-700 py-16 px-4 relative"
           >
-            <div class="text-center text-white max-w-2xl mx-auto">
-              <h2 class="text-4xl font-nama2 mb-8">Doa</h2>
-              <p class="text-2xl font-arab mb-4 leading-relaxed">
-                وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
-              </p>
-              <p class="mt-4 text-base text-slate-200 font-semibold">
-                Q.S Ar-Rum : 21
-              </p>
+            <!-- Dekorasi background -->
+            <div class="absolute inset-0 opacity-10">
+              <div class="absolute top-20 left-10 text-6xl animate-float">🌙</div>
+              <div class="absolute top-32 right-16 text-5xl animate-float-slow">⭐</div>
+              <div class="absolute bottom-32 left-16 text-5xl animate-float" style="animation-delay: 1s;">✨</div>
+              <div class="absolute bottom-20 right-10 text-6xl animate-float-slow" style="animation-delay: 0.5s;">💫</div>
+            </div>
+            
+            <div class="text-center text-white max-w-3xl mx-auto relative z-10 animate-fade-in-up">
+              <!-- Icon dekoratif -->
+              <div class="mb-6 flex justify-center items-center gap-4">
+                <div class="ornamental-divider w-24">
+                  <span class="text-white/60 text-2xl">❦</span>
+                </div>
+                <i class="bi bi-book-heart text-4xl text-white/80 animate-pulse"></i>
+                <div class="ornamental-divider w-24">
+                  <span class="text-white/60 text-2xl">❦</span>
+                </div>
+              </div>
+              
+              <h2 class="text-5xl md:text-6xl font-nama2 mb-12 text-white sparkle">
+                Doa
+              </h2>
+              <h1 class="text-bla">test</h1>
+              <!-- Card untuk ayat -->
+              <div class="glass-effect rounded-3xl p-8 md:p-12 mb-8 shadow-2xl elegant-border">
+                <p class="text-2xl md:text-3xl font-arab mb-6 leading-relaxed text-white/95">
+                  وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+                </p>
+                <div class="ornamental-divider w-32 my-6">
+                  <span class="text-white/50 text-xl">❦</span>
+                </div>
+                <p class="mt-6 text-lg md:text-xl text-white/90 font-semibold">
+                  Q.S Ar-Rum : 21
+                </p>
+                <p class="mt-4 text-base  italic max-w-xl mx-auto">
+                  "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+                </p>
+              </div>
+              
+              <!-- Dekorasi bawah -->
+              <div class="flex justify-center items-center gap-4 mt-8">
+                <div class="ornamental-divider w-24">
+                  <span class="text-white/60 text-2xl">❦</span>
+                </div>
+                <i class="bi bi-heart-fill text-3xl text-white/70 animate-pulse"></i>
+                <div class="ornamental-divider w-24">
+                  <span class="text-white/60 text-2xl">❦</span>
+                </div>
+              </div>
             </div>
           </section>
           <!-- end doa -->
 
           <section
             id="mempelai-section"
-            class="wedding-section min-h-screen flex flex-col justify-center items-center px-4 py-8 bg-[url('./images/furnitur/bg.jpg')] bg-cover bg-slate-200 bg-blend-darken"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center px-4 py-8 bg-[url('../images/furnitur/bg.jpg')] bg-cover bg-slate-200 bg-blend-darken relative overflow-hidden"
           >
             <div
               class="shadow bg-white/70 p-8 rounded-2xl border-slate-500 backdrop-blur-sm"
@@ -831,18 +937,42 @@
 
           <section
             id="gift-section"
-            class="wedding-section min-h-screen flex flex-col justify-center items-center bg-yellow-50 py-16 px-4"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-secondary-50 via-white to-primary-50 py-16 px-4 relative"
           >
+            <!-- Dekorasi background -->
+            <div class="absolute inset-0 opacity-5">
+              <div class="absolute top-10 left-5 text-5xl animate-float">🎁</div>
+              <div class="absolute top-20 right-10 text-4xl animate-float-slow">💝</div>
+              <div class="absolute bottom-20 left-10 text-4xl animate-float" style="animation-delay: 1s;">🎀</div>
+              <div class="absolute bottom-10 right-5 text-5xl animate-float-slow" style="animation-delay: 0.5s;">💐</div>
+            </div>
+            
             <div
-              class="bg-slate-200 px-6 py-10 rounded-2xl shadow-lg w-full max-w-2xl flex flex-col items-center relative"
+              class="bg-white/90 backdrop-blur-sm px-6 py-10 rounded-3xl shadow-2xl w-full max-w-2xl flex flex-col items-center relative z-10 elegant-border animate-fade-in-up"
             >
-              <h2 class="text-4xl font-nama2 mb-6 text-yellow-700 text-center">
+              <!-- Icon dekoratif -->
+              <div class="mb-4 flex justify-center items-center gap-4">
+                <div class="ornamental-divider w-20">
+                  <span class="text-primary-400 text-2xl">❦</span>
+                </div>
+                <i class="bi bi-gift-fill text-4xl text-primary-600 animate-pulse"></i>
+                <div class="ornamental-divider w-20">
+                  <span class="text-primary-400 text-2xl">❦</span>
+                </div>
+              </div>
+              
+              <h2 class="text-4xl md:text-5xl font-nama2 mb-6 text-gradient-primary text-center sparkle">
                 Wedding Gift
               </h2>
-              <p class="text-gray-700 text-center mb-8">
-                Restu dan doa tulus Anda adalah anugerah tak ternilai bagi kami,
-                jika Anda ingin berbagi kasih, dukungan dapat disalurkan melalui
-                :
+              
+              <div class="ornamental-divider w-32 my-4">
+                <span class="text-primary-400 text-xl">❦</span>
+              </div>
+              
+              <p class="text-gray-700 text-center mb-8 text-lg leading-relaxed max-w-xl">
+                Restu dan doa tulus Anda adalah anugerah tak ternilai bagi kami.
+                <br class="hidden md:block" />
+                Jika Anda ingin berbagi kasih, dukungan dapat disalurkan melalui:
               </p>
 
               <!-- Mulai area yang akan di-blur -->
@@ -870,76 +1000,84 @@
                 >
                   <!-- Gift 1: Transfer Bank -->
                   <div
-                    class="w-full relative rounded-xl shadow text-center overflow-hidden bg-[url('./images/furnitur/bg.jpg')] bg-cover bg-no-repeat"
+                    class="w-full relative rounded-2xl shadow-xl text-center overflow-hidden bg-gradient-to-br from-primary-50 to-accent-50 elegant-border"
                   >
+                    <div class="absolute top-2 right-2 text-2xl opacity-20 animate-sparkle">💳</div>
                     <div
-                      class="shadow p-4 bg-white/10 rounded-xl backdrop-blur-sm"
+                      class="p-6 bg-white/80 backdrop-blur-sm"
                     >
-                      <div class="flex justify-center mb-2">
-                        <img
-                          src="./images/logo/logo-bca.png"
-                          alt="BCA"
-                          class="w-32 object-contain"
-                        />
+                      <div class="flex justify-center mb-4">
+                        <div class="bg-white p-3 rounded-full shadow-md">
+                          <img
+                            src="./images/logo/logo-bca.png"
+                            alt="BCA"
+                            class="w-28 object-contain"
+                          />
+                        </div>
                       </div>
-                      <div class="mb-1 text-lg font-bold text-gray-800">
-                        BCA
+                      <div class="mb-2 text-xl font-bold text-primary-700">
+                        Bank BCA
                       </div>
                       <div
-                        class="mb-2 text-gray-700 tracking-widest text-xl select-all"
+                        class="mb-3 text-gray-800 tracking-widest text-2xl font-bold select-all bg-primary-50 px-4 py-2 rounded-lg border-2 border-primary-200"
                         id="rekening-bca"
                       >
                         1234567890
                       </div>
-                      <div class="mb-2 text-gray-700 text-sm">
+                      <div class="mb-4 text-gray-600 text-sm font-medium">
                         a.n. Rian & Nisa
                       </div>
                       <button
                         id="copy-rekening-btn"
-                        class="mt-2 px-4 py-1 bg-primary/80 hover:bg-primary text-white rounded-full text-sm transition"
+                        class="button-main button-sm w-full"
                       >
-                        Salin
+                        <i class="bi bi-clipboard-check mr-2"></i>
+                        Salin Nomor Rekening
                       </button>
                       <span
                         id="notif-rekening"
-                        class="block text-green-700 text-xs mt-1 hidden"
-                        >Nomor berhasil disalin!</span
+                        class="block text-green-600 text-xs mt-2 font-semibold hidden animate-fade-in-up"
+                        >✓ Nomor berhasil disalin!</span
                       >
                     </div>
                   </div>
                   <!-- Gift 2: E-Wallet -->
                   <div
-                    class="w-full relative rounded-xl shadow text-center overflow-hidden bg-[url('./images/furnitur/bg.jpg')] bg-cover bg-no-repeat"
+                    class="w-full relative rounded-2xl shadow-xl text-center overflow-hidden bg-gradient-to-br from-secondary-50 to-primary-50 elegant-border"
                   >
+                    <div class="absolute top-2 right-2 text-2xl opacity-20 animate-sparkle" style="animation-delay: 0.5s;">📱</div>
                     <div
-                      class="shadow p-4 bg-white/10 rounded-xl backdrop-blur-sm"
+                      class="p-6 bg-white/80 backdrop-blur-sm"
                     >
-                      <div class="flex justify-center mb-2">
-                        <img
-                          src="./images/logo/logo-dana.png"
-                          alt="Dana"
-                          class="w-32 object-contain"
-                        />
+                      <div class="flex justify-center mb-4">
+                        <div class="bg-white p-3 rounded-full shadow-md">
+                          <img
+                            src="./images/logo/logo-dana.png"
+                            alt="Dana"
+                            class="w-28 object-contain"
+                          />
+                        </div>
                       </div>
-                      <div class="mb-2 font-semibold text-gray-800">
+                      <div class="mb-2 text-xl font-bold text-primary-700">
                         E-Wallet (Dana)
                       </div>
-                      <div class="mb-1 text-lg font-bold text-gray-800">
+                      <div class="mb-3 text-gray-800 text-xl font-bold select-all bg-primary-50 px-4 py-2 rounded-lg border-2 border-primary-200">
                         0812-3456-7890
                       </div>
-                      <div class="mb-2 text-gray-700 text-sm">
+                      <div class="mb-4 text-gray-600 text-sm font-medium">
                         a.n. Rian & Nisa
                       </div>
                       <button
                         id="copy-dana-btn"
-                        class="mt-2 px-4 py-1 bg-primary/80 hover:bg-primary text-white rounded-full text-sm transition"
+                        class="button-main button-sm w-full"
                       >
-                        Salin
+                        <i class="bi bi-clipboard-check mr-2"></i>
+                        Salin Nomor
                       </button>
                       <span
                         id="notif-dana"
-                        class="block text-green-700 text-xs mt-1 hidden"
-                        >Nomor berhasil disalin!</span
+                        class="block text-green-600 text-xs mt-2 font-semibold hidden animate-fade-in-up"
+                        >✓ Nomor berhasil disalin!</span
                       >
                     </div>
                   </div>
@@ -949,13 +1087,18 @@
                   id="wa-gift-link"
                   href="https://wa.me/6281234567890"
                   target="_blank"
-                  class="button-main w-full mt-6 flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white rounded-full px-4 py-2 transition"
+                  class="button-main w-full mt-6 flex items-center justify-center gap-2 text-lg"
                 >
-                  <i class="bi bi-whatsapp text-xl"></i> Konfirmasi transfer
+                  <i class="bi bi-whatsapp text-2xl"></i> 
+                  Konfirmasi Transfer
                 </a>
-                <p class="mt-8 text-xs text-gray-500 text-center">
-                  Mohon konfirmasi kepada mempelai setelah transfer. Terima
-                  kasih atas doa dan restunya.
+                <div class="ornamental-divider w-40 my-6">
+                  <span class="text-primary-300 text-lg">❦</span>
+                </div>
+                <p class="mt-4 text-sm text-gray-600 text-center max-w-md leading-relaxed">
+                  Mohon konfirmasi kepada mempelai setelah transfer.
+                  <br />
+                  Terima kasih atas doa dan restunya. 💕
                 </p>
               </div>
             </div>

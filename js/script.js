@@ -1,9 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Prevent scroll saat landing page aktif
+  document.body.style.overflow = "hidden";
+  const mainContainer = document.getElementById("main-container");
+  if (mainContainer) {
+    mainContainer.style.overflow = "hidden";
+  }
+
   // Mengambil elemen-elemen DOM utama yang akan digunakan
   const openInviteBtn = document.getElementById("open-invite-btn");
   const landingPage = document.getElementById("landing-page");
   const mainInvitePage = document.getElementById("main-invite-page");
   const mainScrollContainer = mainInvitePage; // Menggunakan mainInvitePage sebagai container scroll
+
+  // Pastikan main-invite-page benar-benar tersembunyi saat landing page aktif
+  if (mainInvitePage) {
+    mainInvitePage.style.display = "none";
+    mainInvitePage.style.visibility = "hidden";
+    mainInvitePage.style.opacity = "0";
+    mainInvitePage.style.pointerEvents = "none";
+    mainInvitePage.style.zIndex = "0";
+  }
+
+  // Pastikan navbar tersembunyi di awal
+  const mainNavbar = document.getElementById("main-navbar");
+  if (mainNavbar) {
+    mainNavbar.style.display = "none";
+  }
 
   // Mengambil elemen-elemen terkait musik
   const backgroundMusic = document.getElementById("background-music");
@@ -33,7 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Logika transisi halaman awal ke halaman utama undangan
   if (openInviteBtn && landingPage && mainInvitePage) {
-    openInviteBtn.addEventListener("click", () => {
+    const mainContainer = document.getElementById("main-container");
+
+    openInviteBtn.addEventListener("click", (e) => {
+      // Prevent default dan stop propagation
+      e.preventDefault();
+      e.stopPropagation();
+
       // Menyembunyikan halaman awal dengan transisi
       landingPage.classList.remove("opacity-100");
       landingPage.classList.add("opacity-0");
@@ -43,12 +71,94 @@ document.addEventListener("DOMContentLoaded", () => {
           // Setelah transisi selesai, sembunyikan sepenuhnya dan aktifkan halaman utama
           landingPage.classList.add("pointer-events-none");
           landingPage.classList.add("hidden");
+          landingPage.style.zIndex = "0";
+          landingPage.style.display = "none";
 
           // Menampilkan halaman utama undangan
+          mainInvitePage.classList.remove("hidden");
+          mainInvitePage.style.display = "block";
+          mainInvitePage.style.visibility = "visible";
+          mainInvitePage.style.position = "relative";
+          mainInvitePage.style.width = "100%";
+          mainInvitePage.style.height = "auto";
+          mainInvitePage.style.opacity = "1";
+          mainInvitePage.style.pointerEvents = "auto";
+          mainInvitePage.style.zIndex = "10";
+
+          // Pastikan semua wedding-section terlihat
+          const allSections = mainInvitePage.querySelectorAll(".wedding-section");
+          allSections.forEach((section) => {
+            section.style.display = "block";
+            section.style.visibility = "visible";
+            section.style.opacity = "1";
+            section.style.position = "relative";
+            section.style.zIndex = "1";
+            section.classList.remove("hidden");
+          });
+
+          // Pastikan welcome-section terlihat khusus
+          const welcomeSection = document.getElementById("welcome-section");
+          if (welcomeSection) {
+            welcomeSection.style.display = "block";
+            welcomeSection.style.visibility = "visible";
+            welcomeSection.style.opacity = "1";
+            welcomeSection.style.position = "relative";
+            welcomeSection.style.zIndex = "1";
+            welcomeSection.style.minHeight = "100vh";
+            welcomeSection.classList.remove("hidden");
+          }
+
+          // Enable scroll kembali
+          document.body.style.overflow = "";
+
+          // Aktifkan scroll pada container - ini yang akan di-scroll
+          if (mainContainer) {
+            // Ubah overflow container menjadi auto agar scroll bisa bekerja
+            mainContainer.style.overflow = "auto";
+            mainContainer.style.overflowY = "auto";
+            mainContainer.style.overflowX = "hidden";
+            mainContainer.style.height = "100vh";
+            mainContainer.style.webkitOverflowScrolling = "touch"; // Untuk smooth scroll di mobile
+          }
+
+          // Pastikan main-invite-page dalam flow normal
+          mainInvitePage.style.overflowY = "visible"; // Biarkan container yang handle scroll
+          mainInvitePage.style.overflowX = "hidden";
+          mainInvitePage.style.position = "relative"; // Ubah ke relative agar section dalam flow normal
+          mainInvitePage.style.width = "100%";
+          mainInvitePage.style.height = "auto"; // Biarkan tinggi mengikuti konten
+
+          // Trigger reflow untuk memastikan transisi berjalan
+          void mainInvitePage.offsetWidth;
+
+          // Fade in main invite page
           mainInvitePage.classList.remove("opacity-0");
           mainInvitePage.classList.remove("pointer-events-none");
           mainInvitePage.classList.add("opacity-100");
-          mainInvitePage.scrollTo(0, 0); // Scroll ke atas halaman utama
+          mainInvitePage.style.pointerEvents = "auto";
+
+          // Scroll ke welcome section setelah transisi selesai
+          setTimeout(() => {
+            // Force reflow
+            void mainContainer.offsetHeight;
+            void mainInvitePage.offsetHeight;
+
+            const welcomeSection = document.getElementById("welcome-section");
+            if (welcomeSection && mainContainer) {
+              // Scroll container ke welcome section
+              const containerRect = mainContainer.getBoundingClientRect();
+              const sectionRect = welcomeSection.getBoundingClientRect();
+              const scrollTop =
+                mainContainer.scrollTop + (sectionRect.top - containerRect.top);
+
+              mainContainer.scrollTo({
+                top: scrollTop,
+                behavior: "smooth",
+              });
+            } else if (mainContainer) {
+              mainContainer.scrollTo(0, 0);
+            }
+          }, 300);
 
           // Inisialisasi AOS (Animasi saat Scroll) dan refresh posisi
           if (typeof AOS !== "undefined") {
@@ -61,6 +171,16 @@ document.addEventListener("DOMContentLoaded", () => {
           musicControls.classList.remove("pointer-events-none");
           musicControls.classList.add("opacity-100", "pointer-events-auto");
           playMusic();
+
+          // Menampilkan navbar setelah halaman utama terbuka
+          const mainNavbar = document.getElementById("main-navbar");
+          if (mainNavbar) {
+            setTimeout(() => {
+              mainNavbar.style.display = "block";
+              mainNavbar.style.opacity = "1";
+              mainNavbar.style.pointerEvents = "auto";
+            }, 500);
+          }
 
           // Inisialisasi status aktif navbar setelah halaman utama terbuka
           const initialHash = window.location.hash.substring(1);
@@ -113,15 +233,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // Gulir halus dan atur status aktif saat mengklik item menu
   menuItems.forEach((item) => {
     item.addEventListener("click", function (e) {
-      // e.preventDefault(); // Menggunakan scroll-smooth di HTML, jadi preventDefault tidak selalu diperlukan
+      e.preventDefault();
       const targetId = this.getAttribute("data-target-id");
       const targetSection = document.getElementById(targetId);
+      const mainContainer = document.getElementById("main-container");
 
-      if (targetSection) {
-        // Gulir ke section target
-        targetSection.scrollIntoView({
+      if (targetSection && mainContainer) {
+        // Hitung posisi scroll relatif ke container
+        const containerRect = mainContainer.getBoundingClientRect();
+        const sectionRect = targetSection.getBoundingClientRect();
+        const scrollTop = mainContainer.scrollTop + (sectionRect.top - containerRect.top);
+
+        // Scroll ke section target
+        mainContainer.scrollTo({
+          top: scrollTop,
           behavior: "smooth",
-          block: "start",
         });
         addActiveClass(targetId);
         // Perbarui hash URL tanpa menggulir secara instan lagi
@@ -131,9 +257,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Intersection Observer untuk memperbarui status aktif saat menggulir
-  // Root observer menggunakan viewport default
+  // Root observer menggunakan mainContainer karena container yang di-scroll
+  const mainContainerForObserver = document.getElementById("main-container");
   const observerOptions = {
-    root: null, // Menggunakan viewport
+    root: mainContainerForObserver, // Menggunakan mainContainer sebagai root
     rootMargin: "0px",
     threshold: 0.7, // Saat 70% dari bagian terlihat
   };

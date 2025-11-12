@@ -1,47 +1,87 @@
 @import "tailwindcss";
 
 /* ============================================
+   FIX UNTUK MAIN-INVITE-PAGE TIDAK TERLIHAT SAAT LANDING PAGE AKTIF
+   ============================================ */
+@layer utilities {
+  /* Pastikan landing page selalu di atas */
+  #landing-page {
+    z-index: 50 !important;
+    position: absolute !important;
+  }
+  
+  /* Sembunyikan main-invite-page saat hidden */
+  #main-invite-page.hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+  
+  /* Tampilkan main-invite-page saat tidak hidden */
+  #main-invite-page:not(.hidden) {
+    display: block !important;
+    visibility: visible !important;
+    position: relative !important;
+    height: auto !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+  
+  /* Pastikan welcome-section selalu terlihat */
+  #welcome-section {
+    position: relative !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 1 !important;
+  }
+}
+
+/* ============================================
    CUSTOM COLORS - @layer theme
-   Sesuaikan warna-warna ini sesuai kebutuhan
+   Sesuaikan warna-warna ini sesuai kebutuhan menggunakan kode hex
    ============================================ */
 @layer theme {
   :root, :host {
     /* Primary Color - Pink/Rose untuk tema pernikahan */
-    --color-primary-50: oklch(98% 0.05 350);
-    --color-primary-100: oklch(95% 0.1 350);
-    --color-primary-200: oklch(90% 0.15 350);
-    --color-primary-300: oklch(80% 0.2 350);
-    --color-primary-400: oklch(70% 0.23 350);
-    --color-primary-500: oklch(65% 0.25 350);
-    --color-primary-600: oklch(55% 0.22 350);
-    --color-primary-700: oklch(45% 0.18 350);
-    --color-primary-800: oklch(35% 0.15 350);
-    --color-primary-900: oklch(25% 0.12 350);
-    --color-primary-950: oklch(15% 0.08 350);
+    --color-primary-50: #fdf2f8;
+    --color-primary-100: #fce7f3;
+    --color-primary-200: #fbcfe8;
+    --color-primary-300: #f9a8d4;
+    --color-primary-400: #f472b6;
+    --color-primary-500: #ec4899;
+    --color-primary-600: #db2777;
+    --color-primary-700: #be185d;
+    --color-primary-800: #9f1239;
+    --color-primary-900: #831843;
+    --color-primary-950: #500724;
 
     /* Secondary Color - Gold/Amber untuk aksen */
-    --color-secondary-50: oklch(98% 0.03 75);
-    --color-secondary-100: oklch(95% 0.06 75);
-    --color-secondary-200: oklch(90% 0.1 75);
-    --color-secondary-300: oklch(80% 0.13 75);
-    --color-secondary-400: oklch(75% 0.14 75);
-    --color-secondary-500: oklch(70% 0.15 75);
-    --color-secondary-600: oklch(60% 0.13 75);
-    --color-secondary-700: oklch(50% 0.11 75);
-    --color-secondary-800: oklch(40% 0.09 75);
-    --color-secondary-900: oklch(30% 0.07 75);
+    --color-secondary-50: #fffbeb;
+    --color-secondary-100: #fef3c7;
+    --color-secondary-200: #fde68a;
+    --color-secondary-300: #fcd34d;
+    --color-secondary-400: #fbbf24;
+    --color-secondary-500: #f59e0b;
+    --color-secondary-600: #d97706;
+    --color-secondary-700: #b45309;
+    --color-secondary-800: #92400e;
+    --color-secondary-900: #78350f;
 
     /* Accent Color - Soft Purple untuk variasi */
-    --color-accent-50: oklch(98% 0.04 300);
-    --color-accent-100: oklch(95% 0.08 300);
-    --color-accent-200: oklch(90% 0.12 300);
-    --color-accent-300: oklch(80% 0.16 300);
-    --color-accent-400: oklch(75% 0.18 300);
-    --color-accent-500: oklch(70% 0.2 300);
-    --color-accent-600: oklch(60% 0.18 300);
-    --color-accent-700: oklch(50% 0.15 300);
-    --color-accent-800: oklch(40% 0.12 300);
-    --color-accent-900: oklch(30% 0.1 300);
+    --color-accent-50: #faf5ff;
+    --color-accent-100: #f3e8ff;
+    --color-accent-200: #e9d5ff;
+    --color-accent-300: #d8b4fe;
+    --color-accent-400: #c084fc;
+    --color-accent-500: #a855f7;
+    --color-accent-600: #9333ea;
+    --color-accent-700: #7e22ce;
+    --color-accent-800: #6b21a8;
+    --color-accent-900: #581c87;
   }
 }
 
@@ -224,7 +264,7 @@
 }
 
 /* ============================================
-   ADDITIONAL UTILITIES
+   ADDITIONAL UTILITIES & DECORATIONS
    Catatan: Di Tailwind v4, warna yang didefinisikan di @layer theme
    otomatis tersedia sebagai utility classes (bg-primary-600, text-primary-500, dll)
    Utility di bawah ini untuk memastikan kompatibilitas
@@ -243,5 +283,196 @@
   /* Border color untuk primary (fallback) */
   .border-primary {
     border-color: var(--color-primary-600);
+  }
+
+  /* Animasi floating untuk elemen dekoratif */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes float-slow {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(219, 39, 119, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(219, 39, 119, 0.6);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  /* Class untuk animasi */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 4s ease-in-out infinite;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s linear infinite;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+  }
+
+  /* Dekorasi elemen */
+  .decoration-heart {
+    position: relative;
+  }
+
+  .decoration-heart::before {
+    content: "💕";
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.3;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Gradient text untuk judul */
+  .text-gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-500));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass morphism effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Elegant border untuk card */
+  .elegant-border {
+    position: relative;
+  }
+
+  .elegant-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-400));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    opacity: 0.5;
+  }
+
+  /* Ornamental divider */
+  .ornamental-divider {
+    position: relative;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .ornamental-divider::before,
+  .ornamental-divider::after {
+    content: "❦";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--color-primary-400);
+    opacity: 0.6;
+  }
+
+  .ornamental-divider::before {
+    left: 20%;
+  }
+
+  .ornamental-divider::after {
+    right: 20%;
+  }
+
+  /* Sparkle effect */
+  .sparkle {
+    position: relative;
+    display: inline-block;
+  }
+
+  .sparkle::before,
+  .sparkle::after {
+    content: "✨";
+    position: absolute;
+    font-size: 0.8rem;
+    opacity: 0;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .sparkle::before {
+    top: -10px;
+    left: -15px;
+    animation-delay: 0s;
+  }
+
+  .sparkle::after {
+    bottom: -10px;
+    right: -15px;
+    animation-delay: 1s;
   }
 }
