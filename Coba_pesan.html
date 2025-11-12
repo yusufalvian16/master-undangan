@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan Rian & Nisa</title>
+
+    <link href="./css/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./css/aos.css" />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+      defer
+    ></script>
+    <script src="./js/supabase_config.js" defer></script>
+  </head>
+  <body class="overflow-hidden bg-gray-900">
+    <section
+      id="pesan-section"
+      class="wedding-section min-h-screen flex flex-col justify-center items-center bg-orange-50 py-16 px-4"
+    >
+      <h2 class="text-4xl font-bold mb-8 text-gray-800 text-center">
+        Konfirmasi Kehadiran & Pesan
+      </h2>
+
+      <form
+        id="rsvp-form"
+        class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md"
+      >
+        <div class="mb-5">
+          <label
+            for="guest-name"
+            class="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Nama Anda: <span class="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="guest-name"
+            name="guestName"
+            class="shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition duration-200"
+            placeholder="Nama Lengkap Anda"
+            required
+          />
+          <p
+            id="guest-name-error"
+            class="text-red-500 text-xs italic mt-1 hidden"
+          >
+            Nama tidak boleh kosong.
+          </p>
+        </div>
+
+        <div class="mb-5">
+          <label class="block text-gray-700 text-sm font-bold mb-2">
+            Kehadiran: <span class="text-red-500">*</span>
+          </label>
+          <div class="relative">
+            <select
+              id="attendance"
+              name="attendance"
+              class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-3 pr-8 rounded shadow-sm leading-tight focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition duration-200"
+              required
+            >
+              <option value="">Pilih Kehadiran</option>
+              <option value="hadir">Hadir</option>
+              <option value="tidak-hadir">Tidak Hadir</option>
+            </select>
+            <div
+              class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+            >
+              <svg
+                class="fill-current h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                />
+              </svg>
+            </div>
+          </div>
+          <p
+            id="attendance-error"
+            class="text-red-500 text-xs italic mt-1 hidden"
+          >
+            Pilih status kehadiran Anda.
+          </p>
+        </div>
+
+        <div class="mb-6">
+          <label
+            for="message"
+            class="block text-gray-700 text-sm font-bold mb-2"
+          >
+            Pesan/Ucapan:
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            class="shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent h-32 resize-y transition duration-200"
+            placeholder="Tulis ucapan untuk mempelai..."
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:ring-4 focus:ring-orange-300 focus:ring-offset-2 w-full transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Kirim Konfirmasi
+        </button>
+      </form>
+
+      <div class="mt-12 w-full max-w-md">
+        <h3 class="text-2xl font-bold mb-5 text-gray-800 text-center">
+          Pesan Dari Tamu Lain:
+        </h3>
+
+        <div
+          id="guest-messages"
+          class="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar"
+        ></div>
+      </div>
+    </section>
+
+    <div
+      id="notification-popup"
+      class="fixed inset-0 flex items-center justify-center z-50 hidden backdrop-blur-sm bg-black bg-opacity-20"
+    >
+      <div
+        class="bg-white border-orange-600 border-[1px] p-6 rounded-lg shadow-xl text-center max-w-sm mx-auto transform transition-all scale-95 opacity-0"
+      >
+        <div id="notification-icon" class="mb-4"></div>
+        <p
+          id="notification-message"
+          class="text-lg font-semibold text-gray-800 mb-4"
+        ></p>
+        <button
+          id="close-notification"
+          class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:ring-4 focus:ring-orange-300 focus:ring-offset-2 transition duration-300 ease-in-out"
+        >
+          Tutup
+        </button>
+      </div>
+    </div>
+
+    <script src="./js/aos.js" defer></script>
+    <script>
+      // Inisialisasi AOS setelah AOS.js dimuat
+      AOS.init();
+    </script>
+    <script src="./js/script_form.js" defer></script>
+    <script>
+      // Generate user_id random di localStorage
+      let user_id = localStorage.getItem("user_id");
+      if (!user_id) {
+        user_id = crypto.randomUUID();
+        localStorage.setItem("user_id", user_id);
+      }
+    </script>
+  </body>
+</html>
