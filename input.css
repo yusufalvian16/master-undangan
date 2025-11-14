@@ -6,36 +6,23 @@
 @layer utilities {
   /* Pastikan landing page selalu di atas */
   #landing-page {
+    @apply absolute;
     z-index: 50 !important;
-    position: absolute !important;
   }
   
   /* Sembunyikan main-invite-page saat hidden */
   #main-invite-page.hidden {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-    height: 0 !important;
-    overflow: hidden !important;
+    @apply hidden invisible opacity-0 pointer-events-none h-0 overflow-hidden;
   }
   
   /* Tampilkan main-invite-page saat tidak hidden */
   #main-invite-page:not(.hidden) {
-    display: block !important;
-    visibility: visible !important;
-    position: relative !important;
-    height: auto !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
+    @apply block visible relative h-auto opacity-100 pointer-events-auto;
   }
   
   /* Pastikan welcome-section selalu terlihat */
   #welcome-section {
-    position: relative !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    @apply relative block visible opacity-100;
     z-index: 1 !important;
   }
 }
@@ -82,6 +69,16 @@
     --color-accent-700: #7e22ce;
     --color-accent-800: #6b21a8;
     --color-accent-900: #581c87;
+
+    /* color untuk text */
+    --color-putih: #FFFFFF;
+    --color-hitam: #000000;
+    --color-abu: #808080;
+    --color-abu-tua: #404040;
+    --color-abu-gelap: #202020;
+    --color-abu-terang: #C0C0C0;
+    --color-abu-paling-terang: #E0E0E0;
+    --color-abu-paling-gelap: #000000;
   }
 }
 
@@ -122,22 +119,22 @@
 
   /* Class untuk animasi sway dengan timing yang berbeda */
   .sway {
-    animation: sway 3s ease-in-out infinite;
+    @apply animate-[sway_3s_ease-in-out_infinite];
     transform-origin: center center;
   }
 
   .sway-alt {
-    animation: sway-alt 3.5s ease-in-out infinite;
+    @apply animate-[sway-alt_3.5s_ease-in-out_infinite];
     transform-origin: center center;
   }
 
   /* Variasi timing untuk efek lebih natural */
   .sway-slow {
-    animation: sway 4s ease-in-out infinite;
+    @apply animate-[sway_4s_ease-in-out_infinite];
   }
 
   .sway-fast {
-    animation: sway 2s ease-in-out infinite;
+    @apply animate-[sway_2s_ease-in-out_infinite];
   }
 
   /* Origin points untuk rotasi yang berbeda */
@@ -164,59 +161,40 @@
 @layer components {
   /* Button utama - dapat diubah semua propertinya di sini */
   .button-main {
-    /* Base styles */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 1.5;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 9999px; /* rounded-full */
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    
-    /* Colors - Primary */
+    @apply inline-flex items-center justify-center px-6 py-3 font-semibold text-base leading-normal text-center no-underline border-none rounded-full cursor-pointer transition-all duration-300 ease-in-out;
     background-color: var(--color-primary-600);
     color: white;
-    
-    /* Shadow */
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   /* Hover state */
   .button-main:hover {
+    @apply -translate-y-0.5;
     background-color: var(--color-primary-700);
-    transform: translateY(-2px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   /* Active state */
   .button-main:active {
-    transform: translateY(0);
+    @apply translate-y-0;
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
   }
 
   /* Focus state */
   .button-main:focus {
-    outline: none;
+    @apply outline-none;
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), 0 0 0 6px var(--color-primary-300);
   }
 
   /* Disabled state */
   .button-main:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    pointer-events: none;
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
   }
 
   /* Variant: Secondary */
   .button-secondary {
+    @apply text-white;
     background-color: var(--color-secondary-500);
-    color: white;
   }
 
   .button-secondary:hover {
@@ -225,19 +203,20 @@
 
   /* Variant: Outline */
   .button-outline {
-    background-color: transparent;
+    @apply bg-transparent border-2;
     color: var(--color-primary-600);
-    border: 2px solid var(--color-primary-600);
+    border-color: var(--color-primary-600);
+    box-shadow: none;
   }
 
   .button-outline:hover {
+    @apply text-white;
     background-color: var(--color-primary-600);
-    color: white;
   }
 
   /* Variant: Ghost */
   .button-ghost {
-    background-color: transparent;
+    @apply bg-transparent;
     color: var(--color-primary-600);
     box-shadow: none;
   }
@@ -248,18 +227,15 @@
 
   /* Size variants */
   .button-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+    @apply px-4 py-2 text-sm;
   }
 
   .button-lg {
-    padding: 1rem 2rem;
-    font-size: 1.125rem;
+    @apply px-8 py-4 text-lg;
   }
 
   .button-xl {
-    padding: 1.25rem 2.5rem;
-    font-size: 1.25rem;
+    @apply px-10 py-5 text-xl;
   }
 }
 
@@ -346,27 +322,27 @@
 
   /* Class untuk animasi */
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    @apply animate-[float_3s_ease-in-out_infinite];
   }
 
   .animate-float-slow {
-    animation: float-slow 4s ease-in-out infinite;
+    @apply animate-[float-slow_4s_ease-in-out_infinite];
   }
 
   .animate-sparkle {
-    animation: sparkle 2s ease-in-out infinite;
+    @apply animate-[sparkle_2s_ease-in-out_infinite];
   }
 
   .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+    @apply animate-[pulse-glow_2s_ease-in-out_infinite];
   }
 
   .animate-fade-in-up {
-    animation: fade-in-up 0.8s ease-out;
+    @apply animate-[fade-in-up_0.8s_ease-out];
   }
 
   .animate-shimmer {
-    animation: shimmer 3s linear infinite;
+    @apply animate-[shimmer_3s_linear_infinite];
     background: linear-gradient(
       to right,
       transparent 0%,
@@ -378,14 +354,12 @@
 
   /* Dekorasi elemen */
   .decoration-heart {
-    position: relative;
+    @apply relative;
   }
 
   .decoration-heart::before {
     content: "💕";
-    position: absolute;
-    font-size: 1.5rem;
-    opacity: 0.3;
+    @apply absolute text-2xl opacity-30;
     animation: float 3s ease-in-out infinite;
   }
 
@@ -399,80 +373,63 @@
 
   /* Glass morphism effect */
   .glass-effect {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    @apply backdrop-blur-[10px] border border-white/20 bg-white/25;
   }
 
   /* Elegant border untuk card */
   .elegant-border {
-    position: relative;
+    @apply relative;
   }
 
   .elegant-border::before {
     content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: inherit;
-    padding: 2px;
+    @apply absolute -inset-0.5 rounded-[inherit] p-0.5 opacity-50;
     background: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-400));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
-    opacity: 0.5;
   }
 
   /* Ornamental divider */
   .ornamental-divider {
-    position: relative;
-    text-align: center;
-    margin: 2rem 0;
+    @apply relative text-center my-8;
   }
 
   .ornamental-divider::before,
   .ornamental-divider::after {
     content: "❦";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
+    @apply absolute top-1/2 -translate-y-1/2 text-2xl opacity-60;
     color: var(--color-primary-400);
-    opacity: 0.6;
   }
 
   .ornamental-divider::before {
-    left: 20%;
+    @apply left-[20%];
   }
 
   .ornamental-divider::after {
-    right: 20%;
+    @apply right-[20%];
   }
 
   /* Sparkle effect */
   .sparkle {
-    position: relative;
-    display: inline-block;
+    @apply relative inline-block;
   }
 
   .sparkle::before,
   .sparkle::after {
     content: "✨";
-    position: absolute;
-    font-size: 0.8rem;
-    opacity: 0;
+    @apply absolute text-xs opacity-0;
     animation: sparkle 2s ease-in-out infinite;
   }
 
   .sparkle::before {
-    top: -10px;
-    left: -15px;
+    @apply -top-2.5 -left-4;
     animation-delay: 0s;
   }
 
   .sparkle::after {
-    bottom: -10px;
-    right: -15px;
+    @apply -bottom-2.5 -right-4;
     animation-delay: 1s;
   }
 }
