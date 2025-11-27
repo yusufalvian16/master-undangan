@@ -6,6 +6,13 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Undangan Pernikahan Rian & Nisa</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link href="./css/output.css" rel="stylesheet" />
     <link
       rel="stylesheet"
@@ -25,9 +32,9 @@
         <section
           class="min-h-screen text-white flex flex-col justify-center items-center bg-[url('../images/galery/landscape/1.webp')] bg-cover bg-center py-16 px-4"
         >
-          <h2 class="text-2xl font-bold mb-4">The Wedding off</h2>
+          <h2 class="text-xl md:text-2xl font-secondary font-semibold mb-4">The Wedding Of</h2>
 
-          <p class="text-5xl text-center">Rian & Nisa</p>
+          <p class="text-4xl md:text-5xl text-center font-primary font-bold">Rian & Nisa</p>
         </section>
       </div>
 
@@ -134,25 +141,25 @@
           <div class="relative z-30 flex flex-col items-center justify-between h-full pb-6 px-3 md:px-4">
             <!-- Judul dan Nama Pengantin di paling atas -->
             <div class="text-center animate-fade-in-up w-full mt-16 md:mt-20">
-              <h2 class="text-3xl md:text-3xl font-bold mb-2 text-white sparkle">
+              <h2 class="text-2xl md:text-3xl font-secondary font-semibold mb-2 text-white sparkle">
                 The Wedding Of
               </h2>
-              <p class="text-xl md:text-xl font-semibold text-white decoration-heart">
+              <p class="text-3xl md:text-4xl font-primary font-bold text-white decoration-heart">
                 Rian & Nisa
               </p>
             </div>
             
             <!-- Card untuk konten selamat datang -->
             <div class="bg-white/70 backdrop-blur-sm glass-effect rounded-3xl p-4 md:p-6 mb-8 shadow-2xl elegant-border max-w-xl w-full animate-fade-in-up">
-              <p class="text-sm md:text-base text-center text-white font-medium mb-1">
+              <p class="text-sm md:text-base text-center text-white font-body font-medium mb-1">
                 Kepada Yth. Bapak/Ibu/Saudara/i
               </p>
 
-              <p class="text-lg md:text-xl font-semibold mt-1 text-white decoration-heart">
+              <p class="text-xl md:text-2xl font-primary font-semibold mt-1 text-white decoration-heart">
                 Nama Tamu
               </p>
 
-              <p class="mt-2 text-center text-xs md:text-sm text-white/60 leading-relaxed mx-auto">
+              <p class="mt-2 text-center text-xs md:text-sm text-white/60 font-body leading-relaxed mx-auto">
                 *Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.
               </p>
               
@@ -180,7 +187,7 @@
           <!-- Notification Popup -->
           <div
             id="notification-popup"
-            class="fixed inset-0 flex items-center justify-center z-50 hidden backdrop-blur-sm bg-black bg-opacity-20"
+            class="fixed inset-0 items-center justify-center z-50 hidden backdrop-blur-sm bg-black bg-opacity-20"
           >
             <div
               class="bg-white border-primary border-[1px] p-6 rounded-lg shadow-xl text-center max-w-sm mx-auto transform transition-all scale-95 opacity-0"
@@ -188,7 +195,7 @@
               <div id="notification-icon" class="mb-4"></div>
               <p
                 id="notification-message"
-                class="text-lg font-semibold text-gray-800 mb-4"
+                class="text-base md:text-lg font-secondary font-semibold text-gray-800 mb-4"
               ></p>
               <button
                 id="close-notification"
@@ -213,7 +220,7 @@
                 data-target-id="welcome-section"
               >
                 <i class="bi bi-heart-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem]">Home</span>
+                <span class="menu-item-text menu-text text-[0.7rem] font-body">Home</span>
               </a>
               <a
                 href="#mempelai-section"
@@ -221,7 +228,7 @@
                 data-target-id="mempelai-section"
               >
                 <i class="bi bi-people-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem]">Mempelai</span>
+                <span class="menu-item-text menu-text text-[0.7rem] font-body">Mempelai</span>
               </a>
               <a
                 href="#waktu-lokasi-section"
@@ -229,7 +236,7 @@
                 data-target-id="waktu-lokasi-section"
               >
                 <i class="bi bi-geo-alt-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem]">Lokasi</span>
+                <span class="menu-item-text menu-text text-[0.7rem] font-body">Lokasi</span>
               </a>
               <a
                 href="#kisah-cinta-section"
@@ -237,7 +244,7 @@
                 data-target-id="kisah-cinta-section"
               >
                 <i class="bi bi-heart-pulse-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem]">Story</span>
+                <span class="menu-item-text menu-text text-[0.7rem] font-body">Story</span>
               </a>
               <a
                 href="#galeri-section"
@@ -245,7 +252,7 @@
                 data-target-id="galeri-section"
               >
                 <i class="bi bi-image-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem]">Galeri</span>
+                <span class="menu-item-text menu-text text-[0.7rem] font-body">Galeri</span>
               </a>
               <a
                 href="#gift-section"
@@ -253,7 +260,7 @@
                 data-target-id="gift-section"
               >
                 <i class="bi bi-gift-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem]">Gift</span>
+                <span class="menu-item-text menu-text text-[0.7rem] font-body">Gift</span>
               </a>
               <a
                 href="#pesan-section"
@@ -263,7 +270,7 @@
                 <i
                   class="bi bi-chat-dots-fill text-[1.1rem] mb-0.5 menu-icon"
                 ></i>
-                <span class="menu-item-text menu-text text-[0.7rem]">Pesan</span>
+                <span class="menu-item-text menu-text text-[0.7rem] font-body">Pesan</span>
               </a>
             </div>
           </nav>
@@ -289,7 +296,7 @@
                 
                 <div class="animate-fade-in-up">
                   <!-- Title head -->
-                  <p class="text-2xl font-light tracking-widest text-primary-600 mb-2 sparkle">
+                  <p class="text-lg md:text-xl font-secondary font-light tracking-widest text-primary-600 mb-2 sparkle">
                     THE WEDDING OF
                   </p>
                 </div>
@@ -307,13 +314,13 @@
                 
                 <div class="animate-fade-in-up max-w-2xl" style="animation-delay: 0.4s;">
                   <!-- nama,tanggal -->
-                  <h1 class="text-4xl md:text-5xl font-bold text-primary-600 mb-4 sparkle">
+                  <h1 class="text-4xl md:text-5xl font-primary font-bold text-primary-600 mb-4 sparkle">
                     Rian & Nisa
                   </h1>
                   <!-- <div class="ornamental-divider w-32 my-4">
                     <span class="text-primary-400 text-xl">❦</span>
                   </div> -->
-                  <p class="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
+                  <p class="text-base md:text-lg text-gray-700 leading-relaxed font-body">
                     Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan
                     pernikahan putra-putri kami. Merupakan suatu kehormatan dan kebahagiaan
                     bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan
@@ -321,7 +328,7 @@
                   </p>
                   <div class="mt-6 flex items-center justify-center gap-2 text-primary-600">
                     <i class="bi bi-calendar-heart text-xl"></i>
-                    <span class="text-lg font-semibold">28 Desember 2025</span>
+                    <span class="text-lg md:text-xl font-secondary font-semibold">28 Desember 2025</span>
                   </div>
                 </div>
               </div>
@@ -453,12 +460,11 @@
           <!-- Doa Section -->
           <section
             id="doa-section"
-            class="wedding-section min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-primary-600 via-primary-500 to-primary-700 py-16 px-4 relative"
-            style="z-index: 1;"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
+            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
-            <!-- Dekorasi background -->
-            <div class="absolute inset-0 opacity-10">
-            </div>
+            <!-- Overlay untuk readability -->
+            <div class="absolute inset-0 bg-black/30"></div>
             
             <div class="text-center text-white max-w-3xl mx-auto relative z-10 animate-fade-in-up">
               <!-- Icon dekoratif -->
@@ -472,10 +478,9 @@
                 </div>
               </div>
               
-              <h2 class="text-5xl md:text-6xl font-nama2 mb-12 text-white sparkle">
+              <h2 class="text-4xl md:text-5xl font-secondary mb-12 text-white sparkle">
                 Doa
               </h2>
-              <h1 class="text-bla">test</h1>
               <!-- Card untuk ayat -->
               <div class="rounded-3xl p-8 md:p-12 mb-8 shadow-2xl elegant-border bg-black/30 backdrop-blur-sm border-white/20">
                 <p class="text-2xl md:text-3xl font-arab mb-6 leading-relaxed text-white">
@@ -484,10 +489,10 @@
                 <div class="ornamental-divider w-32 my-6">
                   <span class="text-white/70 text-xl">❦</span>
                 </div>
-                <p class="mt-6 text-lg md:text-xl text-white font-semibold">
+                <p class="mt-6 text-lg md:text-xl text-white font-secondary font-semibold">
                   Q.S Ar-Rum : 21
                 </p>
-                <p class="mt-4 text-base text-white italic max-w-xl mx-auto">
+                <p class="mt-4 text-base md:text-lg text-white font-body italic max-w-xl mx-auto leading-relaxed">
                   "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
                 </p>
               </div>
@@ -499,7 +504,7 @@
                 </div>
                 <i class="bi bi-heart-fill text-3xl text-white/70 animate-pulse"></i>
                 <div class="ornamental-divider w-24">
-                  <span class="text-white/60 text-2xl">❦</span>
+                  <span class="text-white/-=/*-0 text-2xl">❦</span>
                 </div>
               </div>
             </div>
@@ -508,19 +513,22 @@
 
           <section
             id="mempelai-section"
-            class="wedding-section min-h-screen flex flex-col justify-center items-center px-4 py-8 bg-[url('../images/furnitur/bg.jpg')] bg-cover bg-slate-200 bg-blend-darken relative overflow-hidden"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center px-4 py-8 relative overflow-hidden"
+            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
+            <!-- Overlay untuk readability -->
+            <div class="absolute inset-0 bg-white/20"></div>
             <div
-              class="shadow bg-white/70 p-8 rounded-2xl border-slate-500 backdrop-blur-sm"
+              class="shadow bg-white/80 p-8 rounded-2xl border-slate-500 backdrop-blur-sm relative z-10"
             >
               <div class="text-center mb-5">
-                <h2 class="text-3xl mb-2 font-arab">
+                <h2 class="text-2xl md:text-3xl mb-2 font-arab">
                   بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
                 </h2>
-                <p class="text-lg font-semibold">
+                <p class="text-lg md:text-xl font-secondary font-semibold">
                   Assalamu'alaikum Warahmatullahi Wabarakatuh
                 </p>
-                <p class="text-base">
+                <p class="text-base md:text-lg font-body">
                   Tanpa mengurangi rasa hormat, kami mengundang Anda untuk
                   berkenan menghadiri acara pernikahan kami:
                 </p>
@@ -534,9 +542,9 @@
                     class="w-32 h-32 rounded-full object-cover mb-4 border-2 border-gray-300 mx-auto"
                   />
 
-                  <p class="text-2xl font-nama">Muhammad Aprianto</p>
-                  <p class="font-semibold">Putra pertama dari</p>
-                  <p class="text-base">Bapak Aji Saputra & Ibu Sri Yulianti</p>
+                  <p class="text-2xl md:text-3xl font-nama">Muhammad Aprianto</p>
+                  <p class="text-base md:text-lg font-secondary font-semibold">Putra pertama dari</p>
+                  <p class="text-base md:text-lg font-body">Bapak Aji Saputra & Ibu Sri Yulianti</p>
                   <button class="button-main mt-2 px-3 py-1 scale-90">
                     <a class="text-sm" href="#">@muahmandaprianto</a>
                   </button>
@@ -551,9 +559,9 @@
                     class="w-32 h-32 rounded-full object-cover mb-4 border-2 border-gray-300 mx-auto"
                   />
 
-                  <p class="text-2xl font-nama">Annisa Riski Firmani</p>
-                  <p class="font-semibold">Putri pertama dari</p>
-                  <p class="text-lg">
+                  <p class="text-2xl md:text-3xl font-nama">Annisa Riski Firmani</p>
+                  <p class="text-base md:text-lg font-secondary font-semibold">Putri pertama dari</p>
+                  <p class="text-base md:text-lg font-body">
                     Bapak Suminto & Ibu Nuningsih Siwi Utami
                   </p>
                   <button class="button-main mt-2 px-3 py-1 scale-90">
@@ -566,15 +574,18 @@
 
           <section
             id="waktu-lokasi-section"
-            class="wedding-section min-h-screen flex flex-col justify-center items-center bg-primary py-16 px-4 gap-y-8"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 gap-y-8 relative"
+            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
-            <div class="w-full flex items-center justify-center">
+            <!-- Overlay untuk readability -->
+            <div class="absolute inset-0 bg-white/40"></div>
+            <div class="w-full flex items-center justify-center relative z-10">
               <div
-                class="w-full bg-white rounded-2xl shadow-sm overflow-hidden"
+                class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm"
               >
                 <div class="p-6 text-center">
                   <h2
-                    class="text-3xl font-nama2 text-primary mb-6 leading-tight"
+                    class="text-2xl md:text-3xl font-secondary text-primary mb-6 leading-tight"
                   >
                     Akad Nikah
                   </h2>
@@ -594,17 +605,17 @@
                         <span class="block text-md text-gray-600">Minggu</span>
                       </div>
                     </div>
-                    <p class="text-lg font-medium text-gray-700 mt-2">
+                    <p class="text-base md:text-lg font-body font-medium text-gray-700 mt-2">
                       Pukul 08:00 WIB
                     </p>
                   </div>
 
                   <div class="mb-6">
-                    <p class="text-gray-700 font-semibold mb-2">
+                    <p class="text-gray-700 font-secondary font-semibold mb-2">
                       Lokasi Acara:
                     </p>
-                    <p class="text-gray-800 text-lg font-medium">Menara 165</p>
-                    <p class="text-gray-600 text-sm">
+                    <p class="text-gray-800 text-lg md:text-xl font-secondary font-medium">Menara 165</p>
+                    <p class="text-gray-600 text-sm md:text-base font-body">
                       Jl. TB Simatupang Jakarta Selatan
                     </p>
                   </div>
@@ -620,13 +631,13 @@
                 </div>
               </div>
             </div>
-            <div class="w-full flex items-center justify-center">
+            <div class="w-full flex items-center justify-center relative z-10">
               <div
-                class="w-full bg-white rounded-2xl shadow-sm overflow-hidden"
+                class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm"
               >
                 <div class="p-6 text-center">
                   <h2
-                    class="text-3xl font-nama2 text-primary mb-6 leading-tight"
+                    class="text-2xl md:text-3xl font-secondary text-primary mb-6 leading-tight"
                   >
                     Resepsi
                   </h2>
@@ -646,17 +657,17 @@
                         <span class="block text-md text-gray-600">Minggu</span>
                       </div>
                     </div>
-                    <p class="text-lg font-medium text-gray-700 mt-2">
+                    <p class="text-base md:text-lg font-body font-medium text-gray-700 mt-2">
                       Pukul 08:00 WIB - Selesai
                     </p>
                   </div>
 
                   <div class="mb-6">
-                    <p class="text-gray-700 font-semibold mb-2">
+                    <p class="text-gray-700 font-secondary font-semibold mb-2">
                       Lokasi Acara:
                     </p>
-                    <p class="text-gray-800 text-lg font-medium">Menara 165</p>
-                    <p class="text-gray-600 text-sm">
+                    <p class="text-gray-800 text-lg md:text-xl font-secondary font-medium">Menara 165</p>
+                    <p class="text-gray-600 text-sm md:text-base font-body">
                       Jl. TB Simatupang Jakarta Selatan
                     </p>
                   </div>
@@ -672,13 +683,13 @@
                 </div>
               </div>
             </div>
-            <div class="w-full flex items-center justify-center">
+            <div class="w-full flex items-center justify-center relative z-10">
               <div
-                class="w-full bg-white rounded-2xl shadow-sm overflow-hidden"
+                class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm"
               >
                 <div class="p-6 text-center">
                   <h2
-                    class="text-3xl font-nama2 text-primary mb-6 leading-tight"
+                    class="text-2xl md:text-3xl font-secondary text-primary mb-6 leading-tight"
                   >
                     Live Streaming
                   </h2>
@@ -687,7 +698,7 @@
                     <div
                       class="flex flex-col items-center justify-center space-x-4 mb-2"
                     >
-                      <p class="text-base font-normal text-gray-700 mt-2">
+                      <p class="text-base md:text-lg font-body font-normal text-gray-700 mt-2 leading-relaxed">
                         Temui kami secara virtual untuk menyaksikan acara
                         pernikahan kami yang insyaaAllah akan disiarkan langsung
                         melalui link dibawah ini.
@@ -709,14 +720,16 @@
 
           <section
             id="kisah-cinta-section"
-            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 bg-slate-500 bg-blend-darken"
-            style="z-index: 1;"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
+            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
+            <!-- Overlay untuk readability -->
+            <div class="absolute inset-0 bg-white/30"></div>
             <div
-              class="flex w-full flex-col items-start bg-white py-8 px-4 rounded-2xl"
+              class="flex w-full flex-col items-start bg-white/95 py-8 px-4 rounded-2xl backdrop-blur-sm relative z-10 shadow-lg"
             >
               <div class="text-center self-center mb-8">
-                <h1 class="text-3xl font-nama2 text-primary">Love Story</h1>
+                <h1 class="text-3xl md:text-4xl font-secondary text-primary">Love Story</h1>
               </div>
 
               <div class="group flex gap-x-6">
@@ -738,11 +751,11 @@
                     class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
                   />
                   <p
-                    class="font-sans text-base font-bold text-slate-800 antialiased"
+                    class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
                   >
                     💜 Awal Pertemuan Sederhana
                   </p>
-                  <small class="mt-2 text-base text-slate-800 antialiased"
+                  <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
                     >Berawal dari tempat pekerjaan Cianjur-2023, kami mengenal
                     satu sama lain dan belum ada benih cinta kala itu, hanya
                     sebatas teman kerja.</small
@@ -768,12 +781,12 @@
                     class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
                   />
                   <p
-                    class="font-sans text-base font-bold text-slate-800 antialiased"
+                    class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
                   >
                     💞 Benih Cinta dalam Ujian
                   </p>
 
-                  <small class="mt-2 text-base text-slate-800 antialiased"
+                  <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
                     >Setelah cukup mengenal satu sama lain, satu tahun kurang
                     lebih nya kami menjalin hubungan. Akhirnya kita memutuskan
                     untuk melanjutkan ke Hubungan yang lebih serius
@@ -799,11 +812,11 @@
                     class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
                   />
                   <p
-                    class="font-sans text-base font-bold text-slate-800 antialiased"
+                    class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
                   >
                     💍 Langkah Menuju Ridha Allah
                   </p>
-                  <small class="mt-2 text-base text-slate-800 antialiased"
+                  <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
                     >Sampai tanggal ini kami melaksanakan akad terlebih dahulu
                     dan akhirnya kami mengubah status hingga menjadi pasangan
                     suami istri. Semoga allah swt. Memberikan keberkahan
@@ -816,10 +829,13 @@
 
           <section
             id="galeri-section"
-            class="wedding-section min-h-screen flex flex-col justify-center items-center bg-primary py-16 px-4"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
+            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
-            <div class="bg-white p-4 rounded-2xl text-center">
-              <h2 class="text-4xl font-nama2 mb-8">Our Moment</h2>
+            <!-- Overlay untuk readability -->
+            <div class="absolute inset-0 bg-white/30"></div>
+            <div class="bg-white/95 p-4 rounded-2xl text-center backdrop-blur-sm relative z-10 shadow-lg">
+              <h2 class="text-3xl md:text-4xl font-secondary mb-8">Our Moment</h2>
 
             <div class="grid grid-cols-2 gap-4 max-w-5xl mx-auto">
               <div class="grid gap-4">
@@ -919,12 +935,11 @@
 
           <section
             id="gift-section"
-            class="wedding-section min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-secondary-50 via-white to-primary-50 py-16 px-4 relative"
-            style="z-index: 1;"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
+            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
-            <!-- Dekorasi background -->
-            <div class="absolute inset-0 opacity-5">
-            </div>
+            <!-- Overlay untuk readability -->
+            <div class="absolute inset-0 bg-white/40"></div>
             
             <div
               class="bg-white/90 backdrop-blur-sm px-6 py-10 rounded-3xl shadow-2xl w-full max-w-2xl flex flex-col items-center relative z-10 elegant-border animate-fade-in-up"
@@ -940,7 +955,7 @@
                 </div>
               </div>
               
-              <h2 class="text-4xl md:text-5xl font-nama2 mb-6 text-primary-600 text-center sparkle">
+              <h2 class="text-3xl md:text-4xl font-secondary mb-6 text-primary-600 text-center sparkle">
                 Wedding Gift
               </h2>
               
@@ -948,7 +963,7 @@
                 <span class="text-primary-400 text-xl">❦</span>
               </div>
               
-              <p class="text-gray-700 text-center mb-8 text-lg leading-relaxed max-w-xl">
+              <p class="text-gray-700 text-center mb-8 text-base md:text-lg font-body leading-relaxed max-w-xl">
                 Restu dan doa tulus Anda adalah anugerah tak ternilai bagi kami.
                 <br class="hidden md:block" />
                 Jika Anda ingin berbagi kasih, dukungan dapat disalurkan melalui:
@@ -993,16 +1008,16 @@
                           />
                         </div>
                       </div>
-                      <div class="mb-2 text-xl font-bold text-primary-700">
+                      <div class="mb-2 text-lg md:text-xl font-secondary font-bold text-primary-700">
                         Bank BCA
                       </div>
                       <div
-                        class="mb-3 text-gray-800 tracking-widest text-2xl font-bold select-all bg-primary-50 px-4 py-2 rounded-lg border-2 border-primary-200"
+                        class="mb-3 text-gray-800 tracking-widest text-xl md:text-2xl font-secondary font-bold select-all bg-primary-50 px-4 py-2 rounded-lg border-2 border-primary-200"
                         id="rekening-bca"
                       >
                         1234567890
                       </div>
-                      <div class="mb-4 text-gray-600 text-sm font-medium">
+                      <div class="mb-4 text-gray-600 text-sm md:text-base font-body font-medium">
                         a.n. Rian & Nisa
                       </div>
                       <button
@@ -1014,7 +1029,7 @@
                       </button>
                       <span
                         id="notif-rekening"
-                        class="block text-green-600 text-xs mt-2 font-semibold hidden animate-fade-in-up"
+                        class="text-green-600 text-xs mt-2 font-semibold hidden animate-fade-in-up"
                         >✓ Nomor berhasil disalin!</span
                       >
                     </div>
@@ -1035,13 +1050,13 @@
                           />
                         </div>
                       </div>
-                      <div class="mb-2 text-xl font-bold text-primary-700">
+                      <div class="mb-2 text-lg md:text-xl font-secondary font-bold text-primary-700">
                         E-Wallet (Dana)
                       </div>
-                      <div class="mb-3 text-gray-800 text-xl font-bold select-all bg-primary-50 px-4 py-2 rounded-lg border-2 border-primary-200">
+                      <div class="mb-3 text-gray-800 text-lg md:text-xl font-secondary font-bold select-all bg-primary-50 px-4 py-2 rounded-lg border-2 border-primary-200">
                         0812-3456-7890
                       </div>
-                      <div class="mb-4 text-gray-600 text-sm font-medium">
+                      <div class="mb-4 text-gray-600 text-sm md:text-base font-body font-medium">
                         a.n. Rian & Nisa
                       </div>
                       <button
@@ -1053,7 +1068,7 @@
                       </button>
                       <span
                         id="notif-dana"
-                        class="block text-green-600 text-xs mt-2 font-semibold hidden animate-fade-in-up"
+                        class="text-green-600 text-xs mt-2 font-semibold hidden animate-fade-in-up"
                         >✓ Nomor berhasil disalin!</span
                       >
                     </div>
@@ -1072,7 +1087,7 @@
                 <div class="ornamental-divider w-40 my-6">
                   <span class="text-primary-300 text-lg">❦</span>
                 </div>
-                <p class="mt-4 text-sm text-gray-600 text-center max-w-md leading-relaxed">
+                <p class="mt-4 text-sm md:text-base font-body text-gray-600 text-center max-w-md leading-relaxed">
                   Mohon konfirmasi kepada mempelai setelah transfer.
                   <br />
                   Terima kasih atas doa dan restunya.
@@ -1083,13 +1098,16 @@
 
           <section
             id="pesan-section"
-            class="wedding-section min-h-screen flex flex-col justify-center items-center bg-primary/80 py-16 px-4"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
+            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
+            <!-- Overlay untuk readability -->
+            <div class="absolute inset-0 bg-white/50"></div>
             <div
-              class="bg-slate-100 px-3 py-8 rounded-2xl shadow-lg w-full max-w-3xl flex justify-center items-center flex-col"
+              class="bg-white/90 px-3 py-8 rounded-2xl shadow-lg w-full max-w-3xl flex justify-center items-center flex-col backdrop-blur-sm relative z-10"
             >
               <h2
-                class="text-4xl font-nama2 font-bold mb-8 text-gray-800 text-center"
+                class="text-3xl md:text-4xl font-secondary font-bold mb-8 text-gray-800 text-center"
               >
                 Ucapan & RSVP
               </h2>
@@ -1101,7 +1119,7 @@
                 <div class="mb-5">
                   <label
                     for="guest-name"
-                    class="block text-gray-700 text-sm font-bold mb-2"
+                    class="block text-gray-700 text-sm md:text-base font-secondary font-bold mb-2"
                   >
                     Nama Anda: <span class="text-red-500">*</span>
                   </label>
@@ -1122,7 +1140,7 @@
                 </div>
 
                 <div class="mb-5">
-                  <label class="block text-gray-700 text-sm font-bold mb-2">
+                  <label class="block text-gray-700 text-sm md:text-base font-secondary font-bold mb-2">
                     Kehadiran: <span class="text-red-500">*</span>
                   </label>
                   <div class="relative">
@@ -1153,7 +1171,7 @@
                 <div class="mb-6">
                   <label
                     for="message"
-                    class="block text-gray-700 text-sm font-bold mb-2"
+                    class="block text-gray-700 text-sm md:text-base font-secondary font-bold mb-2"
                   >
                     Pesan/Ucapan:
                   </label>
@@ -1184,10 +1202,13 @@
 
           <section
             id="terimakasih-section"
-            class="min-h-[80vh] flex flex-col justify-center items-center bg-pink-200 py-16 px-4"
+            class="min-h-[80vh] flex flex-col justify-center items-center py-16 px-4 relative"
+            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
+            <!-- Overlay untuk readability -->
+            <div class="absolute inset-0 bg-white/50"></div>
             <div
-              class="bg-white/80 px-8 py-12 rounded-2xl shadow-lg flex flex-col items-center max-w-xl w-full"
+              class="bg-white/90 px-8 py-12 rounded-2xl shadow-lg flex flex-col items-center max-w-xl w-full backdrop-blur-sm relative z-10"
             >
               <div class="mb-6">
                 <i
@@ -1195,25 +1216,25 @@
                 ></i>
               </div>
               <h2
-                class="text-4xl font-nama2 font-bold mb-4 text-pink-700 text-center"
+                class="text-3xl md:text-4xl font-secondary font-bold mb-4 text-pink-700 text-center"
               >
                 Terima Kasih
               </h2>
 
-              <p class="text-center max-w-md text-gray-600 mb-6">
+              <p class="text-center max-w-md text-gray-600 mb-6 text-base md:text-lg font-body leading-relaxed">
                 Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
                 Anda berkenan hadir dan memberikan doa restu.
                 <br /><br />
-                <span class="font-semibold text-pink-700"
+                <span class="font-secondary font-semibold text-pink-700"
                   >Wassalamu'alaikum warahmatullahi wabarakatuh</span
                 >
               </p>
-              <p class="text-3xl font-arab mb-6 text-gray-700 text-center">
+              <p class="text-2xl md:text-3xl font-arab mb-6 text-gray-700 text-center">
                 الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
               </p>
               <div class="flex flex-col items-center gap-2">
-                <span class="text-sm text-gray-500">Kami Yang Berbahagia,</span>
-                <span class="font-nama text-2xl text-pink-700"
+                <span class="text-sm md:text-base text-gray-500 font-body">Kami Yang Berbahagia,</span>
+                <span class="font-nama text-2xl md:text-3xl text-pink-700"
                   >Rian & Nisa</span
                 >
               </div>
@@ -1234,7 +1255,7 @@
                   class="w-9 h-9 rounded-full border-2 border-white shadow"
                 />
                 <span
-                  class="text-white font-bold text-xl tracking-wide drop-shadow"
+                  class="text-white font-secondary font-bold text-lg md:text-xl tracking-wide drop-shadow"
                   >bahagiakita.my.id</span
                 >
               </div>
@@ -1270,9 +1291,9 @@
               >
                 Hubungi Kami
               </a>
-              <div class="mt-4 text-xs text-white/80 text-center">
+              <div class="mt-4 text-xs md:text-sm font-body text-white/80 text-center">
                 &copy; 2025
-                <span class="font-semibold">bahagiakita.my.id</span> &mdash; All
+                <span class="font-secondary font-semibold">bahagiakita.my.id</span> &mdash; All
                 rights reserved.
               </div>
             </div>

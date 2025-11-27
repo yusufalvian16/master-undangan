@@ -397,8 +397,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (el) {
           navigator.clipboard.writeText(el.textContent);
           notifRekening.classList.remove("hidden");
+          notifRekening.classList.add("block");
           notifRekening.textContent = "Nomor berhasil disalin!";
-          setTimeout(() => notifRekening.classList.add("hidden"), 2000);
+          setTimeout(() => {
+            notifRekening.classList.add("hidden");
+            notifRekening.classList.remove("block");
+          }, 2000);
         }
       };
     }
@@ -409,8 +413,12 @@ document.addEventListener("DOMContentLoaded", () => {
       copyDanaBtn.onclick = function () {
         navigator.clipboard.writeText("081234567890");
         notifDana.classList.remove("hidden");
+        notifDana.classList.add("block");
         notifDana.textContent = "Nomor berhasil disalin!";
-        setTimeout(() => notifDana.classList.add("hidden"), 2000);
+        setTimeout(() => {
+          notifDana.classList.add("hidden");
+          notifDana.classList.remove("block");
+        }, 2000);
       };
     }
     // Konfirmasi WhatsApp

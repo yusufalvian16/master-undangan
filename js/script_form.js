@@ -160,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Show popup
     notificationPopup.classList.remove("hidden");
+    notificationPopup.classList.add("flex");
     setTimeout(() => {
       const popupContent = notificationPopup.querySelector("div > div");
       if (popupContent) {
@@ -184,6 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     setTimeout(() => {
       notificationPopup.classList.add("hidden");
+      notificationPopup.classList.remove("flex");
     }, 300);
   }
 
