@@ -279,6 +279,34 @@ document.addEventListener("DOMContentLoaded", () => {
   sections.forEach((section) => {
     observer.observe(section);
   });
+
+  // Inisialisasi: Set active state untuk section yang pertama kali terlihat
+  const checkInitialActive = () => {
+    const mainContainer = document.getElementById("main-container");
+    if (!mainContainer) return;
+
+    // Cek section mana yang terlihat pertama kali
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const containerRect = mainContainer.getBoundingClientRect();
+      const isVisible = rect.top >= containerRect.top && rect.top <= containerRect.bottom;
+
+      if (isVisible) {
+        addActiveClass(section.id);
+        return;
+      }
+    });
+
+    // Jika tidak ada yang terlihat, set welcome-section sebagai default
+    if (!document.querySelector(".menu-item.active")) {
+      addActiveClass("welcome-section");
+    }
+  };
+
+  // Jalankan setelah navbar muncul
+  setTimeout(() => {
+    checkInitialActive();
+  }, 500);
   // --- Logika Navbar Aktif (BERAKHIR DI SINI) ---
 
   // Logika tombol salin nomor rekening

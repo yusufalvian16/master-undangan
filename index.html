@@ -187,7 +187,8 @@
           <!-- Notification Popup -->
           <div
             id="notification-popup"
-            class="fixed inset-0 items-center justify-center z-50 hidden backdrop-blur-sm bg-black bg-opacity-20"
+            class="fixed inset-0 items-center justify-center hidden backdrop-blur-sm bg-black bg-opacity-20"
+            style="z-index: 999999 !important;"
           >
             <div
               class="bg-white border-primary border-[1px] p-6 rounded-lg shadow-xl text-center max-w-sm mx-auto transform transition-all scale-95 opacity-0"
@@ -208,64 +209,71 @@
 
           <nav
             id="main-navbar"
-            class="fixed bottom-0 bg-white/70 backdrop-blur-sm border-t border-gray-200 shadow-lg md:max-w-[450px] w-full rounded-t-3xl"
-            style="z-index: 9999 !important; display: none; position: fixed !important;"
+            class="fixed bottom-0 backdrop-blur-md border-t shadow-2xl md:max-w-[450px] w-full rounded-t-3xl"
+            style="z-index: 99999 !important; display: none; position: fixed !important; background-color: rgba(248, 226, 196, 0.95); border-color: #A86B1C;"
           >
             <div
               class="flex h-[4rem] justify-around items-center mx-auto px-2"
             >
               <a
                 href="#welcome-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
                 data-target-id="welcome-section"
+                style="color: #5E3B10;"
               >
                 <i class="bi bi-heart-fill text-[1.1rem] mb-0.5 menu-icon"></i>
                 <span class="menu-item-text menu-text text-[0.7rem] font-body">Home</span>
               </a>
               <a
                 href="#mempelai-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
                 data-target-id="mempelai-section"
+                style="color: #5E3B10;"
               >
                 <i class="bi bi-people-fill text-[1.1rem] mb-0.5 menu-icon"></i>
                 <span class="menu-item-text menu-text text-[0.7rem] font-body">Mempelai</span>
               </a>
               <a
                 href="#waktu-lokasi-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
                 data-target-id="waktu-lokasi-section"
+                style="color: #5E3B10;"
               >
                 <i class="bi bi-geo-alt-fill text-[1.1rem] mb-0.5 menu-icon"></i>
                 <span class="menu-item-text menu-text text-[0.7rem] font-body">Lokasi</span>
               </a>
               <a
                 href="#kisah-cinta-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
                 data-target-id="kisah-cinta-section"
+                style="color: #5E3B10;"
               >
                 <i class="bi bi-heart-pulse-fill text-[1.1rem] mb-0.5 menu-icon"></i>
                 <span class="menu-item-text menu-text text-[0.7rem] font-body">Story</span>
               </a>
               <a
                 href="#galeri-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
                 data-target-id="galeri-section"
+                style="color: #5E3B10;"
               >
                 <i class="bi bi-image-fill text-[1.1rem] mb-0.5 menu-icon"></i>
                 <span class="menu-item-text menu-text text-[0.7rem] font-body">Galeri</span>
               </a>
               <a
                 href="#gift-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
                 data-target-id="gift-section"
+                style="color: #5E3B10;"
               >
                 <i class="bi bi-gift-fill text-[1.1rem] mb-0.5 menu-icon"></i>
                 <span class="menu-item-text menu-text text-[0.7rem] font-body">Gift</span>
               </a>
               <a
                 href="#pesan-section"
-                class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300 p-1.5"
+                class="menu-item flex flex-col items-center justify-center transition-colors duration-300 p-1.5"
                 data-target-id="pesan-section"
+                style="color: #5E3B10;"
               >
                 <i
                   class="bi bi-chat-dots-fill text-[1.1rem] mb-0.5 menu-icon"
@@ -277,17 +285,17 @@
 
           <section
             id="welcome-section"
-            class="wedding-section min-h-screen bg-[url('../images/galery/portrait/12.webp')] bg-cover bg-center bg-no-repeat relative overflow-hidden"
+            class="wedding-section min-h-screen bg-[url('../images/furnitur/bgall.png')] bg-cover bg-top bg-no-repeat relative overflow-hidden"
             style="position: relative !important; z-index: 1 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">
             <!-- Dekorasi background -->
-            <div class="absolute inset-0 bg-gradient-to-b from-primary-50/30 via-transparent to-white/80"></div>
+            <!-- <div class="absolute inset-0 bg-gradient-to-b from-primary-50/30 via-transparent to-white/80"></div> -->
             
-            <div class="min-h-screen bg-white/60 backdrop-blur-sm relative z-10 flex items-center">
+            <div class="min-h-screen bg-white/20 backdrop-blur-[2px] relative z-10 flex items-start">
               <div
-                class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-white from-60% to-transparent -z-10"
+                class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-white from-0% to-transparent -z-10"
               ></div>
               <div
-                class="flex flex-col items-center justify-center w-full min-h-screen text-center gap-12 px-4 py-16"
+                class="flex flex-col items-center justify-start w-full min-h-screen text-center gap-6 md:gap-8 px-4 pt-20 md:pt-24 pb-16"
               >
                 <!-- Ornamental divider atas -->
                 <!-- <div class="ornamental-divider w-40 mb-2">
@@ -320,16 +328,53 @@
                   <!-- <div class="ornamental-divider w-32 my-4">
                     <span class="text-primary-400 text-xl">❦</span>
                   </div> -->
-                  <p class="text-base md:text-lg text-gray-700 leading-relaxed font-body">
+                  <p class="text-[14px] md:text-lg text-gray-700 leading-relaxed font-body">
                     Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan
                     pernikahan putra-putri kami. Merupakan suatu kehormatan dan kebahagiaan
                     bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan
                     doa restu kepada kami.
                   </p>
-                  <div class="mt-6 flex items-center justify-center gap-2 text-primary-600">
+                  <div class="mt-4 md:mt-6 flex items-center justify-center gap-2 text-primary-600">
                     <i class="bi bi-calendar-heart text-xl"></i>
                     <span class="text-lg md:text-xl font-secondary font-semibold">28 Desember 2025</span>
                   </div>
+                </div>
+
+                <!-- Countdown Timer -->
+                <div class="animate-fade-in-up mt-4 md:mt-6 w-full max-w-xs px-2" style="animation-delay: 0.6s;">
+                  <div id="countdown" class="grid grid-cols-4 gap-1 md:gap-1.5 mb-2">
+                    <div class="flex flex-col items-center">
+                      <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm" style="background-color: #D17A15;">
+                        <div id="days" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00</div>
+                        <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Hari</div>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm" style="background-color: #D17A15;">
+                        <div id="hours" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00</div>
+                        <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Jam</div>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm" style="background-color: #D17A15;">
+                        <div id="minutes" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00</div>
+                        <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Menit</div>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm" style="background-color: #D17A15;">
+                        <div id="seconds" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00</div>
+                        <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Detik</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Save to Date Button -->
+                  <button
+                    id="save-to-date-btn"
+                    class="button-main text-xs md:text-sm px-6 py-1.5 mt-2 scale-90"
+                  >
+                    <i class="bi bi-calendar-plus mr-1.5 text-xs"></i>Save to Date
+                  </button>
                 </div>
               </div>
             </div>
@@ -514,7 +559,7 @@
           <section
             id="mempelai-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center px-4 py-8 relative overflow-hidden"
-            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
             <!-- Overlay untuk readability -->
             <div class="absolute inset-0 bg-white/20"></div>
@@ -575,7 +620,7 @@
           <section
             id="waktu-lokasi-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 gap-y-8 relative"
-            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
             <!-- Overlay untuk readability -->
             <div class="absolute inset-0 bg-white/40"></div>
@@ -830,7 +875,7 @@
           <section
             id="galeri-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
             <!-- Overlay untuk readability -->
             <div class="absolute inset-0 bg-white/30"></div>
@@ -1099,7 +1144,7 @@
           <section
             id="pesan-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
             <!-- Overlay untuk readability -->
             <div class="absolute inset-0 bg-white/50"></div>
@@ -1203,7 +1248,7 @@
           <section
             id="terimakasih-section"
             class="min-h-[80vh] flex flex-col justify-center items-center py-16 px-4 relative"
-            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
           >
             <!-- Overlay untuk readability -->
             <div class="absolute inset-0 bg-white/50"></div>
@@ -1345,5 +1390,69 @@
     <script src="./js/supabase_config.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/script_form.js"></script>
+    
+    <!-- Countdown Timer Script -->
+    <script>
+      // Countdown Timer untuk Hari Pernikahan
+      function updateCountdown() {
+        // Tanggal pernikahan: 28 Desember 2025, 08:00 WIB
+        const weddingDate = new Date('2025-12-28T08:00:00+07:00').getTime();
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+          // Jika tanggal sudah lewat
+          document.getElementById('days').textContent = '00';
+          document.getElementById('hours').textContent = '00';
+          document.getElementById('minutes').textContent = '00';
+          document.getElementById('seconds').textContent = '00';
+          return;
+        }
+
+        // Hitung waktu tersisa
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update tampilan
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+      }
+
+      // Update countdown setiap detik
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // Save to Date Button Functionality
+      const saveToDateBtn = document.getElementById('save-to-date-btn');
+      if (saveToDateBtn) {
+        saveToDateBtn.addEventListener('click', function() {
+          // Tanggal pernikahan: 28 Desember 2025, 08:00 WIB
+          const weddingDate = new Date('2025-12-28T08:00:00+07:00');
+          
+          // Format tanggal untuk Google Calendar
+          const formatDate = (date) => {
+            return date.toISOString().replace(/-|:|\.\d\d\d/g, '');
+          };
+          
+          const startDate = formatDate(weddingDate);
+          const endDate = formatDate(new Date(weddingDate.getTime() + 8 * 60 * 60 * 1000)); // 8 jam kemudian
+          
+          // Detail event
+          const title = encodeURIComponent('Pernikahan Rian & Nisa');
+          const details = encodeURIComponent('Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami.');
+          const location = encodeURIComponent('Menara 165, Jl. TB Simatupang Jakarta Selatan');
+          
+          // Google Calendar URL
+          const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
+          
+          // Buka Google Calendar
+          window.open(googleCalendarUrl, '_blank');
+        });
+      }
+    </script>
   </body>
 </html>

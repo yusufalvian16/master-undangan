@@ -17,11 +17,12 @@
     <script src="./js/supabase_config.js" defer></script>
   </head>
   <body class="bg-gray-900 overflow-hidden">
-    <div class="relative w-full h-screen overflow-y-auto overflow-x-hidden bg-gray-100">
+    <div class="relative w-full h-screen overflow-y-auto overflow-x-hidden bg-gray-100" style="padding-bottom: 5rem;">
       <!-- Notification Popup -->
       <div
         id="notification-popup"
-        class="fixed inset-0 flex items-center justify-center z-50 hidden backdrop-blur-sm bg-black bg-opacity-20"
+        class="fixed inset-0 items-center justify-center hidden backdrop-blur-sm bg-black bg-opacity-20"
+        style="z-index: 999999 !important;"
       >
         <div
           class="bg-white border-primary border-[1px] p-6 rounded-lg shadow-xl text-center max-w-sm mx-auto transform transition-all scale-95 opacity-0"
@@ -40,10 +41,81 @@
         </div>
       </div>
 
+      <!-- Navbar -->
+      <nav
+        id="main-navbar"
+        class="fixed bottom-0 bg-white/90 backdrop-blur-md border-t border-gray-200 shadow-2xl w-full rounded-t-3xl"
+        style="z-index: 99999 !important; display: block; position: fixed !important;"
+      >
+        <div
+          class="flex h-[4rem] justify-around items-center mx-auto px-2"
+        >
+          <a
+            href="#doa-section"
+            class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+            data-target-id="doa-section"
+          >
+            <i class="bi bi-book-heart text-[1.1rem] mb-0.5 menu-icon"></i>
+            <span class="menu-item-text menu-text text-[0.7rem] font-body">Doa</span>
+          </a>
+          <a
+            href="#mempelai-section"
+            class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+            data-target-id="mempelai-section"
+          >
+            <i class="bi bi-people-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+            <span class="menu-item-text menu-text text-[0.7rem] font-body">Mempelai</span>
+          </a>
+          <a
+            href="#waktu-lokasi-section"
+            class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+            data-target-id="waktu-lokasi-section"
+          >
+            <i class="bi bi-geo-alt-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+            <span class="menu-item-text menu-text text-[0.7rem] font-body">Lokasi</span>
+          </a>
+          <a
+            href="#kisah-cinta-section"
+            class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+            data-target-id="kisah-cinta-section"
+          >
+            <i class="bi bi-heart-pulse-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+            <span class="menu-item-text menu-text text-[0.7rem] font-body">Story</span>
+          </a>
+          <a
+            href="#galeri-section"
+            class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+            data-target-id="galeri-section"
+          >
+            <i class="bi bi-image-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+            <span class="menu-item-text menu-text text-[0.7rem] font-body">Galeri</span>
+          </a>
+          <a
+            href="#gift-section"
+            class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-200 p-1.5"
+            data-target-id="gift-section"
+          >
+            <i class="bi bi-gift-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+            <span class="menu-item-text menu-text text-[0.7rem] font-body">Gift</span>
+          </a>
+          <a
+            href="#pesan-section"
+            class="menu-item flex flex-col items-center justify-center text-gray-700 hover:text-primary-600 transition-colors duration-300 p-1.5"
+            data-target-id="pesan-section"
+          >
+            <i
+              class="bi bi-chat-dots-fill text-[1.1rem] mb-0.5 menu-icon"
+            ></i>
+            <span class="menu-item-text menu-text text-[0.7rem] font-body">Pesan</span>
+          </a>
+        </div>
+      </nav>
+
       <!-- Doa Section -->
       <section
         id="doa-section"
         class="wedding-section min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-primary to-primary/80 py-16 px-4"
+        style="position: relative; z-index: 1;"
       >
         <div class="text-center text-white max-w-2xl mx-auto">
           <h2 class="text-4xl font-nama2 mb-8">Doa</h2>
@@ -59,6 +131,7 @@
           <section
             id="mempelai-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center px-4 py-8 bg-[url('./images/furnitur/bg.jpg')] bg-cover bg-slate-200 bg-blend-darken"
+            style="position: relative; z-index: 1;"
           >
             <div
               class="shadow bg-white/70 p-8 rounded-2xl border-slate-500 backdrop-blur-sm"
@@ -117,6 +190,7 @@
           <section
             id="waktu-lokasi-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center bg-primary py-16 px-4 gap-y-8"
+            style="position: relative; z-index: 1;"
           >
             <div class="w-full flex items-center justify-center">
               <div
@@ -260,6 +334,7 @@
           <section
             id="kisah-cinta-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 bg-slate-500 bg-blend-darken"
+            style="position: relative; z-index: 1;"
           >
             <div
               class="flex w-full flex-col items-start bg-white py-8 px-4 rounded-2xl"
@@ -363,6 +438,7 @@
           <section
             id="galeri-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center bg-primary py-16 px-4"
+            style="position: relative; z-index: 1;"
           >
             <div class="bg-white p-4 rounded-2xl text-center">
               <h2 class="text-4xl font-nama2 mb-8">Our Moment</h2>
@@ -481,6 +557,7 @@
           <section
             id="gift-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center bg-yellow-50 py-16 px-4"
+            style="position: relative; z-index: 1;"
           >
             <div
               class="bg-slate-200 px-6 py-10 rounded-2xl shadow-lg w-full max-w-2xl flex flex-col items-center relative"
@@ -551,7 +628,7 @@
                       </button>
                       <span
                         id="notif-rekening"
-                        class="block text-green-700 text-xs mt-1 hidden"
+                        class="text-green-700 text-xs mt-1 hidden"
                         >Nomor berhasil disalin!</span
                       >
                     </div>
@@ -587,7 +664,7 @@
                       </button>
                       <span
                         id="notif-dana"
-                        class="block text-green-700 text-xs mt-1 hidden"
+                        class="text-green-700 text-xs mt-1 hidden"
                         >Nomor berhasil disalin!</span
                       >
                     </div>
@@ -613,6 +690,7 @@
           <section
             id="pesan-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center bg-primary/80 py-16 px-4"
+            style="position: relative; z-index: 1;"
           >
             <div
               class="bg-slate-100 px-3 py-8 rounded-2xl shadow-lg w-full max-w-3xl flex justify-center items-center flex-col"
@@ -714,6 +792,7 @@
           <section
             id="terimakasih-section"
             class="min-h-[80vh] flex flex-col justify-center items-center bg-pink-200 py-16 px-4"
+            style="position: relative; z-index: 1;"
           >
             <div
               class="bg-white/80 px-8 py-12 rounded-2xl shadow-lg flex flex-col items-center max-w-xl w-full"
@@ -754,7 +833,7 @@
             </div>
           </section>
 
-          <footer class="w-full min-h-[20vh] bg-primary pt-8 pb-20">
+          <footer class="w-full min-h-[20vh] bg-primary pt-8 pb-20" style="position: relative; z-index: 1;">
             <div class="max-w-2xl mx-auto flex flex-col items-center gap-4">
               <div class="flex items-center gap-3 mb-2">
                 <img
