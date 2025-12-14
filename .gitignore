@@ -2,8 +2,8 @@
 node_modules/
 
 # Build outputs
-css/output.css
-css/output.css.map
+# css/output.css
+# css/output.css.map
 
 # OS files
 .DS_Store
