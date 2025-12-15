@@ -49,6 +49,12 @@
           class="absolute inset-0 w-full h-full flex flex-col justify-center items-center bg-[url('../images/galery/portrait/8.webp')] bg-cover bg-center text-center transition-opacity duration-1000 ease-in-out opacity-100"
           style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 990; overflow: hidden; touch-action: none;"
         >
+          <!-- Background Overlay - bgall.png di 40% bagian bawah dengan fade -->
+          <div
+            class="absolute bottom-0 left-0 w-full pointer-events-none"
+            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center bottom; background-repeat: no-repeat; height: 40%; mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.25) 85%, rgba(0,0,0,0.15) 90%, rgba(0,0,0,0.08) 95%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.25) 85%, rgba(0,0,0,0.15) 90%, rgba(0,0,0,0.08) 95%, rgba(0,0,0,0) 100%); z-index: 1;"
+          ></div>
+          
           <!-- Wave Bunga Dekorasi -->
           <div id="wave-bunga-landing" class="absolute inset-0 pointer-events-none">
             <!-- Top Left -->
@@ -181,8 +187,8 @@
 
         <div
           id="main-invite-page"
-          class="scroll-smooth w-full overflow-x-hidden bg-gray-100 opacity-0 pointer-events-none transition-opacity duration-1000 ease-in-out z-0"
-          style="display: none;"
+          class="scroll-smooth w-full overflow-x-hidden bg-gray-100 opacity-0 pointer-events-none transition-opacity duration-1000 ease-in-out z-[2]"
+          style="display: none; z-index: 2 !important;"
         >
           <!-- Notification Popup -->
           <div
@@ -207,92 +213,17 @@
             </div>
           </div>
 
-          <nav
-            id="main-navbar"
-            class="fixed bottom-0 backdrop-blur-md border-t shadow-2xl md:max-w-[450px] w-full rounded-t-3xl"
-            style="z-index: 99999 !important; display: none; position: fixed !important; background-color: rgba(248, 226, 196, 0.95); border-color: #A86B1C;"
-          >
-            <div
-              class="flex h-[4rem] justify-around items-center mx-auto px-2"
-            >
-              <a
-                href="#welcome-section"
-                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-                data-target-id="welcome-section"
-                style="color: #5E3B10;"
-              >
-                <i class="bi bi-heart-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem] font-body">Home</span>
-              </a>
-              <a
-                href="#mempelai-section"
-                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-                data-target-id="mempelai-section"
-                style="color: #5E3B10;"
-              >
-                <i class="bi bi-people-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem] font-body">Mempelai</span>
-              </a>
-              <a
-                href="#waktu-lokasi-section"
-                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-                data-target-id="waktu-lokasi-section"
-                style="color: #5E3B10;"
-              >
-                <i class="bi bi-geo-alt-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem] font-body">Lokasi</span>
-              </a>
-              <a
-                href="#kisah-cinta-section"
-                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-                data-target-id="kisah-cinta-section"
-                style="color: #5E3B10;"
-              >
-                <i class="bi bi-heart-pulse-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem] font-body">Story</span>
-              </a>
-              <a
-                href="#galeri-section"
-                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-                data-target-id="galeri-section"
-                style="color: #5E3B10;"
-              >
-                <i class="bi bi-image-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem] font-body">Galeri</span>
-              </a>
-              <a
-                href="#gift-section"
-                class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-                data-target-id="gift-section"
-                style="color: #5E3B10;"
-              >
-                <i class="bi bi-gift-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-                <span class="menu-item-text menu-text text-[0.7rem] font-body">Gift</span>
-              </a>
-              <a
-                href="#pesan-section"
-                class="menu-item flex flex-col items-center justify-center transition-colors duration-300 p-1.5"
-                data-target-id="pesan-section"
-                style="color: #5E3B10;"
-              >
-                <i
-                  class="bi bi-chat-dots-fill text-[1.1rem] mb-0.5 menu-icon"
-                ></i>
-                <span class="menu-item-text menu-text text-[0.7rem] font-body">Pesan</span>
-              </a>
-            </div>
-          </nav>
-
           <section
             id="welcome-section"
             class="wedding-section min-h-screen bg-[url('../images/furnitur/bgall.png')] bg-cover bg-top bg-no-repeat relative overflow-hidden"
-            style="position: relative !important; z-index: 1 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">
+            style="position: relative !important; z-index: 0 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">
             <!-- Dekorasi background -->
             <!-- <div class="absolute inset-0 bg-gradient-to-b from-primary-50/30 via-transparent to-white/80"></div> -->
             
             <div class="min-h-screen bg-white/20 backdrop-blur-[2px] relative z-10 flex items-start">
               <div
-                class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-white from-0% to-transparent -z-10"
+                class="absolute bottom-0 left-0 w-full h-1/3 -z-10"
+                style="background: linear-gradient(to top, #C6700D 0%, rgba(198, 112, 13, 0.8) 30%, rgba(198, 112, 13, 0.5) 60%, rgba(198, 112, 13, 0.2) 85%, transparent 100%);"
               ></div>
               <div
                 class="flex flex-col items-center justify-start w-full min-h-screen text-center gap-6 md:gap-8 px-4 pt-20 md:pt-24 pb-16"
@@ -391,6 +322,7 @@
 
               <div
                 class="absolute z-10 w-28 -top-8 -left-5 animate-in-top-left"
+                style="z-index: 10;"
               >
                 <div class="relative w-full h-full sway origin-top-left">
                   <img
@@ -403,6 +335,7 @@
 
               <div
                 class="absolute z-10 w-28 -top-8 -left-5 animate-in-top-left"
+                style="z-index: 10;"
               >
                 <div class="relative w-full h-full sway-alt origin-top-left">
                   <img
@@ -416,7 +349,8 @@
               <!-- bottom left -->
 
               <div
-                class="absolute z-10 w-28 -left-5 bottom-14 animate-in-bottom-left"
+                class="absolute w-28 -left-5 bottom-8 animate-in-bottom-left"
+                style="z-index: 10 !important;"
               >
                 <div class="relative w-full h-full sway origin-bottom-left">
                   <img
@@ -428,7 +362,8 @@
               </div>
 
               <div
-                class="absolute z-10 w-28 -left-5 bottom-14 animate-in-bottom-left"
+                class="absolute w-28 -left-5 bottom-8 animate-in-bottom-left"
+                style="z-index: 10 !important;"
               >
                 <div class="relative w-full h-full sway-alt origin-bottom-left">
                   <img
@@ -443,6 +378,7 @@
 
               <div
                 class="absolute z-10 w-28 -top-8 -right-5 animate-in-top-right"
+                style="z-index: 10;"
               >
                 <div class="relative w-full h-full sway origin-top-right">
                   <img
@@ -455,6 +391,7 @@
 
               <div
                 class="absolute z-10 w-28 -top-8 -right-5 animate-in-top-right"
+                style="z-index: 10;"
               >
                 <div class="relative w-full h-full sway-alt origin-top-right">
                   <img
@@ -468,7 +405,8 @@
               <!-- bottom right -->
 
               <div
-                class="absolute z-10 w-28 -right-5 bottom-14 animate-in-bottom-right"
+                class="absolute w-28 -right-5 bottom-8 animate-in-bottom-right"
+                style="z-index: 10 !important;"
               >
                 <div class="relative w-full h-full sway origin-bottom-right">
                   <img
@@ -480,7 +418,8 @@
               </div>
 
               <div
-                class="absolute z-10 w-28 -right-5 bottom-14 animate-in-bottom-right"
+                class="absolute w-28 -right-5 bottom-8 animate-in-bottom-right"
+                style="z-index: 10 !important;"
               >
                 <div
                   class="relative w-full h-full sway-alt origin-bottom-right"
@@ -1310,6 +1249,82 @@
           </footer>
         </div>
 
+        <nav
+          id="main-navbar"
+          class="fixed bottom-0 backdrop-blur-md border-t shadow-2xl md:max-w-[450px] w-full rounded-t-3xl"
+          style="z-index: 99999 !important; display: none; position: fixed !important; background-color: rgba(248, 226, 196, 0.95); border-color: #A86B1C;"
+        >
+          <div
+            class="flex h-[4rem] justify-around items-center mx-auto px-2"
+          >
+            <a
+              href="#welcome-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="welcome-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-heart-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Home</span>
+            </a>
+            <a
+              href="#mempelai-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="mempelai-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-people-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Mempelai</span>
+            </a>
+            <a
+              href="#waktu-lokasi-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="waktu-lokasi-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-geo-alt-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Lokasi</span>
+            </a>
+            <a
+              href="#kisah-cinta-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="kisah-cinta-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-heart-pulse-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Story</span>
+            </a>
+            <a
+              href="#galeri-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="galeri-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-image-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Galeri</span>
+            </a>
+            <a
+              href="#gift-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="gift-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-gift-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Gift</span>
+            </a>
+            <a
+              href="#pesan-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-300 p-1.5"
+              data-target-id="pesan-section"
+              style="color: #5E3B10;"
+            >
+              <i
+                class="bi bi-chat-dots-fill text-[1.1rem] mb-0.5 menu-icon"
+              ></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Pesan</span>
+            </a>
+          </div>
+        </nav>
+
         <audio id="background-music" loop>
           <source src="./music/song.mp3" type="audio/mpeg" />
 
@@ -1351,8 +1366,6 @@
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="./js/supabase_config.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/script_form.js"></script>
     

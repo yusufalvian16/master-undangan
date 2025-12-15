@@ -297,8 +297,8 @@
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
-  .bottom-14 {
-    bottom: calc(var(--spacing) * 14);
+  .bottom-8 {
+    bottom: calc(var(--spacing) * 8);
   }
   .bottom-16 {
     bottom: calc(var(--spacing) * 16);
@@ -327,9 +327,6 @@
   .-z-10 {
     z-index: calc(10 * -1);
   }
-  .z-0 {
-    z-index: 0;
-  }
   .z-10 {
     z-index: 10;
   }
@@ -341,6 +338,9 @@
   }
   .z-50 {
     z-index: 50;
+  }
+  .z-\[2\] {
+    z-index: 2;
   }
   .container {
     width: 100%;
@@ -1707,7 +1707,7 @@
     position: relative;
     display: block;
     opacity: 100%;
-    z-index: 1 !important;
+    z-index: 0 !important;
   }
 }
 @layer theme {

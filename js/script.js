@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mainInvitePage.style.visibility = "hidden";
     mainInvitePage.style.opacity = "0";
     mainInvitePage.style.pointerEvents = "none";
-    mainInvitePage.style.zIndex = "0";
+    mainInvitePage.style.zIndex = "2";
   }
 
   // Pastikan navbar tersembunyi di awal
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
           mainInvitePage.style.height = "auto";
           mainInvitePage.style.opacity = "1";
           mainInvitePage.style.pointerEvents = "auto";
-          mainInvitePage.style.zIndex = "10";
+          mainInvitePage.style.zIndex = "2";
 
           // Pastikan semua wedding-section terlihat
           const allSections = mainInvitePage.querySelectorAll(".wedding-section");
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section.style.visibility = "visible";
             section.style.opacity = "1";
             section.style.position = "relative";
-            section.style.zIndex = "1";
+            section.style.zIndex = "0";
             section.classList.remove("hidden");
           });
 
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
             welcomeSection.style.visibility = "visible";
             welcomeSection.style.opacity = "1";
             welcomeSection.style.position = "relative";
-            welcomeSection.style.zIndex = "1";
+            welcomeSection.style.zIndex = "0";
             welcomeSection.style.minHeight = "100vh";
             welcomeSection.classList.remove("hidden");
           }

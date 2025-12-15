@@ -181,7 +181,7 @@
   /* Pastikan welcome-section selalu terlihat */
   #welcome-section {
     @apply relative block visible opacity-100;
-    z-index: 1 !important;
+    z-index: 0 !important;
   }
 }
 
