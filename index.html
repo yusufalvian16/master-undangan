@@ -27,6 +27,24 @@
   </head>
 
   <body class="bg-gray-900">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 z-[9999] bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center transition-opacity duration-500 ease-in-out">
+      <div class="text-center">
+        <!-- Logo/Icon Loading Simple -->
+        <div class="mb-6">
+          <i class="bi bi-heart-fill text-white text-4xl md:text-5xl animate-pulse"></i>
+        </div>
+        <!-- Text Loading -->
+        <p id="preloader-text" class="text-sm md:text-base font-secondary text-white mb-6" style="opacity: 1 !important; visibility: visible !important; display: block !important; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;">
+          Sedang memuat konten...
+        </p>
+        <!-- Progress Bar -->
+        <div class="w-32 md:w-40 h-1 bg-white/20 rounded-full overflow-hidden mx-auto">
+          <div id="preloader-progress" class="h-full bg-white rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
     <div class="flex h-screen w-screen justify-end">
       <div class="hidden md:block flex-grow bg-blue-900 h-full">
         <section
@@ -57,81 +75,65 @@
           
           <!-- Wave Bunga Dekorasi -->
           <div id="wave-bunga-landing" class="absolute inset-0 pointer-events-none">
-            <!-- Top Left -->
-            <div class="absolute z-10 w-28 -top-8 -left-5">
-              <div class="relative w-full h-full sway origin-top-left">
-                <img
-                  src="./images/furnitur/wave/top-left.png"
-                  alt="Daun dan Bunga Kiri Atas"
-                  class="block w-full h-full"
-                />
-              </div>
-            </div>
-            <div class="absolute z-10 w-28 -top-8 -left-5">
-              <div class="relative w-full h-full sway-alt origin-top-left">
-                <img
-                  src="./images/furnitur/wave/top-left-2aa.png"
-                  alt="Daun dan Bunga Kiri Atas"
-                  class="block w-full h-full"
-                />
-              </div>
-            </div>
-
             <!-- Bottom Left -->
-            <div class="absolute z-10 w-28 -left-5 -bottom-8">
-              <div class="relative w-full h-full sway origin-bottom-left">
+            <!-- Daun Bawah -->
+            <div class="absolute z-20 w-36 -left-8 -bottom-8" style="z-index: 20 !important;">
+              <div class="relative w-full h-full wave-daun-2 origin-bottom-left">
                 <img
-                  src="./images/furnitur/wave/top-left.png"
-                  alt="Daun dan Bunga Kiri Bawah"
+                  src="./images/furnitur/wave/top-left-daun-bawah.png"
+                  alt="Daun Kiri Bawah"
                   class="block w-full h-full rotate-180 -scale-x-100"
                 />
               </div>
             </div>
-            <div class="absolute z-10 w-28 -left-5 -bottom-8">
-              <div class="relative w-full h-full sway-alt origin-bottom-left">
+            <!-- Daun Atas -->
+            <div class="absolute z-20 w-36 -left-8 -bottom-8" style="z-index: 21 !important;">
+              <div class="relative w-full h-full wave-daun-1 origin-bottom-left">
                 <img
-                  src="./images/furnitur/wave/top-left-2aa.png"
-                  alt="Daun dan Bunga Kiri Bawah"
+                  src="./images/furnitur/wave/top-left-daun-atas.png"
+                  alt="Daun Kiri Bawah"
                   class="block w-full h-full rotate-180 -scale-x-100"
                 />
               </div>
             </div>
-
-            <!-- Top Right -->
-            <div class="absolute z-10 w-28 -top-8 -right-5">
-              <div class="relative w-full h-full sway origin-top-right">
+            <!-- Bunga -->
+            <div class="absolute z-20 w-36 -left-8 -bottom-8" style="z-index: 22 !important;">
+              <div class="relative w-full h-full wave-bunga origin-bottom-left">
                 <img
-                  src="./images/furnitur/wave/top-left.png"
-                  alt="Daun dan Bunga Kanan Atas"
-                  class="block w-full h-full -scale-x-100"
-                />
-              </div>
-            </div>
-            <div class="absolute z-10 w-28 -top-8 -right-5">
-              <div class="relative w-full h-full sway-alt origin-top-right">
-                <img
-                  src="./images/furnitur/wave/top-left-2aa.png"
-                  alt="Daun dan Bunga Kanan Atas"
-                  class="block w-full h-full -scale-x-100"
+                  src="./images/furnitur/wave/top-left-bunga.png"
+                  alt="Bunga Kiri Bawah"
+                  class="block w-full h-full rotate-180 -scale-x-100"
                 />
               </div>
             </div>
 
             <!-- Bottom Right -->
-            <div class="absolute z-10 w-28 -right-5 -bottom-8">
-              <div class="relative w-full h-full sway origin-bottom-right">
+            <!-- Daun Bawah -->
+            <div class="absolute z-20 w-36 -right-8 -bottom-8" style="z-index: 20 !important;">
+              <div class="relative w-full h-full wave-daun-2 origin-bottom-right">
                 <img
-                  src="./images/furnitur/wave/top-left.png"
-                  alt="Daun dan Bunga Kanan Bawah"
+                  src="./images/furnitur/wave/top-left-daun-bawah.png"
+                  alt="Daun Kanan Bawah"
                   class="block w-full h-full rotate-180"
                 />
               </div>
             </div>
-            <div class="absolute z-10 w-28 -right-5 -bottom-8">
-              <div class="relative w-full h-full sway-alt origin-bottom-right">
+            <!-- Daun Atas -->
+            <div class="absolute z-20 w-36 -right-8 -bottom-8" style="z-index: 21 !important;">
+              <div class="relative w-full h-full wave-daun-1 origin-bottom-right">
                 <img
-                  src="./images/furnitur/wave/top-left-2aa.png"
-                  alt="Daun dan Bunga Kanan Bawah"
+                  src="./images/furnitur/wave/top-left-daun-atas.png"
+                  alt="Daun Kanan Bawah"
+                  class="block w-full h-full rotate-180"
+                />
+              </div>
+            </div>
+            <!-- Bunga -->
+            <div class="absolute z-20 w-36 -right-8 -bottom-8" style="z-index: 22 !important;">
+              <div class="relative w-full h-full wave-bunga origin-bottom-right">
+                <img
+                  src="./images/furnitur/wave/top-left-bunga.png"
+                  alt="Bunga Kanan Bawah"
                   class="block w-full h-full rotate-180"
                 />
               </div>
@@ -161,7 +163,7 @@
                 Kepada Yth. Bapak/Ibu/Saudara/i
               </p>
 
-              <p class="text-xl md:text-2xl font-primary font-semibold mt-1 text-white decoration-heart">
+              <p id="guest-name-landing" class="text-xl md:text-2xl font-primary font-semibold mt-1 text-white decoration-heart">
                 Nama Tamu
               </p>
 
@@ -309,7 +311,7 @@
                   Kepada Yth. Bapak/Ibu/Saudara/i
                 </p>
 
-                <p class="text-2xl font-semibold mt-2">Nama Tamu</p>
+                <p id="guest-name-welcome" class="text-2xl font-semibold mt-2">Nama Tamu</p>
 
                 <p class="mt-8 text-center max-w-md">
                   Dengan segala hormat dan kerendahan hati, kami mengundang Anda
@@ -319,114 +321,164 @@
             </div>
             <div id="wave-bunga">
               <!-- top left -->
-
+              <!-- Daun Bawah -->
               <div
-                class="absolute z-10 w-28 -top-8 -left-5 animate-in-top-left"
-                style="z-index: 10;"
+                class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left"
+                style="z-index: 20 !important;"
               >
-                <div class="relative w-full h-full sway origin-top-left">
+                <div class="relative w-full h-full wave-daun-2 origin-top-left">
                   <img
-                    src="./images/furnitur/wave/top-left.png"
-                    alt="Daun dan Bunga Kiri Atas"
+                    src="./images/furnitur/wave/top-left-daun-bawah.png"
+                    alt="Daun Kiri Atas"
                     class="block w-full h-full"
                   />
                 </div>
               </div>
-
+              <!-- Daun Atas -->
               <div
-                class="absolute z-10 w-28 -top-8 -left-5 animate-in-top-left"
-                style="z-index: 10;"
+                  class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left"
+                style="z-index: 21 !important;"
               >
-                <div class="relative w-full h-full sway-alt origin-top-left">
+                <div class="relative w-full h-full wave-daun-1 origin-top-left">
                   <img
-                    src="./images/furnitur/wave/top-left-2aa.png"
-                    alt="Daun dan Bunga Kiri Atas"
+                    src="./images/furnitur/wave/top-left-daun-atas.png"
+                    alt="Daun Kiri Atas"
+                    class="block w-full h-full"
+                  />
+                </div>
+              </div>
+              <!-- Bunga -->
+              <div
+                class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left"
+                style="z-index: 22 !important;"
+              >
+                <div class="relative w-full h-full wave-bunga origin-top-left">
+                  <img
+                    src="./images/furnitur/wave/top-left-bunga.png"
+                    alt="Bunga Kiri Atas"
                     class="block w-full h-full"
                   />
                 </div>
               </div>
 
               <!-- bottom left -->
-
+              <!-- Daun Bawah -->
               <div
-                class="absolute w-28 -left-5 bottom-8 animate-in-bottom-left"
-                style="z-index: 10 !important;"
+                class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left"
+                style="z-index: 20 !important;"
               >
-                <div class="relative w-full h-full sway origin-bottom-left">
+                <div class="relative w-full h-full wave-daun-2 origin-bottom-left">
                   <img
-                    src="./images/furnitur/wave/top-left.png"
-                    alt="Daun dan Bunga Kiri Bawah"
+                    src="./images/furnitur/wave/top-left-daun-bawah.png"
+                    alt="Daun Kiri Bawah"
                     class="block w-full h-full rotate-180 -scale-x-100"
                   />
                 </div>
               </div>
-
+              <!-- Daun Atas -->
               <div
-                class="absolute w-28 -left-5 bottom-8 animate-in-bottom-left"
-                style="z-index: 10 !important;"
+                class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left"
+                style="z-index: 21 !important;"
               >
-                <div class="relative w-full h-full sway-alt origin-bottom-left">
+                <div class="relative w-full h-full wave-daun-1 origin-bottom-left">
                   <img
-                    src="./images/furnitur/wave/top-left-2aa.png"
-                    alt="Daun dan Bunga Kiri Bawah"
+                    src="./images/furnitur/wave/top-left-daun-atas.png"
+                    alt="Daun Kiri Bawah"
+                    class="block w-full h-full rotate-180 -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bunga -->
+              <div
+                class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left"
+                style="z-index: 22 !important;"
+              >
+                <div class="relative w-full h-full wave-bunga origin-bottom-left">
+                  <img
+                    src="./images/furnitur/wave/top-left-bunga.png"
+                    alt="Bunga Kiri Bawah"
                     class="block w-full h-full rotate-180 -scale-x-100"
                   />
                 </div>
               </div>
 
               <!-- top right -->
-
+              <!-- Daun Bawah -->
               <div
-                class="absolute z-10 w-28 -top-8 -right-5 animate-in-top-right"
-                style="z-index: 10;"
+                class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right"
+                style="z-index: 20 !important;"
               >
-                <div class="relative w-full h-full sway origin-top-right">
+                <div class="relative w-full h-full wave-daun-2 origin-top-right">
                   <img
-                    src="./images/furnitur/wave/top-left.png"
-                    alt="Daun dan Bunga Kanan Atas"
+                    src="./images/furnitur/wave/top-left-daun-bawah.png"
+                    alt="Daun Kanan Atas"
                     class="block w-full h-full -scale-x-100"
                   />
                 </div>
               </div>
-
+              <!-- Daun Atas -->
               <div
-                class="absolute z-10 w-28 -top-8 -right-5 animate-in-top-right"
-                style="z-index: 10;"
+                class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right"
+                style="z-index: 21 !important;"
               >
-                <div class="relative w-full h-full sway-alt origin-top-right">
+                <div class="relative w-full h-full wave-daun-1 origin-top-right">
                   <img
-                    src="./images/furnitur/wave/top-left-2aa.png"
-                    alt="Daun dan Bunga Kanan Atas"
+                    src="./images/furnitur/wave/top-left-daun-atas.png"
+                    alt="Daun Kanan Atas"
+                    class="block w-full h-full -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bunga -->
+              <div
+                class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right"
+                style="z-index: 22 !important;"
+              >
+                <div class="relative w-full h-full wave-bunga origin-top-right">
+                  <img
+                    src="./images/furnitur/wave/top-left-bunga.png"
+                    alt="Bunga Kanan Atas"
                     class="block w-full h-full -scale-x-100"
                   />
                 </div>
               </div>
 
               <!-- bottom right -->
-
+              <!-- Daun Bawah -->
               <div
-                class="absolute w-28 -right-5 bottom-8 animate-in-bottom-right"
-                style="z-index: 10 !important;"
+                class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right"
+                style="z-index: 20 !important;"
               >
-                <div class="relative w-full h-full sway origin-bottom-right">
+                <div class="relative w-full h-full wave-daun-2 origin-bottom-right">
                   <img
-                    src="./images/furnitur/wave/top-left.png"
-                    alt="Daun dan Bunga Kanan Bawah"
+                    src="./images/furnitur/wave/top-left-daun-bawah.png"
+                    alt="Daun Kanan Bawah"
                     class="block w-full h-full rotate-180"
                   />
                 </div>
               </div>
-
+              <!-- Daun Atas -->
               <div
-                class="absolute w-28 -right-5 bottom-8 animate-in-bottom-right"
-                style="z-index: 10 !important;"
+                class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right"
+                style="z-index: 21 !important;"
               >
-                <div
-                  class="relative w-full h-full sway-alt origin-bottom-right"
-                >
+                <div class="relative w-full h-full wave-daun-1 origin-bottom-right">
                   <img
-                    src="./images/furnitur/wave/top-left-2aa.png"
-                    alt="Daun dan Bunga Kanan Bawah"
+                    src="./images/furnitur/wave/top-left-daun-atas.png"
+                    alt="Daun Kanan Bawah"
+                    class="block w-full h-full rotate-180"
+                  />
+                </div>
+              </div>
+              <!-- Bunga -->
+              <div
+                class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right"
+                style="z-index: 22 !important;"
+              >
+                <div class="relative w-full h-full wave-bunga origin-bottom-right">
+                  <img
+                    src="./images/furnitur/wave/top-left-bunga.png"
+                    alt="Bunga Kanan Bawah"
                     class="block w-full h-full rotate-180"
                   />
                 </div>
@@ -438,10 +490,18 @@
           <section
             id="doa-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
           >
-            <!-- Overlay untuk readability -->
-            <div class="absolute inset-0 bg-black/30"></div>
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
             
             <div class="text-center text-white max-w-3xl mx-auto relative z-10 animate-fade-in-up">
               <!-- Icon dekoratif -->
@@ -476,10 +536,19 @@
           <section
             id="mempelai-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center px-4 py-8 relative overflow-hidden"
-            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
           >
-            <!-- Overlay untuk readability -->
-            <div class="absolute inset-0 bg-white/20"></div>
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
             <div
               class="shadow bg-white/80 p-8 rounded-2xl border-slate-500 backdrop-blur-sm relative z-10"
             >
@@ -537,10 +606,19 @@
           <section
             id="waktu-lokasi-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 gap-y-8 relative"
-            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
           >
-            <!-- Overlay untuk readability -->
-            <div class="absolute inset-0 bg-white/40"></div>
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
             <div class="w-full flex items-center justify-center relative z-10">
               <div
                 class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm"
@@ -683,10 +761,19 @@
           <section
             id="kisah-cinta-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
           >
-            <!-- Overlay untuk readability -->
-            <div class="absolute inset-0 bg-white/30"></div>
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
             <div
               class="flex w-full flex-col items-start bg-white/95 py-8 px-4 rounded-2xl backdrop-blur-sm relative z-10 shadow-lg"
             >
@@ -792,10 +879,19 @@
           <section
             id="galeri-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
           >
-            <!-- Overlay untuk readability -->
-            <div class="absolute inset-0 bg-white/30"></div>
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
             <div class="bg-white/95 p-4 rounded-2xl text-center backdrop-blur-sm relative z-10 shadow-lg">
               <h2 class="text-3xl md:text-4xl font-secondary mb-8">Our Moment</h2>
 
@@ -898,10 +994,18 @@
           <section
             id="gift-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
           >
-            <!-- Overlay untuk readability -->
-            <div class="absolute inset-0 bg-white/40"></div>
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
             
             <div
               class="bg-white/90 backdrop-blur-sm px-6 py-10 rounded-3xl shadow-2xl w-full max-w-2xl flex flex-col items-center relative z-10 elegant-border animate-fade-in-up"
@@ -1048,10 +1152,19 @@
           <section
             id="pesan-section"
             class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
           >
-            <!-- Overlay untuk readability -->
-            <div class="absolute inset-0 bg-white/50"></div>
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
             <div
               class="bg-white/90 px-3 py-8 rounded-2xl shadow-lg w-full max-w-3xl flex justify-center items-center flex-col backdrop-blur-sm relative z-10"
             >
@@ -1152,10 +1265,19 @@
           <section
             id="terimakasih-section"
             class="min-h-[80vh] flex flex-col justify-center items-center py-16 px-4 relative"
-            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
           >
-            <!-- Overlay untuk readability -->
-            <div class="absolute inset-0 bg-white/50"></div>
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
             <div
               class="bg-white/90 px-8 py-12 rounded-2xl shadow-lg flex flex-col items-center max-w-xl w-full backdrop-blur-sm relative z-10"
             >
@@ -1333,7 +1455,7 @@
 
         <div
           id="music-controls"
-          class="fixed bottom-16 right-0.5 z-20 opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out"
+          class="fixed bottom-16 right-0.5 z-[100] opacity-0 pointer-events-none transition-all duration-500 ease-in-out translate-x-full"
         >
           <button
             id="music-toggle-btn"
@@ -1350,20 +1472,19 @@
     <script src="./js/aos.js"></script>
 
     <script>
-      AOS.init({
-        duration: 2000, // Durasi animasi dalam milidetik
-        // once: true, // Hanya jalankan animasi sekali
-        offset: 150, // Jarak dari viewport untuk memicu animasi
-        easing: "ease-in-out", // Jenis easing untuk animasi
-      });
-      // Refresh AOS saat scroll pada container custom
-      document
-        .querySelectorAll(".overflow-y-auto")
-        .forEach(function (container) {
-          container.addEventListener("scroll", function () {
-            AOS.refresh();
+      // AOS akan diinisialisasi setelah preloader selesai (lihat event listener di script.js)
+      // Refresh AOS saat scroll pada container custom (setelah preloader selesai)
+      window.addEventListener('preloaderComplete', () => {
+        document
+          .querySelectorAll(".overflow-y-auto")
+          .forEach(function (container) {
+            container.addEventListener("scroll", function () {
+              if (typeof AOS !== "undefined") {
+                AOS.refresh();
+              }
+            });
           });
-        });
+      }, { once: true });
     </script>
 
     <script src="./js/script.js"></script>
@@ -1431,6 +1552,281 @@
           window.open(googleCalendarUrl, '_blank');
         });
       }
+    </script>
+
+    <!-- Preloader Script -->
+    <script>
+      (function() {
+        const preloader = document.getElementById('preloader');
+        const progressBar = document.getElementById('preloader-progress');
+        
+        if (!preloader || !progressBar) return;
+
+        let loadedResources = 0;
+        let totalResources = 0;
+        let imagesLoaded = 0;
+        let totalImages = 0;
+        let fontsLoaded = false;
+        let scriptsLoaded = false;
+        let stylesheetsLoaded = false;
+        let simulatedProgress = 0;
+        let progressInterval = null;
+        let minProgressTime = 1500; // Minimum 1.5 detik untuk progress
+        let startTime = Date.now();
+
+        // Prevent animations from starting
+        document.body.classList.add('preloader-active');
+
+        // Fungsi untuk update progress dengan simulasi yang lebih smooth
+        function updateProgress() {
+          const actualProgress = totalResources > 0 ? (loadedResources / totalResources) * 100 : 0;
+          
+          // Simulasi progress yang lebih cepat (70% dari actual, 30% simulated untuk smoothness)
+          const targetProgress = Math.min(actualProgress * 0.7 + simulatedProgress * 0.3, 100);
+          progressBar.style.width = targetProgress + '%';
+        }
+
+        // Simulasi progress untuk membuat progress lebih smooth dan tidak terlalu lama
+        function startProgressSimulation() {
+          if (progressInterval) return;
+          
+          progressInterval = setInterval(() => {
+            const elapsed = Date.now() - startTime;
+            
+            // Jika sudah lebih dari minProgressTime, percepat progress
+            if (elapsed > minProgressTime) {
+              simulatedProgress = Math.min(simulatedProgress + 2, 95); // Max 95% untuk simulated
+            } else {
+              simulatedProgress = Math.min(simulatedProgress + 1, 80); // Max 80% sebelum minProgressTime
+            }
+            
+            updateProgress();
+            
+            // Stop simulation jika sudah mencapai target
+            if (simulatedProgress >= 95 && loadedResources >= totalResources) {
+              clearInterval(progressInterval);
+              progressInterval = null;
+            }
+          }, 100); // Update setiap 100ms
+        }
+
+        // Fungsi untuk check apakah semua sudah loaded
+        function checkComplete() {
+          if (loadedResources >= totalResources) {
+            // Pastikan progress mencapai 100%
+            simulatedProgress = 100;
+            updateProgress();
+            
+            // Stop progress simulation
+            if (progressInterval) {
+              clearInterval(progressInterval);
+              progressInterval = null;
+            }
+            
+            // Tambahkan sedikit delay untuk smooth transition
+            setTimeout(() => {
+              hidePreloader();
+            }, 300);
+          }
+        }
+
+        // Fungsi untuk menghitung semua resources
+        function countResources() {
+          // Count images (hanya yang penting, skip lazy load images)
+          const images = document.querySelectorAll('img:not([loading="lazy"])');
+          totalImages = Math.min(images.length, 20); // Limit untuk tidak terlalu lama
+          
+          // Count stylesheets (hanya yang penting)
+          const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
+          const totalStylesheets = Math.min(stylesheets.length, 5); // Limit stylesheets
+          
+          // Count scripts (external, hanya yang penting)
+          const scripts = document.querySelectorAll('script[src]');
+          const totalScripts = Math.min(scripts.length, 10); // Limit scripts
+          
+          // Total resources: images + fonts + stylesheets + scripts + 1 (for DOM ready)
+          totalResources = totalImages + totalStylesheets + totalScripts + 2; // +2 for fonts and DOM
+          
+          // Start progress simulation
+          startProgressSimulation();
+          
+          if (totalResources === 0) {
+            totalResources = 1;
+            loadedResources = 1;
+            simulatedProgress = 100;
+            updateProgress();
+            setTimeout(() => hidePreloader(), 500);
+            return;
+          }
+
+          // Load images
+          if (totalImages > 0) {
+            images.forEach((img) => {
+              if (img.complete && img.naturalWidth !== 0) {
+                imagesLoaded++;
+                loadedResources++;
+                updateProgress();
+                checkComplete();
+              } else {
+                img.addEventListener('load', () => {
+                  imagesLoaded++;
+                  loadedResources++;
+                  updateProgress();
+                  checkComplete();
+                }, { once: true });
+                
+                img.addEventListener('error', () => {
+                  imagesLoaded++;
+                  loadedResources++;
+                  updateProgress();
+                  checkComplete();
+                }, { once: true });
+              }
+            });
+          } else {
+            loadedResources++;
+            updateProgress();
+          }
+
+          // Check stylesheets loaded
+          if (totalStylesheets > 0) {
+            let stylesheetsLoadedCount = 0;
+            stylesheets.forEach((link) => {
+              if (link.sheet) {
+                stylesheetsLoadedCount++;
+                loadedResources++;
+                updateProgress();
+                checkComplete();
+              } else {
+                link.addEventListener('load', () => {
+                  stylesheetsLoadedCount++;
+                  loadedResources++;
+                  updateProgress();
+                  checkComplete();
+                }, { once: true });
+                
+                link.addEventListener('error', () => {
+                  stylesheetsLoadedCount++;
+                  loadedResources++;
+                  updateProgress();
+                  checkComplete();
+                }, { once: true });
+              }
+            });
+          } else {
+            loadedResources++;
+            updateProgress();
+          }
+
+          // Check scripts loaded
+          if (totalScripts > 0) {
+            let scriptsLoadedCount = 0;
+            scripts.forEach((script) => {
+              if (script.readyState === 'complete' || script.readyState === 'loaded') {
+                scriptsLoadedCount++;
+                loadedResources++;
+                updateProgress();
+                checkComplete();
+              } else {
+                script.addEventListener('load', () => {
+                  scriptsLoadedCount++;
+                  loadedResources++;
+                  updateProgress();
+                  checkComplete();
+                }, { once: true });
+                
+                script.addEventListener('error', () => {
+                  scriptsLoadedCount++;
+                  loadedResources++;
+                  updateProgress();
+                  checkComplete();
+                }, { once: true });
+              }
+            });
+          } else {
+            loadedResources++;
+            updateProgress();
+          }
+
+          // Check fonts loaded
+          if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(() => {
+              if (!fontsLoaded) {
+                fontsLoaded = true;
+                loadedResources++;
+                updateProgress();
+                checkComplete();
+              }
+            });
+          } else {
+            // Fallback jika fonts API tidak tersedia
+            setTimeout(() => {
+              if (!fontsLoaded) {
+                fontsLoaded = true;
+                loadedResources++;
+                updateProgress();
+                checkComplete();
+              }
+            }, 1000);
+          }
+
+          // DOM ready count
+          if (document.readyState === 'complete') {
+            loadedResources++;
+            updateProgress();
+            checkComplete();
+          } else {
+            window.addEventListener('load', () => {
+              loadedResources++;
+              updateProgress();
+              checkComplete();
+            }, { once: true });
+          }
+        }
+
+        // Fungsi untuk menyembunyikan preloader
+        function hidePreloader() {
+          preloader.style.opacity = '0';
+          preloader.style.pointerEvents = 'none';
+          
+          setTimeout(() => {
+            preloader.style.display = 'none';
+            // Remove preloader-active class to allow animations
+            document.body.classList.remove('preloader-active');
+            
+            // Dispatch custom event untuk memberitahu bahwa preloader selesai
+            window.dispatchEvent(new CustomEvent('preloaderComplete'));
+            
+            // Enable body scroll jika diperlukan
+            document.body.style.overflow = '';
+          }, 500);
+        }
+
+        // Start loading process
+        // Tunggu DOM ready
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(countResources, 100);
+          });
+        } else {
+          setTimeout(countResources, 100);
+        }
+
+        // Fallback: sembunyikan preloader setelah maksimal 5 detik (lebih cepat)
+        setTimeout(() => {
+          if (preloader.style.display !== 'none') {
+            // Force complete
+            loadedResources = totalResources || 1;
+            simulatedProgress = 100;
+            updateProgress();
+            if (progressInterval) {
+              clearInterval(progressInterval);
+              progressInterval = null;
+            }
+            hidePreloader();
+          }
+        }, 5000);
+      })();
     </script>
   </body>
 </html>

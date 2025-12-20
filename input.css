@@ -322,6 +322,391 @@
     @apply animate-[sway_2s_ease-in-out_infinite];
   }
 
+  /* ============================================
+     WAVE ANIMATION SYSTEM - Smooth & Natural
+     ============================================ */
+  
+  /* Keyframe untuk bunga - gerakan lambat dan elegan */
+  @keyframes wave-bunga {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-2deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(2deg);
+    }
+  }
+
+  /* Keyframe untuk daun 1 - gerakan sangat halus dan smooth seperti daun asli */
+  @keyframes wave-daun-1 {
+    0%, 100% {
+      transform: rotate(0deg) translateX(0px);
+    }
+    2% {
+      transform: rotate(-0.44deg) translateX(-0.18px);
+    }
+    4% {
+      transform: rotate(-0.88deg) translateX(-0.36px);
+    }
+    6% {
+      transform: rotate(-1.32deg) translateX(-0.54px);
+    }
+    8% {
+      transform: rotate(-1.76deg) translateX(-0.72px);
+    }
+    10% {
+      transform: rotate(-2.2deg) translateX(-0.9px);
+    }
+    12% {
+      transform: rotate(-2.64deg) translateX(-1.08px);
+    }
+    14% {
+      transform: rotate(-3.08deg) translateX(-1.26px);
+    }
+    16% {
+      transform: rotate(-3.52deg) translateX(-1.44px);
+    }
+    18% {
+      transform: rotate(-3.96deg) translateX(-1.62px);
+    }
+    20% {
+      transform: rotate(-4.4deg) translateX(-1.8px);
+    }
+    22% {
+      transform: rotate(-4.84deg) translateX(-1.98px);
+    }
+    24% {
+      transform: rotate(-5.28deg) translateX(-2.16px);
+    }
+    26% {
+      transform: rotate(-5.72deg) translateX(-2.34px);
+    }
+    28% {
+      transform: rotate(-6.16deg) translateX(-2.52px);
+    }
+    30% {
+      transform: rotate(-6.6deg) translateX(-2.7px);
+    }
+    32% {
+      transform: rotate(-7.04deg) translateX(-2.88px);
+    }
+    34% {
+      transform: rotate(-7.48deg) translateX(-3.06px);
+    }
+    36% {
+      transform: rotate(-7.92deg) translateX(-3.24px);
+    }
+    38% {
+      transform: rotate(-8.36deg) translateX(-3.42px);
+    }
+    40% {
+      transform: rotate(-8.8deg) translateX(-3.6px);
+    }
+    42% {
+      transform: rotate(-9.24deg) translateX(-3.78px);
+    }
+    44% {
+      transform: rotate(-9.68deg) translateX(-3.96px);
+    }
+    46% {
+      transform: rotate(-10.12deg) translateX(-4.14px);
+    }
+    47% {
+      transform: rotate(-10.34deg) translateX(-4.23px);
+    }
+    48% {
+      transform: rotate(-10.56deg) translateX(-4.32px);
+    }
+    49% {
+      transform: rotate(-10.78deg) translateX(-4.41px);
+    }
+    50% {
+      transform: rotate(-11deg) translateX(-4.5px);
+    }
+    50.5% {
+      transform: rotate(-10.95deg) translateX(-4.48px);
+    }
+    51% {
+      transform: rotate(-10.89deg) translateX(-4.45px);
+    }
+    51.5% {
+      transform: rotate(-10.78deg) translateX(-4.41px);
+    }
+    52% {
+      transform: rotate(-10.56deg) translateX(-4.32px);
+    }
+    53% {
+      transform: rotate(-10.34deg) translateX(-4.23px);
+    }
+    54% {
+      transform: rotate(-10.12deg) translateX(-4.14px);
+    }
+    56% {
+      transform: rotate(-9.68deg) translateX(-3.96px);
+    }
+    58% {
+      transform: rotate(-9.24deg) translateX(-3.78px);
+    }
+    60% {
+      transform: rotate(-8.8deg) translateX(-3.6px);
+    }
+    62% {
+      transform: rotate(-8.36deg) translateX(-3.42px);
+    }
+    64% {
+      transform: rotate(-7.92deg) translateX(-3.24px);
+    }
+    66% {
+      transform: rotate(-7.48deg) translateX(-3.06px);
+    }
+    68% {
+      transform: rotate(-7.04deg) translateX(-2.88px);
+    }
+    70% {
+      transform: rotate(-6.6deg) translateX(-2.7px);
+    }
+    72% {
+      transform: rotate(-6.16deg) translateX(-2.52px);
+    }
+    74% {
+      transform: rotate(-5.72deg) translateX(-2.34px);
+    }
+    76% {
+      transform: rotate(-5.28deg) translateX(-2.16px);
+    }
+    78% {
+      transform: rotate(-4.84deg) translateX(-1.98px);
+    }
+    80% {
+      transform: rotate(-4.4deg) translateX(-1.8px);
+    }
+    82% {
+      transform: rotate(-3.96deg) translateX(-1.62px);
+    }
+    84% {
+      transform: rotate(-3.52deg) translateX(-1.44px);
+    }
+    86% {
+      transform: rotate(-3.08deg) translateX(-1.26px);
+    }
+    88% {
+      transform: rotate(-2.64deg) translateX(-1.08px);
+    }
+    90% {
+      transform: rotate(-2.2deg) translateX(-0.9px);
+    }
+    92% {
+      transform: rotate(-1.76deg) translateX(-0.72px);
+    }
+    94% {
+      transform: rotate(-1.32deg) translateX(-0.54px);
+    }
+    96% {
+      transform: rotate(-0.88deg) translateX(-0.36px);
+    }
+    98% {
+      transform: rotate(-0.44deg) translateX(-0.18px);
+    }
+  }
+
+  /* Keyframe untuk daun 2 - gerakan halus dengan pola berbeda */
+  @keyframes wave-daun-2 {
+    0%, 100% {
+      transform: rotate(0deg) translateX(0px);
+    }
+    2% {
+      transform: rotate(0.44deg) translateX(0.18px);
+    }
+    4% {
+      transform: rotate(0.88deg) translateX(0.36px);
+    }
+    6% {
+      transform: rotate(1.32deg) translateX(0.54px);
+    }
+    8% {
+      transform: rotate(1.76deg) translateX(0.72px);
+    }
+    10% {
+      transform: rotate(2.2deg) translateX(0.9px);
+    }
+    12% {
+      transform: rotate(2.64deg) translateX(1.08px);
+    }
+    14% {
+      transform: rotate(3.08deg) translateX(1.26px);
+    }
+    16% {
+      transform: rotate(3.52deg) translateX(1.44px);
+    }
+    18% {
+      transform: rotate(3.96deg) translateX(1.62px);
+    }
+    20% {
+      transform: rotate(4.4deg) translateX(1.8px);
+    }
+    22% {
+      transform: rotate(4.84deg) translateX(1.98px);
+    }
+    24% {
+      transform: rotate(5.28deg) translateX(2.16px);
+    }
+    26% {
+      transform: rotate(5.72deg) translateX(2.34px);
+    }
+    28% {
+      transform: rotate(6.16deg) translateX(2.52px);
+    }
+    30% {
+      transform: rotate(6.6deg) translateX(2.7px);
+    }
+    32% {
+      transform: rotate(7.04deg) translateX(2.88px);
+    }
+    34% {
+      transform: rotate(7.48deg) translateX(3.06px);
+    }
+    36% {
+      transform: rotate(7.92deg) translateX(3.24px);
+    }
+    38% {
+      transform: rotate(8.36deg) translateX(3.42px);
+    }
+    40% {
+      transform: rotate(8.8deg) translateX(3.6px);
+    }
+    42% {
+      transform: rotate(9.24deg) translateX(3.78px);
+    }
+    44% {
+      transform: rotate(9.68deg) translateX(3.96px);
+    }
+    46% {
+      transform: rotate(10.12deg) translateX(4.14px);
+    }
+    47% {
+      transform: rotate(10.34deg) translateX(4.23px);
+    }
+    48% {
+      transform: rotate(10.56deg) translateX(4.32px);
+    }
+    49% {
+      transform: rotate(10.78deg) translateX(4.41px);
+    }
+    50% {
+      transform: rotate(11deg) translateX(4.5px);
+    }
+    50.5% {
+      transform: rotate(10.95deg) translateX(4.48px);
+    }
+    51% {
+      transform: rotate(10.89deg) translateX(4.45px);
+    }
+    51.5% {
+      transform: rotate(10.78deg) translateX(4.41px);
+    }
+    52% {
+      transform: rotate(10.56deg) translateX(4.32px);
+    }
+    53% {
+      transform: rotate(10.34deg) translateX(4.23px);
+    }
+    54% {
+      transform: rotate(10.12deg) translateX(4.14px);
+    }
+    56% {
+      transform: rotate(9.68deg) translateX(3.96px);
+    }
+    58% {
+      transform: rotate(9.24deg) translateX(3.78px);
+    }
+    60% {
+      transform: rotate(8.8deg) translateX(3.6px);
+    }
+    62% {
+      transform: rotate(8.36deg) translateX(3.42px);
+    }
+    64% {
+      transform: rotate(7.92deg) translateX(3.24px);
+    }
+    66% {
+      transform: rotate(7.48deg) translateX(3.06px);
+    }
+    68% {
+      transform: rotate(7.04deg) translateX(2.88px);
+    }
+    70% {
+      transform: rotate(6.6deg) translateX(2.7px);
+    }
+    72% {
+      transform: rotate(6.16deg) translateX(2.52px);
+    }
+    74% {
+      transform: rotate(5.72deg) translateX(2.34px);
+    }
+    76% {
+      transform: rotate(5.28deg) translateX(2.16px);
+    }
+    78% {
+      transform: rotate(4.84deg) translateX(1.98px);
+    }
+    80% {
+      transform: rotate(4.4deg) translateX(1.8px);
+    }
+    82% {
+      transform: rotate(3.96deg) translateX(1.62px);
+    }
+    84% {
+      transform: rotate(3.52deg) translateX(1.44px);
+    }
+    86% {
+      transform: rotate(3.08deg) translateX(1.26px);
+    }
+    88% {
+      transform: rotate(2.64deg) translateX(1.08px);
+    }
+    90% {
+      transform: rotate(2.2deg) translateX(0.9px);
+    }
+    92% {
+      transform: rotate(1.76deg) translateX(0.72px);
+    }
+    94% {
+      transform: rotate(1.32deg) translateX(0.54px);
+    }
+    96% {
+      transform: rotate(0.88deg) translateX(0.36px);
+    }
+    98% {
+      transform: rotate(0.44deg) translateX(0.18px);
+    }
+  }
+
+  /* Class utilities untuk wave animations */
+  .wave-bunga {
+    @apply animate-[wave-bunga_5.5s_ease-in-out_infinite];
+    transform-origin: center center;
+    animation-delay: 0s;
+  }
+
+  .wave-daun-1 {
+    animation: wave-daun-1 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    transform-origin: center center;
+    animation-delay: 0s;
+    will-change: transform;
+  }
+
+  .wave-daun-2 {
+    animation: wave-daun-2 5.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    transform-origin: center center;
+    animation-delay: 1.5s;
+    will-change: transform;
+  }
+
   /* Origin points untuk rotasi yang berbeda */
   .origin-top-left {
     transform-origin: top left;
@@ -697,5 +1082,66 @@
   .sparkle::after {
     @apply -bottom-2.5 -right-4;
     animation-delay: 1s;
+  }
+
+  /* Preloader Styles */
+  #preloader {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  #preloader.hidden {
+    display: none !important;
+  }
+
+  /* Prevent animations when preloader is active */
+  body.preloader-active [data-aos],
+  body.preloader-active .animate-in,
+  body.preloader-active .animate-in-top-left,
+  body.preloader-active .animate-in-top-right,
+  body.preloader-active .animate-in-bottom-left,
+  body.preloader-active .animate-in-bottom-right,
+  body.preloader-active [class*="animate-"]:not(#preloader [class*="animate-"]) {
+    animation: none !important;
+    opacity: 0 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Ensure preloader content is always visible */
+  #preloader [class*="animate-"],
+  #preloader p,
+  #preloader i {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+  }
+
+  /* Re-enable animations after preloader */
+  body:not(.preloader-active) [data-aos],
+  body:not(.preloader-active) .animate-in,
+  body:not(.preloader-active) [class*="animate-"] {
+    animation-fill-mode: both;
+  }
+
+  /* Animasi slide dari kanan untuk music controls */
+  @keyframes slide-in-from-right {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .music-controls-visible {
+    animation: slide-in-from-right 0.5s ease-out forwards;
+  }
+
+  .music-controls-hidden {
+    transform: translateX(100%);
+    opacity: 0;
   }
 }

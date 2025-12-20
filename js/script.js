@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Prevent scroll saat landing page aktif
+  // Prevent scroll saat preloader dan landing page aktif
   document.body.style.overflow = "hidden";
   const mainContainer = document.getElementById("main-container");
   if (mainContainer) {
@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const musicControls = document.getElementById("music-controls");
   const musicToggleButton = document.getElementById("music-toggle-btn");
   const musicIcon = document.getElementById("music-icon");
+  
+  // Flag untuk track apakah sudah scroll
+  let hasScrolled = false;
+  let musicControlsShown = false;
 
   // Fungsi untuk memutar musik
   const playMusic = () => {
@@ -161,16 +165,20 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 300);
 
           // Inisialisasi AOS (Animasi saat Scroll) dan refresh posisi
-          if (typeof AOS !== "undefined") {
-            AOS.init({}); // Inisialisasi AOS
-            AOS.refresh(); // Memindai ulang elemen-elemen AOS yang baru terlihat
-          }
+          // AOS akan diinisialisasi setelah preloader selesai (lihat event listener di bawah)
 
-          // Menampilkan kontrol musik dan mulai memutar lagu
-          musicControls.classList.remove("opacity-0");
-          musicControls.classList.remove("pointer-events-none");
-          musicControls.classList.add("opacity-100", "pointer-events-auto");
+          // Mulai memutar lagu
           playMusic();
+          
+          // Tampilkan kontrol musik setelah 5 detik (tanpa animasi slide)
+          setTimeout(() => {
+            if (!hasScrolled && !musicControlsShown) {
+              musicControls.classList.remove("opacity-0", "pointer-events-none", "translate-x-full");
+              musicControls.classList.add("opacity-100", "pointer-events-auto");
+              musicControls.style.transform = "translateX(0)";
+              musicControlsShown = true;
+            }
+          }, 5000);
 
           // Menampilkan navbar setelah halaman utama terbuka
           const mainNavbar = document.getElementById("main-navbar");
@@ -205,6 +213,24 @@ document.addEventListener("DOMContentLoaded", () => {
         pauseMusic();
       }
     });
+  }
+
+  // Logic untuk menampilkan music controls dengan animasi saat scroll
+  const mainContainerForScroll = document.getElementById("main-container");
+  if (mainContainerForScroll && musicControls) {
+    mainContainerForScroll.addEventListener("scroll", () => {
+      if (!hasScrolled) {
+        hasScrolled = true;
+      }
+      
+      // Tampilkan music controls dengan animasi slide dari kanan saat scroll
+      if (!musicControlsShown) {
+        musicControls.classList.remove("opacity-0", "pointer-events-none", "translate-x-full");
+        musicControls.classList.add("opacity-100", "pointer-events-auto", "music-controls-visible");
+        musicControls.style.transform = "translateX(0)";
+        musicControlsShown = true;
+      }
+    }, { passive: true });
   }
 
   // --- Logika Navbar Aktif (DIMULAI DI SINI) ---
@@ -343,23 +369,34 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Logika mengambil nama tamu dari parameter URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const guestNameParam = urlParams.get("to"); // Mengambil nilai dari parameter 'to' (contoh: ?to=Nama%20Tamu)
-  if (guestNameParam) {
-    const guestNameDisplayElements = document.querySelectorAll(
-      "#main-invite-page .text-2xl.font-semibold"
-    );
-    guestNameDisplayElements.forEach((element) => {
-      if (
-        element.textContent.includes("Nama Tamu") ||
-        element.textContent.trim() === ""
-      ) {
-        element.textContent = decodeURIComponent(
-          guestNameParam.replace(/\+/g, " ")
-        ); // Mengganti nama tamu di UI
+  function updateGuestName() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestNameParam = urlParams.get("to"); // Mengambil nilai dari parameter 'to' (contoh: ?to=Nama%20Tamu)
+    
+    if (guestNameParam) {
+      const decodedName = decodeURIComponent(guestNameParam.replace(/\+/g, " "));
+      
+      // Update nama tamu di landing page
+      const guestNameLanding = document.getElementById("guest-name-landing");
+      if (guestNameLanding) {
+        guestNameLanding.textContent = decodedName;
       }
-    });
+      
+      // Update nama tamu di welcome section
+      const guestNameWelcome = document.getElementById("guest-name-welcome");
+      if (guestNameWelcome) {
+        guestNameWelcome.textContent = decodedName;
+      }
+    }
   }
+
+  // Jalankan update nama tamu saat DOM ready
+  updateGuestName();
+  
+  // Jalankan juga setelah preloader selesai (untuk memastikan elemen sudah ada)
+  window.addEventListener('preloaderComplete', () => {
+    updateGuestName();
+  }, { once: true });
 
   // --- GIFT SECTION LOGIC ---
   const giftSection = document.getElementById("gift-section");
@@ -460,4 +497,18 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     });
   }
+
+  // Inisialisasi AOS setelah preloader selesai
+  window.addEventListener('preloaderComplete', () => {
+    // Inisialisasi AOS (Animasi saat Scroll) setelah preloader selesai
+    if (typeof AOS !== "undefined") {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100
+      });
+      AOS.refresh();
+    }
+  }, { once: true });
 });
