@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Prevent scroll saat preloader dan landing page aktif
+  // Prevent scroll saat landing page aktif
   document.body.style.overflow = "hidden";
   const mainContainer = document.getElementById("main-container");
   if (mainContainer) {
@@ -165,7 +165,10 @@ document.addEventListener("DOMContentLoaded", () => {
           }, 300);
 
           // Inisialisasi AOS (Animasi saat Scroll) dan refresh posisi
-          // AOS akan diinisialisasi setelah preloader selesai (lihat event listener di bawah)
+          if (typeof AOS !== "undefined") {
+            AOS.init({}); // Inisialisasi AOS
+            AOS.refresh(); // Memindai ulang elemen-elemen AOS yang baru terlihat
+          }
 
           // Mulai memutar lagu
           playMusic();
@@ -369,34 +372,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Logika mengambil nama tamu dari parameter URL
-  function updateGuestName() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const guestNameParam = urlParams.get("to"); // Mengambil nilai dari parameter 'to' (contoh: ?to=Nama%20Tamu)
-    
-    if (guestNameParam) {
-      const decodedName = decodeURIComponent(guestNameParam.replace(/\+/g, " "));
-      
-      // Update nama tamu di landing page
-      const guestNameLanding = document.getElementById("guest-name-landing");
-      if (guestNameLanding) {
-        guestNameLanding.textContent = decodedName;
+  const urlParams = new URLSearchParams(window.location.search);
+  const guestNameParam = urlParams.get("to"); // Mengambil nilai dari parameter 'to' (contoh: ?to=Nama%20Tamu)
+  if (guestNameParam) {
+    const guestNameDisplayElements = document.querySelectorAll(
+      "#main-invite-page .text-2xl.font-semibold"
+    );
+    guestNameDisplayElements.forEach((element) => {
+      if (
+        element.textContent.includes("Nama Tamu") ||
+        element.textContent.trim() === ""
+      ) {
+        element.textContent = decodeURIComponent(
+          guestNameParam.replace(/\+/g, " ")
+        ); // Mengganti nama tamu di UI
       }
-      
-      // Update nama tamu di welcome section
-      const guestNameWelcome = document.getElementById("guest-name-welcome");
-      if (guestNameWelcome) {
-        guestNameWelcome.textContent = decodedName;
-      }
-    }
+    });
   }
-
-  // Jalankan update nama tamu saat DOM ready
-  updateGuestName();
-  
-  // Jalankan juga setelah preloader selesai (untuk memastikan elemen sudah ada)
-  window.addEventListener('preloaderComplete', () => {
-    updateGuestName();
-  }, { once: true });
 
   // --- GIFT SECTION LOGIC ---
   const giftSection = document.getElementById("gift-section");
@@ -497,18 +489,4 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     });
   }
-
-  // Inisialisasi AOS setelah preloader selesai
-  window.addEventListener('preloaderComplete', () => {
-    // Inisialisasi AOS (Animasi saat Scroll) setelah preloader selesai
-    if (typeof AOS !== "undefined") {
-      AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        offset: 100
-      });
-      AOS.refresh();
-    }
-  }, { once: true });
 });
