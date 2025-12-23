@@ -61,8 +61,8 @@
 @layer base {
   body {
     font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 13px; /* 16px → 13px */
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -75,85 +75,85 @@
   
   p {
     font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.7;
-  }
-  
-  /* Ukuran font yang lebih besar dan mudah dibaca */
-  .text-xs {
-    font-size: 0.875rem; /* 14px */
-    line-height: 1.6;
-  }
-  
-  .text-sm {
-    font-size: 0.9375rem; /* 15px */
+    font-size: 13px; /* 16px → 13px */
     line-height: 1.65;
   }
   
+  /* Ukuran font yang disesuaikan - lebih kecil */
+  .text-xs {
+    font-size: 0.6875rem; /* 11px (dari 14px) */
+    line-height: 1.55;
+  }
+  
+  .text-sm {
+    font-size: 0.75rem; /* 12px (dari 15px) */
+    line-height: 1.6;
+  }
+  
   .text-base {
-    font-size: 1rem; /* 16px */
-    line-height: 1.7;
+    font-size: 0.8125rem; /* 13px (dari 16px) */
+    line-height: 1.65;
   }
   
   .text-lg {
-    font-size: 1.125rem; /* 18px */
-    line-height: 1.75;
-  }
-  
-  .text-xl {
-    font-size: 1.25rem; /* 20px */
+    font-size: 0.875rem; /* 14px (dari 18px) */
     line-height: 1.7;
   }
   
+  .text-xl {
+    font-size: 1rem; /* 16px (dari 20px) */
+    line-height: 1.65;
+  }
+  
   .text-2xl {
-    font-size: 1.5rem; /* 24px */
+    font-size: 1.25rem; /* 20px (dari 24px) */
     line-height: 1.5;
   }
   
   .text-3xl {
-    font-size: 1.875rem; /* 30px */
+    font-size: 1.5rem; /* 24px (dari 30px) */
     line-height: 1.4;
   }
   
   .text-4xl {
-    font-size: 2.25rem; /* 36px */
+    font-size: 1.75rem; /* 28px (dari 36px) */
     line-height: 1.3;
   }
   
   .text-5xl {
-    font-size: 3rem; /* 48px */
+    font-size: 2.375rem; /* 38px (dari 48px) */
     line-height: 1.2;
   }
   
   .text-6xl {
-    font-size: 3.75rem; /* 60px */
+    font-size: 3rem; /* 48px (dari 60px) */
     line-height: 1.1;
   }
   
   /* Responsive font sizes untuk mobile */
   @media (max-width: 768px) {
     body {
-      font-size: 15px;
+      font-size: 12px; /* 15px → 12px */
     }
     
     .text-2xl {
-      font-size: 1.375rem; /* 22px */
+      font-size: 1.125rem; /* 18px (dari 22px) */
     }
     
     .text-3xl {
-      font-size: 1.625rem; /* 26px */
+      font-size: 1.375rem; /* 22px (dari 26px) */
     }
     
     .text-4xl {
-      font-size: 1.875rem; /* 30px */
+      font-size: 1.625rem; /* 26px (dari 30px) */
     }
     
     .text-5xl {
-      font-size: 2.25rem; /* 36px */
+      font-size: 2rem; /* 32px (dari 36px) */
     }
     
     .text-6xl {
-      font-size: 2.75rem; /* 44px */
+      font-size: 2.5rem; /* 40px (dari 44px) */
     }
   }
 }
