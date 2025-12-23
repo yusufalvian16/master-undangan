@@ -201,6 +201,15 @@ document.addEventListener("DOMContentLoaded", () => {
             addActiveClass("welcome-section"); // Default ke welcome-section
             history.replaceState(null, "", "#welcome-section");
           }
+          
+          // Pastikan gift button listener terpasang setelah halaman utama terbuka
+          setTimeout(() => {
+            attachDirectGiftButtonListener();
+          }, 500);
+          
+          setTimeout(() => {
+            attachDirectGiftButtonListener();
+          }, 1500);
         },
         { once: true }
       );
@@ -391,14 +400,98 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- GIFT SECTION LOGIC ---
-  const giftSection = document.getElementById("gift-section");
-  const giftBlurOverlay = document.getElementById("gift-blur-overlay");
-  const openGiftBtn = document.getElementById("open-gift-btn");
-  if (openGiftBtn && giftBlurOverlay) {
-    openGiftBtn.onclick = function () {
-      giftBlurOverlay.style.display = "none";
-    };
+  // Fungsi untuk toggle gift content
+  function toggleGiftContent() {
+    const openGiftBtn = document.getElementById("open-gift-btn");
+    const giftContent = document.getElementById("gift-content");
+    
+    if (!openGiftBtn || !giftContent) {
+      return;
+    }
+    
+    // Cek status saat ini berdasarkan opacity
+    const currentOpacity = giftContent.style.opacity || window.getComputedStyle(giftContent).opacity;
+    const isCurrentlyOpen = currentOpacity === "1" || parseFloat(currentOpacity) > 0.5;
+    
+    if (!isCurrentlyOpen) {
+      // Tampilkan konten dengan animasi expand
+      giftContent.style.maxHeight = "none";
+      const height = giftContent.scrollHeight;
+      giftContent.style.maxHeight = "0";
+      // Trigger reflow
+      void giftContent.offsetHeight;
+      // Animate to full height
+      giftContent.style.maxHeight = height + "px";
+      giftContent.style.opacity = "1";
+      
+      // Ubah tombol menjadi "Close"
+      openGiftBtn.innerHTML = '<i class="bi bi-x-circle mr-2"></i>Close';
+    } else {
+      // Sembunyikan konten dengan animasi collapse
+      const currentHeight = giftContent.scrollHeight;
+      giftContent.style.maxHeight = currentHeight + "px";
+      // Trigger reflow
+      void giftContent.offsetHeight;
+      giftContent.style.maxHeight = "0";
+      giftContent.style.opacity = "0";
+      
+      // Ubah tombol menjadi "Open"
+      openGiftBtn.innerHTML = '<i class="bi bi-gift mr-2"></i>Open';
+    }
   }
+  
+  // Event listener untuk tombol Open - menggunakan event delegation
+  document.addEventListener('click', function(e) {
+    const clickedElement = e.target;
+    let targetButton = null;
+    
+    // Cek apakah yang diklik adalah tombol open-gift-btn atau child element-nya
+    if (clickedElement && clickedElement.id === 'open-gift-btn') {
+      targetButton = clickedElement;
+    } else if (clickedElement && clickedElement.closest) {
+      targetButton = clickedElement.closest('#open-gift-btn');
+    }
+    
+    if (targetButton) {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleGiftContent();
+    }
+  }, true);
+  
+  // Juga pasang event listener langsung pada button setelah elemen tersedia
+  function attachDirectGiftButtonListener() {
+    const openGiftBtn = document.getElementById("open-gift-btn");
+    if (openGiftBtn) {
+      // Hapus event listener lama dengan clone element
+      const newBtn = openGiftBtn.cloneNode(true);
+      openGiftBtn.parentNode.replaceChild(newBtn, openGiftBtn);
+      
+      // Pasang event listener baru
+      newBtn.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleGiftContent();
+      };
+      
+      newBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleGiftContent();
+      }, { once: false, capture: false });
+      
+      // Pastikan z-index dan pointer-events
+      newBtn.style.zIndex = '30';
+      newBtn.style.position = 'relative';
+      newBtn.style.pointerEvents = 'auto';
+      newBtn.style.cursor = 'pointer';
+    }
+  }
+  
+  // Coba pasang event listener saat DOM ready
+  attachDirectGiftButtonListener();
+  
+  const giftSection = document.getElementById("gift-section");
 
   // Fungsi untuk membuka blur nomor rekening
   function revealRekening(rekeningId, btnId) {
