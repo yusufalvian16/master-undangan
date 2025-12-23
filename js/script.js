@@ -582,4 +582,408 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     });
   }
+
+  // --- GALLERY LIGHTBOX FUNCTIONALITY ---
+  let galleryImages = [];
+  let currentImageIndex = 0;
+  let isZoomed = false;
+  let currentScale = 1;
+  let initialDistance = 0;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+  const minSwipeDistance = 50;
+
+  // Initialize gallery lightbox
+  function initGalleryLightbox() {
+    const gallerySection = document.getElementById("galeri-section");
+    if (!gallerySection) return;
+
+    // Collect all gallery images
+    const images = gallerySection.querySelectorAll(".gallery-image");
+    galleryImages = Array.from(images).map((img) => ({
+      src: img.src,
+      alt: img.alt,
+      index: parseInt(img.getAttribute("data-gallery-index")) || 0,
+    }));
+
+    // Sort by index to ensure correct order
+    galleryImages.sort((a, b) => a.index - b.index);
+
+    // Add click event listeners to images
+    images.forEach((img) => {
+      img.style.cursor = "pointer";
+      img.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const index = parseInt(this.getAttribute("data-gallery-index")) || 0;
+        openLightbox(index);
+      });
+    });
+
+    // Also add click listener to parent divs
+    const imageContainers = gallerySection.querySelectorAll(
+      '[data-gallery-index]'
+    );
+    imageContainers.forEach((container) => {
+      container.addEventListener("click", function (e) {
+        if (e.target.tagName !== "IMG") {
+          const index = parseInt(this.getAttribute("data-gallery-index")) || 0;
+          openLightbox(index);
+        }
+      });
+    });
+
+    // Initialize lightbox controls
+    setupLightboxControls();
+  }
+
+  // Setup lightbox controls (buttons, keyboard, swipe)
+  function setupLightboxControls() {
+    const lightbox = document.getElementById("gallery-lightbox");
+    const closeBtn = document.getElementById("lightbox-close");
+    const prevBtn = document.getElementById("lightbox-prev");
+    const nextBtn = document.getElementById("lightbox-next");
+    const overlay = lightbox?.querySelector(".lightbox-overlay");
+    const imageWrapper = lightbox?.querySelector(".lightbox-image-wrapper");
+    const image = document.getElementById("lightbox-image");
+
+    if (!lightbox || !image) return;
+
+    // Close button
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeLightbox);
+    }
+
+    // Overlay click to close
+    if (overlay) {
+      overlay.addEventListener("click", function (e) {
+        // Only close if clicking directly on overlay
+        if (e.target === overlay) {
+          closeLightbox();
+        }
+      });
+    }
+
+    // Prevent lightbox container clicks from closing lightbox
+    const lightboxContainer = lightbox.querySelector(".lightbox-container");
+    if (lightboxContainer) {
+      lightboxContainer.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+    }
+
+    // Prev/Next buttons
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        navigateGallery("prev");
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        navigateGallery("next");
+      });
+    }
+
+    // Keyboard navigation
+    document.addEventListener("keydown", function (e) {
+      if (lightbox && !lightbox.classList.contains("hidden")) {
+        if (e.key === "Escape") {
+          closeLightbox();
+        } else if (e.key === "ArrowLeft") {
+          navigateGallery("prev");
+        } else if (e.key === "ArrowRight") {
+          navigateGallery("next");
+        }
+      }
+    });
+
+    // Swipe gesture handling
+    if (imageWrapper) {
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchEndX = 0;
+      let touchEndY = 0;
+      let isDragging = false;
+
+      imageWrapper.addEventListener("touchstart", function (e) {
+        if (e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+          isDragging = false;
+        } else if (e.touches.length === 2) {
+          // Pinch zoom
+          e.preventDefault();
+          const touch1 = e.touches[0];
+          const touch2 = e.touches[1];
+          initialDistance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+          );
+        }
+      });
+
+      imageWrapper.addEventListener("touchmove", function (e) {
+        if (e.touches.length === 1 && !isZoomed) {
+          // Single touch - swipe
+          isDragging = true;
+        } else if (e.touches.length === 2) {
+          // Pinch zoom
+          e.preventDefault();
+          const touch1 = e.touches[0];
+          const touch2 = e.touches[1];
+          const currentDistance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+          );
+
+          if (initialDistance > 0) {
+            const scale = currentDistance / initialDistance;
+            currentScale = Math.max(1, Math.min(scale, 3)); // Limit zoom between 1x and 3x
+            if (image) {
+              image.style.transform = `scale(${currentScale})`;
+              isZoomed = currentScale > 1;
+            }
+          }
+        }
+      });
+
+      imageWrapper.addEventListener("touchend", function (e) {
+        if (e.touches.length === 0 && !isDragging) {
+          // Reset zoom on double tap or after pinch
+          if (isZoomed) {
+            setTimeout(() => {
+              if (image) {
+                image.style.transform = "scale(1)";
+                currentScale = 1;
+                isZoomed = false;
+              }
+            }, 300);
+          }
+        }
+
+        if (isDragging && e.changedTouches.length === 1) {
+          touchEndX = e.changedTouches[0].clientX;
+          touchEndY = e.changedTouches[0].clientY;
+          handleSwipe();
+        }
+
+        initialDistance = 0;
+        isDragging = false;
+      });
+
+      // Mouse drag for desktop (optional)
+      let mouseDown = false;
+      let mouseStartX = 0;
+
+      imageWrapper.addEventListener("mousedown", function (e) {
+        if (!isZoomed) {
+          mouseDown = true;
+          mouseStartX = e.clientX;
+        }
+      });
+
+      imageWrapper.addEventListener("mousemove", function (e) {
+        if (mouseDown && !isZoomed) {
+          // Could implement drag here if needed
+        }
+      });
+
+      imageWrapper.addEventListener("mouseup", function (e) {
+        if (mouseDown) {
+          const mouseEndX = e.clientX;
+          const diff = mouseStartX - mouseEndX;
+          if (Math.abs(diff) > minSwipeDistance) {
+            if (diff > 0) {
+              navigateGallery("next");
+            } else {
+              navigateGallery("prev");
+            }
+          }
+          mouseDown = false;
+        }
+      });
+
+      // Double click to zoom on desktop
+      if (image) {
+        image.addEventListener("dblclick", function () {
+          if (currentScale === 1) {
+            currentScale = 2;
+            isZoomed = true;
+          } else {
+            currentScale = 1;
+            isZoomed = false;
+          }
+          image.style.transform = `scale(${currentScale})`;
+          image.style.transition = "transform 0.3s ease";
+        });
+      }
+    }
+  }
+
+  // Handle swipe gesture
+  function handleSwipe() {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+    const absDeltaX = Math.abs(deltaX);
+    const absDeltaY = Math.abs(deltaY);
+
+    // Check if it's a horizontal swipe
+    if (absDeltaX > absDeltaY && absDeltaX > minSwipeDistance && !isZoomed) {
+      if (deltaX > 0) {
+        // Swipe right - previous image
+        navigateGallery("prev");
+      } else {
+        // Swipe left - next image
+        navigateGallery("next");
+      }
+    }
+  }
+
+  // Open lightbox with specific image
+  function openLightbox(index) {
+    if (galleryImages.length === 0) {
+      initGalleryLightbox();
+    }
+
+    const lightbox = document.getElementById("gallery-lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const counterText = document.getElementById("lightbox-counter-text");
+    const mainNavbar = document.getElementById("main-navbar");
+
+    if (!lightbox || !lightboxImage) return;
+
+    // Validate index
+    if (index < 0 || index >= galleryImages.length) {
+      index = 0;
+    }
+
+    currentImageIndex = index;
+    const currentImage = galleryImages[currentImageIndex];
+
+    // Set image source
+    lightboxImage.src = currentImage.src;
+    lightboxImage.alt = currentImage.alt;
+
+    // Reset zoom
+    currentScale = 1;
+    isZoomed = false;
+    lightboxImage.style.transform = "scale(1)";
+    lightboxImage.style.transition = "transform 0.3s ease";
+
+    // Update counter
+    if (counterText) {
+      counterText.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+    }
+
+    // Hide navbar when lightbox opens
+    if (mainNavbar) {
+      mainNavbar.style.display = "none";
+    }
+
+    // Show lightbox
+    lightbox.classList.remove("hidden");
+    document.body.style.overflow = "hidden"; // Prevent body scroll
+
+    // Add fade-in animation
+    setTimeout(() => {
+      lightboxImage.classList.add("fade-in");
+    }, 10);
+  }
+
+  // Close lightbox
+  function closeLightbox() {
+    const lightbox = document.getElementById("gallery-lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const mainNavbar = document.getElementById("main-navbar");
+
+    if (!lightbox) return;
+
+    // Hide lightbox
+    lightbox.classList.add("hidden");
+    document.body.style.overflow = ""; // Restore body scroll
+
+    // Show navbar again when lightbox closes
+    if (mainNavbar && mainInvitePage && mainInvitePage.style.display !== "none") {
+      mainNavbar.style.display = "block";
+    }
+
+    // Reset zoom
+    currentScale = 1;
+    isZoomed = false;
+    if (lightboxImage) {
+      lightboxImage.style.transform = "scale(1)";
+      lightboxImage.classList.remove("fade-in");
+    }
+  }
+
+  // Navigate gallery (prev/next)
+  function navigateGallery(direction) {
+    if (galleryImages.length === 0) return;
+
+    let newIndex = currentImageIndex;
+
+    if (direction === "prev") {
+      newIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+    } else if (direction === "next") {
+      newIndex = (currentImageIndex + 1) % galleryImages.length;
+    }
+
+    // Preload next image for smooth transition
+    const nextImage = new Image();
+    nextImage.src = galleryImages[newIndex].src;
+
+    // Update image with fade transition
+    const lightboxImage = document.getElementById("lightbox-image");
+    const counterText = document.getElementById("lightbox-counter-text");
+
+    if (lightboxImage) {
+      lightboxImage.style.opacity = "0";
+      setTimeout(() => {
+        currentImageIndex = newIndex;
+        const currentImage = galleryImages[currentImageIndex];
+        lightboxImage.src = currentImage.src;
+        lightboxImage.alt = currentImage.alt;
+
+        // Reset zoom when changing images
+        currentScale = 1;
+        isZoomed = false;
+        lightboxImage.style.transform = "scale(1)";
+
+        // Update counter
+        if (counterText) {
+          counterText.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+
+        lightboxImage.style.opacity = "1";
+      }, 150);
+    }
+  }
+
+  // Initialize gallery lightbox when DOM is ready
+  initGalleryLightbox();
+
+  // Re-initialize after main invite page is shown (in case images load dynamically)
+  if (mainInvitePage) {
+    const observer = new MutationObserver(function (mutations) {
+      if (
+        mainInvitePage.style.display !== "none" &&
+        galleryImages.length === 0
+      ) {
+        setTimeout(() => {
+          initGalleryLightbox();
+        }, 500);
+      }
+    });
+
+    observer.observe(mainInvitePage, {
+      attributes: true,
+      attributeFilter: ["style"],
+    });
+  }
+
 });
