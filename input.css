@@ -61,8 +61,8 @@
 @layer base {
   body {
     font-family: var(--font-body);
-    font-size: 13px; /* 16px → 13px */
-    line-height: 1.65;
+    font-size: 16px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -75,85 +75,85 @@
   
   p {
     font-family: var(--font-body);
-    font-size: 13px; /* 16px → 13px */
-    line-height: 1.65;
-  }
-  
-  /* Ukuran font yang disesuaikan - lebih kecil */
-  .text-xs {
-    font-size: 0.6875rem; /* 11px (dari 14px) */
-    line-height: 1.55;
-  }
-  
-  .text-sm {
-    font-size: 0.75rem; /* 12px (dari 15px) */
-    line-height: 1.6;
-  }
-  
-  .text-base {
-    font-size: 0.8125rem; /* 13px (dari 16px) */
-    line-height: 1.65;
-  }
-  
-  .text-lg {
-    font-size: 0.875rem; /* 14px (dari 18px) */
+    font-size: 16px;
     line-height: 1.7;
   }
   
-  .text-xl {
-    font-size: 1rem; /* 16px (dari 20px) */
+  /* Ukuran font yang lebih besar dan mudah dibaca */
+  .text-xs {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.6;
+  }
+  
+  .text-sm {
+    font-size: 0.9375rem; /* 15px */
     line-height: 1.65;
   }
   
+  .text-base {
+    font-size: 1rem; /* 16px */
+    line-height: 1.7;
+  }
+  
+  .text-lg {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75;
+  }
+  
+  .text-xl {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.7;
+  }
+  
   .text-2xl {
-    font-size: 1.25rem; /* 20px (dari 24px) */
+    font-size: 1.5rem; /* 24px */
     line-height: 1.5;
   }
   
   .text-3xl {
-    font-size: 1.5rem; /* 24px (dari 30px) */
+    font-size: 1.875rem; /* 30px */
     line-height: 1.4;
   }
   
   .text-4xl {
-    font-size: 1.75rem; /* 28px (dari 36px) */
+    font-size: 2.25rem; /* 36px */
     line-height: 1.3;
   }
   
   .text-5xl {
-    font-size: 2.375rem; /* 38px (dari 48px) */
+    font-size: 3rem; /* 48px */
     line-height: 1.2;
   }
   
   .text-6xl {
-    font-size: 3rem; /* 48px (dari 60px) */
+    font-size: 3.75rem; /* 60px */
     line-height: 1.1;
   }
   
   /* Responsive font sizes untuk mobile */
   @media (max-width: 768px) {
     body {
-      font-size: 12px; /* 15px → 12px */
+      font-size: 15px;
     }
     
     .text-2xl {
-      font-size: 1.125rem; /* 18px (dari 22px) */
+      font-size: 1.375rem; /* 22px */
     }
     
     .text-3xl {
-      font-size: 1.375rem; /* 22px (dari 26px) */
+      font-size: 1.625rem; /* 26px */
     }
     
     .text-4xl {
-      font-size: 1.625rem; /* 26px (dari 30px) */
+      font-size: 1.875rem; /* 30px */
     }
     
     .text-5xl {
-      font-size: 2rem; /* 32px (dari 36px) */
+      font-size: 2.25rem; /* 36px */
     }
     
     .text-6xl {
-      font-size: 2.5rem; /* 40px (dari 44px) */
+      font-size: 2.75rem; /* 44px */
     }
   }
 }
@@ -1082,46 +1082,6 @@
   .sparkle::after {
     @apply -bottom-2.5 -right-4;
     animation-delay: 1s;
-  }
-
-  /* Preloader Styles */
-  #preloader {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-
-  #preloader.hidden {
-    display: none !important;
-  }
-
-  /* Prevent animations when preloader is active */
-  body.preloader-active [data-aos],
-  body.preloader-active .animate-in,
-  body.preloader-active .animate-in-top-left,
-  body.preloader-active .animate-in-top-right,
-  body.preloader-active .animate-in-bottom-left,
-  body.preloader-active .animate-in-bottom-right,
-  body.preloader-active [class*="animate-"]:not(#preloader [class*="animate-"]) {
-    animation: none !important;
-    opacity: 0 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  /* Ensure preloader content is always visible */
-  #preloader [class*="animate-"],
-  #preloader p,
-  #preloader i {
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: block !important;
-  }
-
-  /* Re-enable animations after preloader */
-  body:not(.preloader-active) [data-aos],
-  body:not(.preloader-active) .animate-in,
-  body:not(.preloader-active) [class*="animate-"] {
-    animation-fill-mode: both;
   }
 
   /* Animasi slide dari kanan untuk music controls */
