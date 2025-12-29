@@ -833,55 +833,61 @@
             </div>
           </section>
 
-          <footer class="w-full min-h-[20vh] bg-primary pt-8 pb-20" style="position: relative; z-index: 1;">
-            <div class="max-w-2xl mx-auto flex flex-col items-center gap-4">
-              <div class="flex items-center gap-3 mb-2">
-                <img
-                  src="./images/logo.png"
-                  alt="Logo"
-                  class="w-9 h-9 rounded-full border-2 border-white shadow"
-                />
-                <span
-                  class="text-white font-bold text-xl tracking-wide drop-shadow"
-                  >bahagiakita.my.id</span
-                >
+          <footer class="w-full bg-primary pt-10 pb-20 relative overflow-hidden" style="z-index: 1;">
+            <!-- Inner Shadow from Bottom -->
+            <div class="absolute bottom-0 left-0 right-0 h-60 pointer-events-none" style="background: linear-gradient(to top, #8b4a07 0%, rgba(139, 74, 7, 0.85) 20%, rgba(139, 74, 7, 0.65) 40%, rgba(139, 74, 7, 0.45) 60%, rgba(139, 74, 7, 0.25) 75%, rgba(139, 74, 7, 0.1) 90%, transparent 100%);"></div>
+            
+            <div class="max-w-2xl mx-auto px-4 flex flex-col items-center text-center relative z-10">
+              <!-- Logo & Brand Header -->
+              <div class="group flex flex-col items-center gap-3 mb-6">
+                <div class="relative">
+                  <div class="absolute -inset-1 bg-white/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                  <img
+                    src="./images/logo/logo.png"
+                    alt="Logo Bahagia Kita"
+                    class="relative w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-white/20 shadow-xl transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div class="space-y-1">
+                  <h3 class="text-white font-secondary font-semibold text-lg md:text-xl tracking-wide drop-shadow-sm">
+                    bahagiakita.my.id
+                  </h3>
+                  <p class="text-white/60 text-xs md:text-sm font-body italic">
+                    Abadikan Momen Bahagia Anda Bersama Kami
+                  </p>
+                </div>
               </div>
-              <div class="flex gap-5 mb-2">
-                <a
-                  href="https://instagram.com/bahagiakita"
-                  target="_blank"
-                  class="p-2 text-white transition text-lg"
-                  aria-label="Instagram"
-                >
-                  <i class="bi bi-instagram"> bahagiakita</i>
+
+              <!-- Social Media Links - Simple Icons -->
+              <div class="flex items-center gap-4 mb-8">
+                <a href="https://instagram.com/bahagiakita" target="_blank" 
+                   class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-lg"
+                   title="Follow Instagram">
+                  <i class="bi bi-instagram text-lg"></i>
                 </a>
-                <a
-                  href="https://wa.me/6283374381234"
-                  target="_blank"
-                  class="p-2 text-white transition text-lg"
-                  aria-label="WhatsApp"
-                >
-                  <i class="bi bi-whatsapp"> 083847630740</i>
+                <a href="https://wa.me/6283847630740" target="_blank" 
+                   class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-lg"
+                   title="Chat on WhatsApp">
+                  <i class="bi bi-whatsapp text-lg"></i>
                 </a>
-                <a
-                  href="https://tiktok.com/@bahagiakita"
-                  target="_blank"
-                  class="p-2 text-white transition text-lg"
-                  aria-label="TikTok"
-                >
-                  <i class="bi bi-tiktok"> bahagiakita</i>
+                <a href="https://tiktok.com/@bahagiakita" target="_blank" 
+                   class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-lg"
+                   title="Follow TikTok">
+                  <i class="bi bi-tiktok text-lg"></i>
                 </a>
               </div>
-              <a
-                href="mailto:info@bahagiakita.my.id"
-                class="mt-2 px-6 py-2 bg-white/90 hover:bg-white text-primary rounded-full font-semibold shadow transition text-base"
-              >
-                Hubungi Kami
-              </a>
-              <div class="mt-4 text-xs text-white/80 text-center">
-                &copy; 2025
-                <span class="font-semibold">bahagiakita.my.id</span> &mdash; All
-                rights reserved.
+
+              <!-- Call to Action -->
+              <div class="mb-10">
+                <a href="mailto:info@bahagiakita.my.id" 
+                   class="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-primary hover:bg-white/90 rounded-full font-bold shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 text-sm md:text-base">
+                  Hubungi Kami
+                </a>
+              </div>
+
+              <!-- Copyright Footer -->
+              <div class="pt-6 border-t border-white/10 w-full flex items-center justify-center text-white/40 font-body">
+                <p style="font-size: 10px !important; letter-spacing: 0.3px; line-height: 1.4;">&copy; 2025 <span class="font-bold text-white/60">bahagiakita.my.id</span> &bull; All Rights Reserved</p>
               </div>
             </div>
           </footer>
