@@ -52,6 +52,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Submit to Supabase if available
       if (window.supabaseClient) {
+        // Loading State
+        const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Kirim Pesan';
+        
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="bi bi-arrow-repeat animate-spin mr-2"></i>Mengirim...';
+          submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+        }
+
         try {
           const { data, error } = await window.supabaseClient
             .from("guest_messages")
@@ -80,6 +90,13 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
           console.error("Error submitting form:", error);
           showNotification("Maaf, terjadi kesalahan. Silakan coba lagi.", "error");
+        } finally {
+          // Restore Button State
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+          }
         }
       } else {
         // Fallback: just show notification if Supabase is not configured

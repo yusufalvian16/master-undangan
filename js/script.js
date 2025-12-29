@@ -202,14 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
             history.replaceState(null, "", "#welcome-section");
           }
           
-          // Pastikan gift button listener terpasang setelah halaman utama terbuka
-          setTimeout(() => {
-            attachDirectGiftButtonListener();
-          }, 500);
-          
-          setTimeout(() => {
-            attachDirectGiftButtonListener();
-          }, 1500);
+
         },
         { once: true }
       );
@@ -459,37 +452,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, true);
   
-  // Juga pasang event listener langsung pada button setelah elemen tersedia
-  function attachDirectGiftButtonListener() {
-    const openGiftBtn = document.getElementById("open-gift-btn");
-    if (openGiftBtn) {
-      // Hapus event listener lama dengan clone element
-      const newBtn = openGiftBtn.cloneNode(true);
-      openGiftBtn.parentNode.replaceChild(newBtn, openGiftBtn);
-      
-      // Pasang event listener baru
-      newBtn.onclick = function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleGiftContent();
-      };
-      
-      newBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleGiftContent();
-      }, { once: false, capture: false });
-      
-      // Pastikan z-index dan pointer-events
-      newBtn.style.zIndex = '30';
-      newBtn.style.position = 'relative';
-      newBtn.style.pointerEvents = 'auto';
-      newBtn.style.cursor = 'pointer';
-    }
-  }
-  
-  // Coba pasang event listener saat DOM ready
-  attachDirectGiftButtonListener();
+
   
   const giftSection = document.getElementById("gift-section");
 

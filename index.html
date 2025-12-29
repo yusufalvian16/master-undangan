@@ -6,6 +6,22 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Undangan Pernikahan Rian & Nisa</title>
+    <meta name="description" content="Undangan Pernikahan Rian & Nisa. Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami." />
+    <meta name="keywords" content="undangan pernikahan, wedding invitation, Rian, Nisa, pernikahan digital, bahagiakita" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bahagiakita.my.id/" />
+    <meta property="og:title" content="The Wedding of Rian & Nisa" />
+    <meta property="og:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami." />
+    <meta property="og:image" content="./images/galery/portrait/8.webp" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://bahagiakita.my.id/" />
+    <meta property="twitter:title" content="The Wedding of Rian & Nisa" />
+    <meta property="twitter:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami." />
+    <meta property="twitter:image" content="./images/galery/portrait/8.webp" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./images/logo/logo.png" />
     <!-- Google Fonts -->
@@ -305,6 +321,11 @@
                     <i class="bi bi-calendar-plus mr-1.5 text-xs"></i>Save to Date
                   </button>
                 </div>
+                
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2 animate-bounce">
+                  <i class="bi bi-chevron-double-down text-3xl" style="color: #8b4a07 !important;"></i>
+                </div>
               </div>
             </div>
               <!-- <div>
@@ -557,13 +578,13 @@
                     />
                   </div>
                 </div>
-                <p class="text-2xl md:text-3xl font-arab mb-6 leading-relaxed text-white">
+                <p class="text-2xl md:text-4xl font-arab mb-6 leading-relaxed text-amber-300 drop-shadow-md">
                   وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
                 </p>
-                <p class="mt-6 text-lg md:text-xl text-white font-secondary font-semibold">
+                <p class="mt-6 text-lg md:text-xl text-white/90 font-secondary font-semibold tracking-wider">
                   Q.S Ar-Rum : 21
                 </p>
-                <p class="mt-4 text-base md:text-lg text-white font-body italic max-w-xl mx-auto leading-relaxed">
+                <p class="mt-4 text-base md:text-lg text-white font-body italic max-w-xl mx-auto leading-relaxed opacity-90">
                   "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
                 </p>
               </div>
@@ -2201,69 +2222,7 @@
 
     <script src="./js/script.js"></script>
     <script src="./js/script_form.js"></script>
-    
-    <!-- Countdown Timer Script -->
-    <script>
-      // Countdown Timer untuk Hari Pernikahan
-      function updateCountdown() {
-        // Tanggal pernikahan: 28 Desember 2025, 08:00 WIB
-        const weddingDate = new Date('2025-12-28T08:00:00+07:00').getTime();
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
-
-        if (distance < 0) {
-          // Jika tanggal sudah lewat
-          document.getElementById('days').textContent = '00';
-          document.getElementById('hours').textContent = '00';
-          document.getElementById('minutes').textContent = '00';
-          document.getElementById('seconds').textContent = '00';
-          return;
-        }
-
-        // Hitung waktu tersisa
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        // Update tampilan
-        document.getElementById('days').textContent = String(days).padStart(2, '0');
-        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-      }
-
-      // Update countdown setiap detik
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-
-      // Save to Date Button Functionality
-      const saveToDateBtn = document.getElementById('save-to-date-btn');
-      if (saveToDateBtn) {
-        saveToDateBtn.addEventListener('click', function() {
-          // Tanggal pernikahan: 28 Desember 2025, 08:00 WIB
-          const weddingDate = new Date('2025-12-28T08:00:00+07:00');
-          
-          // Format tanggal untuk Google Calendar
-          const formatDate = (date) => {
-            return date.toISOString().replace(/-|:|\.\d\d\d/g, '');
-          };
-          
-          const startDate = formatDate(weddingDate);
-          const endDate = formatDate(new Date(weddingDate.getTime() + 8 * 60 * 60 * 1000)); // 8 jam kemudian
-          
-          // Detail event
-          const title = encodeURIComponent('Pernikahan Rian & Nisa');
-          const details = encodeURIComponent('Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami.');
-          const location = encodeURIComponent('Menara 165, Jl. TB Simatupang Jakarta Selatan');
-          
-          // Google Calendar URL
-          const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
-          
-          // Buka Google Calendar
-          window.open(googleCalendarUrl, '_blank');
-        });
-      }
-    </script>
+    <script src="./js/countdown.js"></script>
+    <script src="./js/calendar.js"></script>
   </body>
 </html>
