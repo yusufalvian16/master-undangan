@@ -1,274 +1,334 @@
 <!DOCTYPE html>
 
 <html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan Rian & Nisa</title>
+    <meta name="description" content="Undangan Pernikahan Rian & Nisa. Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami." />
+    <meta name="keywords" content="undangan pernikahan, wedding invitation, Rian, Nisa, pernikahan digital, bahagiakita" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bahagiakita.my.id/" />
+    <meta property="og:title" content="The Wedding of Rian & Nisa" />
+    <meta property="og:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami." />
+    <meta property="og:image" content="./images/galery/portrait/8.webp" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Undangan Pernikahan Rian & Nisa</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap"
-    rel="stylesheet" />
-  <link href="./css/output.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <link href="./css/aos.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-  <script src="./js/supabase_config.js" defer></script>
-  <link rel="icon" href="./images/logo/bahagiakita(bgwhite).png" type="image/x-icon" />
-</head>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://bahagiakita.my.id/" />
+    <meta property="twitter:title" content="The Wedding of Rian & Nisa" />
+    <meta property="twitter:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami." />
+    <meta property="twitter:image" content="./images/galery/portrait/8.webp" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./images/logo/logo.png" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./css/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link href="./css/aos.css" rel="stylesheet" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+      defer
+    ></script>
+    <script src="./js/supabase_config.js" defer></script>
+  </head>
 
-<body class="bg-gray-900">
-  <div class="flex h-screen w-screen justify-end">
-    <div class="hidden md:block flex-grow bg-blue-900 h-full">
-      <section
-        class="min-h-screen text-white flex flex-col justify-center items-center bg-[url('../images/galery/landscape/1.webp')] bg-cover bg-center py-16 px-4">
-        <h2 class="text-xl md:text-2xl font-secondary font-semibold mb-4">The Wedding Of</h2>
+  <body class="bg-gray-900">
+    <div class="flex h-screen w-screen justify-end">
+      <div class="hidden md:block flex-grow bg-blue-900 h-full">
+        <section
+          class="min-h-screen text-white flex flex-col justify-center items-center bg-[url('../images/galery/landscape/1.webp')] bg-cover bg-center py-16 px-4"
+        >
+          <h2 class="text-xl md:text-2xl font-secondary font-semibold mb-4">The Wedding Of</h2>
 
-        <p class="text-4xl md:text-5xl text-center font-primary font-bold">Rian & Nisa</p>
-      </section>
-    </div>
-
-    <div id="main-container" class="relative w-full md:w-[450px] h-full shadow-2xl bg-white"
-      style="height: 100vh; overflow: hidden;">
-      <!-- Landing Page - Halaman Selamat Datang -->
-      <div id="landing-page"
-        class="absolute inset-0 w-full h-full flex flex-col justify-center items-center bg-[url('../images/galery/portrait/8.webp')] bg-cover bg-center text-center transition-opacity duration-1000 ease-in-out opacity-100"
-        style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 990; overflow: hidden; touch-action: none;">
-        <!-- Background Overlay - bgall.png di 40% bagian bawah dengan fade -->
-        <div class="absolute bottom-0 left-0 w-full pointer-events-none"
-          style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center bottom; background-repeat: no-repeat; height: 40%; mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.25) 85%, rgba(0,0,0,0.15) 90%, rgba(0,0,0,0.08) 95%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.25) 85%, rgba(0,0,0,0.15) 90%, rgba(0,0,0,0.08) 95%, rgba(0,0,0,0) 100%); z-index: 1;">
-        </div>
-
-        <!-- Wave Bunga Dekorasi -->
-        <div id="wave-bunga-landing" class="absolute inset-0 pointer-events-none">
-          <!-- Bottom Left -->
-          <!-- Daun Bawah -->
-          <div class="absolute z-20 w-36 -left-8 -bottom-8" style="z-index: 20 !important;">
-            <div class="relative w-full h-full wave-daun-2 origin-bottom-left">
-              <img src="./images/furnitur/wave/top-left-daun-bawah.png" alt="Daun Kiri Bawah"
-                class="block w-full h-full rotate-180 -scale-x-100" />
-            </div>
-          </div>
-          <!-- Daun Atas -->
-          <div class="absolute z-20 w-36 -left-8 -bottom-8" style="z-index: 21 !important;">
-            <div class="relative w-full h-full wave-daun-1 origin-bottom-left">
-              <img src="./images/furnitur/wave/top-left-daun-atas.png" alt="Daun Kiri Bawah"
-                class="block w-full h-full rotate-180 -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bunga -->
-          <div class="absolute z-20 w-36 -left-8 -bottom-8" style="z-index: 22 !important;">
-            <div class="relative w-full h-full wave-bunga origin-bottom-left">
-              <img src="./images/furnitur/wave/top-left-bunga.png" alt="Bunga Kiri Bawah"
-                class="block w-full h-full rotate-180 -scale-x-100" />
-            </div>
-          </div>
-
-          <!-- Bottom Right -->
-          <!-- Daun Bawah -->
-          <div class="absolute z-20 w-36 -right-8 -bottom-8" style="z-index: 20 !important;">
-            <div class="relative w-full h-full wave-daun-2 origin-bottom-right">
-              <img src="./images/furnitur/wave/top-left-daun-bawah.png" alt="Daun Kanan Bawah"
-                class="block w-full h-full rotate-180" />
-            </div>
-          </div>
-          <!-- Daun Atas -->
-          <div class="absolute z-20 w-36 -right-8 -bottom-8" style="z-index: 21 !important;">
-            <div class="relative w-full h-full wave-daun-1 origin-bottom-right">
-              <img src="./images/furnitur/wave/top-left-daun-atas.png" alt="Daun Kanan Bawah"
-                class="block w-full h-full rotate-180" />
-            </div>
-          </div>
-          <!-- Bunga -->
-          <div class="absolute z-20 w-36 -right-8 -bottom-8" style="z-index: 22 !important;">
-            <div class="relative w-full h-full wave-bunga origin-bottom-right">
-              <img src="./images/furnitur/wave/top-left-bunga.png" alt="Bunga Kanan Bawah"
-                class="block w-full h-full rotate-180" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Background Overlay - Gradient untuk readability -->
-        <div
-          class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/40 via-black/20 to-transparent pointer-events-none z-10">
-        </div>
-
-        <!-- Konten Selamat Datang -->
-        <div class="relative z-30 flex flex-col items-center justify-between h-full pb-6 px-3 md:px-4">
-          <!-- Judul dan Nama Pengantin di paling atas -->
-          <div class="text-center animate-fade-in-up w-full mt-16 md:mt-20">
-            <h2 class="text-2xl md:text-3xl font-secondary font-semibold mb-2 text-white sparkle">
-              The Wedding Of
-            </h2>
-            <p class="text-3xl md:text-4xl font-primary font-bold text-white decoration-heart">
-              Rian & Nisa
-            </p>
-          </div>
-
-          <!-- Card untuk konten selamat datang -->
-          <div
-            class="bg-white/70 backdrop-blur-sm glass-effect rounded-3xl p-4 md:p-6 mb-8 shadow-2xl elegant-border max-w-xl w-full animate-fade-in-up card-leaf-decoration relative overflow-hidden">
-            <!-- Top Left -->
-            <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-top-left">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full" />
-              </div>
-            </div>
-            <!-- Top Right -->
-            <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-top-right">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full -scale-x-100" />
-              </div>
-            </div>
-            <!-- Bottom Left -->
-            <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-bottom-left">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt=""
-                  class="block w-full h-full rotate-180 -scale-x-100" />
-              </div>
-            </div>
-            <!-- Bottom Right -->
-            <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-bottom-right">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full rotate-180" />
-              </div>
-            </div>
-            <p class="text-sm md:text-base text-center text-white font-body font-medium mb-1">
-              Kepada Yth. Bapak/Ibu/Saudara/i
-            </p>
-
-            <p class="text-xl md:text-2xl font-primary font-semibold mt-1 text-white decoration-heart">
-              Nama Tamu
-            </p>
-
-            <p class="mt-2 text-center text-xs md:text-sm text-white/60 font-body leading-relaxed mx-auto">
-              *Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.
-            </p>
-
-            <div class="animate-fade-in-up mt-4" style="animation-delay: 0.3s;">
-              <button id="open-invite-btn"
-                class="button-main animate-pulse-glow text-sm md:text-base px-6 py-2 relative overflow-hidden group w-full">
-                <span class="relative z-10 flex items-center justify-center gap-2">
-                  <i class="bi bi-envelope-heart text-lg"></i>
-                  Buka Undangan
-                </span>
-                <span class="absolute inset-0 animate-shimmer"></span>
-              </button>
-            </div>
-          </div>
-        </div>
+          <p class="text-4xl md:text-5xl text-center font-primary font-bold">Rian & Nisa</p>
+        </section>
       </div>
 
-      <div id="main-invite-page"
-        class="scroll-smooth w-full overflow-x-hidden bg-gray-100 opacity-0 pointer-events-none transition-opacity duration-1000 ease-in-out z-[2]"
-        style="display: none; z-index: 2 !important;">
-        <!-- Notification Popup -->
-        <div id="notification-popup"
-          class="fixed inset-0 items-center justify-center hidden backdrop-blur-sm bg-black bg-opacity-20"
-          style="z-index: 999999 !important;">
+      <div
+        id="main-container"
+        class="relative w-full md:w-[450px] h-full shadow-2xl bg-white"
+        style="height: 100vh; overflow: hidden;"
+      >
+        <!-- Landing Page - Halaman Selamat Datang -->
+        <div
+          id="landing-page"
+          class="absolute inset-0 w-full h-full flex flex-col justify-center items-center bg-[url('../images/galery/portrait/8.webp')] bg-cover bg-center text-center transition-opacity duration-1000 ease-in-out opacity-100"
+          style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 990; overflow: hidden; touch-action: none;"
+        >
+          <!-- Background Overlay - bgall.png di 40% bagian bawah dengan fade -->
           <div
-            class="bg-white border-primary border-[1px] p-6 rounded-lg shadow-xl text-center max-w-sm mx-auto transform transition-all scale-95 opacity-0">
-            <div id="notification-icon" class="mb-4"></div>
-            <p id="notification-message" class="text-base md:text-lg font-secondary font-semibold text-gray-800 mb-4">
-            </p>
-            <button id="close-notification"
-              class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:ring-4 focus:ring-primary/30 focus:ring-offset-2 transition duration-300 ease-in-out">
-              Tutup
-            </button>
-          </div>
-        </div>
-
-        <section id="welcome-section"
-          class="wedding-section min-h-screen bg-[url('../images/furnitur/bgall.png')] bg-cover bg-top bg-no-repeat relative overflow-hidden"
-          style="position: relative !important; z-index: 0 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">
-          <!-- Dekorasi background -->
-          <!-- <div class="absolute inset-0 bg-gradient-to-b from-primary-50/30 via-transparent to-white/80"></div> -->
-
-          <div class="min-h-screen bg-white/20 backdrop-blur-[2px] relative z-10 flex items-start">
-            <div class="absolute bottom-0 left-0 w-full h-1/3 -z-10"
-              style="background: linear-gradient(to top, #C6700D 0%, rgba(198, 112, 13, 0.8) 30%, rgba(198, 112, 13, 0.5) 60%, rgba(198, 112, 13, 0.2) 85%, transparent 100%);">
+            class="absolute bottom-0 left-0 w-full pointer-events-none"
+            style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center bottom; background-repeat: no-repeat; height: 40%; mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.25) 85%, rgba(0,0,0,0.15) 90%, rgba(0,0,0,0.08) 95%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.55) 70%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.25) 85%, rgba(0,0,0,0.15) 90%, rgba(0,0,0,0.08) 95%, rgba(0,0,0,0) 100%); z-index: 1;"
+          ></div>
+          
+          <!-- Wave Bunga Dekorasi -->
+          <div id="wave-bunga-landing" class="absolute inset-0 pointer-events-none">
+            <!-- Bottom Left -->
+            <!-- Daun Bawah -->
+            <div class="absolute z-20 w-36 -left-8 -bottom-8" style="z-index: 20 !important;">
+              <div class="relative w-full h-full wave-daun-2 origin-bottom-left">
+                <img
+                  src="./images/furnitur/wave/top-left-daun-bawah.png"
+                  alt="Daun Kiri Bawah"
+                  class="block w-full h-full rotate-180 -scale-x-100"
+                />
+              </div>
             </div>
-            <div
-              class="flex flex-col items-center justify-start w-full min-h-screen text-center gap-6 md:gap-8 px-4 pt-20 md:pt-24 pb-16">
-
-              <div class="animate-fade-in-up">
-                <!-- Title head -->
-                <p class="text-lg md:text-xl font-secondary font-light tracking-widest text-primary-600 mb-2 sparkle">
-                  THE WEDDING OF
-                </p>
+            <!-- Daun Atas -->
+            <div class="absolute z-20 w-36 -left-8 -bottom-8" style="z-index: 21 !important;">
+              <div class="relative w-full h-full wave-daun-1 origin-bottom-left">
+                <img
+                  src="./images/furnitur/wave/top-left-daun-atas.png"
+                  alt="Daun Kiri Bawah"
+                  class="block w-full h-full rotate-180 -scale-x-100"
+                />
               </div>
+            </div>
+            <!-- Bunga -->
+            <div class="absolute z-20 w-36 -left-8 -bottom-8" style="z-index: 22 !important;">
+              <div class="relative w-full h-full wave-bunga origin-bottom-left">
+                <img
+                  src="./images/furnitur/wave/top-left-bunga.png"
+                  alt="Bunga Kiri Bawah"
+                  class="block w-full h-full rotate-180 -scale-x-100"
+                />
+              </div>
+            </div>
 
-              <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
-                <!-- image dengan efek elegant -->
-                <div class="relative inline-block elegant-border rounded-full p-1 animate-pulse-glow">
-                  <img src="./images/galery/portrait/12.webp" alt="profil Undangan Pernikahan"
-                    class="w-48 h-48 md:w-60 md:h-60 rounded-full object-cover border-4 border-white shadow-2xl mx-auto" />
+            <!-- Bottom Right -->
+            <!-- Daun Bawah -->
+            <div class="absolute z-20 w-36 -right-8 -bottom-8" style="z-index: 20 !important;">
+              <div class="relative w-full h-full wave-daun-2 origin-bottom-right">
+                <img
+                  src="./images/furnitur/wave/top-left-daun-bawah.png"
+                  alt="Daun Kanan Bawah"
+                  class="block w-full h-full rotate-180"
+                />
+              </div>
+            </div>
+            <!-- Daun Atas -->
+            <div class="absolute z-20 w-36 -right-8 -bottom-8" style="z-index: 21 !important;">
+              <div class="relative w-full h-full wave-daun-1 origin-bottom-right">
+                <img
+                  src="./images/furnitur/wave/top-left-daun-atas.png"
+                  alt="Daun Kanan Bawah"
+                  class="block w-full h-full rotate-180"
+                />
+              </div>
+            </div>
+            <!-- Bunga -->
+            <div class="absolute z-20 w-36 -right-8 -bottom-8" style="z-index: 22 !important;">
+              <div class="relative w-full h-full wave-bunga origin-bottom-right">
+                <img
+                  src="./images/furnitur/wave/top-left-bunga.png"
+                  alt="Bunga Kanan Bawah"
+                  class="block w-full h-full rotate-180"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Background Overlay - Gradient untuk readability -->
+          <div
+            class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/40 via-black/20 to-transparent pointer-events-none z-10"
+          ></div>
+
+          <!-- Konten Selamat Datang -->
+          <div class="relative z-30 flex flex-col items-center justify-between h-full pb-6 px-3 md:px-4">
+            <!-- Judul dan Nama Pengantin di paling atas -->
+            <div class="text-center animate-fade-in-up w-full mt-16 md:mt-20">
+              <h2 class="text-2xl md:text-3xl font-secondary font-semibold mb-2 text-white sparkle">
+                The Wedding Of
+              </h2>
+              <p class="text-3xl md:text-4xl font-primary font-bold text-white decoration-heart">
+                Rian & Nisa
+              </p>
+            </div>
+            
+            <!-- Card untuk konten selamat datang -->
+            <div class="bg-white/70 backdrop-blur-sm glass-effect rounded-3xl p-4 md:p-6 mb-8 shadow-2xl elegant-border max-w-xl w-full animate-fade-in-up card-leaf-decoration relative overflow-hidden">
+              <!-- Top Left -->
+              <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full"
+                  />
                 </div>
               </div>
-
-              <div class="animate-fade-in-up max-w-2xl" style="animation-delay: 0.4s;">
-                <!-- nama,tanggal -->
-                <h1 class="text-4xl md:text-5xl font-primary font-bold text-primary-600 mb-4 sparkle">
-                  Rian & Nisa
-                </h1>
-                <p class="text-[14px] md:text-lg text-gray-700 leading-relaxed font-body">
-                  Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan
-                  pernikahan putra-putri kami. Merupakan suatu kehormatan dan kebahagiaan
-                  bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan
-                  doa restu kepada kami.
-                </p>
-                <div class="mt-4 md:mt-6 flex items-center justify-center gap-2 text-primary-600">
-                  <i class="bi bi-calendar-heart text-xl"></i>
-                  <span class="text-lg md:text-xl font-secondary font-semibold">28 Desember 2025</span>
+              <!-- Top Right -->
+              <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full -scale-x-100"
+                  />
                 </div>
               </div>
+              <p class="text-sm md:text-base text-center text-white font-body font-medium mb-1">
+                Kepada Yth. Bapak/Ibu/Saudara/i
+              </p>
 
-              <!-- Countdown Timer -->
-              <div class="animate-fade-in-up mt-4 md:mt-6 w-full max-w-xs px-2" style="animation-delay: 0.6s;">
-                <div id="countdown" class="grid grid-cols-4 gap-1 md:gap-1.5 mb-2">
-                  <div class="flex flex-col items-center">
-                    <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm"
-                      style="background-color: #D17A15;">
-                      <div id="days" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00</div>
-                      <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Hari</div>
-                    </div>
-                  </div>
-                  <div class="flex flex-col items-center">
-                    <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm"
-                      style="background-color: #D17A15;">
-                      <div id="hours" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00</div>
-                      <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Jam</div>
-                    </div>
-                  </div>
-                  <div class="flex flex-col items-center">
-                    <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm"
-                      style="background-color: #D17A15;">
-                      <div id="minutes" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00
-                      </div>
-                      <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Menit</div>
-                    </div>
-                  </div>
-                  <div class="flex flex-col items-center">
-                    <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm"
-                      style="background-color: #D17A15;">
-                      <div id="seconds" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00
-                      </div>
-                      <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Detik</div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Save to Date Button -->
-                <button id="save-to-date-btn" class="button-main text-xs md:text-sm px-6 py-1.5 mt-2 scale-90">
-                  <i class="bi bi-calendar-plus mr-1.5 text-xs"></i>Save to Date
+              <p class="text-xl md:text-2xl font-primary font-semibold mt-1 text-white decoration-heart">
+                Nama Tamu
+              </p>
+
+              <p class="mt-2 text-center text-xs md:text-sm text-white/60 font-body leading-relaxed mx-auto">
+                *Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.
+              </p>
+              
+              <div class="animate-fade-in-up mt-4" style="animation-delay: 0.3s;">
+                <button
+                  id="open-invite-btn"
+                  class="button-main animate-pulse-glow text-sm md:text-base px-6 py-2 relative overflow-hidden group w-full"
+                >
+                  <span class="relative z-10 flex items-center justify-center gap-2">
+                    <i class="bi bi-envelope-heart text-lg"></i>
+                    Buka Undangan
+                  </span>
+                  <span class="absolute inset-0 animate-shimmer"></span>
                 </button>
               </div>
             </div>
           </div>
-          <!-- <div>
+        </div>
+
+        <div
+          id="main-invite-page"
+          class="scroll-smooth w-full overflow-x-hidden bg-gray-100 opacity-0 pointer-events-none transition-opacity duration-1000 ease-in-out z-[2]"
+          style="display: none; z-index: 2 !important;"
+        >
+          <!-- Notification Popup -->
+          <div
+            id="notification-popup"
+            class="fixed inset-0 items-center justify-center hidden backdrop-blur-sm bg-black bg-opacity-20"
+            style="z-index: 999999 !important;"
+          >
+            <div
+              class="bg-white border-primary border-[1px] p-6 rounded-lg shadow-xl text-center max-w-sm mx-auto transform transition-all scale-95 opacity-0"
+            >
+              <div id="notification-icon" class="mb-4"></div>
+              <p
+                id="notification-message"
+                class="text-base md:text-lg font-secondary font-semibold text-gray-800 mb-4"
+              ></p>
+              <button
+                id="close-notification"
+                class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:ring-4 focus:ring-primary/30 focus:ring-offset-2 transition duration-300 ease-in-out"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+
+          <section
+            id="welcome-section"
+            class="wedding-section min-h-screen bg-[url('../images/furnitur/bgall.png')] bg-cover bg-top bg-no-repeat relative overflow-hidden"
+            style="position: relative !important; z-index: 0 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">
+            <!-- Dekorasi background -->
+            <!-- <div class="absolute inset-0 bg-gradient-to-b from-primary-50/30 via-transparent to-white/80"></div> -->
+            
+            <div class="min-h-screen bg-white/20 backdrop-blur-[2px] relative z-10 flex items-start">
+              <div
+                class="absolute bottom-0 left-0 w-full h-1/3 -z-10"
+                style="background: linear-gradient(to top, #C6700D 0%, rgba(198, 112, 13, 0.8) 30%, rgba(198, 112, 13, 0.5) 60%, rgba(198, 112, 13, 0.2) 85%, transparent 100%);"
+              ></div>
+              <div
+                class="flex flex-col items-center justify-start w-full min-h-screen text-center gap-6 md:gap-8 px-4 pt-20 md:pt-24 pb-16"
+              >
+                <div class="animate-fade-in-up">
+                  <!-- Title head -->
+                  <p class="text-lg md:text-xl font-secondary font-light tracking-widest text-primary-600 mb-2 sparkle">
+                    THE WEDDING OF
+                  </p>
+                </div>
+                
+                <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                  <!-- image dengan efek elegant -->
+                  <div class="relative inline-block elegant-border rounded-full p-1 animate-pulse-glow">
+                    <img
+                      src="./images/galery/portrait/12.webp"
+                      alt="profil Undangan Pernikahan"
+                      class="w-48 h-48 md:w-60 md:h-60 rounded-full object-cover border-4 border-white shadow-2xl mx-auto"
+                    />
+                  </div>
+                </div>
+                
+                <div class="animate-fade-in-up max-w-2xl" style="animation-delay: 0.4s;">
+                  <!-- nama,tanggal -->
+                  <h1 class="text-4xl md:text-5xl font-primary font-bold text-primary-600 mb-4 sparkle">
+                    Rian & Nisa
+                  </h1>
+                  <p class="text-[14px] md:text-lg text-gray-700 leading-relaxed font-body">
+                    Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan
+                    pernikahan putra-putri kami. Merupakan suatu kehormatan dan kebahagiaan
+                    bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan
+                    doa restu kepada kami.
+                  </p>
+                  <div class="mt-4 md:mt-6 flex items-center justify-center gap-2 text-primary-600">
+                    <i class="bi bi-calendar-heart text-xl"></i>
+                    <span class="text-lg md:text-xl font-secondary font-semibold">28 Desember 2025</span>
+                  </div>
+                </div>
+
+                <!-- Countdown Timer -->
+                <div class="animate-fade-in-up mt-4 md:mt-6 w-full max-w-xs px-2" style="animation-delay: 0.6s;">
+                  <div id="countdown" class="grid grid-cols-4 gap-1 md:gap-1.5 mb-2">
+                    <div class="flex flex-col items-center">
+                      <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm" style="background-color: #D17A15;">
+                        <div id="days" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00</div>
+                        <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Hari</div>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm" style="background-color: #D17A15;">
+                        <div id="hours" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00</div>
+                        <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Jam</div>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm" style="background-color: #D17A15;">
+                        <div id="minutes" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00</div>
+                        <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Menit</div>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                      <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm" style="background-color: #D17A15;">
+                        <div id="seconds" class="text-base md:text-lg font-bold text-white font-sans leading-tight">00</div>
+                        <div class="text-[8px] md:text-[9px] text-white/90 font-body mt-0.5">Detik</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Save to Date Button -->
+                  <button
+                    id="save-to-date-btn"
+                    class="button-main text-xs md:text-sm px-6 py-1.5 mt-2 scale-90"
+                  >
+                    <i class="bi bi-calendar-plus mr-1.5 text-xs"></i>Save to Date
+                  </button>
+                </div>
+                
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-20 left-1/2 transform -translate-x-1/2 animate-bounce">
+                  <i class="bi bi-chevron-double-down text-3xl" style="color: #8b4a07 !important;"></i>
+                </div>
+              </div>
+            </div>
+              <!-- <div>
                 <h2 class="text-4xl font-bold mb-4">Selamat Datang</h2>
 
                 <p class="text-xl text-center">
@@ -282,1141 +342,1887 @@
                   untuk menjadi saksi hari bahagia kami.
                 </p>
               </div> -->
-      </div>
-      <div id="wave-bunga">
-        <!-- top left -->
-        <!-- Daun Bawah -->
-        <div class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left" style="z-index: 20 !important;">
-          <div class="relative w-full h-full wave-daun-2 origin-top-left">
-            <img src="./images/furnitur/wave/top-left-daun-bawah.png" alt="Daun Kiri Atas"
-              class="block w-full h-full" />
-          </div>
-        </div>
-        <!-- Daun Atas -->
-        <div class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left" style="z-index: 21 !important;">
-          <div class="relative w-full h-full wave-daun-1 origin-top-left">
-            <img src="./images/furnitur/wave/top-left-daun-atas.png" alt="Daun Kiri Atas" class="block w-full h-full" />
-          </div>
-        </div>
-        <!-- Bunga -->
-        <div class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left" style="z-index: 22 !important;">
-          <div class="relative w-full h-full wave-bunga origin-top-left">
-            <img src="./images/furnitur/wave/top-left-bunga.png" alt="Bunga Kiri Atas" class="block w-full h-full" />
-          </div>
-        </div>
+            </div>
+            <div id="wave-bunga">
+              <!-- top left -->
+              <!-- Daun Bawah -->
+              <div
+                class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left"
+                style="z-index: 20 !important;"
+              >
+                <div class="relative w-full h-full wave-daun-2 origin-top-left">
+                  <img
+                    src="./images/furnitur/wave/top-left-daun-bawah.png"
+                    alt="Daun Kiri Atas"
+                    class="block w-full h-full"
+                  />
+                </div>
+              </div>
+              <!-- Daun Atas -->
+              <div
+                  class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left"
+                style="z-index: 21 !important;"
+              >
+                <div class="relative w-full h-full wave-daun-1 origin-top-left">
+                  <img
+                    src="./images/furnitur/wave/top-left-daun-atas.png"
+                    alt="Daun Kiri Atas"
+                    class="block w-full h-full"
+                  />
+                </div>
+              </div>
+              <!-- Bunga -->
+              <div
+                class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left"
+                style="z-index: 22 !important;"
+              >
+                <div class="relative w-full h-full wave-bunga origin-top-left">
+                  <img
+                    src="./images/furnitur/wave/top-left-bunga.png"
+                    alt="Bunga Kiri Atas"
+                    class="block w-full h-full"
+                  />
+                </div>
+              </div>
 
-        <!-- bottom left -->
-        <!-- Daun Bawah -->
-        <div class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left" style="z-index: 20 !important;">
-          <div class="relative w-full h-full wave-daun-2 origin-bottom-left">
-            <img src="./images/furnitur/wave/top-left-daun-bawah.png" alt="Daun Kiri Bawah"
-              class="block w-full h-full rotate-180 -scale-x-100" />
-          </div>
-        </div>
-        <!-- Daun Atas -->
-        <div class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left" style="z-index: 21 !important;">
-          <div class="relative w-full h-full wave-daun-1 origin-bottom-left">
-            <img src="./images/furnitur/wave/top-left-daun-atas.png" alt="Daun Kiri Bawah"
-              class="block w-full h-full rotate-180 -scale-x-100" />
-          </div>
-        </div>
-        <!-- Bunga -->
-        <div class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left" style="z-index: 22 !important;">
-          <div class="relative w-full h-full wave-bunga origin-bottom-left">
-            <img src="./images/furnitur/wave/top-left-bunga.png" alt="Bunga Kiri Bawah"
-              class="block w-full h-full rotate-180 -scale-x-100" />
-          </div>
-        </div>
+              <!-- bottom left -->
+              <!-- Daun Bawah -->
+              <div
+                class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left"
+                style="z-index: 20 !important;"
+              >
+                <div class="relative w-full h-full wave-daun-2 origin-bottom-left">
+                  <img
+                    src="./images/furnitur/wave/top-left-daun-bawah.png"
+                    alt="Daun Kiri Bawah"
+                    class="block w-full h-full rotate-180 -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Daun Atas -->
+              <div
+                class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left"
+                style="z-index: 21 !important;"
+              >
+                <div class="relative w-full h-full wave-daun-1 origin-bottom-left">
+                  <img
+                    src="./images/furnitur/wave/top-left-daun-atas.png"
+                    alt="Daun Kiri Bawah"
+                    class="block w-full h-full rotate-180 -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bunga -->
+              <div
+                class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left"
+                style="z-index: 22 !important;"
+              >
+                <div class="relative w-full h-full wave-bunga origin-bottom-left">
+                  <img
+                    src="./images/furnitur/wave/top-left-bunga.png"
+                    alt="Bunga Kiri Bawah"
+                    class="block w-full h-full rotate-180 -scale-x-100"
+                  />
+                </div>
+              </div>
 
-        <!-- top right -->
-        <!-- Daun Bawah -->
-        <div class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right" style="z-index: 20 !important;">
-          <div class="relative w-full h-full wave-daun-2 origin-top-right">
-            <img src="./images/furnitur/wave/top-left-daun-bawah.png" alt="Daun Kanan Atas"
-              class="block w-full h-full -scale-x-100" />
-          </div>
-        </div>
-        <!-- Daun Atas -->
-        <div class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right" style="z-index: 21 !important;">
-          <div class="relative w-full h-full wave-daun-1 origin-top-right">
-            <img src="./images/furnitur/wave/top-left-daun-atas.png" alt="Daun Kanan Atas"
-              class="block w-full h-full -scale-x-100" />
-          </div>
-        </div>
-        <!-- Bunga -->
-        <div class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right" style="z-index: 22 !important;">
-          <div class="relative w-full h-full wave-bunga origin-top-right">
-            <img src="./images/furnitur/wave/top-left-bunga.png" alt="Bunga Kanan Atas"
-              class="block w-full h-full -scale-x-100" />
-          </div>
-        </div>
+              <!-- top right -->
+              <!-- Daun Bawah -->
+              <div
+                class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right"
+                style="z-index: 20 !important;"
+              >
+                <div class="relative w-full h-full wave-daun-2 origin-top-right">
+                  <img
+                    src="./images/furnitur/wave/top-left-daun-bawah.png"
+                    alt="Daun Kanan Atas"
+                    class="block w-full h-full -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Daun Atas -->
+              <div
+                class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right"
+                style="z-index: 21 !important;"
+              >
+                <div class="relative w-full h-full wave-daun-1 origin-top-right">
+                  <img
+                    src="./images/furnitur/wave/top-left-daun-atas.png"
+                    alt="Daun Kanan Atas"
+                    class="block w-full h-full -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bunga -->
+              <div
+                class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right"
+                style="z-index: 22 !important;"
+              >
+                <div class="relative w-full h-full wave-bunga origin-top-right">
+                  <img
+                    src="./images/furnitur/wave/top-left-bunga.png"
+                    alt="Bunga Kanan Atas"
+                    class="block w-full h-full -scale-x-100"
+                  />
+                </div>
+              </div>
 
-        <!-- bottom right -->
-        <!-- Daun Bawah -->
-        <div class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right" style="z-index: 20 !important;">
-          <div class="relative w-full h-full wave-daun-2 origin-bottom-right">
-            <img src="./images/furnitur/wave/top-left-daun-bawah.png" alt="Daun Kanan Bawah"
-              class="block w-full h-full rotate-180" />
-          </div>
-        </div>
-        <!-- Daun Atas -->
-        <div class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right" style="z-index: 21 !important;">
-          <div class="relative w-full h-full wave-daun-1 origin-bottom-right">
-            <img src="./images/furnitur/wave/top-left-daun-atas.png" alt="Daun Kanan Bawah"
-              class="block w-full h-full rotate-180" />
-          </div>
-        </div>
-        <!-- Bunga -->
-        <div class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right" style="z-index: 22 !important;">
-          <div class="relative w-full h-full wave-bunga origin-bottom-right">
-            <img src="./images/furnitur/wave/top-left-bunga.png" alt="Bunga Kanan Bawah"
-              class="block w-full h-full rotate-180" />
-          </div>
-        </div>
-      </div>
-      </section>
-
-      <!-- Doa Section -->
-      <section id="doa-section"
-        class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-        style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-        <!-- Single fade gradient di atas -->
-        <div class="absolute top-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-        <!-- Single fade gradient di bawah -->
-        <div class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-
-        <div class="text-center text-white max-w-3xl mx-auto relative z-10 animate-fade-in-up">
-          <!-- Icon dekoratif -->
-          <div class="mb-6 flex justify-center items-center gap-4">
-            <i class="bi bi-book-heart text-4xl text-white/80 animate-pulse"></i>
-          </div>
-
-          <h2 class="text-4xl md:text-5xl font-secondary mb-12 text-white sparkle">
-            Doa
-          </h2>
-          <!-- Card untuk ayat -->
-          <div
-            class="rounded-3xl p-8 md:p-12 mb-8 shadow-2xl elegant-border bg-black/30 backdrop-blur-sm border-white/20 card-leaf-decoration relative overflow-hidden">
-            <!-- Top Left -->
-            <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-top-left">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full" />
+              <!-- bottom right -->
+              <!-- Daun Bawah -->
+              <div
+                class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right"
+                style="z-index: 20 !important;"
+              >
+                <div class="relative w-full h-full wave-daun-2 origin-bottom-right">
+                  <img
+                    src="./images/furnitur/wave/top-left-daun-bawah.png"
+                    alt="Daun Kanan Bawah"
+                    class="block w-full h-full rotate-180"
+                  />
+                </div>
+              </div>
+              <!-- Daun Atas -->
+              <div
+                class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right"
+                style="z-index: 21 !important;"
+              >
+                <div class="relative w-full h-full wave-daun-1 origin-bottom-right">
+                  <img
+                    src="./images/furnitur/wave/top-left-daun-atas.png"
+                    alt="Daun Kanan Bawah"
+                    class="block w-full h-full rotate-180"
+                  />
+                </div>
+              </div>
+              <!-- Bunga -->
+              <div
+                class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right"
+                style="z-index: 22 !important;"
+              >
+                <div class="relative w-full h-full wave-bunga origin-bottom-right">
+                  <img
+                    src="./images/furnitur/wave/top-left-bunga.png"
+                    alt="Bunga Kanan Bawah"
+                    class="block w-full h-full rotate-180"
+                  />
+                </div>
               </div>
             </div>
-            <!-- Top Right -->
-            <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-top-right">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full -scale-x-100" />
+          </section>
+
+          <!-- Doa Section -->
+          <section
+            id="doa-section"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
+            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+          >
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
+            <div class="text-center text-white max-w-3xl mx-auto relative z-10 animate-fade-in-up">
+              <!-- Icon dekoratif -->
+              <div class="mb-6 flex justify-center items-center gap-4">
+                <i class="bi bi-book-heart text-4xl text-white/80 animate-pulse"></i>
+              </div>
+              
+              <h2 class="text-4xl md:text-5xl font-secondary mb-12 text-white sparkle">
+                Doa
+              </h2>
+              <!-- Card untuk ayat -->
+              <div class="rounded-3xl p-8 md:p-12 mb-8 shadow-2xl elegant-border bg-black/30 backdrop-blur-sm border-white/20 card-leaf-decoration relative overflow-hidden">
+                <!-- Top Left -->
+                <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-top-left">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full"
+                    />
+                  </div>
+                </div>
+                <!-- Top Right -->
+                <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-top-right">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full -scale-x-100"
+                    />
+                  </div>
+                </div>
+                <!-- Bottom Left -->
+                <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-bottom-left">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full rotate-180 -scale-x-100"
+                    />
+                  </div>
+                </div>
+                <!-- Bottom Right -->
+                <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-bottom-right">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full rotate-180"
+                    />
+                  </div>
+                </div>
+                <p class="text-2xl md:text-4xl font-arab mb-6 leading-relaxed text-amber-300 drop-shadow-md">
+                  وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+                </p>
+                <p class="mt-6 text-lg md:text-xl text-white/90 font-secondary font-semibold tracking-wider">
+                  Q.S Ar-Rum : 21
+                </p>
+                <p class="mt-4 text-base md:text-lg text-white font-body italic max-w-xl mx-auto leading-relaxed opacity-90">
+                  "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."
+                </p>
+              </div>
+              
+              <!-- Dekorasi bawah -->
+              <div class="flex justify-center items-center gap-4 mt-8">
+                <i class="bi bi-heart-fill text-3xl text-white/70 animate-pulse"></i>
               </div>
             </div>
-            <!-- Bottom Left -->
-            <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-bottom-left">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt=""
-                  class="block w-full h-full rotate-180 -scale-x-100" />
+          </section>
+          <!-- end doa -->
+
+          <section
+            id="mempelai-section"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center px-4 py-8 relative overflow-hidden"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+          >
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
+            <div
+              class="shadow bg-white/80 p-8 rounded-2xl border-slate-500 backdrop-blur-sm relative z-10 card-leaf-decoration overflow-hidden"
+            >
+              <!-- Top Left -->
+              <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full"
+                  />
+                </div>
+              </div>
+              <!-- Top Right -->
+              <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bottom Left -->
+              <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180 -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bottom Right -->
+              <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180"
+                  />
+                </div>
+              </div>
+              <div class="text-center mb-5">
+                <h2 class="text-2xl md:text-3xl mb-2 font-arab">
+                  بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+                </h2>
+                <p class="text-lg md:text-xl font-secondary font-semibold">
+                  Assalamu'alaikum Warahmatullahi Wabarakatuh
+                </p>
+                <p class="text-base md:text-lg font-body">
+                  Tanpa mengurangi rasa hormat, kami mengundang Anda untuk
+                  berkenan menghadiri acara pernikahan kami:
+                </p>
+              </div>
+
+              <div class="flex flex-col gap-9">
+                <div class="text-center">
+                  <img
+                    src="./images/profile/male.webp"
+                    alt="Foto Profil Pengantin Pria"
+                    class="w-32 h-32 rounded-full object-cover mb-4 border-2 border-gray-300 mx-auto"
+                  />
+
+                  <p class="text-2xl md:text-3xl font-nama">Muhammad Aprianto</p>
+                  <p class="text-base md:text-lg font-secondary font-semibold">Putra pertama dari</p>
+                  <p class="text-base md:text-lg font-body">Bapak Aji Saputra & Ibu Sri Yulianti</p>
+                  <button class="button-main mt-2 px-3 py-1 scale-90">
+                    <a class="text-sm" href="#">@muahmandaprianto</a>
+                  </button>
+                </div>
+                <div class="text-center">
+                  <p class="font-nama text-4xl">&</p>
+                </div>
+                <div class="text-center">
+                  <img
+                    src="./images/profile/female.webp"
+                    alt="Foto Profil Pengantin Wanita"
+                    class="w-32 h-32 rounded-full object-cover mb-4 border-2 border-gray-300 mx-auto"
+                  />
+
+                  <p class="text-2xl md:text-3xl font-nama">Annisa Riski Firmani</p>
+                  <p class="text-base md:text-lg font-secondary font-semibold">Putri pertama dari</p>
+                  <p class="text-base md:text-lg font-body">
+                    Bapak Suminto & Ibu Nuningsih Siwi Utami
+                  </p>
+                  <button class="button-main mt-2 px-3 py-1 scale-90">
+                    <a class="text-sm" href="#">@anisariskifirmani</a>
+                  </button>
+                </div>
               </div>
             </div>
-            <!-- Bottom Right -->
-            <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-bottom-right">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full rotate-180" />
+          </section>
+
+          <section
+            id="waktu-lokasi-section"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 gap-y-8 relative"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+          >
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
+            <div class="w-full flex items-center justify-center relative z-10">
+              <div
+                class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm card-leaf-decoration relative"
+              >
+                <!-- Top Left -->
+                <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-top-left">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full"
+                    />
+                  </div>
+                </div>
+                <!-- Top Right -->
+                <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-top-right">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full -scale-x-100"
+                    />
+                  </div>
+                </div>
+                <!-- Bottom Left -->
+                <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-bottom-left">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full rotate-180 -scale-x-100"
+                    />
+                  </div>
+                </div>
+                <!-- Bottom Right -->
+                <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-bottom-right">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full rotate-180"
+                    />
+                  </div>
+                </div>
+                <div class="p-6 text-center">
+                  <h2
+                    class="text-2xl md:text-3xl font-secondary text-primary mb-6 leading-tight"
+                  >
+                    Akad Nikah
+                  </h2>
+
+                  <div class="border-t border-b border-gray-200 py-4 mb-6">
+                    <div
+                      class="flex items-center justify-center space-x-4 mb-2"
+                    >
+                      <span
+                        class="text-5xl md:text-6xl font-bold text-gray-900 font-sans leading-none"
+                        >28</span
+                      >
+                      <div class="text-left">
+                        <span class="block text-xl font-semibold text-gray-800"
+                          >Desember 2025</span
+                        >
+                        <span class="block text-md text-gray-600">Minggu</span>
+                      </div>
+                    </div>
+                    <p class="text-base md:text-lg font-body font-medium text-gray-700 mt-2">
+                      Pukul 08:00 WIB
+                    </p>
+                  </div>
+
+                  <div class="mb-6">
+                    <p class="text-gray-700 font-secondary font-semibold mb-2">
+                      Lokasi Acara:
+                    </p>
+                    <p class="text-gray-800 text-lg md:text-xl font-secondary font-medium">Menara 165</p>
+                    <p class="text-gray-600 text-sm md:text-base font-body">
+                      Jl. TB Simatupang Jakarta Selatan
+                    </p>
+                  </div>
+
+                  <a
+                    href="https://maps.app.goo.gl/YourGoogleMapsLinkHere"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button-main"
+                  >
+                    Lihat Lokasi
+                  </a>
+                </div>
               </div>
             </div>
-            <p class="text-2xl md:text-3xl font-arab mb-6 leading-relaxed text-white">
-              وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم
-              مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
-            </p>
-            <p class="mt-6 text-lg md:text-xl text-white font-secondary font-semibold">
-              Q.S Ar-Rum : 21
-            </p>
-            <p class="mt-4 text-base md:text-lg text-white font-body italic max-w-xl mx-auto leading-relaxed">
-              "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu
-              sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan
-              sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang
-              berpikir."
-            </p>
-          </div>
+            <div class="w-full flex items-center justify-center relative z-10">
+              <div
+                class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm card-leaf-decoration relative"
+              >
+                <!-- Top Left -->
+                <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-top-left">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full"
+                    />
+                  </div>
+                </div>
+                <!-- Top Right -->
+                <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-top-right">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full -scale-x-100"
+                    />
+                  </div>
+                </div>
+                <!-- Bottom Left -->
+                <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-bottom-left">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full rotate-180 -scale-x-100"
+                    />
+                  </div>
+                </div>
+                <!-- Bottom Right -->
+                <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-bottom-right">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full rotate-180"
+                    />
+                  </div>
+                </div>
+                <div class="p-6 text-center">
+                  <h2
+                    class="text-2xl md:text-3xl font-secondary text-primary mb-6 leading-tight"
+                  >
+                    Resepsi
+                  </h2>
 
-          <!-- Dekorasi bawah -->
-          <div class="flex justify-center items-center gap-4 mt-8">
-            <i class="bi bi-heart-fill text-3xl text-white/70 animate-pulse"></i>
-          </div>
-        </div>
-      </section>
-      <!-- end doa -->
+                  <div class="border-t border-b border-gray-200 py-4 mb-6">
+                    <div
+                      class="flex items-center justify-center space-x-4 mb-2"
+                    >
+                      <span
+                        class="text-5xl md:text-6xl font-bold text-gray-900 font-sans leading-none"
+                        >28</span
+                      >
+                      <div class="text-left">
+                        <span class="block text-xl font-semibold text-gray-800"
+                          >Desember 2025</span
+                        >
+                        <span class="block text-md text-gray-600">Minggu</span>
+                      </div>
+                    </div>
+                    <p class="text-base md:text-lg font-body font-medium text-gray-700 mt-2">
+                      Pukul 08:00 WIB - Selesai
+                    </p>
+                  </div>
 
-      <section id="mempelai-section"
-        class="wedding-section min-h-screen flex flex-col justify-center items-center px-4 py-8 relative overflow-hidden"
-        style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-        <!-- Single fade gradient di atas -->
-        <div class="absolute top-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-        <!-- Single fade gradient di bawah -->
-        <div class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
+                  <div class="mb-6">
+                    <p class="text-gray-700 font-secondary font-semibold mb-2">
+                      Lokasi Acara:
+                    </p>
+                    <p class="text-gray-800 text-lg md:text-xl font-secondary font-medium">Menara 165</p>
+                    <p class="text-gray-600 text-sm md:text-base font-body">
+                      Jl. TB Simatupang Jakarta Selatan
+                    </p>
+                  </div>
 
-        <div
-          class="shadow bg-white/80 p-8 rounded-2xl border-slate-500 backdrop-blur-sm relative z-10 card-leaf-decoration overflow-hidden">
-          <!-- Top Left -->
-          <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full" />
+                  <a
+                    href="https://maps.app.goo.gl/YourGoogleMapsLinkHere"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button-main"
+                  >
+                    Lihat Lokasi
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-          <!-- Top Right -->
-          <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Left -->
-          <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt=""
-                class="block w-full h-full rotate-180 -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Right -->
-          <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full rotate-180" />
-            </div>
-          </div>
-          <div class="text-center mb-5">
-            <h2 class="text-2xl md:text-3xl mb-2 font-arab">
-              بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-            </h2>
-            <p class="text-lg md:text-xl font-secondary font-semibold">
-              Assalamu'alaikum Warahmatullahi Wabarakatuh
-            </p>
-            <p class="text-base md:text-lg font-body">
-              Tanpa mengurangi rasa hormat, kami mengundang Anda untuk
-              berkenan menghadiri acara pernikahan kami:
-            </p>
-          </div>
+            <div class="w-full flex items-center justify-center relative z-10">
+              <div
+                class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm card-leaf-decoration relative"
+              >
+                <!-- Top Left -->
+                <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-top-left">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full"
+                    />
+                  </div>
+                </div>
+                <!-- Top Right -->
+                <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-top-right">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full -scale-x-100"
+                    />
+                  </div>
+                </div>
+                <!-- Bottom Left -->
+                <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-bottom-left">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full rotate-180 -scale-x-100"
+                    />
+                  </div>
+                </div>
+                <!-- Bottom Right -->
+                <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                  <div class="relative w-full h-full origin-bottom-right">
+                    <img
+                      src="./images/furnitur/wave/daun-top-left.png"
+                      alt=""
+                      class="block w-full h-full rotate-180"
+                    />
+                  </div>
+                </div>
+                <div class="p-6 text-center">
+                  <h2
+                    class="text-2xl md:text-3xl font-secondary text-primary mb-6 leading-tight"
+                  >
+                    Live Streaming
+                  </h2>
 
-          <div class="flex flex-col gap-9">
-            <div class="text-center">
-              <img src="./images/profile/male.webp" alt="Foto Profil Pengantin Pria"
-                class="w-32 h-32 rounded-full object-cover mb-4 border-2 border-gray-300 mx-auto" />
+                  <div class="border-t border-gray-200 py-4 mb-6">
+                    <div
+                      class="flex flex-col items-center justify-center space-x-4 mb-2"
+                    >
+                      <p class="text-base md:text-lg font-body font-normal text-gray-700 mt-2 leading-relaxed">
+                        Temui kami secara virtual untuk menyaksikan acara
+                        pernikahan kami yang insyaaAllah akan disiarkan langsung
+                        melalui link dibawah ini.
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href="https://maps.app.goo.gl/YourGoogleMapsLinkHere"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button-main"
+                  >
+                    Lihat live Streaming
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
 
-              <p class="text-2xl md:text-3xl font-nama">Muhammad Aprianto</p>
-              <p class="text-base md:text-lg font-secondary font-semibold">Putra pertama dari</p>
-              <p class="text-base md:text-lg font-body">Bapak Aji Saputra & Ibu Sri Yulianti</p>
-              <button class="button-main mt-2 px-3 py-1 scale-90">
-                <a class="text-sm" href="#">@muahmandaprianto</a>
+          <section
+            id="kisah-cinta-section"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
+            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+          >
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
+            <div
+              class="flex w-full flex-col items-start bg-white/95 py-8 px-4 rounded-2xl backdrop-blur-sm relative z-10 shadow-lg card-leaf-decoration overflow-hidden"
+            >
+              <!-- Top Left -->
+              <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full"
+                  />
+                </div>
+              </div>
+              <!-- Top Right -->
+              <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bottom Left -->
+              <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180 -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bottom Right -->
+              <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180"
+                  />
+                </div>
+              </div>
+              <div class="text-center self-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-secondary text-primary">Love Story</h1>
+              </div>
+
+              <div class="group flex gap-x-6">
+                <div class="relative">
+                  <div
+                    class="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-primary"
+                  ></div>
+                  <span
+                    class="relative grid h-10 w-10 place-items-center rounded-full bg-primary text-slate-800"
+                    style="z-index: 5;"
+                    ><i class="bi bi-heart-fill text-white"></i
+                  ></span>
+                </div>
+                <div class="-translate-y-1.5 pb-8 text-slate-600">
+                  <img
+                    src="./images/galery/landscape/2.webp"
+                    loading="lazy"
+                    alt="love 1"
+                    class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
+                  />
+                  <p
+                    class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
+                  >
+                    💜 Awal Pertemuan Sederhana
+                  </p>
+                  <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
+                    >Berawal dari tempat pekerjaan Cianjur-2023, kami mengenal
+                    satu sama lain dan belum ada benih cinta kala itu, hanya
+                    sebatas teman kerja.</small
+                  >
+                </div>
+              </div>
+              <div data-value=":r15:" class="group flex gap-x-6">
+                <div class="relative">
+                  <div
+                    class="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-primary"
+                  ></div>
+                  <span
+                    class="relative grid h-10 w-10 place-items-center rounded-full bg-primary text-slate-800"
+                    style="z-index: 5;"
+                    ><i class="bi bi-heart-fill text-white"></i
+                  ></span>
+                </div>
+                <div class="-translate-y-1.5 pb-8 text-slate-600">
+                  <img
+                    src="./images/galery/landscape/3.webp"
+                    loading="lazy"
+                    alt="love 1"
+                    class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
+                  />
+                  <p
+                    class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
+                  >
+                    💞 Benih Cinta dalam Ujian
+                  </p>
+
+                  <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
+                    >Setelah cukup mengenal satu sama lain, satu tahun kurang
+                    lebih nya kami menjalin hubungan. Akhirnya kita memutuskan
+                    untuk melanjutkan ke Hubungan yang lebih serius
+                    mempertemukan kedua keluarga.</small
+                  >
+                </div>
+              </div>
+              <div data-value=":r16:" class="group flex gap-x-6">
+                <div class="relative">
+                  <span
+                    class="relative grid h-10 w-10 place-items-center rounded-full bg-primary text-slate-800"
+                    style="z-index: 5;"
+                    ><i class="bi bi-heart-fill text-white"></i
+                  ></span>
+                </div>
+                <div
+                  class="-translate-y-1.5 pb-8 text-slate-600 data-[orientation=horizontal]:py-4"
+                >
+                  <img
+                    src="./images/galery/landscape/4.webp"
+                    loading="lazy"
+                    alt="love 1"
+                    class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
+                  />
+                  <p
+                    class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
+                  >
+                    💍 Langkah Menuju Ridha Allah
+                  </p>
+                  <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
+                    >Sampai tanggal ini kami melaksanakan akad terlebih dahulu
+                    dan akhirnya kami mengubah status hingga menjadi pasangan
+                    suami istri. Semoga allah swt. Memberikan keberkahan
+                    pernikahan ini. "AMIN</small
+                  >
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="galeri-section"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+          >
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
+            <div class="bg-white/95 p-4 rounded-2xl text-center backdrop-blur-sm relative z-10 shadow-lg card-leaf-decoration overflow-hidden">
+              <!-- Top Left -->
+              <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full"
+                  />
+                </div>
+              </div>
+              <!-- Top Right -->
+              <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bottom Left -->
+              <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180 -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bottom Right -->
+              <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180"
+                  />
+                </div>
+              </div>
+              <h2 class="text-3xl md:text-4xl font-secondary mb-8">Our Moment</h2>
+
+              <!-- YouTube Video -->
+              <div class="w-full max-w-5xl mx-auto mb-8">
+                <div
+                  class="relative w-full overflow-hidden rounded-lg shadow-lg"
+                  style="padding-top: 56.25%; background-color: #000;"
+                >
+                  <iframe
+                    class="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/2hyN1_2qHCU?si=lBzY_y_MAVqy6pep"
+                    title="Our Moment Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy"
+                  ></iframe>
+                </div>
+              </div>
+
+            <div class="grid grid-cols-2 gap-4 max-w-5xl mx-auto">
+              <div class="grid gap-4">
+                <div
+                  class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
+                  data-gallery-index="0"
+                >
+                  <img
+                    src="./images/galery/portrait/1.webp"
+                    loading="lazy"
+                    alt="Potret 1"LAFBD-41
+                    class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110 gallery-image"
+                    data-gallery-index="0"
+                  />
+                </div>
+
+                <div
+                  class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
+                  data-gallery-index="1"
+                >
+                  <img
+                    src="./images/galery/portrait/2.webp"
+                    loading="lazy"
+                    alt="Potret 2"
+                    class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110 gallery-image"
+                    data-gallery-index="1"
+                  />
+                </div>
+
+                <div
+                  class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
+                  data-gallery-index="2"
+                >
+                  <img
+                    src="./images/galery/landscape/1.webp"
+                    loading="lazy"
+                    alt="Landscape 1"
+                    class="h-full w-full object-cover object-center aspect-[4/3] transition-transform duration-500 hover:scale-110 gallery-image"
+                    data-gallery-index="2"
+                  />
+                </div>
+
+                <div
+                  class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
+                  data-gallery-index="3"
+                >
+                  <img
+                    src="./images/galery/portrait/3.webp"
+                    loading="lazy"
+                    alt="Potret 3"
+                    class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110 gallery-image"
+                    data-gallery-index="3"
+                  />
+                </div>
+              </div>
+
+              <div class="grid gap-4">
+                <div
+                  class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
+                  data-gallery-index="4"
+                >
+                  <img
+                    src="./images/galery/portrait/4.webp"
+                    loading="lazy"
+                    alt="Potret 4"
+                    class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110 gallery-image"
+                    data-gallery-index="4"
+                  />
+                </div>
+
+                <div
+                  class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
+                  data-gallery-index="5"
+                >
+                  <img
+                    src="./images/galery/landscape/3.webp"
+                    loading="lazy"
+                    alt="Landscape 3"
+                    class="h-full w-full object-cover object-center aspect-[4/3] transition-transform duration-500 hover:scale-110 gallery-image"
+                    data-gallery-index="5"
+                  />
+                </div>
+
+                <div
+                  class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
+                  data-gallery-index="6"
+                >
+                  <img
+                    src="./images/galery/portrait/5.webp"
+                    loading="lazy"
+                    alt="Potret 5"
+                    class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110 gallery-image"
+                    data-gallery-index="6"
+                  />
+                </div>
+
+                <div
+                  class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
+                  data-gallery-index="7"
+                >
+                  <img
+                    src="./images/galery/portrait/6.webp"
+                    loading="lazy"
+                    alt="Potret 6"
+                    class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110 gallery-image"
+                    data-gallery-index="7"
+                  />
+                </div>
+              </div>
+            </div>
+            </div>
+          </section>
+
+          <!-- Lightbox Modal untuk Gallery -->
+          <div id="gallery-lightbox" class="gallery-lightbox hidden">
+            <div class="lightbox-overlay"></div>
+            <div class="lightbox-container">
+              <button class="lightbox-close" id="lightbox-close" aria-label="Close">
+                <i class="bi bi-x-lg"></i>
               </button>
+              <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">
+                <i class="bi bi-chevron-left"></i>
+              </button>
+              <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+              <div class="lightbox-image-wrapper">
+                <img id="lightbox-image" src="" alt="" />
+              </div>
+              <div class="lightbox-counter">
+                <span id="lightbox-counter-text">1 / 8</span>
+              </div>
             </div>
-            <div class="text-center">
-              <p class="font-nama text-4xl">&</p>
-            </div>
-            <div class="text-center">
-              <img src="./images/profile/female.webp" alt="Foto Profil Pengantin Wanita"
-                class="w-32 h-32 rounded-full object-cover mb-4 border-2 border-gray-300 mx-auto" />
+          </div>
 
-              <p class="text-2xl md:text-3xl font-nama">Annisa Riski Firmani</p>
-              <p class="text-base md:text-lg font-secondary font-semibold">Putri pertama dari</p>
-              <p class="text-base md:text-lg font-body">
-                Bapak Suminto & Ibu Nuningsih Siwi Utami
+          <section
+            id="gift-section"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
+            style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+          >
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
+            <div
+              class="bg-white/90 backdrop-blur-sm px-6 py-10 rounded-3xl shadow-2xl w-full max-w-2xl flex flex-col items-center relative z-10 elegant-border animate-fade-in-up card-leaf-decoration overflow-hidden"
+            >
+              <!-- Top Left -->
+              <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full"
+                  />
+                </div>
+              </div>
+              <!-- Top Right -->
+              <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bottom Left -->
+              <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180 -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bottom Right -->
+              <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180"
+                  />
+                </div>
+              </div>
+              <!-- Icon dekoratif -->
+              <div class="mb-4 flex justify-center items-center gap-4">
+                <i class="bi bi-gift-fill text-4xl text-primary-600 animate-pulse"></i>
+              </div>
+              
+              <h2 class="text-3xl md:text-4xl font-secondary mb-6 text-primary-600 text-center sparkle">
+                Wedding Gift
+              </h2>
+              
+              <p class="text-gray-700 text-center mb-8 text-base md:text-lg font-body leading-relaxed max-w-xl">
+                Restu dan doa tulus Anda adalah anugerah tak ternilai bagi kami.
+                <br class="hidden md:block" />
+                Jika Anda ingin berbagi kasih, dukungan dapat disalurkan melalui:
               </p>
-              <button class="button-main mt-2 px-3 py-1 scale-90">
-                <a class="text-sm" href="#">@anisariskifirmani</a>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section id="waktu-lokasi-section"
-        class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 gap-y-8 relative"
-        style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-        <!-- Single fade gradient di atas -->
-        <div class="absolute top-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-        <!-- Single fade gradient di bawah -->
-        <div class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-
-        <div class="w-full flex items-center justify-center relative z-10">
-          <div
-            class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm card-leaf-decoration relative">
-            <!-- Top Left -->
-            <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-top-left">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full" />
-              </div>
-            </div>
-            <!-- Top Right -->
-            <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-top-right">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full -scale-x-100" />
-              </div>
-            </div>
-            <!-- Bottom Left -->
-            <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-bottom-left">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt=""
-                  class="block w-full h-full rotate-180 -scale-x-100" />
-              </div>
-            </div>
-            <!-- Bottom Right -->
-            <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-bottom-right">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full rotate-180" />
-              </div>
-            </div>
-            <div class="p-6 text-center">
-              <h2 class="text-2xl md:text-3xl font-secondary text-primary mb-6 leading-tight">
-                Akad Nikah
-              </h2>
-
-              <div class="border-t border-b border-gray-200 py-4 mb-6">
-                <div class="flex items-center justify-center space-x-4 mb-2">
-                  <span class="text-5xl md:text-6xl font-bold text-gray-900 font-sans leading-none">28</span>
-                  <div class="text-left">
-                    <span class="block text-xl font-semibold text-gray-800">Desember 2025</span>
-                    <span class="block text-md text-gray-600">Minggu</span>
-                  </div>
+              <!-- Tombol Open -->
+              <div class="w-full flex justify-center mb-4 relative" style="z-index: 30;">
+                  <button
+                    id="open-gift-btn"
+                  class="button-main px-8 py-3 text-lg font-semibold relative"
+                  style="z-index: 30 !important; position: relative !important; pointer-events: auto !important; cursor: pointer !important;"
+                  >
+                  <i class="bi bi-gift mr-2"></i>
+                    Open
+                  </button>
                 </div>
-                <p class="text-base md:text-lg font-body font-medium text-gray-700 mt-2">
-                  Pukul 08:00 WIB
-                </p>
-              </div>
 
-              <div class="mb-6">
-                <p class="text-gray-700 font-secondary font-semibold mb-2">
-                  Lokasi Acara:
-                </p>
-                <p class="text-gray-800 text-lg md:text-xl font-secondary font-medium">Menara 165</p>
-                <p class="text-gray-600 text-sm md:text-base font-body">
-                  Jl. TB Simatupang Jakarta Selatan
-                </p>
-              </div>
-
-              <a href="https://maps.app.goo.gl/YourGoogleMapsLinkHere" target="_blank" rel="noopener noreferrer"
-                class="button-main">
-                Lihat Lokasi
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="w-full flex items-center justify-center relative z-10">
-          <div
-            class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm card-leaf-decoration relative">
-            <!-- Top Left -->
-            <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-top-left">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full" />
-              </div>
-            </div>
-            <!-- Top Right -->
-            <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-top-right">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full -scale-x-100" />
-              </div>
-            </div>
-            <!-- Bottom Left -->
-            <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-bottom-left">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt=""
-                  class="block w-full h-full rotate-180 -scale-x-100" />
-              </div>
-            </div>
-            <!-- Bottom Right -->
-            <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-bottom-right">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full rotate-180" />
-              </div>
-            </div>
-            <div class="p-6 text-center">
-              <h2 class="text-2xl md:text-3xl font-secondary text-primary mb-6 leading-tight">
-                Resepsi
-              </h2>
-
-              <div class="border-t border-b border-gray-200 py-4 mb-6">
-                <div class="flex items-center justify-center space-x-4 mb-2">
-                  <span class="text-5xl md:text-6xl font-bold text-gray-900 font-sans leading-none">28</span>
-                  <div class="text-left">
-                    <span class="block text-xl font-semibold text-gray-800">Desember 2025</span>
-                    <span class="block text-md text-gray-600">Minggu</span>
+              <!-- Gift Content (tersembunyi secara default) -->
+                <div
+                  id="gift-content"
+                  class="w-full overflow-hidden transition-all duration-500 ease-in-out"
+                  style="max-height: 0; opacity: 0;"
+                >
+                <div class="flex flex-col gap-6 justify-center items-center">
+                  <!-- Gift 1: Transfer Bank -->
+                  <div
+                    class="w-full relative rounded-2xl shadow-lg text-center overflow-hidden"
+                    style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+                  >
+                    <!-- Overlay sederhana untuk readability -->
+                    <div class="absolute inset-0 bg-black/50"></div>
+                    
+                    <!-- Content -->
+                    <div class="p-6 relative z-10">
+                      <div class="flex justify-center mb-4">
+                        <div class="bg-white p-3 rounded-full shadow-md">
+                          <img
+                            src="./images/logo/logo-bca.png"
+                            alt="BCA"
+                            class="w-28 object-contain"
+                          />
+                        </div>
+                      </div>
+                      <div class="mb-2 text-lg md:text-xl font-secondary font-bold text-white">
+                        Bank BCA
+                      </div>
+                      <div
+                        class="mb-3 text-white tracking-widest text-xl md:text-2xl font-secondary font-bold select-all bg-black/40 px-4 py-3 rounded-lg"
+                        id="rekening-bca"
+                      >
+                        1234567890
+                      </div>
+                      <div class="mb-4 text-white/90 text-sm md:text-base font-body font-medium">
+                        a.n. Rian & Nisa
+                      </div>
+                      <button
+                        id="copy-rekening-btn"
+                        class="button-main button-sm w-full"
+                      >
+                        <i class="bi bi-clipboard-check mr-2"></i>
+                        Salin Nomor Rekening
+                      </button>
+                      <span
+                        id="notif-rekening"
+                        class="text-green-300 text-xs mt-2 font-semibold hidden animate-fade-in-up"
+                        >✓ Nomor berhasil disalin!</span
+                      >
+                    </div>
                   </div>
+                  <!-- Gift 2: E-Wallet -->
+                  <div
+                    class="w-full relative rounded-2xl shadow-lg text-center overflow-hidden"
+                    style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+                  >
+                    <!-- Overlay sederhana untuk readability -->
+                    <div class="absolute inset-0 bg-black/50"></div>
+                    
+                    <!-- Content -->
+                    <div class="p-6 relative z-10">
+                      <div class="flex justify-center mb-4">
+                        <div class="bg-white p-3 rounded-full shadow-md">
+                          <img
+                            src="./images/logo/logo-dana.png"
+                            alt="Dana"
+                            class="w-28 object-contain"
+                          />
+                        </div>
+                      </div>
+                      <div class="mb-2 text-lg md:text-xl font-secondary font-bold text-white">
+                        E-Wallet (Dana)
+                      </div>
+                      <div class="mb-3 text-white text-lg md:text-xl font-secondary font-bold select-all bg-black/40 px-4 py-3 rounded-lg">
+                        0812-3456-7890
+                      </div>
+                      <div class="mb-4 text-white/90 text-sm md:text-base font-body font-medium">
+                        a.n. Rian & Nisa
+                      </div>
+                      <button
+                        id="copy-dana-btn"
+                        class="button-main button-sm w-full"
+                      >
+                        <i class="bi bi-clipboard-check mr-2"></i>
+                        Salin Nomor
+                      </button>
+                      <span
+                        id="notif-dana"
+                        class="text-green-300 text-xs mt-2 font-semibold hidden animate-fade-in-up"
+                        >✓ Nomor berhasil disalin!</span
+                      >
+                    </div>
+                  </div>
+                  <!-- WhatsApp Confirmation -->
+                <a
+                  id="wa-gift-link"
+                  href="https://wa.me/6281234567890"
+                  target="_blank"
+                  class="button-main w-full mt-6 flex items-center justify-center gap-2 text-lg"
+                >
+                  <i class="bi bi-whatsapp text-2xl"></i> 
+                  Konfirmasi Transfer
+                </a>
+                <p class="mt-4 text-sm md:text-base font-body text-gray-600 text-center max-w-md leading-relaxed">
+                  Mohon konfirmasi kepada mempelai setelah transfer.
+                  <br />
+                  Terima kasih atas doa dan restunya.
+                </p>
                 </div>
-                <p class="text-base md:text-lg font-body font-medium text-gray-700 mt-2">
-                  Pukul 08:00 WIB - Selesai
-                </p>
               </div>
+            </div>
+          </section>
 
-              <div class="mb-6">
-                <p class="text-gray-700 font-secondary font-semibold mb-2">
-                  Lokasi Acara:
-                </p>
-                <p class="text-gray-800 text-lg md:text-xl font-secondary font-medium">Menara 165</p>
-                <p class="text-gray-600 text-sm md:text-base font-body">
-                  Jl. TB Simatupang Jakarta Selatan
-                </p>
+          <section
+            id="pesan-section"
+            class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+          >
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
+            <div
+              class="bg-white/90 px-3 py-8 rounded-2xl shadow-lg w-full max-w-3xl flex justify-center items-center flex-col backdrop-blur-sm relative z-10 card-leaf-decoration overflow-hidden"
+            >
+              <!-- Top Left -->
+              <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full"
+                  />
+                </div>
               </div>
-
-              <a href="https://maps.app.goo.gl/YourGoogleMapsLinkHere" target="_blank" rel="noopener noreferrer"
-                class="button-main">
-                Lihat Lokasi
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="w-full flex items-center justify-center relative z-10">
-          <div
-            class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm card-leaf-decoration relative">
-            <!-- Top Left -->
-            <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-top-left">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full" />
+              <!-- Top Right -->
+              <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full -scale-x-100"
+                  />
+                </div>
               </div>
-            </div>
-            <!-- Top Right -->
-            <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-top-right">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full -scale-x-100" />
+              <!-- Bottom Left -->
+              <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180 -scale-x-100"
+                  />
+                </div>
               </div>
-            </div>
-            <!-- Bottom Left -->
-            <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-bottom-left">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt=""
-                  class="block w-full h-full rotate-180 -scale-x-100" />
+              <!-- Bottom Right -->
+              <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180"
+                  />
+                </div>
               </div>
-            </div>
-            <!-- Bottom Right -->
-            <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-              <div class="relative w-full h-full origin-bottom-right">
-                <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full rotate-180" />
-              </div>
-            </div>
-            <div class="p-6 text-center">
-              <h2 class="text-2xl md:text-3xl font-secondary text-primary mb-6 leading-tight">
-                Live Streaming
+              <h2
+                class="text-3xl md:text-4xl font-secondary font-bold mb-8 text-gray-800 text-center"
+              >
+                Ucapan & RSVP
               </h2>
 
-              <div class="border-t border-gray-200 py-4 mb-6">
-                <div class="flex flex-col items-center justify-center space-x-4 mb-2">
-                  <p class="text-base md:text-lg font-body font-normal text-gray-700 mt-2 leading-relaxed">
-                    Temui kami secara virtual untuk menyaksikan acara
-                    pernikahan kami yang insyaaAllah akan disiarkan langsung
-                    melalui link dibawah ini.
+              <form
+                id="rsvp-form"
+                class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md relative overflow-hidden"
+              >
+                <div class="mb-5">
+                  <label
+                    for="guest-name"
+                    class="block text-gray-700 text-sm md:text-base font-secondary font-bold mb-2"
+                  >
+                    Nama Anda: <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="guest-name"
+                    name="guestName"
+                    class="shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary/75 focus:border-transparent transition duration-200"
+                    placeholder="Nama Lengkap Anda"
+                    required
+                  />
+                  <p
+                    id="guest-name-error"
+                    class="text-red-500 text-xs italic mt-1 hidden"
+                  >
+                    Nama tidak boleh kosong.
+                  </p>
+                </div>
+
+                <div class="mb-5">
+                  <label class="block text-gray-700 text-sm md:text-base font-secondary font-bold mb-2">
+                    Kehadiran: <span class="text-red-500">*</span>
+                  </label>
+                  <div class="relative">
+                    <select
+                      id="attendance"
+                      name="attendance"
+                      class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-3 pr-8 rounded shadow-sm leading-tight focus:outline-none focus:ring-2 focus:ring-primary/75 focus:border-transparent transition duration-200"
+                      required
+                    >
+                      <option value="">Pilih Kehadiran</option>
+                      <option value="hadir">Hadir</option>
+                      <option value="tidak-hadir">Tidak Hadir</option>
+                    </select>
+                    <div
+                      class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                    >
+                      <i class="bi bi-chevron-down text-sm text-primary"></i>
+                    </div>
+                  </div>
+                  <p
+                    id="attendance-error"
+                    class="text-red-500 text-xs italic mt-1 hidden"
+                  >
+                    Pilih status kehadiran Anda.
+                  </p>
+                </div>
+
+                <div class="mb-6">
+                  <label
+                    for="message"
+                    class="block text-gray-700 text-sm md:text-base font-secondary font-bold mb-2"
+                  >
+                    Pesan/Ucapan:
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary/75 focus:border-transparent h-32 resize-y transition duration-200"
+                    placeholder="Tulis ucapan untuk mempelai..."
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="button-main focus:outline-none focus:ring-4 focus:ring-primary/30 focus:ring-offset-2 w-full transition duration-300 ease-in-out transform"
+                >
+                  Kirim
+                </button>
+              </form>
+
+              <div class="mt-2 w-full max-w-md">
+                <div
+                  id="guest-messages"
+                  class="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar"
+                ></div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="terimakasih-section"
+            class="min-h-[80vh] flex flex-col justify-center items-center py-16 px-4 relative"
+            style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
+          >
+            <!-- Single fade gradient di atas -->
+            <div
+              class="absolute top-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            <!-- Single fade gradient di bawah -->
+            <div
+              class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
+              style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
+            ></div>
+            
+            <div
+              class="bg-white/90 px-8 py-12 rounded-2xl shadow-lg flex flex-col items-center max-w-xl w-full backdrop-blur-sm relative z-10 card-leaf-decoration overflow-hidden"
+            >
+              <!-- Top Left -->
+              <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full"
+                  />
+                </div>
+              </div>
+              <!-- Top Right -->
+              <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-top-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bottom Left -->
+              <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-left">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180 -scale-x-100"
+                  />
+                </div>
+              </div>
+              <!-- Bottom Right -->
+              <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+                <div class="relative w-full h-full origin-bottom-right">
+                  <img
+                    src="./images/furnitur/wave/daun-top-left.png"
+                    alt=""
+                    class="block w-full h-full rotate-180"
+                  />
+                </div>
+              </div>
+              <div class="mb-6">
+                <i
+                  class="bi bi-heart-fill text-pink-500 text-5xl animate-pulse"
+                ></i>
+              </div>
+              <h2
+                class="text-3xl md:text-4xl font-secondary font-bold mb-4 text-pink-700 text-center"
+              >
+                Terima Kasih
+              </h2>
+
+              <p class="text-center max-w-md text-gray-600 mb-6 text-base md:text-lg font-body leading-relaxed">
+                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+                Anda berkenan hadir dan memberikan doa restu.
+                <br /><br />
+                <span class="font-secondary font-semibold text-pink-700"
+                  >Wassalamu'alaikum warahmatullahi wabarakatuh</span
+                >
+              </p>
+              <p class="text-2xl md:text-3xl font-arab mb-6 text-gray-700 text-center">
+                الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+              </p>
+              <div class="flex flex-col items-center gap-2">
+                <span class="text-sm md:text-base text-gray-500 font-body">Kami Yang Berbahagia,</span>
+                <span class="font-nama text-2xl md:text-3xl text-pink-700"
+                  >Rian & Nisa</span
+                >
+              </div>
+              <div class="mt-8 flex gap-2">
+                <i class="bi bi-flower3 text-pink-400 text-2xl"></i>
+                <i class="bi bi-flower2 text-pink-400 text-2xl"></i>
+                <i class="bi bi-flower3 text-pink-400 text-2xl"></i>
+              </div>
+            </div>
+          </section>
+
+          <footer class="w-full bg-primary pt-10 pb-20 relative overflow-hidden" style="z-index: 1;">
+            <!-- Inner Shadow from Bottom -->
+            <div class="absolute bottom-0 left-0 right-0 h-60 pointer-events-none" style="background: linear-gradient(to top, #8b4a07 0%, rgba(139, 74, 7, 0.85) 20%, rgba(139, 74, 7, 0.65) 40%, rgba(139, 74, 7, 0.45) 60%, rgba(139, 74, 7, 0.25) 75%, rgba(139, 74, 7, 0.1) 90%, transparent 100%);"></div>
+            
+            <div class="max-w-2xl mx-auto px-4 flex flex-col items-center text-center relative z-10">
+              <!-- Logo & Brand Header -->
+              <div class="group flex flex-col items-center gap-3 mb-6">
+                <div class="relative">
+                  <div class="absolute -inset-1 bg-white/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                  <img
+                    src="./images/logo/logo.png"
+                    alt="Logo Bahagia Kita"
+                    class="relative w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-white/20 shadow-xl transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div class="space-y-1">
+                  <h3 class="text-white font-secondary font-semibold text-lg md:text-xl tracking-wide drop-shadow-sm">
+                    bahagiakita.my.id
+                  </h3>
+                  <p class="text-white/60 text-xs md:text-sm font-body italic">
+                    Abadikan Momen Bahagia Anda Bersama Kami
                   </p>
                 </div>
               </div>
-              <a href="https://maps.app.goo.gl/YourGoogleMapsLinkHere" target="_blank" rel="noopener noreferrer"
-                class="button-main">
-                Lihat live Streaming
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section id="kisah-cinta-section"
-        class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-        style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-        <!-- Single fade gradient di atas -->
-        <div class="absolute top-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-        <!-- Single fade gradient di bawah -->
-        <div class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
+              <!-- Social Media Links - Simple Icons -->
+              <div class="flex items-center gap-4 mb-8">
+                <a href="https://instagram.com/bahagiakita" target="_blank" 
+                   class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-lg"
+                   title="Follow Instagram">
+                  <i class="bi bi-instagram text-lg"></i>
+                </a>
+                <a href="https://wa.me/6283847630740" target="_blank" 
+                   class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-lg"
+                   title="Chat on WhatsApp">
+                  <i class="bi bi-whatsapp text-lg"></i>
+                </a>
+                <a href="https://tiktok.com/@bahagiakita" target="_blank" 
+                   class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-lg"
+                   title="Follow TikTok">
+                  <i class="bi bi-tiktok text-lg"></i>
+                </a>
+              </div>
 
-        <div
-          class="flex w-full flex-col items-start bg-white/95 py-8 px-4 rounded-2xl backdrop-blur-sm relative z-10 shadow-lg card-leaf-decoration overflow-hidden">
-          <!-- Top Left -->
-          <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full" />
-            </div>
-          </div>
-          <!-- Top Right -->
-          <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Left -->
-          <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt=""
-                class="block w-full h-full rotate-180 -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Right -->
-          <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full rotate-180" />
-            </div>
-          </div>
-          <div class="text-center self-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-secondary text-primary">Love Story</h1>
-          </div>
+              <!-- Call to Action -->
+              <div class="mb-10">
+                <a href="mailto:info@bahagiakita.my.id" 
+                   class="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-primary hover:bg-white/90 rounded-full font-bold shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 text-sm md:text-base">
+                  Hubungi Kami
+                </a>
+              </div>
 
-          <div class="group flex gap-x-6">
-            <div class="relative">
-              <div class="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-primary"></div>
-              <span class="relative grid h-10 w-10 place-items-center rounded-full bg-primary text-slate-800"
-                style="z-index: 5;"><i class="bi bi-heart-fill text-white"></i></span>
+              <!-- Copyright Footer -->
+              <div class="pt-6 border-t border-white/10 w-full flex items-center justify-center text-white/40 font-body">
+                <p style="font-size: 13px !important; letter-spacing: 0.3px; line-height: 1.4;">&copy; 2025 <span class="font-bold text-white/60">bahagiakita.my.id</span> &bull; All Rights Reserved</p>
+              </div>
             </div>
-            <div class="-translate-y-1.5 pb-8 text-slate-600">
-              <img src="./images/galery/landscape/2.webp" loading="lazy" alt="love 1"
-                class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48" />
-              <p class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased">
-                💜 Awal Pertemuan Sederhana
-              </p>
-              <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed">Berawal dari
-                tempat pekerjaan Cianjur-2023, kami mengenal
-                satu sama lain dan belum ada benih cinta kala itu, hanya
-                sebatas teman kerja.</small>
-            </div>
-          </div>
-          <div data-value=":r15:" class="group flex gap-x-6">
-            <div class="relative">
-              <div class="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-primary"></div>
-              <span class="relative grid h-10 w-10 place-items-center rounded-full bg-primary text-slate-800"
-                style="z-index: 5;"><i class="bi bi-heart-fill text-white"></i></span>
-            </div>
-            <div class="-translate-y-1.5 pb-8 text-slate-600">
-              <img src="./images/galery/landscape/3.webp" loading="lazy" alt="love 1"
-                class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48" />
-              <p class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased">
-                💞 Benih Cinta dalam Ujian
-              </p>
-
-              <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed">Setelah
-                cukup mengenal satu sama lain, satu tahun kurang
-                lebih nya kami menjalin hubungan. Akhirnya kita memutuskan
-                untuk melanjutkan ke Hubungan yang lebih serius
-                mempertemukan kedua keluarga.</small>
-            </div>
-          </div>
-          <div data-value=":r16:" class="group flex gap-x-6">
-            <div class="relative">
-              <span class="relative grid h-10 w-10 place-items-center rounded-full bg-primary text-slate-800"
-                style="z-index: 5;"><i class="bi bi-heart-fill text-white"></i></span>
-            </div>
-            <div class="-translate-y-1.5 pb-8 text-slate-600 data-[orientation=horizontal]:py-4">
-              <img src="./images/galery/landscape/4.webp" loading="lazy" alt="love 1"
-                class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48" />
-              <p class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased">
-                💍 Langkah Menuju Ridha Allah
-              </p>
-              <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed">Sampai
-                tanggal ini kami melaksanakan akad terlebih dahulu
-                dan akhirnya kami mengubah status hingga menjadi pasangan
-                suami istri. Semoga allah swt. Memberikan keberkahan
-                pernikahan ini. "AMIN</small>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="galeri-section"
-        class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-        style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-        <!-- Single fade gradient di atas -->
-        <div class="absolute top-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-        <!-- Single fade gradient di bawah -->
-        <div class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
+          </footer>
         </div>
 
-        <div
-          class="bg-white/95 p-4 rounded-2xl text-center backdrop-blur-sm relative z-10 shadow-lg card-leaf-decoration overflow-hidden">
-          <!-- Top Left -->
-          <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full" />
-            </div>
-          </div>
-          <!-- Top Right -->
-          <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Left -->
-          <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt=""
-                class="block w-full h-full rotate-180 -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Right -->
-          <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full rotate-180" />
-            </div>
-          </div>
-          <h2 class="text-3xl md:text-4xl font-secondary mb-8">Our Moment</h2>
-
-          <div class="grid grid-cols-2 gap-4 max-w-5xl mx-auto">
-            <div class="grid gap-4">
-              <div class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md">
-                <img src="./images/galery/portrait/1.webp" loading="lazy" alt="Potret 1"
-                  class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110" />
-              </div>
-
-              <div class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md">
-                <img src="./images/galery/portrait/2.webp" loading="lazy" alt="Potret 2"
-                  class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110" />
-              </div>
-
-              <div class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md">
-                <img src="./images/galery/landscape/1.webp" loading="lazy" alt="Landscape 1"
-                  class="h-full w-full object-cover object-center aspect-[4/3] transition-transform duration-500 hover:scale-110" />
-              </div>
-
-              <div class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md">
-                <img src="./images/galery/portrait/3.webp" loading="lazy" alt="Potret 3"
-                  class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110" />
-              </div>
-            </div>
-
-            <div class="grid gap-4">
-              <div class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md">
-                <img src="./images/galery/portrait/4.webp" loading="lazy" alt="Potret 4"
-                  class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110" />
-              </div>
-
-              <div class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md">
-                <img src="./images/galery/landscape/3.webp" loading="lazy" alt="Landscape 3"
-                  class="h-full w-full object-cover object-center aspect-[4/3] transition-transform duration-500 hover:scale-110" />
-              </div>
-
-              <div class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md">
-                <img src="./images/galery/portrait/5.webp" loading="lazy" alt="Potret 5"
-                  class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110" />
-              </div>
-
-              <div class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md">
-                <img src="./images/galery/portrait/6.webp" loading="lazy" alt="Potret 6"
-                  class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="gift-section"
-        class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-        style="z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-        <!-- Single fade gradient di atas -->
-        <div class="absolute top-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-        <!-- Single fade gradient di bawah -->
-        <div class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-
-        <div
-          class="bg-white/90 backdrop-blur-sm px-6 py-10 rounded-3xl shadow-2xl w-full max-w-2xl flex flex-col items-center relative z-10 elegant-border animate-fade-in-up card-leaf-decoration overflow-hidden">
-          <!-- Top Left -->
-          <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full" />
-            </div>
-          </div>
-          <!-- Top Right -->
-          <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Left -->
-          <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt=""
-                class="block w-full h-full rotate-180 -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Right -->
-          <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full rotate-180" />
-            </div>
-          </div>
-          <!-- Icon dekoratif -->
-          <div class="mb-4 flex justify-center items-center gap-4">
-            <i class="bi bi-gift-fill text-4xl text-primary-600 animate-pulse"></i>
-          </div>
-
-          <h2 class="text-3xl md:text-4xl font-secondary mb-6 text-primary-600 text-center sparkle">
-            Wedding Gift
-          </h2>
-
-          <p class="text-gray-700 text-center mb-8 text-base md:text-lg font-body leading-relaxed max-w-xl">
-            Restu dan doa tulus Anda adalah anugerah tak ternilai bagi kami.
-            <br class="hidden md:block" />
-            Jika Anda ingin berbagi kasih, dukungan dapat disalurkan melalui:
-          </p>
-
-          <!-- Mulai area yang akan di-blur -->
-          <div class="relative w-full flex flex-col items-center" style="min-height: 320px">
-            <!-- Blur Overlay -->
-            <div id="gift-blur-overlay"
-              class="absolute inset-0 flex flex-col items-center justify-center bg-white/70 backdrop-blur-md z-20 rounded-2xl"
-              style="min-height: 320px">
-              <button id="open-gift-btn"
-                class="px-6 py-2 bg-primary/80 hover:bg-primary text-white rounded-full text-lg font-semibold shadow transition">
-                Open
-              </button>
-            </div>
-            <!-- Gift Content (yang di-blur) -->
-            <div id="gift-content" class="w-full flex flex-col gap-6 justify-center items-center opacity-100">
-              <!-- Gift 1: Transfer Bank -->
-              <div
-                class="w-full relative rounded-2xl shadow-xl text-center overflow-hidden bg-gradient-to-br from-primary-50 to-accent-50 elegant-border">
-                <div class="p-6 bg-white/80 backdrop-blur-sm">
-                  <div class="flex justify-center mb-4">
-                    <div class="bg-white p-3 rounded-full shadow-md">
-                      <img src="./images/logo/logo-bca.png" alt="BCA" class="w-28 object-contain" />
-                    </div>
-                  </div>
-                  <div class="mb-2 text-lg md:text-xl font-secondary font-bold text-primary-700">
-                    Bank BCA
-                  </div>
-                  <div
-                    class="mb-3 text-gray-800 tracking-widest text-xl md:text-2xl font-secondary font-bold select-all bg-primary-50 px-4 py-2 rounded-lg border-2 border-primary-200"
-                    id="rekening-bca">
-                    1234567890
-                  </div>
-                  <div class="mb-4 text-gray-600 text-sm md:text-base font-body font-medium">
-                    a.n. Rian & Nisa
-                  </div>
-                  <button id="copy-rekening-btn" class="button-main button-sm w-full">
-                    <i class="bi bi-clipboard-check mr-2"></i>
-                    Salin Nomor Rekening
-                  </button>
-                  <span id="notif-rekening"
-                    class="text-green-600 text-xs mt-2 font-semibold hidden animate-fade-in-up">✓ Nomor berhasil
-                    disalin!</span>
-                </div>
-              </div>
-              <!-- Gift 2: E-Wallet -->
-              <div
-                class="w-full relative rounded-2xl shadow-xl text-center overflow-hidden bg-gradient-to-br from-secondary-50 to-primary-50 elegant-border">
-                <div class="p-6 bg-white/80 backdrop-blur-sm">
-                  <div class="flex justify-center mb-4">
-                    <div class="bg-white p-3 rounded-full shadow-md">
-                      <img src="./images/logo/logo-dana.png" alt="Dana" class="w-28 object-contain" />
-                    </div>
-                  </div>
-                  <div class="mb-2 text-lg md:text-xl font-secondary font-bold text-primary-700">
-                    E-Wallet (Dana)
-                  </div>
-                  <div
-                    class="mb-3 text-gray-800 text-lg md:text-xl font-secondary font-bold select-all bg-primary-50 px-4 py-2 rounded-lg border-2 border-primary-200">
-                    0812-3456-7890
-                  </div>
-                  <div class="mb-4 text-gray-600 text-sm md:text-base font-body font-medium">
-                    a.n. Rian & Nisa
-                  </div>
-                  <button id="copy-dana-btn" class="button-main button-sm w-full">
-                    <i class="bi bi-clipboard-check mr-2"></i>
-                    Salin Nomor
-                  </button>
-                  <span id="notif-dana" class="text-green-600 text-xs mt-2 font-semibold hidden animate-fade-in-up">✓
-                    Nomor berhasil disalin!</span>
-                </div>
-              </div>
-            </div>
-            <!-- WhatsApp Confirmation (juga ikut blur) -->
-            <a id="wa-gift-link" href="https://wa.me/6281234567890" target="_blank"
-              class="button-main w-full mt-6 flex items-center justify-center gap-2 text-lg">
-              <i class="bi bi-whatsapp text-2xl"></i>
-              Konfirmasi Transfer
+        <nav
+          id="main-navbar"
+          class="fixed bottom-0 backdrop-blur-md border-t shadow-2xl md:max-w-[450px] w-full rounded-t-3xl"
+          style="z-index: 99999 !important; display: none; position: fixed !important; background-color: rgba(248, 226, 196, 0.95); border-color: #A86B1C;"
+        >
+          <div
+            class="flex h-[4rem] justify-around items-center mx-auto px-2"
+          >
+            <a
+              href="#welcome-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="welcome-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-heart-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Home</span>
             </a>
-            <p class="mt-4 text-sm md:text-base font-body text-gray-600 text-center max-w-md leading-relaxed">
-              Mohon konfirmasi kepada mempelai setelah transfer.
-              <br />
-              Terima kasih atas doa dan restunya.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="pesan-section"
-        class="wedding-section min-h-screen flex flex-col justify-center items-center py-16 px-4 relative"
-        style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-        <!-- Single fade gradient di atas -->
-        <div class="absolute top-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-        <!-- Single fade gradient di bawah -->
-        <div class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-
-        <div
-          class="bg-white/90 px-3 py-8 rounded-2xl shadow-lg w-full max-w-3xl flex justify-center items-center flex-col backdrop-blur-sm relative z-10 card-leaf-decoration overflow-hidden">
-          <!-- Top Left -->
-          <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full" />
-            </div>
-          </div>
-          <!-- Top Right -->
-          <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Left -->
-          <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt=""
-                class="block w-full h-full rotate-180 -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Right -->
-          <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full rotate-180" />
-            </div>
-          </div>
-          <h2 class="text-3xl md:text-4xl font-secondary font-bold mb-8 text-gray-800 text-center">
-            Ucapan & RSVP
-          </h2>
-
-          <form id="rsvp-form" class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md relative overflow-hidden">
-            <div class="mb-5">
-              <label for="guest-name" class="block text-gray-700 text-sm md:text-base font-secondary font-bold mb-2">
-                Nama Anda: <span class="text-red-500">*</span>
-              </label>
-              <input type="text" id="guest-name" name="guestName"
-                class="shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary/75 focus:border-transparent transition duration-200"
-                placeholder="Nama Lengkap Anda" required />
-              <p id="guest-name-error" class="text-red-500 text-xs italic mt-1 hidden">
-                Nama tidak boleh kosong.
-              </p>
-            </div>
-
-            <div class="mb-5">
-              <label class="block text-gray-700 text-sm md:text-base font-secondary font-bold mb-2">
-                Kehadiran: <span class="text-red-500">*</span>
-              </label>
-              <div class="relative">
-                <select id="attendance" name="attendance"
-                  class="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-3 pr-8 rounded shadow-sm leading-tight focus:outline-none focus:ring-2 focus:ring-primary/75 focus:border-transparent transition duration-200"
-                  required>
-                  <option value="">Pilih Kehadiran</option>
-                  <option value="hadir">Hadir</option>
-                  <option value="tidak-hadir">Tidak Hadir</option>
-                </select>
-                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                  <i class="bi bi-chevron-down text-sm text-primary"></i>
-                </div>
-              </div>
-              <p id="attendance-error" class="text-red-500 text-xs italic mt-1 hidden">
-                Pilih status kehadiran Anda.
-              </p>
-            </div>
-
-            <div class="mb-6">
-              <label for="message" class="block text-gray-700 text-sm md:text-base font-secondary font-bold mb-2">
-                Pesan/Ucapan:
-              </label>
-              <textarea id="message" name="message"
-                class="shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary/75 focus:border-transparent h-32 resize-y transition duration-200"
-                placeholder="Tulis ucapan untuk mempelai..."></textarea>
-            </div>
-
-            <button type="submit"
-              class="button-main focus:outline-none focus:ring-4 focus:ring-primary/30 focus:ring-offset-2 w-full transition duration-300 ease-in-out transform">
-              Kirim
-            </button>
-          </form>
-
-          <div class="mt-2 w-full max-w-md">
-            <div id="guest-messages" class="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="terimakasih-section"
-        class="min-h-[80vh] flex flex-col justify-center items-center py-16 px-4 relative"
-        style="position: relative; z-index: 1; background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-        <!-- Single fade gradient di atas -->
-        <div class="absolute top-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to bottom, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-        <!-- Single fade gradient di bawah -->
-        <div class="absolute bottom-0 left-0 w-full h-[45%] -z-10"
-          style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);">
-        </div>
-
-        <div
-          class="bg-white/90 px-8 py-12 rounded-2xl shadow-lg flex flex-col items-center max-w-xl w-full backdrop-blur-sm relative z-10 card-leaf-decoration overflow-hidden">
-          <!-- Top Left -->
-          <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full" />
-            </div>
-          </div>
-          <!-- Top Right -->
-          <div class="absolute z-20 w-16 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-top-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Left -->
-          <div class="absolute z-20 w-16 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-left">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt=""
-                class="block w-full h-full rotate-180 -scale-x-100" />
-            </div>
-          </div>
-          <!-- Bottom Right -->
-          <div class="absolute z-20 w-16 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
-            <div class="relative w-full h-full origin-bottom-right">
-              <img src="./images/furnitur/wave/daun-top-left.png" alt="" class="block w-full h-full rotate-180" />
-            </div>
-          </div>
-          <div class="mb-6">
-            <i class="bi bi-heart-fill text-pink-500 text-5xl animate-pulse"></i>
-          </div>
-          <h2 class="text-3xl md:text-4xl font-secondary font-bold mb-4 text-pink-700 text-center">
-            Terima Kasih
-          </h2>
-
-          <p class="text-center max-w-md text-gray-600 mb-6 text-base md:text-lg font-body leading-relaxed">
-            Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
-            Anda berkenan hadir dan memberikan doa restu.
-            <br /><br />
-            <span class="font-secondary font-semibold text-pink-700">Wassalamu'alaikum warahmatullahi wabarakatuh</span>
-          </p>
-          <p class="text-2xl md:text-3xl font-arab mb-6 text-gray-700 text-center">
-            الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
-          </p>
-          <div class="flex flex-col items-center gap-2">
-            <span class="text-sm md:text-base text-gray-500 font-body">Kami Yang Berbahagia,</span>
-            <span class="font-nama text-2xl md:text-3xl text-pink-700">Rian & Nisa</span>
-          </div>
-          <div class="mt-8 flex gap-2">
-            <i class="bi bi-flower3 text-pink-400 text-2xl"></i>
-            <i class="bi bi-flower2 text-pink-400 text-2xl"></i>
-            <i class="bi bi-flower3 text-pink-400 text-2xl"></i>
-          </div>
-        </div>
-      </section>
-
-      <footer class="w-full min-h-[20vh] bg-primary pt-10 pb-16">
-        <div class="max-w-2xl mx-auto px-4 flex flex-col items-center gap-6">
-          <!-- Logo & Brand -->
-          <div class="flex items-center gap-3">
-            <img src="./images/logo/bahagiakita(bgwhite).png" alt="Logo" class="w-8 h-8 rounded-full shadow-lg" />
-            <span class="text-white font-secondary font-bold text-lg md:text-xl tracking-wide drop-shadow">
-              bahagiakita.my.id
-            </span>
-          </div>
-
-          <!-- Social Media -->
-          <div class="flex flex-wrap justify-center gap-4">
-            <a href="https://instagram.com/bahagiakita" target="_blank"
-              class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all duration-300 text-sm"
-              aria-label="Instagram">
-              <i class="bi bi-instagram text-base"></i>
-              <span class="font-medium">Instagram</span>
+            <a
+              href="#mempelai-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="mempelai-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-people-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Mempelai</span>
             </a>
-            <a href="https://wa.me/6283847630740" target="_blank"
-              class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all duration-300 text-sm"
-              aria-label="WhatsApp">
-              <i class="bi bi-whatsapp text-base"></i>
-              <span class="font-medium">WhatsApp</span>
+            <a
+              href="#waktu-lokasi-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="waktu-lokasi-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-geo-alt-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Lokasi</span>
             </a>
-            <a href="https://tiktok.com/@bahagiakita" target="_blank"
-              class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all duration-300 text-sm"
-              aria-label="TikTok">
-              <i class="bi bi-tiktok text-base"></i>
-              <span class="font-medium">TikTok</span>
+            <a
+              href="#kisah-cinta-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="kisah-cinta-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-heart-pulse-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Story</span>
+            </a>
+            <a
+              href="#galeri-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="galeri-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-image-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Galeri</span>
+            </a>
+            <a
+              href="#gift-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
+              data-target-id="gift-section"
+              style="color: #5E3B10;"
+            >
+              <i class="bi bi-gift-fill text-[1.1rem] mb-0.5 menu-icon"></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Gift</span>
+            </a>
+            <a
+              href="#pesan-section"
+              class="menu-item flex flex-col items-center justify-center transition-colors duration-300 p-1.5"
+              data-target-id="pesan-section"
+              style="color: #5E3B10;"
+            >
+              <i
+                class="bi bi-chat-dots-fill text-[1.1rem] mb-0.5 menu-icon"
+              ></i>
+              <span class="menu-item-text menu-text text-[0.7rem] font-body">Pesan</span>
             </a>
           </div>
+        </nav>
 
-          <!-- Contact Button -->
-          <a href="mailto:info@bahagiakita.my.id"
-            class="px-6 py-2.5 bg-white/90 hover:bg-white text-primary rounded-full font-semibold shadow-lg transition-all duration-300 text-sm">
-            Hubungi Kami
-          </a>
+        <audio id="background-music" loop>
+          <source src="./music/song.mp3" type="audio/mpeg" />
 
-          <!-- Copyright -->
-          <div class="text-xs md:text-sm font-body text-white/70 text-center">
-            &copy; 2025
-            <span class="font-secondary font-semibold">bahagiakita.my.id</span>
-            &mdash; All rights reserved.
-          </div>
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+
+        <div
+          id="music-controls"
+          class="fixed bottom-16 right-0.5 z-[100] opacity-0 pointer-events-none transition-all duration-500 ease-in-out translate-x-full"
+        >
+          <button
+            id="music-toggle-btn"
+            class="bg-gray-800 text-white p-1 rounded-full shadow-lg hover:bg-gray-700 transition-colors duration-300 scale-60 text-center"
+          >
+            <i id="music-icon" class="bi bi-play-fill text-5xl"></i>
+          </button>
         </div>
-      </footer>
-    </div>
-
-    <nav id="main-navbar"
-      class="fixed bottom-0 backdrop-blur-md border-t shadow-2xl md:max-w-[450px] w-full rounded-t-3xl"
-      style="z-index: 99999 !important; display: none; position: fixed !important; background-color: rgba(248, 226, 196, 0.95); border-color: #A86B1C;">
-      <div class="flex h-[4rem] justify-around items-center mx-auto px-2">
-        <a href="#welcome-section"
-          class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-          data-target-id="welcome-section" style="color: #5E3B10;">
-          <i class="bi bi-heart-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-          <span class="menu-item-text menu-text text-[0.7rem] font-body">Home</span>
-        </a>
-        <a href="#mempelai-section"
-          class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-          data-target-id="mempelai-section" style="color: #5E3B10;">
-          <i class="bi bi-people-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-          <span class="menu-item-text menu-text text-[0.7rem] font-body">Mempelai</span>
-        </a>
-        <a href="#waktu-lokasi-section"
-          class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-          data-target-id="waktu-lokasi-section" style="color: #5E3B10;">
-          <i class="bi bi-geo-alt-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-          <span class="menu-item-text menu-text text-[0.7rem] font-body">Lokasi</span>
-        </a>
-        <a href="#kisah-cinta-section"
-          class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-          data-target-id="kisah-cinta-section" style="color: #5E3B10;">
-          <i class="bi bi-heart-pulse-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-          <span class="menu-item-text menu-text text-[0.7rem] font-body">Story</span>
-        </a>
-        <a href="#galeri-section"
-          class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-          data-target-id="galeri-section" style="color: #5E3B10;">
-          <i class="bi bi-image-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-          <span class="menu-item-text menu-text text-[0.7rem] font-body">Galeri</span>
-        </a>
-        <a href="#gift-section"
-          class="menu-item flex flex-col items-center justify-center transition-colors duration-200 p-1.5"
-          data-target-id="gift-section" style="color: #5E3B10;">
-          <i class="bi bi-gift-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-          <span class="menu-item-text menu-text text-[0.7rem] font-body">Gift</span>
-        </a>
-        <a href="#pesan-section"
-          class="menu-item flex flex-col items-center justify-center transition-colors duration-300 p-1.5"
-          data-target-id="pesan-section" style="color: #5E3B10;">
-          <i class="bi bi-chat-dots-fill text-[1.1rem] mb-0.5 menu-icon"></i>
-          <span class="menu-item-text menu-text text-[0.7rem] font-body">Pesan</span>
-        </a>
       </div>
-    </nav>
-
-    <audio id="background-music" loop>
-      <source src="./music/song.mp3" type="audio/mpeg" />
-
-      Browser Anda tidak mendukung elemen audio.
-    </audio>
-
-    <div id="music-controls"
-      class="fixed bottom-16 right-0.5 z-[100] opacity-0 pointer-events-none transition-all duration-500 ease-in-out translate-x-full">
-      <button id="music-toggle-btn"
-        class="bg-gray-800 text-white p-1 rounded-full shadow-lg hover:bg-gray-700 transition-colors duration-300 scale-60 text-center">
-        <i id="music-icon" class="bi bi-play-fill text-5xl"></i>
-      </button>
     </div>
-  </div>
-  </div>
 
-  <!-- script -->
+    <!-- script -->
 
-  <script src="./js/aos.js"></script>
+    <script src="./js/aos.js"></script>
 
-  <script>
-    AOS.init({
-      duration: 2000, // Durasi animasi dalam milidetik
-      // once: true, // Hanya jalankan animasi sekali
-      offset: 150, // Jarak dari viewport untuk memicu animasi
-      easing: "ease-in-out", // Jenis easing untuk animasi
-    });
-    // Refresh AOS saat scroll pada container custom
-    document
-      .querySelectorAll(".overflow-y-auto")
-      .forEach(function (container) {
-        container.addEventListener("scroll", function () {
-          AOS.refresh();
-        });
+    <script>
+      AOS.init({
+        duration: 2000, // Durasi animasi dalam milidetik
+        // once: true, // Hanya jalankan animasi sekali
+        offset: 150, // Jarak dari viewport untuk memicu animasi
+        easing: "ease-in-out", // Jenis easing untuk animasi
       });
-  </script>
+      // Refresh AOS saat scroll pada container custom
+      document
+        .querySelectorAll(".overflow-y-auto")
+        .forEach(function (container) {
+          container.addEventListener("scroll", function () {
+            AOS.refresh();
+          });
+        });
+    </script>
 
-  <script src="./js/script.js"></script>
-  <script src="./js/script_form.js"></script>
-
-  <!-- Countdown Timer Script -->
-  <script>
-    // Countdown Timer untuk Hari Pernikahan
-    function updateCountdown() {
-      // Tanggal pernikahan: 28 Desember 2025, 08:00 WIB
-      const weddingDate = new Date('2025-12-28T08:00:00+07:00').getTime();
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-
-      if (distance < 0) {
-        // Jika tanggal sudah lewat
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        return;
+    <!-- Lightbox Gallery Styles -->
+    <style>
+      /* Lightbox Gallery Styles */
+      .gallery-lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100000 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
       }
 
-      // Hitung waktu tersisa
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      .gallery-lightbox:not(.hidden) {
+        opacity: 1;
+        visibility: visible;
+      }
 
-      // Update tampilan
-      document.getElementById('days').textContent = String(days).padStart(2, '0');
-      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-    }
+      .gallery-lightbox.hidden {
+        display: none;
+      }
 
-    // Update countdown setiap detik
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+      .lightbox-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        cursor: pointer;
+      }
 
-    // Save to Date Button Functionality
-    const saveToDateBtn = document.getElementById('save-to-date-btn');
-    if (saveToDateBtn) {
-      saveToDateBtn.addEventListener('click', function () {
-        // Tanggal pernikahan: 28 Desember 2025, 08:00 WIB
-        const weddingDate = new Date('2025-12-28T08:00:00+07:00');
+      .lightbox-container {
+        position: relative;
+        width: 90%;
+        max-width: 1200px;
+        height: 90%;
+        max-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100001;
+      }
 
-        // Format tanggal untuk Google Calendar
-        const formatDate = (date) => {
-          return date.toISOString().replace(/-|:|\.\d\d\d/g, '');
-        };
+      .lightbox-image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        touch-action: pan-x pan-y pinch-zoom;
+      }
 
-        const startDate = formatDate(weddingDate);
-        const endDate = formatDate(new Date(weddingDate.getTime() + 8 * 60 * 60 * 1000)); // 8 jam kemudian
+      .lightbox-image-wrapper img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        user-select: none;
+        -webkit-user-drag: none;
+        transition: transform 0.3s ease;
+      }
 
-        // Detail event
-        const title = encodeURIComponent('Pernikahan Rian & Nisa');
-        const details = encodeURIComponent('Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami.');
-        const location = encodeURIComponent('Menara 165, Jl. TB Simatupang Jakarta Selatan');
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100002;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
 
-        // Google Calendar URL
-        const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}`;
+      .lightbox-close:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.8);
+        transform: scale(1.1);
+      }
 
-        // Buka Google Calendar
-        window.open(googleCalendarUrl, '_blank');
-      });
-    }
-  </script>
-</body>
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100002;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
 
+      .lightbox-nav:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.8);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .lightbox-prev {
+        left: 20px;
+      }
+
+      .lightbox-next {
+        right: 20px;
+      }
+
+      .lightbox-counter {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 500;
+        z-index: 100002;
+        backdrop-filter: blur(10px);
+      }
+
+      /* Mobile optimizations */
+      @media (max-width: 768px) {
+        .lightbox-container {
+          width: 100%;
+          height: 100%;
+          max-height: 100vh;
+        }
+
+        .lightbox-close,
+        .lightbox-nav {
+          width: 40px;
+          height: 40px;
+          font-size: 20px;
+        }
+
+        .lightbox-close {
+          top: 10px;
+          right: 10px;
+        }
+
+        .lightbox-prev {
+          left: 10px;
+        }
+
+        .lightbox-next {
+          right: 10px;
+        }
+
+        .lightbox-counter {
+          bottom: 10px;
+          font-size: 14px;
+          padding: 8px 16px;
+        }
+      }
+
+      /* Animation for image transitions */
+      .lightbox-image-wrapper img.fade-in {
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Hide scrollbar di desktop */
+      @media (min-width: 768px) {
+        /* Hide scrollbar untuk Chrome, Safari, Opera */
+        #main-invite-page::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Hide scrollbar untuk Firefox */
+        #main-invite-page {
+          scrollbar-width: none;
+        }
+
+        /* Hide scrollbar untuk IE dan Edge */
+        #main-invite-page {
+          -ms-overflow-style: none;
+        }
+
+        /* Hide scrollbar untuk semua container scrollable di desktop */
+        .overflow-y-auto::-webkit-scrollbar {
+          display: none;
+        }
+
+        .overflow-y-auto {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+      }
+
+      /* Leaf Subtle Sway Animation - Ayunan halus seperti tertiup angin ringan */
+      /* Menggunakan scale pada wrapper div untuk tidak mengganggu transform img yang sudah ada */
+      @keyframes leafSway {
+        0%, 100% {
+          transform: rotate(0deg);
+        }
+        25% {
+          transform: rotate(2deg);
+        }
+        75% {
+          transform: rotate(-2deg);
+        }
+      }
+
+      /* Apply animation to all wrapper divs - semua berbarengan */
+      .card-leaf-decoration > div[class*="absolute"] > div {
+        animation: leafSway 3.5s ease-in-out infinite;
+      }
+
+    </style>
+
+    <script src="./js/script.js"></script>
+    <script src="./js/script_form.js"></script>
+    <script src="./js/countdown.js"></script>
+    <script src="./js/calendar.js"></script>
+  </body>
 </html>
