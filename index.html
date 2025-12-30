@@ -41,7 +41,7 @@
       src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
       defer
     ></script>
-    <script src="./js/supabase_config.js" defer></script>
+    <script src="./js/aos.js"></script>
   </head>
 
   <body class="bg-gray-900">
@@ -250,14 +250,14 @@
               <div
                 class="flex flex-col items-center justify-center w-full min-h-screen text-center gap-6 md:gap-8 px-4 pb-20"
               >
-                <div class="animate-fade-in-up">
+                <div data-aos="fade-down" data-aos-duration="1000">
                   <!-- Title head -->
                   <p class="text-lg md:text-xl font-secondary font-light tracking-widest text-primary-600 mb-2 sparkle">
                     THE WEDDING OF
                   </p>
                 </div>
                 
-                <div class="animate-fade-in-up" style="animation-delay: 0.2s;">
+                <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
                   <!-- image dengan efek elegant -->
                   <div class="relative inline-block elegant-border rounded-full p-1 animate-pulse-glow">
                     <img
@@ -268,7 +268,7 @@
                   </div>
                 </div>
                 
-                <div class="animate-fade-in-up max-w-2xl" style="animation-delay: 0.4s;">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="max-w-2xl">
                   <!-- nama,tanggal -->
                   <h1 class="text-4xl md:text-5xl font-primary font-bold text-primary-600 mb-4 sparkle">
                     Rian & Nisa
@@ -286,7 +286,7 @@
                 </div>
 
                 <!-- Countdown Timer -->
-                <div class="animate-fade-in-up mt-4 md:mt-6 w-full max-w-xs px-2" style="animation-delay: 0.6s;">
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" class="mt-4 md:mt-6 w-full max-w-xs px-2">
                   <div id="countdown" class="grid grid-cols-4 gap-1 md:gap-1.5 mb-2">
                     <div class="flex flex-col items-center">
                       <div class="rounded-md p-1.5 md:p-2 w-full text-center shadow-sm" style="background-color: #D17A15;">
@@ -529,15 +529,15 @@
             
             <div class="text-center text-white max-w-3xl mx-auto relative z-10 animate-fade-in-up">
               <!-- Icon dekoratif -->
-              <div class="mb-6 flex justify-center items-center gap-4">
+              <div data-aos="zoom-in" data-aos-duration="1000" class="mb-6 flex justify-center items-center gap-4">
                 <i class="bi bi-book-heart text-4xl text-white/80 animate-pulse"></i>
               </div>
               
-              <h2 class="text-4xl md:text-5xl font-secondary mb-12 text-white sparkle">
+              <h2 data-aos="fade-down" data-aos-duration="1000" class="text-4xl md:text-5xl font-secondary mb-12 text-white sparkle">
                 Doa
               </h2>
               <!-- Card untuk ayat -->
-              <div class="rounded-3xl p-8 md:p-12 mb-8 shadow-2xl elegant-border bg-black/30 backdrop-blur-sm border-white/20 card-leaf-decoration relative overflow-hidden">
+              <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="rounded-3xl p-8 md:p-12 mb-8 shadow-2xl elegant-border bg-black/30 backdrop-blur-sm border-white/20 card-leaf-decoration relative overflow-hidden">
                 <!-- Top Left -->
                 <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
                   <div class="relative w-full h-full origin-top-left">
@@ -590,7 +590,7 @@
               </div>
               
               <!-- Dekorasi bawah -->
-              <div class="flex justify-center items-center gap-4 mt-8">
+              <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="flex justify-center items-center gap-4 mt-8">
                 <i class="bi bi-heart-fill text-3xl text-white/70 animate-pulse"></i>
               </div>
             </div>
@@ -656,7 +656,7 @@
                   />
                 </div>
               </div>
-              <div class="text-center mb-5">
+              <div data-aos="fade-down" data-aos-duration="1000" class="text-center mb-5">
                 <h2 class="text-2xl md:text-3xl mb-2 font-arab">
                   بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
                 </h2>
@@ -670,7 +670,7 @@
               </div>
 
               <div class="flex flex-col gap-9">
-                <div class="text-center">
+                <div data-aos="fade-right" data-aos-duration="1000" class="text-center">
                   <img
                     src="./images/profile/male.webp"
                     alt="Foto Profil Pengantin Pria"
@@ -684,10 +684,10 @@
                     <a class="text-sm" href="#">@muahmandaprianto</a>
                   </button>
                 </div>
-                <div class="text-center">
+                <div data-aos="zoom-in" data-aos-duration="1000" class="text-center">
                   <p class="font-nama text-4xl">&</p>
                 </div>
-                <div class="text-center">
+                <div data-aos="fade-left" data-aos-duration="1000" class="text-center">
                   <img
                     src="./images/profile/female.webp"
                     alt="Foto Profil Pengantin Wanita"
@@ -724,7 +724,7 @@
             ></div>
             
             <div class="w-full flex items-center justify-center relative z-10">
-              <div
+              <div data-aos="fade-right" data-aos-duration="1000"
                 class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm card-leaf-decoration relative"
               >
                 <!-- Top Left -->
@@ -816,7 +816,7 @@
               </div>
             </div>
             <div class="w-full flex items-center justify-center relative z-10">
-              <div
+              <div data-aos="fade-left" data-aos-duration="1000"
                 class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm card-leaf-decoration relative"
               >
                 <!-- Top Left -->
@@ -908,7 +908,7 @@
               </div>
             </div>
             <div class="w-full flex items-center justify-center relative z-10">
-              <div
+              <div data-aos="fade-up" data-aos-duration="1000"
                 class="w-full bg-white/95 rounded-2xl shadow-sm overflow-hidden backdrop-blur-sm card-leaf-decoration relative"
               >
                 <!-- Top Left -->
@@ -1042,7 +1042,7 @@
                 </div>
               </div>
               <div class="text-center self-center mb-8">
-                <h1 class="text-3xl md:text-4xl font-secondary text-primary">Love Story</h1>
+                <h1 data-aos="fade-down" data-aos-duration="1000" class="text-3xl md:text-4xl font-secondary text-primary">Love Story</h1>
               </div>
 
               <div class="group flex gap-x-6">
@@ -1057,22 +1057,26 @@
                   ></span>
                 </div>
                 <div class="-translate-y-1.5 pb-8 text-slate-600">
-                  <img
-                    src="./images/galery/landscape/2.webp"
-                    loading="lazy"
-                    alt="love 1"
-                    class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
-                  />
-                  <p
-                    class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
-                  >
-                    💜 Awal Pertemuan Sederhana
-                  </p>
-                  <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
-                    >Berawal dari tempat pekerjaan Cianjur-2023, kami mengenal
-                    satu sama lain dan belum ada benih cinta kala itu, hanya
-                    sebatas teman kerja.</small
-                  >
+                  <div data-aos="zoom-in" data-aos-duration="1000">
+                    <img
+                      src="./images/galery/landscape/2.webp"
+                      loading="lazy"
+                      alt="love 1"
+                      class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
+                    />
+                  </div>
+                  <div data-aos="fade-left" data-aos-duration="1000">
+                    <p
+                      class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
+                    >
+                      💜 Awal Pertemuan Sederhana
+                    </p>
+                    <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
+                      >Berawal dari tempat pekerjaan Cianjur-2023, kami mengenal
+                      satu sama lain dan belum ada benih cinta kala itu, hanya
+                      sebatas teman kerja.</small
+                    >
+                  </div>
                 </div>
               </div>
               <div data-value=":r15:" class="group flex gap-x-6">
@@ -1087,24 +1091,28 @@
                   ></span>
                 </div>
                 <div class="-translate-y-1.5 pb-8 text-slate-600">
-                  <img
-                    src="./images/galery/landscape/3.webp"
-                    loading="lazy"
-                    alt="love 1"
-                    class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
-                  />
-                  <p
-                    class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
-                  >
-                    💞 Benih Cinta dalam Ujian
-                  </p>
+                  <div data-aos="zoom-in" data-aos-duration="1000">
+                    <img
+                      src="./images/galery/landscape/3.webp"
+                      loading="lazy"
+                      alt="love 1"
+                      class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
+                    />
+                  </div>
+                  <div data-aos="fade-left" data-aos-duration="1000">
+                    <p
+                      class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
+                    >
+                      💞 Benih Cinta dalam Ujian
+                    </p>
 
-                  <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
-                    >Setelah cukup mengenal satu sama lain, satu tahun kurang
-                    lebih nya kami menjalin hubungan. Akhirnya kita memutuskan
-                    untuk melanjutkan ke Hubungan yang lebih serius
-                    mempertemukan kedua keluarga.</small
-                  >
+                    <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
+                      >Setelah cukup mengenal satu sama lain, satu tahun kurang
+                      lebih nya kami menjalin hubungan. Akhirnya kita memutuskan
+                      untuk melanjutkan ke Hubungan yang lebih serius
+                      mempertemukan kedua keluarga.</small
+                    >
+                  </div>
                 </div>
               </div>
               <div data-value=":r16:" class="group flex gap-x-6">
@@ -1118,23 +1126,27 @@
                 <div
                   class="-translate-y-1.5 pb-8 text-slate-600 data-[orientation=horizontal]:py-4"
                 >
-                  <img
-                    src="./images/galery/landscape/4.webp"
-                    loading="lazy"
-                    alt="love 1"
-                    class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
-                  />
-                  <p
-                    class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
-                  >
-                    💍 Langkah Menuju Ridha Allah
-                  </p>
-                  <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
-                    >Sampai tanggal ini kami melaksanakan akad terlebih dahulu
-                    dan akhirnya kami mengubah status hingga menjadi pasangan
-                    suami istri. Semoga allah swt. Memberikan keberkahan
-                    pernikahan ini. "AMIN</small
-                  >
+                  <div data-aos="zoom-in" data-aos-duration="1000">
+                    <img
+                      src="./images/galery/landscape/4.webp"
+                      loading="lazy"
+                      alt="love 1"
+                      class="object-cover border-primary border-2 object-center rounded-lg mb-4 w-full h-48"
+                    />
+                  </div>
+                  <div data-aos="fade-left" data-aos-duration="1000">
+                    <p
+                      class="font-secondary text-base md:text-lg font-bold text-slate-800 antialiased"
+                    >
+                      💍 Langkah Menuju Ridha Allah
+                    </p>
+                    <small class="mt-2 text-sm md:text-base font-body text-slate-800 antialiased leading-relaxed"
+                      >Sampai tanggal ini kami melaksanakan akad terlebih dahulu
+                      dan akhirnya kami mengubah status hingga menjadi pasangan
+                      suami istri. Semoga allah swt. Memberikan keberkahan
+                      pernikahan ini. "AMIN</small
+                    >
+                  </div>
                 </div>
               </div>
             </div>
@@ -1197,10 +1209,10 @@
                   />
                 </div>
               </div>
-              <h2 class="text-3xl md:text-4xl font-secondary mb-8">Our Moment</h2>
+              <h2 data-aos="fade-down" data-aos-duration="1000" class="text-3xl md:text-4xl font-secondary mb-8">Our Moment</h2>
 
               <!-- YouTube Video -->
-              <div class="w-full max-w-5xl mx-auto mb-8">
+              <div data-aos="zoom-in" data-aos-duration="1000" class="w-full max-w-5xl mx-auto mb-8">
                 <div
                   class="relative w-full overflow-hidden rounded-lg shadow-lg"
                   style="padding-top: 56.25%; background-color: #000;"
@@ -1219,20 +1231,20 @@
 
             <div class="grid grid-cols-2 gap-4 max-w-5xl mx-auto">
               <div class="grid gap-4">
-                <div
+                <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="0"
                   class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
                   data-gallery-index="0"
                 >
                   <img
                     src="./images/galery/portrait/1.webp"
                     loading="lazy"
-                    alt="Potret 1"LAFBD-41
+                    alt="Potret 1"
                     class="h-full w-full object-cover object-center aspect-[3/4] transition-transform duration-500 hover:scale-110 gallery-image"
                     data-gallery-index="0"
                   />
                 </div>
 
-                <div
+                <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
                   class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
                   data-gallery-index="1"
                 >
@@ -1245,7 +1257,7 @@
                   />
                 </div>
 
-                <div
+                <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200"
                   class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
                   data-gallery-index="2"
                 >
@@ -1258,7 +1270,7 @@
                   />
                 </div>
 
-                <div
+                <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"
                   class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
                   data-gallery-index="3"
                 >
@@ -1273,7 +1285,7 @@
               </div>
 
               <div class="grid gap-4">
-                <div
+                <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100"
                   class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
                   data-gallery-index="4"
                 >
@@ -1286,7 +1298,7 @@
                   />
                 </div>
 
-                <div
+                <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200"
                   class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
                   data-gallery-index="5"
                 >
@@ -1299,7 +1311,7 @@
                   />
                 </div>
 
-                <div
+                <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"
                   class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
                   data-gallery-index="6"
                 >
@@ -1312,7 +1324,7 @@
                   />
                 </div>
 
-                <div
+                <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400"
                   class="relative overflow-hidden rounded-lg bg-gray-100 shadow-md cursor-pointer"
                   data-gallery-index="7"
                 >
@@ -1367,7 +1379,7 @@
               style="background: linear-gradient(to top, #C6700D 0%, #C6700D 15%, rgba(198, 112, 13, 0.9) 18%, rgba(198, 112, 13, 0.75) 22%, rgba(198, 112, 13, 0.6) 26%, rgba(198, 112, 13, 0.45) 30%, rgba(198, 112, 13, 0.32) 34%, rgba(198, 112, 13, 0.22) 38%, rgba(198, 112, 13, 0.14) 41%, rgba(198, 112, 13, 0.08) 43%, rgba(198, 112, 13, 0.04) 45%, transparent 100%);"
             ></div>
             
-            <div
+            <div data-aos="fade-up" data-aos-duration="1000"
               class="bg-white/90 backdrop-blur-sm px-6 py-10 rounded-3xl shadow-2xl w-full max-w-2xl flex flex-col items-center relative z-10 elegant-border animate-fade-in-up card-leaf-decoration overflow-hidden"
             >
               <!-- Top Left -->
@@ -1415,7 +1427,7 @@
                 <i class="bi bi-gift-fill text-4xl text-primary-600 animate-pulse"></i>
               </div>
               
-              <h2 class="text-3xl md:text-4xl font-secondary mb-6 text-primary-600 text-center sparkle">
+              <h2 data-aos="fade-down" data-aos-duration="1000" class="text-3xl md:text-4xl font-secondary mb-6 text-primary-600 text-center sparkle">
                 Wedding Gift
               </h2>
               
@@ -1429,6 +1441,7 @@
               <div class="w-full flex justify-center mb-4 relative" style="z-index: 30;">
                   <button
                     id="open-gift-btn"
+                  data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200"
                   class="button-main px-8 py-3 text-lg font-semibold relative"
                   style="z-index: 30 !important; position: relative !important; pointer-events: auto !important; cursor: pointer !important;"
                   >
@@ -1610,13 +1623,13 @@
                   />
                 </div>
               </div>
-              <h2
+              <h2 data-aos="fade-down" data-aos-duration="1000"
                 class="text-3xl md:text-4xl font-secondary font-bold mb-8 text-gray-800 text-center"
               >
                 Ucapan & RSVP
               </h2>
 
-              <form
+              <form data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"
                 id="rsvp-form"
                 class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md relative overflow-hidden"
               >
@@ -1763,18 +1776,18 @@
                   />
                 </div>
               </div>
-              <div class="mb-6">
+              <div data-aos="zoom-in" data-aos-duration="1000" class="mb-6">
                 <i
                   class="bi bi-heart-fill text-pink-500 text-5xl animate-pulse"
                 ></i>
               </div>
-              <h2
+              <h2 data-aos="fade-down" data-aos-duration="1000"
                 class="text-3xl md:text-4xl font-secondary font-bold mb-4 text-pink-700 text-center"
               >
                 Terima Kasih
               </h2>
 
-              <p class="text-center max-w-md text-gray-600 mb-6 text-base md:text-lg font-body leading-relaxed">
+              <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="text-center max-w-md text-gray-600 mb-6 text-base md:text-lg font-body leading-relaxed">
                 Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
                 Anda berkenan hadir dan memberikan doa restu.
                 <br /><br />
@@ -1782,10 +1795,10 @@
                   >Wassalamu'alaikum warahmatullahi wabarakatuh</span
                 >
               </p>
-              <p class="text-2xl md:text-3xl font-arab mb-6 text-gray-700 text-center">
+              <p data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400" class="text-2xl md:text-3xl font-arab mb-6 text-gray-700 text-center">
                 الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
               </p>
-              <div class="flex flex-col items-center gap-2">
+              <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" class="flex flex-col items-center gap-2">
                 <span class="text-sm md:text-base text-gray-500 font-body">Kami Yang Berbahagia,</span>
                 <span class="font-nama text-2xl md:text-3xl text-pink-700"
                   >Rian & Nisa</span
@@ -1805,7 +1818,7 @@
             
             <div class="max-w-2xl mx-auto px-4 flex flex-col items-center text-center relative z-10">
               <!-- Logo & Brand Header -->
-              <div class="group flex flex-col items-center gap-3 mb-6">
+              <div data-aos="fade-up" data-aos-duration="1000" class="group flex flex-col items-center gap-3 mb-6">
                 <div class="relative">
                   <div class="absolute -inset-1 bg-white/10 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
                   <img
@@ -1825,7 +1838,7 @@
               </div>
 
               <!-- Social Media Links - Simple Icons -->
-              <div class="flex items-center gap-4 mb-8">
+              <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="flex items-center gap-4 mb-8">
                 <a href="https://instagram.com/bahagiakita" target="_blank" 
                    class="w-9 h-9 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white hover:text-primary transition-all duration-300 shadow-lg"
                    title="Follow Instagram">
@@ -1844,7 +1857,7 @@
               </div>
 
               <!-- Call to Action -->
-              <div class="mb-10">
+              <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="mb-10">
                 <a href="mailto:info@bahagiakita.my.id" 
                    class="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-primary hover:bg-white/90 rounded-full font-bold shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 text-sm md:text-base">
                   Hubungi Kami
@@ -1959,22 +1972,7 @@
 
     <script src="./js/aos.js"></script>
 
-    <script>
-      AOS.init({
-        duration: 2000, // Durasi animasi dalam milidetik
-        // once: true, // Hanya jalankan animasi sekali
-        offset: 150, // Jarak dari viewport untuk memicu animasi
-        easing: "ease-in-out", // Jenis easing untuk animasi
-      });
-      // Refresh AOS saat scroll pada container custom
-      document
-        .querySelectorAll(".overflow-y-auto")
-        .forEach(function (container) {
-          container.addEventListener("scroll", function () {
-            AOS.refresh();
-          });
-        });
-    </script>
+    <!-- Custom AOS Logic handles initialization in script.js -->
 
     <!-- Lightbox Gallery Styles -->
     <style>

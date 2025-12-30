@@ -162,13 +162,59 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (mainContainer) {
               mainContainer.scrollTo(0, 0);
             }
+
+            // SIMPLIFIED & ROBUST AOS (ANIMATE ON SCROLL)
+            // Strategy: 
+            // 1. Scroll check (standard)
+            // 2. Active Section Force Trigger (failsafe)
+            
+            // SUPER SIMPLE & ROBUST AOS
+            if (!document.body.dataset.aosInitialized) {
+                const aosElements = document.querySelectorAll('[data-aos]');
+                const mainContainer = document.getElementById('main-container');
+                
+                // 1. Initialize logic
+                aosElements.forEach(el => {
+                    el.classList.add('aos-init');
+                    const delay = el.getAttribute('data-aos-delay');
+                    if (delay) el.style.transitionDelay = `${delay}ms`;
+                    const duration = el.getAttribute('data-aos-duration');
+                    if (duration) el.style.transitionDuration = `${duration}ms`;
+                });
+
+                // 2. The Universal Visibility Checker
+                const checkVisibility = () => {
+                   const windowHeight = window.innerHeight;
+                   aosElements.forEach(el => {
+                       if (el.classList.contains('aos-animate')) return;
+                       
+                       const rect = el.getBoundingClientRect();
+                       // Trigger if the element top is clearly within the viewport or above it
+                       // Added 50px buffer to trigger slightly earlier
+                       if (rect.top <= windowHeight + 50) {
+                           el.classList.add('aos-animate');
+                       }
+                   });
+                };
+
+                // 3. Bind to everything
+                if (mainContainer) {
+                    mainContainer.addEventListener('scroll', checkVisibility, { passive: true });
+                }
+                window.addEventListener('scroll', checkVisibility, { passive: true });
+                window.addEventListener('resize', checkVisibility);
+                
+                // 4. Polling for safety
+                setInterval(checkVisibility, 300);
+                
+                // 5. Run immediately
+                checkVisibility();
+                
+                document.body.dataset.aosInitialized = "true";
+            }
           }, 300);
 
-          // Inisialisasi AOS (Animasi saat Scroll) dan refresh posisi
-          if (typeof AOS !== "undefined") {
-            AOS.init({}); // Inisialisasi AOS
-            AOS.refresh(); // Memindai ulang elemen-elemen AOS yang baru terlihat
-          }
+        
 
           // Mulai memutar lagu
           playMusic();
