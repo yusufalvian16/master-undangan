@@ -343,171 +343,37 @@
                 </p>
               </div> -->
             </div>
-            <div id="wave-bunga">
-              <!-- top left -->
-              <!-- Daun Bawah -->
-              <div
-                class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left"
-                style="z-index: 20 !important;"
-              >
-                <div class="relative w-full h-full wave-daun-2 origin-top-left">
-                  <img
-                    src="./images/furnitur/wave/top-left-daun-bawah.png"
-                    alt="Daun Kiri Atas"
-                    class="block w-full h-full"
-                  />
-                </div>
+            <!-- Corner Decorations - Triggered by Buka Undangan button -->
+            <div id="corner-decorations" class="pointer-events-none" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5;">
+              <!-- Top Left Corner -->
+              <div class="corner-decoration top-left" style="position: absolute; width: 170px; height: 170px; top: -170px; left: -170px; opacity: 0; transition: all 1.5s cubic-bezier(0.34, 1.56, 0.64, 1);">
+                <img src="./images/furnitur/wave/top-left-daun-bawah.png" alt="Leaf Bottom" class="daun-bawah wave-daun-2" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 1; transform-origin: top left;">
+                <img src="./images/furnitur/wave/top-left-bunga.png" alt="Flower" class="bunga wave-bunga" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 3; transform-origin: top left;">
+                <img src="./images/furnitur/wave/top-left-daun-atas.png" alt="Leaf Top" class="daun-atas wave-daun-1" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 2; transform-origin: top left;">
               </div>
-              <!-- Daun Atas -->
-              <div
-                  class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left"
-                style="z-index: 21 !important;"
-              >
-                <div class="relative w-full h-full wave-daun-1 origin-top-left">
-                  <img
-                    src="./images/furnitur/wave/top-left-daun-atas.png"
-                    alt="Daun Kiri Atas"
-                    class="block w-full h-full"
-                  />
-                </div>
+              
+              <!-- Top Right Corner -->
+              <div class="corner-decoration top-right" style="position: absolute; width: 170px; height: 170px; top: -170px; right: -170px; opacity: 0; transition: all 1.5s cubic-bezier(0.34, 1.56, 0.64, 1); transform: scaleX(-1);">
+                <img src="./images/furnitur/wave/top-left-daun-bawah.png" alt="Leaf Bottom" class="daun-bawah wave-daun-2" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 1; transform-origin: top left;">
+                <img src="./images/furnitur/wave/top-left-bunga.png" alt="Flower" class="bunga wave-bunga" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 3; transform-origin: top left;">
+                <img src="./images/furnitur/wave/top-left-daun-atas.png" alt="Leaf Top" class="daun-atas wave-daun-1" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 2; transform-origin: top left;">
               </div>
-              <!-- Bunga -->
-              <div
-                class="absolute z-20 w-36 -top-8 -left-8 animate-in-top-left"
-                style="z-index: 22 !important;"
-              >
-                <div class="relative w-full h-full wave-bunga origin-top-left">
-                  <img
-                    src="./images/furnitur/wave/top-left-bunga.png"
-                    alt="Bunga Kiri Atas"
-                    class="block w-full h-full"
-                  />
-                </div>
+              
+              <!-- Bottom Left Corner -->
+              <div class="corner-decoration bottom-left" style="position: absolute; width: 170px; height: 170px; bottom: -170px; left: -170px; opacity: 0; transition: all 1.5s cubic-bezier(0.34, 1.56, 0.64, 1); transform: scaleY(-1);">
+                <img src="./images/furnitur/wave/top-left-daun-bawah.png" alt="Leaf Bottom" class="daun-bawah wave-daun-2" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 1; transform-origin: top left;">
+                <img src="./images/furnitur/wave/top-left-bunga.png" alt="Flower" class="bunga wave-bunga" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 3; transform-origin: top left;">
+                <img src="./images/furnitur/wave/top-left-daun-atas.png" alt="Leaf Top" class="daun-atas wave-daun-1" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 2; transform-origin: top left;">
               </div>
-
-              <!-- bottom left -->
-              <!-- Daun Bawah -->
-              <div
-                class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left"
-                style="z-index: 20 !important;"
-              >
-                <div class="relative w-full h-full wave-daun-2 origin-bottom-left">
-                  <img
-                    src="./images/furnitur/wave/top-left-daun-bawah.png"
-                    alt="Daun Kiri Bawah"
-                    class="block w-full h-full rotate-180 -scale-x-100"
-                  />
-                </div>
-              </div>
-              <!-- Daun Atas -->
-              <div
-                class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left"
-                style="z-index: 21 !important;"
-              >
-                <div class="relative w-full h-full wave-daun-1 origin-bottom-left">
-                  <img
-                    src="./images/furnitur/wave/top-left-daun-atas.png"
-                    alt="Daun Kiri Bawah"
-                    class="block w-full h-full rotate-180 -scale-x-100"
-                  />
-                </div>
-              </div>
-              <!-- Bunga -->
-              <div
-                class="absolute w-36 -left-8 bottom-7 animate-in-bottom-left"
-                style="z-index: 22 !important;"
-              >
-                <div class="relative w-full h-full wave-bunga origin-bottom-left">
-                  <img
-                    src="./images/furnitur/wave/top-left-bunga.png"
-                    alt="Bunga Kiri Bawah"
-                    class="block w-full h-full rotate-180 -scale-x-100"
-                  />
-                </div>
-              </div>
-
-              <!-- top right -->
-              <!-- Daun Bawah -->
-              <div
-                class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right"
-                style="z-index: 20 !important;"
-              >
-                <div class="relative w-full h-full wave-daun-2 origin-top-right">
-                  <img
-                    src="./images/furnitur/wave/top-left-daun-bawah.png"
-                    alt="Daun Kanan Atas"
-                    class="block w-full h-full -scale-x-100"
-                  />
-                </div>
-              </div>
-              <!-- Daun Atas -->
-              <div
-                class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right"
-                style="z-index: 21 !important;"
-              >
-                <div class="relative w-full h-full wave-daun-1 origin-top-right">
-                  <img
-                    src="./images/furnitur/wave/top-left-daun-atas.png"
-                    alt="Daun Kanan Atas"
-                    class="block w-full h-full -scale-x-100"
-                  />
-                </div>
-              </div>
-              <!-- Bunga -->
-              <div
-                class="absolute z-20 w-36 -top-8 -right-8 animate-in-top-right"
-                style="z-index: 22 !important;"
-              >
-                <div class="relative w-full h-full wave-bunga origin-top-right">
-                  <img
-                    src="./images/furnitur/wave/top-left-bunga.png"
-                    alt="Bunga Kanan Atas"
-                    class="block w-full h-full -scale-x-100"
-                  />
-                </div>
-              </div>
-
-              <!-- bottom right -->
-              <!-- Daun Bawah -->
-              <div
-                class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right"
-                style="z-index: 20 !important;"
-              >
-                <div class="relative w-full h-full wave-daun-2 origin-bottom-right">
-                  <img
-                    src="./images/furnitur/wave/top-left-daun-bawah.png"
-                    alt="Daun Kanan Bawah"
-                    class="block w-full h-full rotate-180"
-                  />
-                </div>
-              </div>
-              <!-- Daun Atas -->
-              <div
-                class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right"
-                style="z-index: 21 !important;"
-              >
-                <div class="relative w-full h-full wave-daun-1 origin-bottom-right">
-                  <img
-                    src="./images/furnitur/wave/top-left-daun-atas.png"
-                    alt="Daun Kanan Bawah"
-                    class="block w-full h-full rotate-180"
-                  />
-                </div>
-              </div>
-              <!-- Bunga -->
-              <div
-                class="absolute w-36 -right-8 bottom-7 animate-in-bottom-right"
-                style="z-index: 22 !important;"
-              >
-                <div class="relative w-full h-full wave-bunga origin-bottom-right">
-                  <img
-                    src="./images/furnitur/wave/top-left-bunga.png"
-                    alt="Bunga Kanan Bawah"
-                    class="block w-full h-full rotate-180"
-                  />
-                </div>
+              
+              <!-- Bottom Right Corner -->
+              <div class="corner-decoration bottom-right" style="position: absolute; width: 170px; height: 170px; bottom: -170px; right: -170px; opacity: 0; transition: all 1.5s cubic-bezier(0.34, 1.56, 0.64, 1); transform: scale(-1);">
+                <img src="./images/furnitur/wave/top-left-daun-bawah.png" alt="Leaf Bottom" class="daun-bawah wave-daun-2" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 1; transform-origin: top left;">
+                <img src="./images/furnitur/wave/top-left-bunga.png" alt="Flower" class="bunga wave-bunga" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 3; transform-origin: top left;">
+                <img src="./images/furnitur/wave/top-left-daun-atas.png" alt="Leaf Top" class="daun-atas wave-daun-1" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 2; transform-origin: top left;">
               </div>
             </div>
+          </section>
           </section>
 
           <!-- Doa Section -->

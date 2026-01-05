@@ -248,6 +248,27 @@ document.addEventListener("DOMContentLoaded", () => {
             history.replaceState(null, "", "#welcome-section");
           }
           
+          // Trigger corner decorations animation
+          setTimeout(() => {
+            const decorations = document.querySelectorAll('.corner-decoration');
+            decorations.forEach((decoration) => {
+              decoration.style.opacity = '1';
+              if (decoration.classList.contains('top-left')) {
+                decoration.style.top = '-50px';
+                decoration.style.left = '-50px';
+              } else if (decoration.classList.contains('top-right')) {
+                decoration.style.top = '-50px';
+                decoration.style.right = '-50px';
+              } else if (decoration.classList.contains('bottom-left')) {
+                decoration.style.bottom = '20px';
+                decoration.style.left = '-50px';
+              } else if (decoration.classList.contains('bottom-right')) {
+                decoration.style.bottom = '20px';
+                decoration.style.right = '-50px';
+              }
+            });
+          }, 800);
+          
 
         },
         { once: true }
