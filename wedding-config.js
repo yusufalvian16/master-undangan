@@ -47,9 +47,20 @@ const weddingConfig = {
     ]
   },
 
+  // ==================== DOA SECTION ====================
+  doa: {
+    enabled: true,
+    ayat: {
+      arabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ",
+      translation: "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir.",
+      source: "Q.S Ar-Rum : 21"
+    }
+  },
+
   // ==================== EVENT DETAILS ====================
   events: {
     akadNikah: {
+      enabled: true,
       title: "Akad Nikah",
       day: "15",
       month: "Februari 2026",
@@ -61,6 +72,7 @@ const weddingConfig = {
     },
     
     resepsi: {
+      enabled: true,
       title: "Resepsi",
       day: "15",
       month: "Februari 2026",
@@ -72,35 +84,81 @@ const weddingConfig = {
     },
     
     liveStreaming: {
+      enabled: true,
       title: "Live Streaming",
       description: "Temui kami secara virtual untuk menyaksikan acara pernikahan kami yang insyaaAllah akan disiarkan langsung melalui link dibawah ini.",
-      link: "https://maps.app.goo.gl/YourGoogleMapsLinkHere",
+      link: "https://www.youtube.com/live/YOUR_LIVE_STREAM_ID", // Ganti dengan link streaming platform Anda (YouTube Live, Instagram Live, dll)
       buttonText: "Lihat live Streaming"
     }
   },
 
-  // ==================== LOVE STORY ====================
-  loveStory: [
-    {
-      image: "./images/galery/landscape/2.webp",
-      title: "💜 Awal Pertemuan Sederhana",
-      description: "Berawal dari tempat pekerjaan Cianjur-2023, kami mengenal satu sama lain dan belum ada benih cinta kala itu, hanya sebatas teman kerja."
+  // ==================== DRESS CODE & THEME ====================
+  dressCode: {
+    enabled: false,
+    theme: "Garden Wedding",
+    colors: ["#E8B4B8", "#C9A9A6", "#8B7D7B"],
+    recommendations: {
+      men: "Batik atau Kemeja Formal (warna pastel)",
+      women: "Dress atau Kebaya (hindari warna putih)",
+      note: "Mohon menghindari warna hitam dan putih"
     },
-    {
-      image: "./images/galery/landscape/3.webp",
-      title: "💞 Benih Cinta dalam Ujian",
-      description: "Setelah cukup mengenal satu sama lain, satu tahun kurang lebih nya kami menjalin hubungan. Akhirnya kita memutuskan untuk melanjutkan ke Hubungan yang lebih serius mempertemukan kedua keluarga."
-    },
-    {
-      image: "./images/galery/landscape/4.webp",
-      title: "💍 Langkah Menuju Ridha Allah",
-      description: "Sampai tanggal ini kami melaksanakan akad terlebih dahulu dan akhirnya kami mengubah status hingga menjadi pasangan suami istri. Semoga allah swt. Memberikan keberkahan pernikahan ini. \"AMIN"
+    inspirationImages: [
+      "./images/dresscode/men-example.webp",
+      "./images/dresscode/women-example.webp"
+    ]
+  },
+
+  // ==================== PROTOKOL KESEHATAN & ATURAN ACARA ====================
+  protocols: {
+    enabled: false,
+    healthProtocols: [
+      "Tamu diharapkan dalam kondisi sehat",
+      "Tersedia hand sanitizer di lokasi",
+      "Patuhi protokol kesehatan yang berlaku"
+    ],
+    eventRules: [
+      "Mohon tiba 15 menit sebelum acara dimulai",
+      "Harap mematikan suara ponsel selama akad",
+      "Dilarang membawa bunga atau kado berukuran besar"
+    ],
+    parkingInfo: {
+      available: true,
+      location: "Basement Hotel Santika",
+      capacity: "200 mobil",
+      valetService: true
     }
-  ],
+  },
+
+  // ==================== LOVE STORY ====================
+  loveStory: {
+    enabled: true,
+    stories: [
+      {
+        showImage: true,
+        image: "./images/galery/landscape/2.webp",
+        title: "💜 Awal Pertemuan Sederhana",
+        description: "Berawal dari tempat pekerjaan Cianjur-2023, kami mengenal satu sama lain dan belum ada benih cinta kala itu, hanya sebatas teman kerja."
+      },
+      {
+        showImage: true,
+        image: "./images/galery/landscape/3.webp",
+        title: "💞 Benih Cinta dalam Ujian",
+        description: "Setelah cukup mengenal satu sama lain, satu tahun kurang lebih nya kami menjalin hubungan. Akhirnya kita memutuskan untuk melanjutkan ke Hubungan yang lebih serius mempertemukan kedua keluarga."
+      },
+      {
+        showImage: true,
+        image: "./images/galery/landscape/4.webp",
+        title: "💍 Langkah Menuju Ridha Allah",
+        description: "Sampai tanggal ini kami melaksanakan akad terlebih dahulu dan akhirnya kami mengubah status hingga menjadi pasangan suami istri. Semoga allah swt. Memberikan keberkahan pernikahan ini. AMIN"
+      }
+    ]
+  },
 
   // ==================== GALLERY ====================
   gallery: {
+    enabled: true,
     title: "Our Moment",
+    showYoutubeVideo: true,
     youtubeVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Ganti dengan link YouTube Anda
     images: {
       portrait: [
@@ -126,16 +184,19 @@ const weddingConfig = {
 
   // ==================== WEDDING GIFT ====================
   gift: {
+    enabled: true,
     title: "Wedding Gift",
     description: "Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.",
     bankAccounts: [
       {
+        enabled: true,
         bank: "BCA",
         accountName: "Muhammad Aprianto",
         accountNumber: "1234567890",
         logo: "./images/bank/bca.png"
       },
       {
+        enabled: true,
         bank: "Mandiri",
         accountName: "Annisa Riski Firmani",
         accountNumber: "0987654321",
@@ -152,6 +213,7 @@ const weddingConfig = {
 
   // ==================== MESSAGES & RSVP ====================
   rsvp: {
+    enabled: true,
     title: "Ucapan & RSVP",
     description: "Berikan ucapan terbaik untuk kami",
     whatsappNumber: "6281234567890", // Format: 62xxx (tanpa +)

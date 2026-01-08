@@ -1016,4 +1016,252 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ==================== POPULATE DOA SECTION ====================
+  function populateDoa() {
+    if (!weddingConfig.doa || !weddingConfig.doa.enabled) {
+      const doaSection = document.getElementById('doa-section');
+      if (doaSection) doaSection.style.display = 'none';
+      return;
+    }
+
+    const config = weddingConfig.doa;
+    
+    if (config.ayat) {
+      const arabicEl = document.querySelector('#doa-section .text-2xl.md\\:text-4xl.font-arab');
+      const sourceEl = document.querySelector('#doa-section .text-lg.md\\:text-xl.font-secondary');
+      const translationEl = document.querySelector('#doa-section .text-base.md\\:text-lg.text-white.font-body.italic');
+      
+      if (arabicEl && config.ayat.arabic) arabicEl.textContent = config.ayat.arabic;
+      if (sourceEl && config.ayat.source) sourceEl.textContent = config.ayat.source;
+      if (translationEl && config.ayat.translation) translationEl.textContent = `"${config.ayat.translation}"`;
+    }
+  }
+
+  // ==================== MANAGE EVENT CARDS VISIBILITY ====================
+  function manageEventCardsVisibility() {
+    const eventCards = [
+      { id: 'akad-nikah-card', config: weddingConfig.events.akadNikah, name: 'Akad Nikah' },
+      { id: 'resepsi-card', config: weddingConfig.events.resepsi, name: 'Resepsi' },
+      { id: 'livestream-card', config: weddingConfig.events.liveStreaming, name: 'Live Streaming' }
+    ];
+
+    eventCards.forEach(({ id, config, name }) => {
+      // Try to find card by various possible selectors
+      let card = document.getElementById(id);
+      
+      // If not found by ID, try to find by section structure
+      if (!card) {
+        const waktuLokasiSection = document.getElementById('waktu-lokasi-section');
+        if (waktuLokasiSection) {
+          const allCards = waktuLokasiSection.querySelectorAll('.w-full.bg-primary-50');
+          if (name === 'Akad Nikah' && allCards[0]) card = allCards[0];
+          else if (name === 'Resepsi' && allCards[1]) card = allCards[1];
+          else if (name === 'Live Streaming' && allCards[2]) card = allCards[2];
+        }
+      }
+
+      if (card && config && config.enabled === false) {
+        card.style.display = 'none';
+        card.classList.add('hidden');
+        console.log(`✓ Event card "${name}" is disabled and hidden`);
+      }
+    });
+  }
+
+  // ==================== MANAGE LOVE STORY IMAGES ====================
+  function manageLoveStoryImages() {
+    if (!weddingConfig.loveStory || !weddingConfig.loveStory.enabled) return;
+
+    const stories = weddingConfig.loveStory.stories;
+    if (!stories || !Array.isArray(stories)) return;
+
+    const kisahCintaSection = document.getElementById('kisah-cinta-section');
+    if (!kisahCintaSection) return;
+
+    const storyImages = kisahCintaSection.querySelectorAll('img[alt^="love"]');
+    
+    stories.forEach((story, index) => {
+      if (story.showImage === false && storyImages[index]) {
+        storyImages[index].style.display = 'none';
+        storyImages[index].parentElement.style.display = 'none';
+        console.log(`✓ Love Story image ${index + 1} is hidden`);
+      }
+    });
+  }
+
+  // ==================== MANAGE GALLERY YOUTUBE VIDEO ====================
+  function manageGalleryYoutubeVideo() {
+    if (!weddingConfig.gallery) return;
+
+    const galeriSection = document.getElementById('galeri-section');
+    if (!galeriSection) return;
+
+    const youtubeContainer = galeriSection.querySelector('iframe[title="Our Moment Video"]');
+    if (!youtubeContainer) return;
+
+    if (weddingConfig.gallery.showYoutubeVideo === false) {
+      const videoWrapper = youtubeContainer.closest('.w-full.max-w-5xl');
+      if (videoWrapper) {
+        videoWrapper.style.display = 'none';
+        console.log('✓ Gallery YouTube video is hidden');
+      }
+    }
+  }
+
+  // ==================== MANAGE GIFT BANK CARDS ====================
+  function manageGiftBankCards() {
+    if (!weddingConfig.gift || !weddingConfig.gift.enabled) return;
+
+    const bankAccounts = weddingConfig.gift.bankAccounts;
+    if (!bankAccounts || !Array.isArray(bankAccounts)) return;
+
+    const giftSection = document.getElementById('gift-section');
+    if (!giftSection) return;
+
+    // Find all bank account cards
+    const bankCards = giftSection.querySelectorAll('.bg-white.rounded-lg.shadow-md');
+    
+    bankAccounts.forEach((account, index) => {
+      if (account.enabled === false && bankCards[index]) {
+        bankCards[index].style.display = 'none';
+        console.log(`✓ Bank card "${account.bank}" is disabled and hidden`);
+      }
+    });
+  }
+
+  // ==================== SECTION VISIBILITY MANAGER ====================
+  /**
+   * Centralized function to manage section visibility based on enabled flags
+   * Sections with enabled: false will be hidden from the page
+   */
+  function manageSectionVisibility() {
+    const sectionConfigs = [
+      { id: 'doa-section', config: weddingConfig.doa, name: 'Doa' },
+      { id: 'kisah-cinta-section', config: weddingConfig.loveStory, name: 'Love Story' },
+      { id: 'galeri-section', config: weddingConfig.gallery, name: 'Gallery' },
+      { id: 'gift-section', config: weddingConfig.gift, name: 'Gift' },
+      { id: 'ucapan-section', config: weddingConfig.rsvp, name: 'RSVP' },
+      { id: 'dress-code-section', config: weddingConfig.dressCode, name: 'Dress Code' },
+      { id: 'protocols-section', config: weddingConfig.protocols, name: 'Protocols' }
+    ];
+
+    sectionConfigs.forEach(({ id, config, name }) => {
+      const section = document.getElementById(id);
+      
+      if (!section) {
+        console.warn(`Section with ID "${id}" not found in DOM`);
+        return;
+      }
+
+      // Check if config exists and has enabled property set to false
+      if (config && config.enabled === false) {
+        section.style.display = 'none';
+        section.classList.add('hidden');
+        console.log(`✓ Section "${name}" (${id}) is disabled and hidden`);
+      } else {
+        // Ensure section is visible if enabled or no flag specified
+        section.style.display = '';
+        section.classList.remove('hidden');
+      }
+    });
+  }
+
+  // ==================== POPULATE DRESS CODE SECTION ====================
+  function populateDressCode() {
+    if (!weddingConfig.dressCode || !weddingConfig.dressCode.enabled) {
+      const dressCodeSection = document.getElementById('dress-code-section');
+      if (dressCodeSection) dressCodeSection.style.display = 'none';
+      return;
+    }
+    
+    const config = weddingConfig.dressCode;
+    
+    // Update theme
+    const themeEl = document.getElementById('dress-theme');
+    if (themeEl && config.theme) themeEl.textContent = config.theme;
+    
+    // Update color palette
+    const colorsContainer = document.getElementById('dress-colors');
+    if (colorsContainer && config.colors && config.colors.length > 0) {
+      colorsContainer.innerHTML = config.colors.map(color => 
+        `<div class="w-12 h-12 rounded-full border-2 border-white shadow-md" style="background-color: ${color}"></div>`
+      ).join('');
+    }
+    
+    // Update recommendations
+    if (config.recommendations) {
+      const menEl = document.getElementById('dress-men');
+      const womenEl = document.getElementById('dress-women');
+      const noteEl = document.getElementById('dress-note');
+      
+      if (menEl && config.recommendations.men) menEl.textContent = config.recommendations.men;
+      if (womenEl && config.recommendations.women) womenEl.textContent = config.recommendations.women;
+      if (noteEl && config.recommendations.note) noteEl.textContent = config.recommendations.note;
+    }
+  }
+
+  // ==================== POPULATE PROTOCOLS SECTION ====================
+  function populateProtocols() {
+    if (!weddingConfig.protocols || !weddingConfig.protocols.enabled) {
+      const protocolsSection = document.getElementById('protocols-section');
+      if (protocolsSection) protocolsSection.style.display = 'none';
+      return;
+    }
+    
+    const config = weddingConfig.protocols;
+    
+    // Update health protocols
+    const healthList = document.getElementById('health-protocols-list');
+    if (healthList && config.healthProtocols && config.healthProtocols.length > 0) {
+      healthList.innerHTML = config.healthProtocols.map(item =>
+        `<li class="flex items-start gap-2">
+          <i class="bi bi-check-circle-fill text-primary mt-1"></i>
+          <span>${item}</span>
+        </li>`
+      ).join('');
+    }
+    
+    // Update event rules
+    const rulesList = document.getElementById('event-rules-list');
+    if (rulesList && config.eventRules && config.eventRules.length > 0) {
+      rulesList.innerHTML = config.eventRules.map(item =>
+        `<li class="flex items-start gap-2">
+          <i class="bi bi-check-circle-fill text-primary mt-1"></i>
+          <span>${item}</span>
+        </li>`
+      ).join('');
+    }
+    
+    // Update parking info
+    if (config.parkingInfo) {
+      const parkingLocation = document.getElementById('parking-location');
+      const parkingCapacity = document.getElementById('parking-capacity');
+      const valetService = document.getElementById('valet-service');
+      
+      if (parkingLocation && config.parkingInfo.location) {
+        parkingLocation.textContent = config.parkingInfo.location;
+      }
+      if (parkingCapacity && config.parkingInfo.capacity) {
+        parkingCapacity.textContent = config.parkingInfo.capacity;
+      }
+      if (valetService) {
+        valetService.textContent = config.parkingInfo.valetService ? 'Tersedia' : 'Tidak Tersedia';
+      }
+    }
+  }
+
+  // Call section visibility manager first
+  manageSectionVisibility();
+  
+  // Call populate and manage functions
+  populateDoa();
+  populateDressCode();
+  populateProtocols();
+  
+  // Call granular visibility managers
+  manageEventCardsVisibility();
+  manageLoveStoryImages();
+  manageGalleryYoutubeVideo();
+  manageGiftBankCards();
+
 });
