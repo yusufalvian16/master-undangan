@@ -221,6 +221,14 @@ const weddingConfig = {
     formEndpoint: "https://your-backend-endpoint.com/rsvp" // Ganti dengan endpoint Anda
   },
 
+  // ==================== SUPABASE CONFIGURATION ====================
+  supabase: {
+    enabled: true, // Set false untuk disable integrasi Supabase
+    url: "", // URL proyek Supabase Anda (contoh: https://xxxxx.supabase.co)
+    anonKey: "", // Anon/Public key dari Supabase project settings
+    tableName: "guest_messages" // Nama tabel untuk menyimpan pesan tamu
+  },
+
   // ==================== THANK YOU ====================
   thankYou: {
     title: "Terima Kasih",

@@ -63,8 +63,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
+          // Get table name from config or use default
+          const tableName = weddingConfig?.supabase?.tableName || "guest_messages";
+          
           const { data, error } = await window.supabaseClient
-            .from("guest_messages")
+            .from(tableName)
             .insert([
               {
                 guest_name: guestName,
@@ -113,8 +116,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     try {
+      // Get table name from config or use default
+      const tableName = weddingConfig?.supabase?.tableName || "guest_messages";
+      
       const { data, error } = await window.supabaseClient
-        .from("guest_messages")
+        .from(tableName)
         .select("*")
         .order("created_at", { ascending: false })
         .limit(50);
