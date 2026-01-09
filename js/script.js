@@ -1063,7 +1063,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (card && config && config.enabled === false) {
         card.style.display = 'none';
         card.classList.add('hidden');
-        console.log(`✓ Event card "${name}" is disabled and hidden`);
+        // console.log(`✓ Event card "${name}" is disabled and hidden`);
       }
     });
   }
@@ -1084,7 +1084,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (story.showImage === false && storyImages[index]) {
         storyImages[index].style.display = 'none';
         storyImages[index].parentElement.style.display = 'none';
-        console.log(`✓ Love Story image ${index + 1} is hidden`);
+        // console.log(`✓ Love Story image ${index + 1} is hidden`);
       }
     });
   }
@@ -1103,7 +1103,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const videoWrapper = youtubeContainer.closest('.w-full.max-w-5xl');
       if (videoWrapper) {
         videoWrapper.style.display = 'none';
-        console.log('✓ Gallery YouTube video is hidden');
+        // console.log('✓ Gallery YouTube video is hidden');
       }
     }
   }
@@ -1124,7 +1124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bankAccounts.forEach((account, index) => {
       if (account.enabled === false && bankCards[index]) {
         bankCards[index].style.display = 'none';
-        console.log(`✓ Bank card "${account.bank}" is disabled and hidden`);
+        // console.log(`✓ Bank card "${account.bank}" is disabled and hidden`);
       }
     });
   }
@@ -1157,7 +1157,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (config && config.enabled === false) {
         section.style.display = 'none';
         section.classList.add('hidden');
-        console.log(`✓ Section "${name}" (${id}) is disabled and hidden`);
+        // console.log(`✓ Section "${name}" (${id}) is disabled and hidden`);
       } else {
         // Ensure section is visible if enabled or no flag specified
         section.style.display = '';

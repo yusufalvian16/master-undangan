@@ -37,10 +37,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link href="./css/aos.css" rel="stylesheet" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
-      defer
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./js/aos.js"></script>
   </head>
 
@@ -212,29 +209,6 @@
           class="scroll-smooth w-full overflow-x-hidden bg-gray-100 opacity-0 pointer-events-none transition-opacity duration-1000 ease-in-out z-[2]"
           style="display: none; z-index: 2 !important;"
         >
-          <!-- Notification Popup -->
-          <div
-            id="notification-popup"
-            class="fixed inset-0 items-center justify-center hidden backdrop-blur-sm bg-black bg-opacity-20"
-            style="z-index: 999999 !important;"
-          >
-            <div
-              class="bg-white border-primary border-[1px] p-6 rounded-lg shadow-xl text-center max-w-sm mx-auto transform transition-all scale-95 opacity-0"
-            >
-              <div id="notification-icon" class="mb-4"></div>
-              <p
-                id="notification-message"
-                class="text-base md:text-lg font-secondary font-semibold text-gray-800 mb-4"
-              ></p>
-              <button
-                id="close-notification"
-                class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:ring-4 focus:ring-primary/30 focus:ring-offset-2 transition duration-300 ease-in-out"
-              >
-                Tutup
-              </button>
-            </div>
-          </div>
-
           <section
             id="welcome-section"
             class="wedding-section min-h-screen bg-[url('../images/furnitur/bgall.png')] bg-cover bg-top bg-no-repeat relative overflow-hidden"
@@ -1838,9 +1812,14 @@
                   <textarea
                     id="message"
                     name="message"
+                    maxlength="500"
                     class="shadow-sm appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary/75 focus:border-transparent h-32 resize-y transition duration-200"
                     placeholder="Tulis ucapan untuk mempelai..."
                   ></textarea>
+                  <div class="flex justify-between items-center mt-1">
+                    <span id="char-counter" class="text-sm text-gray-500">0/500 karakter</span>
+                    <span id="char-warning" class="text-sm text-red-500 font-medium hidden">Mendekati batas!</span>
+                  </div>
                 </div>
 
                 <button
@@ -1856,6 +1835,12 @@
                   id="guest-messages"
                   class="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar"
                 ></div>
+                <button
+                  id="load-more-btn"
+                  class="w-full py-3 px-6 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out mt-4 hidden"
+                >
+                  <i class="bi bi-arrow-down-circle mr-2"></i>Muat Lebih Banyak
+                </button>
               </div>
             </div>
           </section>
@@ -2015,10 +2000,66 @@
           </footer>
         </div>
 
+        <!-- Notification Popup - Outside main-invite-page for proper stacking -->
+        <div
+          id="notification-popup"
+          class="fixed inset-0 items-center justify-center hidden backdrop-blur-sm bg-black bg-opacity-20"
+          style="z-index: 999999 !important;"
+        >
+          <div
+            class="bg-white border-primary border-[1px] p-6 rounded-lg shadow-xl text-center max-w-sm mx-auto transform transition-all scale-95 opacity-0"
+          >
+            <div id="notification-icon" class="mb-4"></div>
+            <p
+              id="notification-message"
+              class="text-base md:text-lg font-secondary font-semibold text-gray-800 mb-4"
+            ></p>
+            <button
+              id="close-notification"
+              class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:ring-4 focus:ring-primary/30 focus:ring-offset-2 transition duration-300 ease-in-out"
+            >
+              Tutup
+            </button>
+          </div>
+        </div>
+
+        <!-- Delete Confirmation Dialog -->
+        <div
+          id="delete-confirmation-dialog"
+          class="fixed inset-0 items-center justify-center hidden backdrop-blur-sm bg-black bg-opacity-20"
+          style="z-index: 999999 !important;"
+        >
+          <div
+            class="bg-white border-primary border-[1px] p-6 rounded-lg shadow-xl text-center max-w-sm mx-auto transform transition-all scale-95 opacity-0"
+          >
+            <div class="mb-4">
+              <i class="bi bi-exclamation-triangle-fill text-yellow-500 text-5xl"></i>
+            </div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2">Hapus Pesan?</h3>
+            <p class="text-sm text-gray-600 mb-4">
+              Apakah Anda yakin ingin menghapus pesan ini? Tindakan ini tidak dapat dibatalkan.
+            </p>
+            <div class="flex gap-2 justify-center">
+              <button
+                id="confirm-delete-btn"
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:ring-4 focus:ring-red-300 focus:ring-offset-2 transition duration-300 ease-in-out"
+              >
+                Hapus
+              </button>
+              <button
+                id="cancel-delete-btn"
+                class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full focus:outline-none focus:ring-4 focus:ring-gray-200 focus:ring-offset-2 transition duration-300 ease-in-out"
+              >
+                Batal
+              </button>
+            </div>
+          </div>
+        </div>
+
         <nav
           id="main-navbar"
           class="fixed bottom-0 backdrop-blur-md border-t shadow-2xl md:max-w-[450px] w-full rounded-t-3xl"
-          style="z-index: 99999 !important; display: none; position: fixed !important; background-color: rgba(248, 226, 196, 0.95); border-color: #A86B1C;"
+          style="z-index: 9999 !important; display: none; position: fixed !important; background-color: rgba(248, 226, 196, 0.95); border-color: #A86B1C;"
         >
           <div
             class="flex h-[4rem] justify-around items-center mx-auto px-2"
@@ -2365,12 +2406,16 @@
     </style>
 
     <script src="./js/script.js"></script>
+    
+    <!-- Wedding Configuration System - MUST load first -->
+    <script src="./wedding-config.js"></script>
+    <script src="./config-loader.js"></script>
+    
+    <!-- Supabase and Form Scripts - depend on weddingConfig -->
+    <script src="./js/supabase_config.js"></script>
+    <script src="./js/user-identifier.js"></script>
     <script src="./js/script_form.js"></script>
     <script src="./js/countdown.js"></script>
     <script src="./js/calendar.js"></script>
-    
-    <!-- Wedding Configuration System -->
-    <script src="./wedding-config.js"></script>
-    <script src="./config-loader.js"></script>
   </body>
 </html>

@@ -8,9 +8,93 @@ document.addEventListener("DOMContentLoaded", function () {
   const notificationMessage = document.getElementById("notification-message");
   const notificationIcon = document.getElementById("notification-icon");
   const closeNotificationBtn = document.getElementById("close-notification");
+  
+  // Delete confirmation dialog elements
+  const deleteDialog = document.getElementById("delete-confirmation-dialog");
+  const confirmDeleteBtn = document.getElementById("confirm-delete-btn");
+  const cancelDeleteBtn = document.getElementById("cancel-delete-btn");
+  let messageToDelete = null;
+  
+  // Edit mode state
+  let editMode = false;
+  let editingMessageId = null;
+  
+  // Pagination state
+  let currentPage = 0;
+  const messagesPerPage = 10;
+  let hasMoreMessages = true;
+  let isLoadingMore = false;
+
+  // Character counter elements
+  const messageTextarea = document.getElementById('message');
+  const charCounter = document.getElementById('char-counter');
+  const charWarning = document.getElementById('char-warning');
+  const maxChars = 500;
+  
+  // Load more button
+  const loadMoreBtn = document.getElementById('load-more-btn');
 
   // Load existing messages
   loadGuestMessages();
+  
+  // Character counter functionality
+  if (messageTextarea && charCounter) {
+    messageTextarea.addEventListener('input', function() {
+      const length = this.value.length;
+      charCounter.textContent = `${length}/${maxChars} karakter`;
+      
+      // Change color based on length
+      if (length > maxChars * 0.9) { // 90%+ = red
+        charCounter.classList.remove('text-gray-500', 'text-yellow-600');
+        charCounter.classList.add('text-red-500');
+        if (charWarning) charWarning.classList.remove('hidden');
+      } else if (length > maxChars * 0.75) { // 75-90% = yellow
+        charCounter.classList.remove('text-gray-500', 'text-red-500');
+        charCounter.classList.add('text-yellow-600');
+        if (charWarning) charWarning.classList.add('hidden');
+      } else { // 0-75% = gray
+        charCounter.classList.remove('text-yellow-600', 'text-red-500');
+        charCounter.classList.add('text-gray-500');
+        if (charWarning) charWarning.classList.add('hidden');
+      }
+    });
+  }
+  
+  // Load more button handler
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', async function() {
+      if (isLoadingMore || !hasMoreMessages) return;
+      
+      isLoadingMore = true;
+      loadMoreBtn.disabled = true;
+      loadMoreBtn.innerHTML = '<i class="bi bi-arrow-repeat animate-spin mr-2"></i>Memuat...';
+      
+      await loadGuestMessages(true); // true = append mode
+      
+      isLoadingMore = false;
+      loadMoreBtn.disabled = false;
+      loadMoreBtn.innerHTML = '<i class="bi bi-arrow-down-circle mr-2"></i>Muat Lebih Banyak';
+    });
+  }
+  
+  // Event delegation for edit/delete buttons
+  if (guestMessagesContainer) {
+    guestMessagesContainer.addEventListener('click', function(e) {
+      const editBtn = e.target.closest('[data-action="edit"]');
+      const deleteBtn = e.target.closest('[data-action="delete"]');
+      
+      if (editBtn) {
+        const messageId = editBtn.dataset.messageId;
+        const messageName = editBtn.dataset.messageName;
+        const messageAttendance = editBtn.dataset.messageAttendance;
+        const messageText = editBtn.dataset.messageText;
+        startEditMode(messageId, messageName, messageAttendance, messageText);
+      } else if (deleteBtn) {
+        const messageId = deleteBtn.dataset.messageId;
+        deleteMessage(messageId);
+      }
+    });
+  }
 
   // Form submission handler
   if (rsvpForm) {
@@ -50,6 +134,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
+      // Check if in edit mode
+      if (editMode && editingMessageId) {
+        await updateMessage(editingMessageId, guestName, attendance, message);
+        return;
+      }
+
       // Submit to Supabase if available
       if (window.supabaseClient) {
         // Loading State
@@ -73,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 guest_name: guestName,
                 attendance: attendance,
                 message: message || null,
+                user_id: getUserId(), // Add user ID for ownership tracking
                 created_at: new Date().toISOString(),
               },
             ])
@@ -110,7 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Load guest messages from Supabase
-  async function loadGuestMessages() {
+  async function loadGuestMessages(append = false) {
     if (!window.supabaseClient || !guestMessagesContainer) {
       return;
     }
@@ -119,35 +210,88 @@ document.addEventListener("DOMContentLoaded", function () {
       // Get table name from config or use default
       const tableName = weddingConfig?.supabase?.tableName || "guest_messages";
       
+      // Calculate range for pagination
+      const start = append ? currentPage * messagesPerPage : 0;
+      const end = start + messagesPerPage - 1;
+      
+      // Reset pagination if not appending
+      if (!append) {
+        currentPage = 0;
+        hasMoreMessages = true;
+      }
+      
       const { data, error } = await window.supabaseClient
         .from(tableName)
         .select("*")
         .order("created_at", { ascending: false })
-        .limit(50);
+        .range(start, end);
 
       if (error) {
         throw error;
       }
+      
+      // Check if there are more messages
+      if (data.length < messagesPerPage) {
+        hasMoreMessages = false;
+        if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
+      } else {
+        if (loadMoreBtn) loadMoreBtn.classList.remove('hidden');
+      }
+      
+      // Increment page for next load
+      if (append) {
+        currentPage++;
+      }
 
       if (data && data.length > 0) {
-        guestMessagesContainer.innerHTML = "";
+        // Clear container if not appending
+        if (!append) {
+          guestMessagesContainer.innerHTML = "";
+        }
+        
         data.forEach((msg) => {
           const messageDiv = document.createElement("div");
           messageDiv.className =
             "bg-white p-4 rounded-lg shadow-md border border-gray-200";
+          messageDiv.dataset.messageId = msg.id;
           
           const attendanceBadge =
             msg.attendance === "hadir"
               ? '<span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded-full mb-2">Hadir</span>'
               : '<span class="inline-block bg-gray-100 text-gray-800 text-xs font-semibold px-2 py-1 rounded-full mb-2">Tidak Hadir</span>';
 
+          // Check if current user owns this message
+          const isOwner = typeof isMessageOwner === 'function' && isMessageOwner(msg.user_id);
+          const actionButtons = isOwner ? `
+            <div class="flex gap-3 mt-3 pt-3 border-t border-gray-200">
+              <button 
+                data-action="edit"
+                data-message-id="${msg.id}"
+                data-message-name="${escapeHtml(msg.guest_name)}"
+                data-message-attendance="${msg.attendance}"
+                data-message-text="${escapeHtml(msg.message || '')}"
+                class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors duration-200 flex items-center gap-1"
+              >
+                <i class="bi bi-pencil-square"></i> Edit
+              </button>
+              <button 
+                data-action="delete"
+                data-message-id="${msg.id}"
+                class="text-red-600 hover:text-red-800 text-sm font-medium transition-colors duration-200 flex items-center gap-1"
+              >
+                <i class="bi bi-trash"></i> Hapus
+              </button>
+            </div>
+          ` : '';
+
           messageDiv.innerHTML = `
             <div class="flex items-start justify-between mb-2">
               <p class="font-semibold text-gray-800">${escapeHtml(msg.guest_name)}</p>
               ${attendanceBadge}
             </div>
-            ${msg.message ? `<p class="text-gray-700 text-sm mt-2">${escapeHtml(msg.message)}</p>` : ""}
+            ${msg.message ? `<p class="text-gray-700 text-sm mt-2 message-text">${escapeHtml(msg.message)}</p>` : ""}
             <p class="text-xs text-gray-500 mt-2">${formatDate(msg.created_at)}</p>
+            ${actionButtons}
           `;
           guestMessagesContainer.appendChild(messageDiv);
         });
@@ -215,6 +359,190 @@ document.addEventListener("DOMContentLoaded", function () {
   // Close button handler
   if (closeNotificationBtn) {
     closeNotificationBtn.addEventListener("click", closeNotification);
+  }
+
+  // Start edit mode - populate form with existing message data
+  function startEditMode(messageId, name, attendance, messageText) {
+    editMode = true;
+    editingMessageId = messageId;
+    
+    // Populate form
+    document.getElementById("guest-name").value = name;
+    document.getElementById("attendance").value = attendance;
+    document.getElementById("message").value = messageText;
+    
+    // Change submit button text and style
+    const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.innerHTML = '<i class="bi bi-pencil-square mr-2"></i>Update Pesan';
+      // Keep same button-main class for consistent styling
+    }
+    
+    // Add cancel button if not exists
+    let cancelBtn = document.getElementById('cancel-edit-btn');
+    if (!cancelBtn) {
+      cancelBtn = document.createElement('button');
+      cancelBtn.id = 'cancel-edit-btn';
+      cancelBtn.type = 'button';
+      // Use same styling as main button but with gray color
+      cancelBtn.className = 'w-full py-3 px-6 bg-gray-500 hover:bg-gray-600 text-white font-bold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-gray-300 focus:ring-offset-2 mt-3';
+      cancelBtn.innerHTML = '<i class="bi bi-x-circle mr-2"></i>Batal Edit';
+      cancelBtn.addEventListener('click', cancelEditMode);
+      submitBtn.parentElement.appendChild(cancelBtn);
+    }
+    
+    // Scroll to form
+    rsvpForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  
+  // Cancel edit mode
+  function cancelEditMode() {
+    editMode = false;
+    editingMessageId = null;
+    
+    // Reset form
+    rsvpForm.reset();
+    
+    // Restore submit button text to original (no icon, just "Kirim")
+    const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.innerHTML = 'Kirim';
+      submitBtn.disabled = false; // Re-enable the button
+    }
+    
+    // Remove cancel button
+    const cancelBtn = document.getElementById('cancel-edit-btn');
+    if (cancelBtn) {
+      cancelBtn.remove();
+    }
+  }
+  
+  // Update message function
+  async function updateMessage(messageId, name, attendance, messageText) {
+    if (!window.supabaseClient) return;
+    
+    const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Update Pesan';
+    let updateSuccess = false; // Flag to track if update was successful
+    
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="bi bi-arrow-repeat animate-spin mr-2"></i>Mengupdate...';
+    }
+    
+    try {
+      const tableName = weddingConfig?.supabase?.tableName || "guest_messages";
+      
+      const { data, error } = await window.supabaseClient
+        .from(tableName)
+        .update({ 
+          guest_name: name,
+          attendance: attendance,
+          message: messageText || null
+        })
+        .eq('id', messageId)
+        .eq('user_id', getUserId())
+        .select();
+      
+      if (error) {
+        throw error;
+      }
+      
+      if (data && data.length > 0) {
+        updateSuccess = true; // Mark as successful
+        showNotification("Pesan berhasil diperbarui!", "success");
+        cancelEditMode(); // This will reset the button
+        loadGuestMessages();
+      } else {
+        showNotification("Gagal memperbarui pesan. Anda tidak memiliki izin.", "error");
+      }
+    } catch (error) {
+      console.error("Error updating message:", error);
+      showNotification("Terjadi kesalahan saat memperbarui pesan.", "error");
+    } finally {
+      // Only restore button if update was not successful
+      if (!updateSuccess && submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+    }
+  }
+
+  // Delete message function
+  function deleteMessage(messageId) {
+    messageToDelete = messageId;
+    showDeleteConfirmation();
+  }
+
+  // Show delete confirmation dialog
+  function showDeleteConfirmation() {
+    if (!deleteDialog) return;
+    
+    deleteDialog.classList.remove("hidden");
+    deleteDialog.classList.add("flex");
+    setTimeout(() => {
+      const dialogContent = deleteDialog.querySelector("div > div");
+      if (dialogContent) {
+        dialogContent.classList.remove("scale-95", "opacity-0");
+        dialogContent.classList.add("scale-100", "opacity-100");
+      }
+    }, 10);
+  }
+
+  // Close delete confirmation dialog
+  function closeDeleteConfirmation() {
+    if (!deleteDialog) return;
+    
+    const dialogContent = deleteDialog.querySelector("div > div");
+    if (dialogContent) {
+      dialogContent.classList.remove("scale-100", "opacity-100");
+      dialogContent.classList.add("scale-95", "opacity-0");
+    }
+    setTimeout(() => {
+      deleteDialog.classList.add("hidden");
+      deleteDialog.classList.remove("flex");
+      messageToDelete = null;
+    }, 300);
+  }
+
+  // Confirm delete handler
+  if (confirmDeleteBtn) {
+    confirmDeleteBtn.addEventListener("click", async function() {
+      if (!messageToDelete) return;
+      
+      try {
+        const tableName = weddingConfig?.supabase?.tableName || "guest_messages";
+        
+        const { data, error } = await window.supabaseClient
+          .from(tableName)
+          .delete()
+          .eq('id', messageToDelete)
+          .eq('user_id', getUserId()) // Security: only delete if user owns it
+          .select();
+        
+        if (error) {
+          throw error;
+        }
+        
+        if (data && data.length > 0) {
+          closeDeleteConfirmation();
+          showNotification("Pesan berhasil dihapus!", "success");
+          loadGuestMessages();
+        } else {
+          closeDeleteConfirmation();
+          showNotification("Gagal menghapus pesan. Anda tidak memiliki izin.", "error");
+        }
+      } catch (error) {
+        console.error("Error deleting message:", error);
+        closeDeleteConfirmation();
+        showNotification("Terjadi kesalahan saat menghapus pesan.", "error");
+      }
+    });
+  }
+
+  // Cancel delete handler
+  if (cancelDeleteBtn) {
+    cancelDeleteBtn.addEventListener("click", closeDeleteConfirmation);
   }
 
   // Helper function to escape HTML

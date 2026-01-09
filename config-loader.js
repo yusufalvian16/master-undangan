@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
 
-  console.log('Loading wedding configuration...', weddingConfig);
+  // console.log('Loading wedding configuration...', weddingConfig);
 
   // Auto-generate couple names from nicknames
   const coupleNames = `${weddingConfig.groom.nickname} & ${weddingConfig.bride.nickname}`;
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (attribute === 'src') {
         element.setAttribute('src', value);
       }
-      console.log(`✓ Updated #${id}:`, value);
+      // console.log(`✓ Updated #${id}:`, value);
     } else if (!element) {
       console.warn(`⚠ Element #${id} not found in HTML`);
     }
@@ -151,5 +151,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000);
   }
 
-  console.log('✓ Wedding configuration loaded successfully!');
+  // console.log('✓ Wedding configuration loaded successfully!');
 });

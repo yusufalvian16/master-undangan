@@ -35,8 +35,8 @@ const weddingConfig = {
 
   // ==================== WELCOME SECTION ====================
   welcome: {
-    weddingDate: "15 Februari 2026",
-    countdownDate: "2026-02-15T10:00:00", // Format: YYYY-MM-DDTHH:MM:SS
+    weddingDate: "15 Februari 2030",
+    countdownDate: "2030-02-15T10:00:00", // Format: YYYY-MM-DDTHH:MM:SS
     message: "Dengan penuh sukacita, kami mengundang Anda untuk merayakan hari bahagia kami. Kehadiran dan doa restu Anda sangat berarti bagi kami.",
     slideshowImages: [
       "./images/galery/portrait/1.webp",
@@ -220,13 +220,13 @@ const weddingConfig = {
     whatsappMessage: "Halo, saya ingin konfirmasi kehadiran untuk acara pernikahan Rian & Nisa",
     formEndpoint: "https://your-backend-endpoint.com/rsvp" // Ganti dengan endpoint Anda
   },
-
+  
   // ==================== SUPABASE CONFIGURATION ====================
   supabase: {
     enabled: true, // Set false untuk disable integrasi Supabase
-    url: "", // URL proyek Supabase Anda (contoh: https://xxxxx.supabase.co)
-    anonKey: "", // Anon/Public key dari Supabase project settings
-    tableName: "guest_messages" // Nama tabel untuk menyimpan pesan tamu
+    url: "https://btxznwjdpirejzqbeabp.supabase.co", // URL proyek Supabase Anda (contoh: https://xxxxx.supabase.co)
+    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ0eHpud2pkcGlyZWp6cWJlYWJwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc5MzY3OTgsImV4cCI6MjA4MzUxMjc5OH0.YL_sFX5xPa_HYW_3oftEyPRcW3EPT2TANTbqRGf4Zjs", // Anon/Public key dari Supabase project settings
+    tableName: "template_utama" // Nama tabel untuk menyimpan pesan tamu
   },
 
   // ==================== THANK YOU ====================
