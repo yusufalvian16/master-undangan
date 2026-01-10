@@ -1,8 +1,16 @@
 // Countdown Timer untuk Hari Pernikahan
 document.addEventListener('DOMContentLoaded', function() {
   function updateCountdown() {
-    // Tanggal pernikahan: 28 Desember 2025, 08:00 WIB
-    const weddingDate = new Date('2025-12-28T08:00:00+07:00').getTime();
+    // Ambil tanggal dari konfigurasi
+    const countdownDateStr = weddingConfig?.welcome?.countdownDate;
+    
+    if (!countdownDateStr) {
+      console.error('Countdown date not found in weddingConfig');
+      return;
+    }
+
+    // Parse tanggal pernikahan dari config
+    const weddingDate = new Date(countdownDateStr).getTime();
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
