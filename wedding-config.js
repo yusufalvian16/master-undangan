@@ -159,7 +159,7 @@ const weddingConfig = {
     enabled: true,
     title: "Our Moment",
     showYoutubeVideo: true,
-    youtubeVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Ganti dengan link YouTube Anda
+    youtubeVideo: "https://www.youtube.com/embed/j1xQzsrorVQ?si=q-iyRzsdq3fAJ2_a", // Ganti dengan link YouTube Anda
     images: {
       portrait: [
         "./images/galery/portrait/1.webp",

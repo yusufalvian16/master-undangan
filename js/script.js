@@ -1099,6 +1099,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const youtubeContainer = galeriSection.querySelector('iframe[title="Our Moment Video"]');
     if (!youtubeContainer) return;
 
+    // Update YouTube video URL from config
+    if (weddingConfig.gallery.youtubeVideo) {
+      youtubeContainer.src = weddingConfig.gallery.youtubeVideo;
+    }
+
+    // Hide video if showYoutubeVideo is false
     if (weddingConfig.gallery.showYoutubeVideo === false) {
       const videoWrapper = youtubeContainer.closest('.w-full.max-w-5xl');
       if (videoWrapper) {
@@ -1107,6 +1113,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+
 
   // ==================== MANAGE GIFT BANK CARDS ====================
   function manageGiftBankCards() {
