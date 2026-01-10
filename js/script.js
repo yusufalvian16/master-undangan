@@ -1,3 +1,113 @@
+// ==================== UPDATE HEAD META TAGS ====================
+/**
+ * Function to update all meta tags in the <head> section
+ * based on weddingConfig.seo configuration
+ */
+function updateHeadMetaTags() {
+  if (!weddingConfig || !weddingConfig.seo) {
+    console.warn('Wedding config or SEO section not found');
+    return;
+  }
+
+  const seo = weddingConfig.seo;
+  const maleName = weddingConfig.male?.nickname || 'Male';
+  const femaleName = weddingConfig.female?.nickname || 'Female';
+
+  // Helper function to replace placeholders
+  function replacePlaceholders(text) {
+    if (!text) return text;
+    return text
+      .replace(/\[Male\]/g, maleName)
+      .replace(/\[Female\]/g, femaleName);
+  }
+
+  // Update page title
+  const pageTitle = document.getElementById('page-title');
+  if (pageTitle && seo.pageTitle) {
+    pageTitle.textContent = replacePlaceholders(seo.pageTitle);
+  }
+
+  // Update meta description
+  const metaDescription = document.getElementById('meta-description');
+  if (metaDescription && seo.metaDescription) {
+    metaDescription.setAttribute('content', replacePlaceholders(seo.metaDescription));
+  }
+
+  // Update meta keywords
+  const metaKeywords = document.getElementById('meta-keywords');
+  if (metaKeywords && seo.metaKeywords) {
+    metaKeywords.setAttribute('content', replacePlaceholders(seo.metaKeywords));
+  }
+
+  // Update Open Graph tags
+  if (seo.openGraph) {
+    const ogType = document.getElementById('og-type');
+    if (ogType && seo.openGraph.type) {
+      ogType.setAttribute('content', seo.openGraph.type);
+    }
+
+    const ogUrl = document.getElementById('og-url');
+    if (ogUrl && seo.openGraph.url) {
+      ogUrl.setAttribute('content', seo.openGraph.url);
+    }
+
+    const ogTitle = document.getElementById('og-title');
+    if (ogTitle && seo.openGraph.title) {
+      ogTitle.setAttribute('content', replacePlaceholders(seo.openGraph.title));
+    }
+
+    const ogDescription = document.getElementById('og-description');
+    if (ogDescription && seo.openGraph.description) {
+      ogDescription.setAttribute('content', replacePlaceholders(seo.openGraph.description));
+    }
+
+    const ogImage = document.getElementById('og-image');
+    if (ogImage && seo.openGraph.image) {
+      ogImage.setAttribute('content', seo.openGraph.image);
+    }
+  }
+
+  // Update Twitter Card tags
+  if (seo.twitter) {
+    const twitterCard = document.getElementById('twitter-card');
+    if (twitterCard && seo.twitter.card) {
+      twitterCard.setAttribute('content', seo.twitter.card);
+    }
+
+    const twitterUrl = document.getElementById('twitter-url');
+    if (twitterUrl && seo.openGraph?.url) {
+      twitterUrl.setAttribute('content', seo.openGraph.url);
+    }
+
+    const twitterTitle = document.getElementById('twitter-title');
+    if (twitterTitle && seo.twitter.title) {
+      twitterTitle.setAttribute('content', replacePlaceholders(seo.twitter.title));
+    }
+
+    const twitterDescription = document.getElementById('twitter-description');
+    if (twitterDescription && seo.twitter.description) {
+      twitterDescription.setAttribute('content', replacePlaceholders(seo.twitter.description));
+    }
+
+    const twitterImage = document.getElementById('twitter-image');
+    if (twitterImage && seo.twitter.image) {
+      twitterImage.setAttribute('content', seo.twitter.image);
+    }
+  }
+
+  // Update favicon
+  const favicon = document.getElementById('favicon');
+  if (favicon && seo.favicon) {
+    favicon.setAttribute('href', seo.favicon);
+  }
+
+  console.log('✅ Head meta tags updated successfully');
+}
+
+// Call the function immediately when script loads
+updateHeadMetaTags();
+
+// ==================== MAIN SCRIPT ====================
 document.addEventListener("DOMContentLoaded", () => {
   // Prevent scroll saat landing page aktif
   document.body.style.overflow = "hidden";

@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // console.log('Loading wedding configuration...', weddingConfig);
 
   // Auto-generate couple names from nicknames
-  const coupleNames = `${weddingConfig.groom.nickname} & ${weddingConfig.bride.nickname}`;
+  const coupleNames = `${weddingConfig.male.nickname} & ${weddingConfig.female.nickname}`;
 
   // Helper function to safely update element
   function updateElement(id, value, attribute = 'textContent') {
@@ -60,21 +60,21 @@ document.addEventListener('DOMContentLoaded', function() {
   updateElement('welcome-message', weddingConfig.welcome.message);
 
   // ==================== MEMPELAI SECTION ====================
-  // Groom
-  updateElement('groom-fullname', weddingConfig.groom.fullName);
-  updateElement('groom-child-order', weddingConfig.groom.childOrder);
-  updateElement('groom-parents', `Bapak ${weddingConfig.groom.parents.father} & Ibu ${weddingConfig.groom.parents.mother}`);
-  updateElement('groom-instagram', weddingConfig.groom.instagram);
-  updateElement('groom-instagram-link', weddingConfig.groom.instagramLink, 'href');
-  updateElement('groom-photo', weddingConfig.groom.photo, 'src');
+  // Male
+  updateElement('groom-fullname', weddingConfig.male.fullName);
+  updateElement('groom-child-order', weddingConfig.male.childOrder);
+  updateElement('groom-parents', `Bapak ${weddingConfig.male.parents.father} & Ibu ${weddingConfig.male.parents.mother}`);
+  updateElement('groom-instagram', weddingConfig.male.instagram);
+  updateElement('groom-instagram-link', weddingConfig.male.instagramLink, 'href');
+  updateElement('groom-photo', weddingConfig.male.photo, 'src');
 
-  // Bride
-  updateElement('bride-fullname', weddingConfig.bride.fullName);
-  updateElement('bride-child-order', weddingConfig.bride.childOrder);
-  updateElement('bride-parents', `Bapak ${weddingConfig.bride.parents.father} & Ibu ${weddingConfig.bride.parents.mother}`);
-  updateElement('bride-instagram', weddingConfig.bride.instagram);
-  updateElement('bride-instagram-link', weddingConfig.bride.instagramLink, 'href');
-  updateElement('bride-photo', weddingConfig.bride.photo, 'src');
+  // Female
+  updateElement('bride-fullname', weddingConfig.female.fullName);
+  updateElement('bride-child-order', weddingConfig.female.childOrder);
+  updateElement('bride-parents', `Bapak ${weddingConfig.female.parents.father} & Ibu ${weddingConfig.female.parents.mother}`);
+  updateElement('bride-instagram', weddingConfig.female.instagram);
+  updateElement('bride-instagram-link', weddingConfig.female.instagramLink, 'href');
+  updateElement('bride-photo', weddingConfig.female.photo, 'src');
 
   // ==================== EVENT DETAILS ====================
   // Akad Nikah

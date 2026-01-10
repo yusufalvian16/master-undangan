@@ -6,8 +6,32 @@
  */
 
 const weddingConfig = {
+  // ==================== SEO & META TAGS ====================
+  seo: {
+    pageTitle: "Undangan Pernikahan [Male] & [Female]",
+    metaDescription: "Undangan Pernikahan [Male] & [Female]. Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.",
+    metaKeywords: "undangan pernikahan, wedding invitation, [Male], [Female], pernikahan digital",
+    
+    openGraph: {
+      title: "The Wedding of [Male] & [Female]",
+      description: "Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.",
+      image: "./images/galery/portrait/8.webp",
+      url: "https://bahagiakita.my.id/",
+      type: "website"
+    },
+    
+    twitter: {
+      card: "summary_large_image",
+      title: "The Wedding of [Male] & [Female]",
+      description: "Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami.",
+      image: "./images/galery/portrait/8.webp"
+    },
+    
+    favicon: "./images/logo/logo.png"
+  },
+
   // ==================== COUPLE INFORMATION ====================
-  groom: {
+  male: {
     fullName: "Ardi jaya",
     nickname: "Ardi",
     childOrder: "Putra kedua dari",
@@ -20,7 +44,7 @@ const weddingConfig = {
     photo: "./images/profile/male.webp"
   },
 
-  bride: {
+  female: {
     fullName: "Ani Kusuma Dewi",
     nickname: "Ani",
     childOrder: "Putri ketiga dari",
@@ -35,8 +59,8 @@ const weddingConfig = {
 
   // ==================== WELCOME SECTION ====================
   welcome: {
-    weddingDate: "15 Februari 2030",
-    countdownDate: "2030-02-15T10:00:00", // Format: YYYY-MM-DDTHH:MM:SS
+    weddingDate: "15 Februari 2026",
+    countdownDate: "2026-02-15T10:00:00", // Format: YYYY-MM-DDTHH:MM:SS
     message: "Dengan penuh sukacita, kami mengundang Anda untuk merayakan hari bahagia kami. Kehadiran dan doa restu Anda sangat berarti bagi kami.",
     slideshowImages: [
       "./images/galery/portrait/1.webp",
@@ -234,7 +258,7 @@ const weddingConfig = {
     title: "Terima Kasih",
     message: "Kehadiran dan doa restu dari Anda adalah hadiah terindah bagi kami. Semoga kita semua selalu dalam lindungan Allah SWT.",
     closing: "Hormat Kami Yang Mengundang",
-    // Note: Couple names auto-generated from groom.nickname & bride.nickname
+    // Note: Couple names auto-generated from male.nickname & female.nickname
   },
 
   // ==================== MUSIC ====================
@@ -246,8 +270,8 @@ const weddingConfig = {
   // ==================== SOCIAL MEDIA ====================
   socialMedia: {
     instagram: {
-      groom: "@muahmandaprianto",
-      bride: "@anisariskifirmani"
+      male: "@muahmandaprianto",
+      female: "@anisariskifirmani"
     },
     hashtag: "#RianNisaWedding"
   }
