@@ -107,6 +107,34 @@ function updateHeadMetaTags() {
 // Call the function immediately when script loads
 updateHeadMetaTags();
 
+// ==================== AUTO-FILL GUEST NAME ON LANDING PAGE ====================
+/**
+ * Function to update guest name on landing page from URL parameter
+ * Reads ?to= or ?name= parameter and displays it
+ */
+function updateLandingGuestName() {
+  try {
+    // Get guest name from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestNameFromUrl = urlParams.get('to') || urlParams.get('name');
+    
+    if (guestNameFromUrl) {
+      const landingGuestNameElement = document.getElementById('landing-guest-name');
+      if (landingGuestNameElement) {
+        // Decode and set the guest name
+        const decodedName = decodeURIComponent(guestNameFromUrl);
+        landingGuestNameElement.textContent = decodedName;
+        console.log('✅ Landing page guest name updated:', decodedName);
+      }
+    }
+  } catch (error) {
+    console.error('Error updating landing guest name:', error);
+  }
+}
+
+// Call the function immediately when script loads
+updateLandingGuestName();
+
 // ==================== MAIN SCRIPT ====================
 document.addEventListener("DOMContentLoaded", () => {
   // Prevent scroll saat landing page aktif

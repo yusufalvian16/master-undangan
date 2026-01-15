@@ -180,7 +180,7 @@
                 Kepada Yth. Bapak/Ibu/Saudara/i
               </p>
 
-              <p class="text-xl md:text-2xl font-primary font-semibold mt-1 text-white decoration-heart">
+              <p id="landing-guest-name" class="text-xl md:text-2xl font-primary font-semibold mt-1 text-white decoration-heart">
                 Nama Tamu
               </p>
 
@@ -1833,7 +1833,7 @@
               <div class="mt-2 w-full max-w-md">
                 <div
                   id="guest-messages"
-                  class="space-y-4 max-h-96 overflow-y-auto pr-2 custom-scrollbar"
+                  class="space-y-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar"
                 ></div>
                 <button
                   id="load-more-btn"
@@ -2405,11 +2405,12 @@
 
     </style>
 
-    <script src="./js/script.js"></script>
-    
     <!-- Wedding Configuration System - MUST load first -->
     <script src="./wedding-config.js"></script>
     <script src="./config-loader.js"></script>
+    
+    <!-- Main script - depends on weddingConfig -->
+    <script src="./js/script.js"></script>
     
     <!-- Supabase and Form Scripts - depend on weddingConfig -->
     <script src="./js/supabase_config.js"></script>

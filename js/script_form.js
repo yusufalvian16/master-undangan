@@ -34,6 +34,21 @@ document.addEventListener("DOMContentLoaded", function () {
   // Load more button
   const loadMoreBtn = document.getElementById('load-more-btn');
 
+  // ==================== AUTO-FILL GUEST NAME FROM URL ====================
+  // Get guest name from URL parameter (e.g., ?to=John%20Doe or ?name=John%20Doe)
+  const urlParams = new URLSearchParams(window.location.search);
+  const guestNameFromUrl = urlParams.get('to') || urlParams.get('name');
+  
+  if (guestNameFromUrl) {
+    const guestNameInput = document.getElementById('guest-name');
+    if (guestNameInput) {
+      // Decode and set the guest name
+      guestNameInput.value = decodeURIComponent(guestNameFromUrl);
+      console.log('✅ Guest name auto-filled from URL:', guestNameFromUrl);
+    }
+  }
+  // ========================================================================
+
   // Load existing messages
   loadGuestMessages();
   
@@ -295,10 +310,12 @@ document.addEventListener("DOMContentLoaded", function () {
           `;
           guestMessagesContainer.appendChild(messageDiv);
         });
-      } else {
+      } else if (!append) {
+        // Only show "no messages" if this is the initial load, not when appending
         guestMessagesContainer.innerHTML =
           '<p class="text-gray-500 text-center py-4">Belum ada pesan dari tamu lain.</p>';
       }
+      // If append mode and no data, just do nothing (keep existing messages)
     } catch (error) {
       console.error("Error loading messages:", error);
       if (guestMessagesContainer) {

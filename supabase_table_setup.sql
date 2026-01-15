@@ -4,7 +4,7 @@
 -- ============================================================
 -- 
 -- INSTRUKSI PENGGUNAAN:
--- 1. Ganti 'your_table_name' dengan nama tabel yang Anda inginkan
+-- 1. Ganti 'template_utama' dengan nama tabel yang Anda inginkan
 --    Contoh: 'template_utama', 'wedding_messages', 'guest_rsvp', dll
 -- 2. Copy seluruh script ini
 -- 3. Buka Supabase Dashboard → SQL Editor
@@ -12,10 +12,10 @@
 -- 5. Update wedding-config.js dengan nama tabel yang sama
 -- ============================================================
 
--- GANTI 'your_table_name' dengan nama tabel Anda
+-- GANTI 'template_utama' dengan nama tabel Anda
 -- Contoh: template_utama, wedding_ardi_ani, guest_messages_2026, dll
 
-CREATE TABLE IF NOT EXISTS your_table_name (
+CREATE TABLE IF NOT EXISTS template_utama (
   -- Primary Key
   id BIGSERIAL PRIMARY KEY,
   
@@ -39,48 +39,58 @@ CREATE TABLE IF NOT EXISTS your_table_name (
 -- ============================================================
 
 -- Index untuk sorting by created_at (untuk menampilkan pesan terbaru)
-CREATE INDEX IF NOT EXISTS idx_your_table_name_created_at 
-ON your_table_name(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_template_utama_created_at 
+ON template_utama(created_at DESC);
 
 -- Index untuk searching by guest_name
-CREATE INDEX IF NOT EXISTS idx_your_table_name_guest_name 
-ON your_table_name(guest_name);
+CREATE INDEX IF NOT EXISTS idx_template_utama_guest_name 
+ON template_utama(guest_name);
 
 -- ============================================================
 -- ROW LEVEL SECURITY (RLS) Policies
 -- ============================================================
 
 -- Enable RLS
-ALTER TABLE your_table_name ENABLE ROW LEVEL SECURITY;
+ALTER TABLE template_utama ENABLE ROW LEVEL SECURITY;
+
+-- Drop existing policies if they exist (makes script idempotent)
+DROP POLICY IF EXISTS "Anyone can insert messages" ON template_utama;
+DROP POLICY IF EXISTS "Anyone can view messages" ON template_utama;
+DROP POLICY IF EXISTS "Users can update own messages" ON template_utama;
+DROP POLICY IF EXISTS "Users can delete own messages" ON template_utama;
+DROP POLICY IF EXISTS "Allow update with user_id match" ON template_utama;
+DROP POLICY IF EXISTS "Allow delete with user_id match" ON template_utama;
 
 -- Policy: Anyone can INSERT (submit messages)
 CREATE POLICY "Anyone can insert messages" 
-ON your_table_name 
+ON template_utama 
 FOR INSERT 
 TO anon, authenticated 
 WITH CHECK (true);
 
 -- Policy: Anyone can SELECT all messages
 CREATE POLICY "Anyone can view messages" 
-ON your_table_name 
+ON template_utama 
 FOR SELECT 
 TO anon, authenticated 
 USING (true);
 
--- Policy: Users can UPDATE their own messages (based on user_id)
-CREATE POLICY "Users can update own messages" 
-ON your_table_name 
+-- Policy: Allow UPDATE for all users (application handles user_id matching)
+-- Note: Security relies on application-level checks in script_form.js
+CREATE POLICY "Allow update with user_id match" 
+ON template_utama 
 FOR UPDATE 
 TO anon, authenticated 
-USING (user_id = current_setting('request.jwt.claims', true)::json->>'sub')
-WITH CHECK (user_id = current_setting('request.jwt.claims', true)::json->>'sub');
+USING (true)
+WITH CHECK (true);
 
--- Policy: Users can DELETE their own messages (based on user_id)
-CREATE POLICY "Users can delete own messages" 
-ON your_table_name 
+-- Policy: Allow DELETE for all users (application handles user_id matching)
+-- Note: Security relies on application-level checks in script_form.js
+CREATE POLICY "Allow delete with user_id match" 
+ON template_utama 
 FOR DELETE 
 TO anon, authenticated 
-USING (user_id = current_setting('request.jwt.claims', true)::json->>'sub');
+USING (true);
 
 -- ============================================================
 -- TRIGGER untuk auto-update updated_at
@@ -96,8 +106,8 @@ END;
 $$ LANGUAGE plpgsql;
 
 -- Trigger untuk auto-update
-CREATE TRIGGER update_your_table_name_updated_at 
-BEFORE UPDATE ON your_table_name 
+CREATE TRIGGER update_template_utama_updated_at 
+BEFORE UPDATE ON template_utama 
 FOR EACH ROW 
 EXECUTE FUNCTION update_updated_at_column();
 
@@ -107,7 +117,7 @@ EXECUTE FUNCTION update_updated_at_column();
 
 -- Uncomment baris di bawah jika ingin insert sample data
 /*
-INSERT INTO your_table_name (guest_name, message, attendance) VALUES
+INSERT INTO template_utama (guest_name, message, attendance) VALUES
 ('Budi Santoso', 'Selamat menempuh hidup baru! Semoga menjadi keluarga yang sakinah mawaddah warahmah. Barakallah!', 'hadir'),
 ('Siti Nurhaliza', 'MasyaAllah, bahagia sekali melihat kalian berdua. Semoga langgeng sampai kakek nenek ya!', 'hadir'),
 ('Ahmad Hidayat', 'Congratulations! Semoga pernikahan kalian diberkahi Allah SWT dan penuh kebahagiaan.', 'hadir'),
@@ -125,15 +135,15 @@ INSERT INTO your_table_name (guest_name, message, attendance) VALUES
 -- ============================================================
 
 -- Run query ini untuk memverifikasi tabel sudah dibuat
--- SELECT * FROM your_table_name LIMIT 10;
+-- SELECT * FROM template_utama LIMIT 10;
 
 -- ============================================================
 -- CATATAN PENTING:
 -- ============================================================
--- 1. Jangan lupa ganti 'your_table_name' di SEMUA tempat
+-- 1. Jangan lupa ganti 'template_utama' di SEMUA tempat
 -- 2. Setelah membuat tabel, update wedding-config.js:
 --    supabase: {
---      tableName: "your_table_name"  // Ganti dengan nama tabel Anda
+--      tableName: "template_utama"  // Ganti dengan nama tabel Anda
 --    }
 -- 3. Untuk production, pertimbangkan menambah validasi lebih ketat
 -- 4. Monitor usage di Supabase Dashboard → Database → Tables

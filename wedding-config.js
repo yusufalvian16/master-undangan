@@ -59,8 +59,8 @@ const weddingConfig = {
 
   // ==================== WELCOME SECTION ====================
   welcome: {
-    weddingDate: "15 Februari 2026",
-    countdownDate: "2026-02-15T10:00:00", // Format: YYYY-MM-DDTHH:MM:SS
+    weddingDate: "15 Februari 2030",
+    countdownDate: "2030-02-15T10:00:00", // Format: YYYY-MM-DDTHH:MM:SS
     message: "Dengan penuh sukacita, kami mengundang Anda untuk merayakan hari bahagia kami. Kehadiran dan doa restu Anda sangat berarti bagi kami.",
     slideshowImages: [
       "./images/galery/portrait/1.webp",
