@@ -43,13 +43,64 @@
 
   <body class="bg-gray-900">
     <div class="flex h-screen w-screen justify-end">
-      <div class="hidden md:block flex-grow bg-blue-900 h-full">
+      <div class="hidden md:block flex-grow h-full relative overflow-hidden">
         <section
-          class="min-h-screen text-white flex flex-col justify-center items-center bg-[url('../images/galery/landscape/1.webp')] bg-cover bg-center py-16 px-4"
+          class="min-h-screen flex flex-col justify-center items-center bg-[url('../images/furnitur/bgall.png')] bg-cover bg-center py-16 px-4 relative"
         >
-          <h2 class="text-xl md:text-2xl font-secondary font-semibold mb-4">The Wedding Of</h2>
-
-          <p id="couple-names-landing" class="text-4xl md:text-5xl text-center font-primary font-bold">Rian & Nisa</p>
+          <!-- Background Overlay for depth -->
+          <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/40 via-black/20 to-transparent pointer-events-none z-10"></div>
+          
+          <!-- Corner Decorations - Outside of card with Swaying Animation -->
+          <!-- Top Left Decoration -->
+          <div class="absolute z-20 w-24 md:w-28 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+            <div class="relative w-full h-full origin-top-left wave-daun-2">
+              <img
+                src="./images/furnitur/wave/daun-top-left.png"
+                alt=""
+                class="block w-full h-full"
+              />
+            </div>
+          </div>
+          <!-- Top Right Decoration -->
+          <div class="absolute z-20 w-24 md:w-28 top-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+            <div class="relative w-full h-full origin-top-right wave-daun-1">
+              <img
+                src="./images/furnitur/wave/daun-top-left.png"
+                alt=""
+                class="block w-full h-full -scale-x-100"
+              />
+            </div>
+          </div>
+          <!-- Bottom Left Decoration -->
+          <div class="absolute z-20 w-24 md:w-28 bottom-0 left-0 pointer-events-none" style="z-index: 20 !important;">
+            <div class="relative w-full h-full origin-bottom-left wave-daun-2">
+              <img
+                src="./images/furnitur/wave/daun-top-left.png"
+                alt=""
+                class="block w-full h-full rotate-180 -scale-x-100"
+              />
+            </div>
+          </div>
+          <!-- Bottom Right Decoration -->
+          <div class="absolute z-20 w-24 md:w-28 bottom-0 right-0 pointer-events-none" style="z-index: 20 !important;">
+            <div class="relative w-full h-full origin-bottom-right wave-daun-1">
+              <img
+                src="./images/furnitur/wave/daun-top-left.png"
+                alt=""
+                class="block w-full h-full rotate-180"
+              />
+            </div>
+          </div>
+          
+          <!-- Content with Card -->
+          <div class="relative z-30 text-center flex justify-center items-center">
+            <!-- Glassmorphism Card matching right landing page -->
+            <div class="bg-white/70 backdrop-blur-sm glass-effect rounded-3xl p-8 md:p-10 shadow-2xl elegant-border max-w-xl w-full relative">
+              
+              <h2 class="text-2xl md:text-3xl font-secondary font-semibold mb-4" style="color: var(--color-primary-700);">The Wedding Of</h2>
+              <p id="couple-names-landing" class="text-4xl md:text-5xl text-center font-primary font-bold" style="color: var(--color-primary-700);">Rian & Nisa</p>
+            </div>
+          </div>
         </section>
       </div>
 
@@ -216,7 +267,7 @@
             <!-- Dekorasi background -->
             <!-- <div class="absolute inset-0 bg-gradient-to-b from-primary-50/30 via-transparent to-white/80"></div> -->
             
-            <div class="min-h-screen bg-white/20 backdrop-blur-[2px] relative z-10 flex items-start">
+            <div class="min-h-screen bg-white/[0.15] relative z-10 flex items-start">
               <div
                 class="absolute bottom-0 left-0 w-full h-1/3 -z-10"
                 style="background: linear-gradient(to top, #C6700D 0%, rgba(198, 112, 13, 0.8) 30%, rgba(198, 112, 13, 0.5) 60%, rgba(198, 112, 13, 0.2) 85%, transparent 100%);"
@@ -1830,13 +1881,14 @@
                 </button>
               </form>
 
-              <div class="mt-2 w-full max-w-md">
+              <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="mt-2 w-full max-w-md">
                 <div
                   id="guest-messages"
                   class="space-y-4 max-h-[600px] overflow-y-auto pr-2 custom-scrollbar"
                 ></div>
                 <button
                   id="load-more-btn"
+                  data-aos="fade-up" data-aos-duration="800" data-aos-delay="600"
                   class="w-full py-3 px-6 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out mt-4 hidden"
                 >
                   <i class="bi bi-arrow-down-circle mr-2"></i>Muat Lebih Banyak

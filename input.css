@@ -1236,3 +1236,27 @@
     animation-delay: 16s;
   }
 }
+
+/* ============================================
+   PRELOADER FADE-OUT ANIMATION
+   ============================================ */
+@layer utilities {
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      visibility: visible;
+    }
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  #preloader.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+  }
+
+  #preloader.hidden {
+    display: none !important;
+  }
+}

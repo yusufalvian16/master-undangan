@@ -1,3 +1,165 @@
+// ==================== PRELOADER LOGIC ====================
+/**
+ * Show progress bar animation while page is loading
+ * Progress bar fills from 0% to 100%
+ */
+(function() {
+  const preloader = document.getElementById('preloader');
+  const progressBar = document.getElementById('progress-bar');
+  const progressText = document.getElementById('progress-text');
+  
+  if (!preloader || !progressBar || !progressText) return;
+  
+  let progress = 0;
+  const startTime = performance.now();
+  
+  // Simulate progress while page is loading
+  const progressInterval = setInterval(() => {
+    if (progress < 90) {
+      // Increment progress (slower as it gets higher)
+      const increment = Math.random() * (10 - progress / 10);
+      progress = Math.min(90, progress + increment);
+      
+      progressBar.style.width = progress + '%';
+      progressText.textContent = Math.floor(progress) + '%';
+    }
+  }, 100);
+  
+  // When page is fully loaded
+  window.addEventListener('load', function() {
+    clearInterval(progressInterval);
+    
+    // Complete the progress bar
+    progress = 100;
+    progressBar.style.width = '100%';
+    progressText.textContent = '100%';
+    
+    // Calculate minimum display time
+    const elapsedTime = performance.now() - startTime;
+    const minDisplayTime = 800; // milliseconds
+    const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+    
+    // Wait a bit then fade out
+    setTimeout(() => {
+      preloader.classList.add('fade-out');
+      
+      // Remove from DOM after animation
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+        preloader.remove();
+        
+        // Trigger desktop AND mobile leaves animation after preloader is removed
+        setTimeout(() => {
+          // DESKTOP elements
+          // Top leaves
+          const leftLeaf = document.getElementById('desktop-leaf-left');
+          const rightLeaf = document.getElementById('desktop-leaf-right');
+          
+          // Bottom left decorations
+          const bottomLeftLeaf1 = document.getElementById('desktop-leaf-bl-1');
+          const bottomLeftLeaf2 = document.getElementById('desktop-leaf-bl-2');
+          const bottomLeftFlower = document.getElementById('desktop-flower-bl');
+          
+          // Bottom right decorations
+          const bottomRightLeaf1 = document.getElementById('desktop-leaf-br-1');
+          const bottomRightLeaf2 = document.getElementById('desktop-leaf-br-2');
+          const bottomRightFlower = document.getElementById('desktop-flower-br');
+          
+          // Wedding card
+          const weddingCard = document.getElementById('desktop-wedding-card');
+          
+          // MOBILE elements
+          const mobileLeafBL1 = document.getElementById('mobile-leaf-bl-1');
+          const mobileLeafBL2 = document.getElementById('mobile-leaf-bl-2');
+          const mobileFlowerBL = document.getElementById('mobile-flower-bl');
+          const mobileLeafBR1 = document.getElementById('mobile-leaf-br-1');
+          const mobileLeafBR2 = document.getElementById('mobile-leaf-br-2');
+          const mobileFlowerBR = document.getElementById('mobile-flower-br');
+          const mobileCard = document.getElementById('mobile-welcome-card');
+          
+          // Animate desktop top leaves
+          if (leftLeaf) {
+            leftLeaf.style.opacity = '1';
+            leftLeaf.style.transform = 'translate(0, 0)';
+          }
+          
+          if (rightLeaf) {
+            rightLeaf.style.opacity = '1';
+            rightLeaf.style.transform = 'translate(0, 0)';
+          }
+          
+          // Animate decorations with slight delay for cascading effect
+          setTimeout(() => {
+            // Desktop bottom decorations
+            if (bottomLeftLeaf1) {
+              bottomLeftLeaf1.style.opacity = '1';
+              bottomLeftLeaf1.style.transform = 'translate(0, 0)';
+            }
+            if (bottomLeftLeaf2) {
+              bottomLeftLeaf2.style.opacity = '1';
+              bottomLeftLeaf2.style.transform = 'translate(0, 0)';
+            }
+            if (bottomLeftFlower) {
+              bottomLeftFlower.style.opacity = '1';
+              bottomLeftFlower.style.transform = 'translate(0, 0)';
+            }
+            if (bottomRightLeaf1) {
+              bottomRightLeaf1.style.opacity = '1';
+              bottomRightLeaf1.style.transform = 'translate(0, 0)';
+            }
+            if (bottomRightLeaf2) {
+              bottomRightLeaf2.style.opacity = '1';
+              bottomRightLeaf2.style.transform = 'translate(0, 0)';
+            }
+            if (bottomRightFlower) {
+              bottomRightFlower.style.opacity = '1';
+              bottomRightFlower.style.transform = 'translate(0, 0)';
+            }
+            
+            // Mobile bottom decorations
+            if (mobileLeafBL1) {
+              mobileLeafBL1.style.opacity = '1';
+              mobileLeafBL1.style.transform = 'translate(0, 0)';
+            }
+            if (mobileLeafBL2) {
+              mobileLeafBL2.style.opacity = '1';
+              mobileLeafBL2.style.transform = 'translate(0, 0)';
+            }
+            if (mobileFlowerBL) {
+              mobileFlowerBL.style.opacity = '1';
+              mobileFlowerBL.style.transform = 'translate(0, 0)';
+            }
+            if (mobileLeafBR1) {
+              mobileLeafBR1.style.opacity = '1';
+              mobileLeafBR1.style.transform = 'translate(0, 0)';
+            }
+            if (mobileLeafBR2) {
+              mobileLeafBR2.style.opacity = '1';
+              mobileLeafBR2.style.transform = 'translate(0, 0)';
+            }
+            if (mobileFlowerBR) {
+              mobileFlowerBR.style.opacity = '1';
+              mobileFlowerBR.style.transform = 'translate(0, 0)';
+            }
+            
+            // Animate cards after decorations
+            setTimeout(() => {
+              if (weddingCard) {
+                weddingCard.style.opacity = '1';
+                weddingCard.style.transform = 'scale(1)';
+              }
+              if (mobileCard) {
+                mobileCard.style.opacity = '1';
+                mobileCard.style.transform = 'scale(1)';
+              }
+            }, 300); // 300ms delay after bottom decorations
+          }, 200); // 200ms delay after top leaves
+        }, 100); // Small delay after preloader removal
+      }, 500);
+    }, remainingTime + 300); // Extra 300ms to show 100%
+  });
+})();
+
 // ==================== UPDATE HEAD META TAGS ====================
 /**
  * Function to update all meta tags in the <head> section
