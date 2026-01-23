@@ -6,16 +6,16 @@
 @layer theme {
   :root {
     /* Primary Font - Playfair Display untuk judul utama dan nama pengantin */
-    --font-primary: 'Playfair Display', serif;
-    
+    --font-primary: "Playfair Display", serif;
+
     /* Secondary Font - Poppins untuk subjudul dan judul section */
-    --font-secondary: 'Poppins', sans-serif;
-    
+    --font-secondary: "Poppins", sans-serif;
+
     /* Body Font - Inter untuk teks biasa dan konten */
-    --font-body: 'Inter', sans-serif;
-    
+    --font-body: "Inter", sans-serif;
+
     /* Arabic Font - Amiri untuk teks Arab */
-    --font-arabic: 'Amiri', serif;
+    --font-arabic: "Amiri", serif;
   }
 }
 
@@ -27,28 +27,28 @@
   .font-primary {
     font-family: var(--font-primary);
   }
-  
+
   /* Secondary Font - untuk subjudul, judul section */
   .font-secondary {
     font-family: var(--font-secondary);
   }
-  
+
   /* Body Font - untuk teks biasa */
   .font-body {
     font-family: var(--font-body);
   }
-  
+
   /* Arabic Font - untuk teks Arab */
   .font-arab {
     font-family: var(--font-arabic);
   }
-  
+
   /* Alias untuk kompatibilitas dengan kode yang ada */
   .font-nama {
     font-family: var(--font-primary);
     font-weight: 600;
   }
-  
+
   .font-nama2 {
     font-family: var(--font-secondary);
     font-weight: 600;
@@ -66,92 +66,97 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-primary);
     font-weight: 600;
     line-height: 1.3;
   }
-  
+
   p {
     font-family: var(--font-body);
     font-size: 16px;
     line-height: 1.7;
   }
-  
+
   /* Ukuran font yang lebih besar dan mudah dibaca */
   .text-xs {
     font-size: 0.875rem; /* 14px */
     line-height: 1.6;
   }
-  
+
   .text-sm {
     font-size: 0.9375rem; /* 15px */
     line-height: 1.65;
   }
-  
+
   .text-base {
     font-size: 1rem; /* 16px */
     line-height: 1.7;
   }
-  
+
   .text-lg {
     font-size: 1.125rem; /* 18px */
     line-height: 1.75;
   }
-  
+
   .text-xl {
     font-size: 1.25rem; /* 20px */
     line-height: 1.7;
   }
-  
+
   .text-2xl {
     font-size: 1.5rem; /* 24px */
     line-height: 1.5;
   }
-  
+
   .text-3xl {
     font-size: 1.875rem; /* 30px */
     line-height: 1.4;
   }
-  
+
   .text-4xl {
     font-size: 2.25rem; /* 36px */
     line-height: 1.3;
   }
-  
+
   .text-5xl {
     font-size: 3rem; /* 48px */
     line-height: 1.2;
   }
-  
+
   .text-6xl {
     font-size: 3.75rem; /* 60px */
     line-height: 1.1;
   }
-  
+
   /* Responsive font sizes untuk mobile */
   @media (max-width: 768px) {
     body {
       font-size: 15px;
     }
-    
+
     .text-2xl {
       font-size: 1.375rem; /* 22px */
     }
-    
+
     .text-3xl {
       font-size: 1.625rem; /* 26px */
     }
-    
+
     .text-4xl {
       font-size: 1.875rem; /* 30px */
     }
-    
+
     .text-5xl {
       font-size: 2.25rem; /* 36px */
     }
-    
+
     .text-6xl {
       font-size: 2.75rem; /* 44px */
     }
@@ -167,17 +172,17 @@
     @apply absolute;
     z-index: 50 !important;
   }
-  
+
   /* Sembunyikan main-invite-page saat hidden */
   #main-invite-page.hidden {
     @apply hidden invisible opacity-0 pointer-events-none h-0 overflow-hidden;
   }
-  
+
   /* Tampilkan main-invite-page saat tidak hidden */
   #main-invite-page:not(.hidden) {
     @apply block visible relative h-auto opacity-100 pointer-events-auto;
   }
-  
+
   /* Pastikan welcome-section selalu terlihat */
   #welcome-section {
     @apply relative block visible opacity-100;
@@ -190,31 +195,32 @@
    Sesuaikan warna-warna ini sesuai kebutuhan menggunakan kode hex
    ============================================ */
 @layer theme {
-  :root, :host {
+  :root,
+  :host {
     /* Primary Color - Amber Gelap Tembaga Coklat Emas untuk tema pernikahan */
     --color-primary-50: #fef8f0;
     --color-primary-100: #f8e2c4;
     --color-primary-200: #f0d4a8;
     --color-primary-300: #e8c68c;
     --color-primary-400: #d8a24e;
-    --color-primary-500: #C6700D;
-    --color-primary-600: #C6700D;
-    --color-primary-700: #A85C09;
+    --color-primary-500: #c6700d;
+    --color-primary-600: #c6700d;
+    --color-primary-700: #a85c09;
     --color-primary-800: #8b4a07;
     --color-primary-900: #6d3805;
     --color-primary-950: #4f2603;
-    
+
     /* Custom Colors untuk Undangan Digital - Palet Amber Gelap Tembaga Coklat Emas */
-    --color-text-main: #3B2406;
-    --color-text-secondary: #5E3B10;
-    --color-heading: #7A4C10;
-    --color-button: #C6700D;
-    --color-button-hover: #A85C09;
-    --color-border: #A86B1C;
-    --color-bg-card: #F8E2C4;
+    --color-text-main: #3b2406;
+    --color-text-secondary: #5e3b10;
+    --color-heading: #7a4c10;
+    --color-button: #c6700d;
+    --color-button-hover: #a85c09;
+    --color-border: #a86b1c;
+    --color-bg-card: #f8e2c4;
     --color-bg-card-rgba: rgba(248, 226, 196, 0.85);
-    --color-accent: #D8A24E;
-    --color-accent-gold: #D8A24E;
+    --color-accent: #d8a24e;
+    --color-accent-gold: #d8a24e;
 
     /* Secondary Color - Amber Tembaga untuk aksen */
     --color-secondary-50: #fef8f0;
@@ -222,8 +228,8 @@
     --color-secondary-200: #f0d4a8;
     --color-secondary-300: #e8c68c;
     --color-secondary-400: #d8a24e;
-    --color-secondary-500: #C6700D;
-    --color-secondary-600: #A85C09;
+    --color-secondary-500: #c6700d;
+    --color-secondary-600: #a85c09;
     --color-secondary-700: #8b4a07;
     --color-secondary-800: #6d3805;
     --color-secondary-900: #4f2603;
@@ -231,39 +237,39 @@
     /* Accent Color - Coklat Emas untuk aksen */
     --color-accent-50: #fef8f0;
     --color-accent-100: #f8e2c4;
-    --color-accent-200: #D8A24E;
+    --color-accent-200: #d8a24e;
     --color-accent-300: #e8c68c;
     --color-accent-400: #d8a24e;
-    --color-accent-500: #C6700D;
-    --color-accent-600: #A85C09;
+    --color-accent-500: #c6700d;
+    --color-accent-600: #a85c09;
     --color-accent-700: #8b4a07;
     --color-accent-800: #6d3805;
     --color-accent-900: #4f2603;
 
     /* Warna Netral - Gray Scale */
-    --color-putih: #FFFFFF;
-    --color-hitam: #0F0F0F;
-    --color-gray-100: #F2F2F2;
-    --color-gray-200: #E0E0E0;
-    --color-gray-300: #BDBDBD;
-    --color-gray-400: #9E9E9E;
+    --color-putih: #ffffff;
+    --color-hitam: #0f0f0f;
+    --color-gray-100: #f2f2f2;
+    --color-gray-200: #e0e0e0;
+    --color-gray-300: #bdbdbd;
+    --color-gray-400: #9e9e9e;
     --color-gray-500: #757575;
     --color-gray-600: #555555;
-    --color-gray-700: #3C3C3C;
-    --color-gray-800: #2B2B2B;
-    --color-gray-900: #1A1A1A;
-    
+    --color-gray-700: #3c3c3c;
+    --color-gray-800: #2b2b2b;
+    --color-gray-900: #1a1a1a;
+
     /* Warna Status */
-    --color-error: #C44536;
-    --color-success: #3C8D65;
-    
+    --color-error: #c44536;
+    --color-success: #3c8d65;
+
     /* Legacy colors untuk kompatibilitas */
     --color-abu: #757575;
     --color-abu-tua: #555555;
-    --color-abu-gelap: #3C3C3C;
-    --color-abu-terang: #BDBDBD;
-    --color-abu-paling-terang: #E0E0E0;
-    --color-abu-paling-gelap: #0F0F0F;
+    --color-abu-gelap: #3c3c3c;
+    --color-abu-terang: #bdbdbd;
+    --color-abu-paling-terang: #e0e0e0;
+    --color-abu-paling-gelap: #0f0f0f;
   }
 }
 
@@ -273,7 +279,8 @@
 @layer utilities {
   /* Animasi melambai untuk bunga - gerakan halus seperti tertiup angin */
   @keyframes sway {
-    0%, 100% {
+    0%,
+    100% {
       transform: rotate(0deg);
     }
     25% {
@@ -288,7 +295,8 @@
   }
 
   @keyframes sway-alt {
-    0%, 100% {
+    0%,
+    100% {
       transform: rotate(0deg);
     }
     25% {
@@ -325,10 +333,11 @@
   /* ============================================
      WAVE ANIMATION SYSTEM - Smooth & Natural
      ============================================ */
-  
+
   /* Keyframe untuk bunga - gerakan lambat dan elegan */
   @keyframes wave-bunga {
-    0%, 100% {
+    0%,
+    100% {
       transform: rotate(0deg);
     }
     25% {
@@ -344,7 +353,8 @@
 
   /* Keyframe untuk daun 1 - gerakan sangat halus dan smooth seperti daun asli */
   @keyframes wave-daun-1 {
-    0%, 100% {
+    0%,
+    100% {
       transform: rotate(0deg) translateX(0px);
     }
     2% {
@@ -516,7 +526,8 @@
 
   /* Keyframe untuk daun 2 - gerakan halus dengan pola berbeda */
   @keyframes wave-daun-2 {
-    0%, 100% {
+    0%,
+    100% {
       transform: rotate(0deg) translateX(0px);
     }
     2% {
@@ -733,27 +744,35 @@
   .button-main {
     @apply inline-flex items-center justify-center px-6 py-3 font-semibold text-base leading-normal text-center no-underline border-none rounded-full cursor-pointer transition-all duration-300 ease-in-out;
     background-color: var(--color-button);
-    color: #FFFFFF;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    color: #ffffff;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   /* Hover state */
   .button-main:hover {
     @apply -translate-y-0.5;
     background-color: var(--color-button-hover);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   /* Active state */
   .button-main:active {
     @apply translate-y-0;
-    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+    box-shadow:
+      0 2px 4px -1px rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.06);
   }
 
   /* Focus state */
   .button-main:focus {
     @apply outline-none;
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), 0 0 0 6px var(--color-primary-300);
+    box-shadow:
+      0 0 0 4px rgba(0, 0, 0, 0.1),
+      0 0 0 6px var(--color-primary-300);
   }
 
   /* Disabled state */
@@ -835,43 +854,43 @@
   .bg-primary-50 {
     background-color: var(--color-primary-50);
   }
-  
+
   .bg-primary-100 {
     background-color: var(--color-primary-100);
   }
-  
+
   .bg-primary-200 {
     background-color: var(--color-primary-200);
   }
-  
+
   .bg-primary-300 {
     background-color: var(--color-primary-300);
   }
-  
+
   .bg-primary-400 {
     background-color: var(--color-primary-400);
   }
-  
+
   .bg-primary-500 {
     background-color: var(--color-primary-500);
   }
-  
+
   .bg-primary-600 {
     background-color: var(--color-primary-600);
   }
-  
+
   .bg-primary-700 {
     background-color: var(--color-primary-700);
   }
-  
+
   .bg-primary-800 {
     background-color: var(--color-primary-800);
   }
-  
+
   .bg-primary-900 {
     background-color: var(--color-primary-900);
   }
-  
+
   .bg-primary-950 {
     background-color: var(--color-primary-950);
   }
@@ -928,7 +947,8 @@
 
   /* Animasi floating untuk elemen dekoratif */
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
@@ -937,7 +957,8 @@
   }
 
   @keyframes float-slow {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
@@ -946,7 +967,8 @@
   }
 
   @keyframes sparkle {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0;
       transform: scale(0);
     }
@@ -957,7 +979,8 @@
   }
 
   @keyframes pulse-glow {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow: 0 0 20px rgba(219, 39, 119, 0.3);
     }
     50% {
@@ -1030,7 +1053,11 @@
 
   /* Gradient text untuk judul */
   .text-gradient-primary {
-    background: linear-gradient(135deg, var(--color-primary-600), var(--color-accent-500));
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-600),
+      var(--color-accent-500)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1042,29 +1069,29 @@
   }
 
   .menu-item.active {
-    color: #C6700D !important;
+    color: #c6700d !important;
   }
 
   .menu-item.active .menu-icon {
-    color: #C6700D !important;
+    color: #c6700d !important;
     transform: scale(1.15);
   }
 
   .menu-item.active .menu-item-text {
-    color: #C6700D !important;
+    color: #c6700d !important;
     font-weight: 600;
   }
 
   .menu-item:hover:not(.active) {
-    color: #A85C09 !important;
+    color: #a85c09 !important;
   }
 
   .menu-item:hover:not(.active) .menu-icon {
-    color: #A85C09 !important;
+    color: #a85c09 !important;
   }
 
   .menu-item:hover:not(.active) .menu-item-text {
-    color: #A85C09 !important;
+    color: #a85c09 !important;
   }
 
   /* Glass morphism effect */
@@ -1080,10 +1107,18 @@
   .elegant-border::before {
     content: "";
     @apply absolute -inset-0.5 rounded-[inherit] p-0.5 opacity-50;
-    background: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-400));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-400),
+      var(--color-accent-400)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
     mask-composite: exclude;
   }
 
@@ -1210,28 +1245,28 @@
   }
 
   /* First image starts visible immediately with zoom in */
-  .slideshow-image:nth-child(1) { 
+  .slideshow-image:nth-child(1) {
     animation: slideshow-zoom-in 20s infinite;
     animation-delay: 0s;
     opacity: 1;
   }
   /* Second image zooms out */
-  .slideshow-image:nth-child(2) { 
+  .slideshow-image:nth-child(2) {
     animation: slideshow-zoom-out 20s infinite;
     animation-delay: 4s;
   }
   /* Third image zooms in */
-  .slideshow-image:nth-child(3) { 
+  .slideshow-image:nth-child(3) {
     animation: slideshow-zoom-in 20s infinite;
     animation-delay: 8s;
   }
   /* Fourth image zooms out */
-  .slideshow-image:nth-child(4) { 
+  .slideshow-image:nth-child(4) {
     animation: slideshow-zoom-out 20s infinite;
     animation-delay: 12s;
   }
   /* Fifth image zooms in */
-  .slideshow-image:nth-child(5) { 
+  .slideshow-image:nth-child(5) {
     animation: slideshow-zoom-in 20s infinite;
     animation-delay: 16s;
   }
@@ -1258,5 +1293,356 @@
 
   #preloader.hidden {
     display: none !important;
+  }
+}
+
+/* ============================================
+   PRELOADER STYLES - Elegant Wedding Theme
+   ============================================ */
+@layer components {
+  .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2d3748; /* Dark gray background */
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Animated background pattern */
+  .preloader::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    );
+    background-size: 50px 50px;
+    animation: backgroundMove 20s linear infinite;
+    opacity: 0.3;
+  }
+
+  @keyframes backgroundMove {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(50px, 50px);
+    }
+  }
+
+  .preloader-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 90%;
+  }
+
+  /* Loading text */
+  .preloader-loading-text {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  /* Corner decorations */
+  .preloader-decoration {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .preloader-decoration.top-left {
+    top: 20px;
+    left: 20px;
+    animation: floatTopLeft 6s ease-in-out infinite;
+  }
+
+  .preloader-decoration.top-right {
+    top: 20px;
+    right: 20px;
+    transform: scaleX(-1);
+    animation: floatTopRight 6s ease-in-out infinite;
+  }
+
+  .preloader-decoration.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    transform: rotate(180deg) scaleX(-1);
+    animation: floatBottomLeft 6s ease-in-out infinite;
+  }
+
+  .preloader-decoration.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    transform: rotate(180deg);
+    animation: floatBottomRight 6s ease-in-out infinite;
+  }
+
+  .decoration-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  @keyframes floatTopLeft {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate(-5px, -5px) rotate(-5deg);
+    }
+  }
+
+  @keyframes floatTopRight {
+    0%,
+    100% {
+      transform: scaleX(-1) translate(0, 0) rotate(0deg);
+    }
+    50% {
+      transform: scaleX(-1) translate(5px, -5px) rotate(5deg);
+    }
+  }
+
+  @keyframes floatBottomLeft {
+    0%,
+    100% {
+      transform: rotate(180deg) scaleX(-1) translate(0, 0);
+    }
+    50% {
+      transform: rotate(180deg) scaleX(-1) translate(-5px, 5px) rotate(-5deg);
+    }
+  }
+
+  @keyframes floatBottomRight {
+    0%,
+    100% {
+      transform: rotate(180deg) translate(0, 0);
+    }
+    50% {
+      transform: rotate(180deg) translate(5px, 5px) rotate(5deg);
+    }
+  }
+
+  /* Logo container with rotating ring */
+  .preloader-logo {
+    position: relative;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .preloader-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+  }
+
+  .ring-segment {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: rgba(255, 255, 255, 0.8);
+    animation: rotateRing 2s linear infinite;
+  }
+
+  .ring-segment:nth-child(1) {
+    animation-delay: 0s;
+    border-top-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .ring-segment:nth-child(2) {
+    animation-delay: 0.5s;
+    border-top-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .ring-segment:nth-child(3) {
+    animation-delay: 1s;
+    border-top-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .ring-segment:nth-child(4) {
+    animation-delay: 1.5s;
+    border-top-color: rgba(255, 255, 255, 0.3);
+  }
+
+  @keyframes rotateRing {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Initials */
+  .preloader-initials {
+    font-family: var(--font-primary);
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeInScale 1s ease-in-out;
+    position: relative;
+    z-index: 2;
+  }
+
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Subtitle */
+  .preloader-subtitle {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: fadeIn 1s ease-in-out 0.3s both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Progress bar */
+  .preloader-progress {
+    margin-top: 1rem;
+    animation: fadeIn 1s ease-in-out 0.5s both;
+  }
+
+  .progress-bar-container {
+    width: 280px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto 0.75rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0.8) 100%
+    );
+    background-size: 200% 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    animation: shimmerProgress 1.5s linear infinite;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  @keyframes shimmerProgress {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .progress-text {
+    font-family: var(--font-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .preloader-decoration {
+      width: 60px;
+      height: 60px;
+    }
+
+    .preloader-decoration.top-left,
+    .preloader-decoration.top-right {
+      top: 10px;
+    }
+
+    .preloader-decoration.top-left,
+    .preloader-decoration.bottom-left {
+      left: 10px;
+    }
+
+    .preloader-decoration.top-right,
+    .preloader-decoration.bottom-right {
+      right: 10px;
+    }
+
+    .preloader-decoration.bottom-left,
+    .preloader-decoration.bottom-right {
+      bottom: 10px;
+    }
+
+    .preloader-initials {
+      font-size: 2.5rem;
+    }
+
+    .preloader-ring {
+      width: 120px;
+      height: 120px;
+    }
+
+    .preloader-subtitle {
+      font-size: 0.875rem;
+    }
+
+    .preloader-loading-text {
+      font-size: 1.25rem;
+    }
+
+    .progress-bar-container {
+      width: 240px;
+    }
   }
 }

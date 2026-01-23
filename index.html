@@ -42,6 +42,22 @@
   </head>
 
   <body class="bg-gray-900">
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+      <div class="preloader-content">
+        <!-- Loading text -->
+        <p class="preloader-loading-text">Loading...</p>
+        
+        <!-- Progress bar -->
+        <div class="preloader-progress">
+          <div class="progress-bar-container">
+            <div id="progress-bar" class="progress-bar"></div>
+          </div>
+          <p id="progress-text" class="progress-text">0%</p>
+        </div>
+      </div>
+    </div>
+
     <div class="flex h-screen w-screen justify-end">
       <div class="hidden md:block flex-grow h-full relative overflow-hidden">
         <section
@@ -95,7 +111,10 @@
           <!-- Content with Card -->
           <div class="relative z-30 text-center flex justify-center items-center">
             <!-- Glassmorphism Card matching right landing page -->
-            <div class="bg-white/70 backdrop-blur-sm glass-effect rounded-3xl p-8 md:p-10 shadow-2xl elegant-border max-w-xl w-full relative">
+            <div 
+              id="desktop-landing-card"
+              class="bg-white/70 backdrop-blur-sm glass-effect rounded-3xl p-8 md:p-10 shadow-2xl elegant-border max-w-xl w-full relative opacity-0"
+            >
               
               <h2 class="text-2xl md:text-3xl font-secondary font-semibold mb-4" style="color: var(--color-primary-700);">The Wedding Of</h2>
               <p id="couple-names-landing" class="text-4xl md:text-5xl text-center font-primary font-bold" style="color: var(--color-primary-700);">Rian & Nisa</p>
@@ -206,7 +225,10 @@
             </div>
             
             <!-- Card untuk konten selamat datang -->
-            <div class="bg-white/70 backdrop-blur-sm glass-effect rounded-3xl p-4 md:p-6 mb-8 shadow-2xl elegant-border max-w-xl w-full animate-fade-in-up card-leaf-decoration relative overflow-hidden">
+            <div 
+              id="mobile-landing-card"
+              class="bg-white/70 backdrop-blur-sm glass-effect rounded-3xl p-4 md:p-6 mb-8 shadow-2xl elegant-border max-w-xl w-full card-leaf-decoration relative overflow-hidden opacity-0"
+            >
               <!-- Top Left -->
               <div class="absolute z-20 w-16 top-0 left-0 pointer-events-none" style="z-index: 20 !important;">
                 <div class="relative w-full h-full origin-top-left">
@@ -418,7 +440,6 @@
                 <img src="./images/furnitur/wave/top-left-daun-atas.png" alt="Leaf Top" class="daun-atas wave-daun-1" style="position: absolute; width: 100%; height: 100%; object-fit: contain; top: 0; left: 0; z-index: 2; transform-origin: top left;">
               </div>
             </div>
-          </section>
           </section>
 
           <!-- Doa Section -->

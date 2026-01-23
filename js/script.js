@@ -2,6 +2,7 @@
 /**
  * Show progress bar animation while page is loading
  * Progress bar fills from 0% to 100%
+ * Integrated with weddingConfig for customization
  */
 (function() {
   const preloader = document.getElementById('preloader');
@@ -10,155 +11,76 @@
   
   if (!preloader || !progressBar || !progressText) return;
   
+  // Check if preloader is enabled in config
+  const preloaderConfig = weddingConfig?.preloader || { enabled: true, minimumDisplayTime: 1500 };
+  
+  if (!preloaderConfig.enabled) {
+    // If disabled, remove preloader immediately
+    preloader.remove();
+    return;
+  }
+  
   let progress = 0;
   const startTime = performance.now();
   
-  // Simulate progress while page is loading
+  // Simulate progress while page is loading - slower for visibility
   const progressInterval = setInterval(() => {
     if (progress < 90) {
-      // Increment progress (slower as it gets higher)
-      const increment = Math.random() * (10 - progress / 10);
+      // Slower increment for better visibility
+      const increment = Math.random() * 3 + 1; // 1-4% per interval
       progress = Math.min(90, progress + increment);
       
       progressBar.style.width = progress + '%';
       progressText.textContent = Math.floor(progress) + '%';
     }
-  }, 100);
+  }, 150); // Slower interval (150ms instead of 100ms)
   
   // When page is fully loaded
   window.addEventListener('load', function() {
     clearInterval(progressInterval);
     
-    // Complete the progress bar
-    progress = 100;
-    progressBar.style.width = '100%';
-    progressText.textContent = '100%';
-    
-    // Calculate minimum display time
-    const elapsedTime = performance.now() - startTime;
-    const minDisplayTime = 800; // milliseconds
-    const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
-    
-    // Wait a bit then fade out
-    setTimeout(() => {
-      preloader.classList.add('fade-out');
-      
-      // Remove from DOM after animation
-      setTimeout(() => {
-        preloader.classList.add('hidden');
-        preloader.remove();
+    // Complete the progress bar smoothly
+    let currentProgress = progress;
+    const completeInterval = setInterval(() => {
+      currentProgress += 2;
+      if (currentProgress >= 100) {
+        currentProgress = 100;
+        clearInterval(completeInterval);
         
-        // Trigger desktop AND mobile leaves animation after preloader is removed
+        progressBar.style.width = '100%';
+        progressText.textContent = '100%';
+        
+        // Calculate minimum display time from config
+        const elapsedTime = performance.now() - startTime;
+        const minDisplayTime = preloaderConfig.minimumDisplayTime || 1500;
+        const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
+        
+        // Remove preloader and show landing cards immediately
         setTimeout(() => {
-          // DESKTOP elements
-          // Top leaves
-          const leftLeaf = document.getElementById('desktop-leaf-left');
-          const rightLeaf = document.getElementById('desktop-leaf-right');
+          preloader.remove();
           
-          // Bottom left decorations
-          const bottomLeftLeaf1 = document.getElementById('desktop-leaf-bl-1');
-          const bottomLeftLeaf2 = document.getElementById('desktop-leaf-bl-2');
-          const bottomLeftFlower = document.getElementById('desktop-flower-bl');
+          // Show landing cards immediately without animation
+          const desktopLandingCard = document.getElementById('desktop-landing-card');
+          const mobileLandingCard = document.getElementById('mobile-landing-card');
           
-          // Bottom right decorations
-          const bottomRightLeaf1 = document.getElementById('desktop-leaf-br-1');
-          const bottomRightLeaf2 = document.getElementById('desktop-leaf-br-2');
-          const bottomRightFlower = document.getElementById('desktop-flower-br');
-          
-          // Wedding card
-          const weddingCard = document.getElementById('desktop-wedding-card');
-          
-          // MOBILE elements
-          const mobileLeafBL1 = document.getElementById('mobile-leaf-bl-1');
-          const mobileLeafBL2 = document.getElementById('mobile-leaf-bl-2');
-          const mobileFlowerBL = document.getElementById('mobile-flower-bl');
-          const mobileLeafBR1 = document.getElementById('mobile-leaf-br-1');
-          const mobileLeafBR2 = document.getElementById('mobile-leaf-br-2');
-          const mobileFlowerBR = document.getElementById('mobile-flower-br');
-          const mobileCard = document.getElementById('mobile-welcome-card');
-          
-          // Animate desktop top leaves
-          if (leftLeaf) {
-            leftLeaf.style.opacity = '1';
-            leftLeaf.style.transform = 'translate(0, 0)';
+          if (desktopLandingCard) {
+            desktopLandingCard.style.opacity = '1';
+            desktopLandingCard.style.transform = 'translateY(0)';
           }
           
-          if (rightLeaf) {
-            rightLeaf.style.opacity = '1';
-            rightLeaf.style.transform = 'translate(0, 0)';
+          if (mobileLandingCard) {
+            mobileLandingCard.style.opacity = '1';
+            mobileLandingCard.style.transform = 'translateY(0)';
           }
-          
-          // Animate decorations with slight delay for cascading effect
-          setTimeout(() => {
-            // Desktop bottom decorations
-            if (bottomLeftLeaf1) {
-              bottomLeftLeaf1.style.opacity = '1';
-              bottomLeftLeaf1.style.transform = 'translate(0, 0)';
-            }
-            if (bottomLeftLeaf2) {
-              bottomLeftLeaf2.style.opacity = '1';
-              bottomLeftLeaf2.style.transform = 'translate(0, 0)';
-            }
-            if (bottomLeftFlower) {
-              bottomLeftFlower.style.opacity = '1';
-              bottomLeftFlower.style.transform = 'translate(0, 0)';
-            }
-            if (bottomRightLeaf1) {
-              bottomRightLeaf1.style.opacity = '1';
-              bottomRightLeaf1.style.transform = 'translate(0, 0)';
-            }
-            if (bottomRightLeaf2) {
-              bottomRightLeaf2.style.opacity = '1';
-              bottomRightLeaf2.style.transform = 'translate(0, 0)';
-            }
-            if (bottomRightFlower) {
-              bottomRightFlower.style.opacity = '1';
-              bottomRightFlower.style.transform = 'translate(0, 0)';
-            }
-            
-            // Mobile bottom decorations
-            if (mobileLeafBL1) {
-              mobileLeafBL1.style.opacity = '1';
-              mobileLeafBL1.style.transform = 'translate(0, 0)';
-            }
-            if (mobileLeafBL2) {
-              mobileLeafBL2.style.opacity = '1';
-              mobileLeafBL2.style.transform = 'translate(0, 0)';
-            }
-            if (mobileFlowerBL) {
-              mobileFlowerBL.style.opacity = '1';
-              mobileFlowerBL.style.transform = 'translate(0, 0)';
-            }
-            if (mobileLeafBR1) {
-              mobileLeafBR1.style.opacity = '1';
-              mobileLeafBR1.style.transform = 'translate(0, 0)';
-            }
-            if (mobileLeafBR2) {
-              mobileLeafBR2.style.opacity = '1';
-              mobileLeafBR2.style.transform = 'translate(0, 0)';
-            }
-            if (mobileFlowerBR) {
-              mobileFlowerBR.style.opacity = '1';
-              mobileFlowerBR.style.transform = 'translate(0, 0)';
-            }
-            
-            // Animate cards after decorations
-            setTimeout(() => {
-              if (weddingCard) {
-                weddingCard.style.opacity = '1';
-                weddingCard.style.transform = 'scale(1)';
-              }
-              if (mobileCard) {
-                mobileCard.style.opacity = '1';
-                mobileCard.style.transform = 'scale(1)';
-              }
-            }, 300); // 300ms delay after bottom decorations
-          }, 200); // 200ms delay after top leaves
-        }, 100); // Small delay after preloader removal
-      }, 500);
-    }, remainingTime + 300); // Extra 300ms to show 100%
+        }, remainingTime + 300); // Extra 300ms to show 100%
+      }
+      
+      progressBar.style.width = currentProgress + '%';
+      progressText.textContent = Math.floor(currentProgress) + '%';
+    }, 50); // Update every 50ms for smooth animation
   });
 })();
+
 
 // ==================== UPDATE HEAD META TAGS ====================
 /**
@@ -463,43 +385,79 @@ document.addEventListener("DOMContentLoaded", () => {
               mainContainer.scrollTo(0, 0);
             }
 
-            // SIMPLIFIED & ROBUST AOS (ANIMATE ON SCROLL)
-            // Strategy: 
-            // 1. Scroll check (standard)
-            // 2. Active Section Force Trigger (failsafe)
-            
-            // SUPER SIMPLE & ROBUST AOS
-            if (!document.body.dataset.aosInitialized) {
-                const aosElements = document.querySelectorAll('[data-aos]');
+            // Initialize AOS ONLY after invitation is opened
+            // This ensures animations run when user sees them, not before
+            setTimeout(() => {
+              if (!document.body.dataset.aosInitialized) {
                 const mainContainer = document.getElementById('main-container');
                 
-                // 1. Initialize logic
-                aosElements.forEach(el => {
-                    el.classList.add('aos-init');
-                    const delay = el.getAttribute('data-aos-delay');
-                    if (delay) el.style.transitionDelay = `${delay}ms`;
-                    const duration = el.getAttribute('data-aos-duration');
-                    if (duration) el.style.transitionDuration = `${duration}ms`;
-                });
+                // 1. Initialize all current AOS elements
+                const initializeAosElements = () => {
+                  const aosElements = document.querySelectorAll('[data-aos]');
+                  aosElements.forEach(el => {
+                    if (!el.classList.contains('aos-init')) {
+                      el.classList.add('aos-init');
+                      const delay = el.getAttribute('data-aos-delay');
+                      if (delay) el.style.transitionDelay = `${delay}ms`;
+                      const duration = el.getAttribute('data-aos-duration');
+                      if (duration) el.style.transitionDuration = `${duration}ms`;
+                    }
+                  });
+                };
+                
+                // Initialize current elements
+                initializeAosElements();
 
                 // 2. The Universal Visibility Checker
                 const checkVisibility = () => {
-                   const windowHeight = window.innerHeight;
-                   aosElements.forEach(el => {
-                       if (el.classList.contains('aos-animate')) return;
-                       
-                       const rect = el.getBoundingClientRect();
-                       // Trigger if the element top is clearly within the viewport or above it
-                       // Added 50px buffer to trigger slightly earlier
-                       if (rect.top <= windowHeight + 50) {
-                           el.classList.add('aos-animate');
-                       }
-                   });
+                  const aosElements = document.querySelectorAll('[data-aos]');
+                  const windowHeight = window.innerHeight;
+                  
+                  aosElements.forEach(el => {
+                    // Initialize if not already initialized
+                    if (!el.classList.contains('aos-init')) {
+                      el.classList.add('aos-init');
+                      const delay = el.getAttribute('data-aos-delay');
+                      if (delay) el.style.transitionDelay = `${delay}ms`;
+                      const duration = el.getAttribute('data-aos-duration');
+                      if (duration) el.style.transitionDuration = `${duration}ms`;
+                    }
+                    
+                    // Skip if already animated
+                    if (el.classList.contains('aos-animate')) return;
+                    
+                    // Check visibility
+                    let isVisible = false;
+                    
+                    // Check window viewport
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top <= windowHeight + 100) {
+                      isVisible = true;
+                    }
+                    
+                    // Check container viewport
+                    if (!isVisible && mainContainer && mainContainer.contains(el)) {
+                      const containerRect = mainContainer.getBoundingClientRect();
+                      const elementRect = el.getBoundingClientRect();
+                      const relativeTop = elementRect.top - containerRect.top;
+                      const containerVisibleHeight = containerRect.height;
+                      
+                      if (relativeTop <= containerVisibleHeight + 100 && relativeTop >= -elementRect.height) {
+                        isVisible = true;
+                      }
+                    }
+                    
+                    if (isVisible) {
+                      setTimeout(() => {
+                        el.classList.add('aos-animate');
+                      }, 50);
+                    }
+                  });
                 };
 
-                // 3. Bind to everything
+                // 3. Bind event listeners
                 if (mainContainer) {
-                    mainContainer.addEventListener('scroll', checkVisibility, { passive: true });
+                  mainContainer.addEventListener('scroll', checkVisibility, { passive: true });
                 }
                 window.addEventListener('scroll', checkVisibility, { passive: true });
                 window.addEventListener('resize', checkVisibility);
@@ -507,11 +465,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 // 4. Polling for safety
                 setInterval(checkVisibility, 300);
                 
-                // 5. Run immediately
+                // 5. Run checks multiple times to catch all elements
                 checkVisibility();
+                setTimeout(checkVisibility, 100);
+                setTimeout(checkVisibility, 300);
+                setTimeout(checkVisibility, 500);
                 
+                // Store globally
+                window.aosCheckVisibility = checkVisibility;
                 document.body.dataset.aosInitialized = "true";
-            }
+              }
+            }, 500); // Wait 500ms after scroll to ensure everything is ready
           }, 300);
 
         
