@@ -462,14 +462,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.addEventListener('scroll', checkVisibility, { passive: true });
                 window.addEventListener('resize', checkVisibility);
                 
-                // 4. Polling for safety
-                setInterval(checkVisibility, 300);
+                // 4. Polling for safety - lebih cepat untuk responsivitas lebih baik
+                setInterval(checkVisibility, 100);
                 
                 // 5. Run checks multiple times to catch all elements
                 checkVisibility();
+                setTimeout(checkVisibility, 50);
                 setTimeout(checkVisibility, 100);
+                setTimeout(checkVisibility, 200);
                 setTimeout(checkVisibility, 300);
                 setTimeout(checkVisibility, 500);
+                setTimeout(checkVisibility, 800);
                 
                 // Store globally
                 window.aosCheckVisibility = checkVisibility;
@@ -566,13 +569,29 @@ document.addEventListener("DOMContentLoaded", () => {
         musicControls.style.transform = "translateX(0)";
         musicControlsShown = true;
       }
+      
+      // Trigger AOS visibility check saat scroll
+      if (window.aosCheckVisibility) {
+        window.aosCheckVisibility();
+      }
+      
+      // Trigger navbar active section update saat scroll
+      if (window.updateActiveSection) {
+        window.updateActiveSection();
+      }
     }, { passive: true });
   }
 
   // --- Logika Navbar Aktif (DIMULAI DI SINI) ---
+  // PENTING: Deklarasi variabel sections dan menuItems harus di atas
+  // agar bisa diakses oleh fungsi updateActiveSection()
   const menuItems = document.querySelectorAll(".menu-item");
-  // sections diambil dari mainInvitePage karena itu adalah kontainer yang discroll
-  const sections = mainInvitePage.querySelectorAll(".wedding-section"); // Menggunakan kelas yang sudah disepakati
+  // sections akan diambil secara dinamis saat diperlukan
+  // Fungsi untuk mendapatkan semua sections
+  const getAllSections = () => {
+    // Query semua section dengan ID, bukan hanya yang punya class .wedding-section
+    return document.querySelectorAll("section[id]");
+  };
 
   // Fungsi untuk menghapus kelas 'active' dari semua item menu
   const removeActiveClass = () => {
@@ -618,55 +637,134 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+
   // Intersection Observer untuk memperbarui status aktif saat menggulir
-  // Root observer menggunakan mainContainer karena container yang di-scroll
+  // Menggunakan pendekatan scroll position untuk deteksi yang lebih akurat
   const mainContainerForObserver = document.getElementById("main-container");
+  
+  // Fungsi untuk mendeteksi section mana yang sedang aktif berdasarkan scroll position
+  const updateActiveSection = () => {
+    if (!mainContainerForObserver) return;
+    
+    const scrollPosition = mainContainerForObserver.scrollTop;
+    const containerRect = mainContainerForObserver.getBoundingClientRect();
+    const viewportMiddle = containerRect.top + (containerRect.height * 0.3); // 30% dari top
+    
+    let activeSection = null;
+    let minDistance = Infinity;
+    
+    // Dapatkan semua sections secara dinamis
+    const sections = getAllSections();
+    
+    // Debug: log jumlah sections
+    console.log('🔍 Checking sections:', sections.length);
+    
+    // Cari section yang paling dekat dengan viewport middle
+    sections.forEach((section) => {
+      const sectionRect = section.getBoundingClientRect();
+      const sectionTop = sectionRect.top;
+      const sectionBottom = sectionRect.bottom;
+      
+      // Cek apakah section terlihat di viewport
+      if (sectionBottom > containerRect.top && sectionTop < containerRect.bottom) {
+        // Hitung jarak dari top section ke viewport middle
+        const distance = Math.abs(sectionTop - viewportMiddle);
+        
+        console.log(`  Section ${section.id}: distance=${distance.toFixed(0)}px, top=${sectionTop.toFixed(0)}px`);
+        
+        // Section dengan jarak terkecil adalah yang aktif
+        if (distance < minDistance) {
+          minDistance = distance;
+          activeSection = section;
+        }
+      }
+    });
+    
+    // Update active state jika ada section yang ditemukan
+    if (activeSection) {
+      console.log('✅ Active section:', activeSection.id);
+      addActiveClass(activeSection.id);
+      history.replaceState(null, "", `#${activeSection.id}`);
+    } else {
+      console.log('⚠️ No active section found');
+    }
+  };
+  
+  // Simpan ke window object agar bisa diakses dari event listener lain
+  window.updateActiveSection = updateActiveSection;
+  
+  // Intersection Observer sebagai fallback
   const observerOptions = {
-    root: mainContainerForObserver, // Menggunakan mainContainer sebagai root
-    rootMargin: "0px",
-    threshold: 0.7, // Saat 70% dari bagian terlihat
+    root: null, // null = menggunakan window viewport
+    rootMargin: "-30% 0px -50% 0px",
+    threshold: [0, 0.25, 0.5, 0.75, 1.0],
   };
 
   const observer = new IntersectionObserver((entries) => {
+    // Hanya update jika tidak sedang scroll (sebagai fallback)
+    let maxEntry = null;
+    let maxRatio = 0;
+    
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        addActiveClass(entry.target.id);
-        // Perbarui hash URL saat bagian terlihat di viewport
-        history.replaceState(null, "", `#${entry.target.id}`);
+      if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+        maxRatio = entry.intersectionRatio;
+        maxEntry = entry;
       }
     });
+    
+    if (maxEntry && maxRatio > 0.3) {
+      addActiveClass(maxEntry.target.id);
+      history.replaceState(null, "", `#${maxEntry.target.id}`);
+    }
   }, observerOptions);
 
   // Amati setiap section
-  sections.forEach((section) => {
+  getAllSections().forEach((section) => {
     observer.observe(section);
   });
 
+  // Scroll listener dengan requestAnimationFrame untuk performa optimal
+  let ticking = false;
+  
+  if (mainContainerForObserver) {
+    mainContainerForObserver.addEventListener("scroll", () => {
+      console.log('📜 Scroll event detected');
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          console.log('🎬 Running updateActiveSection via RAF');
+          updateActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+  
+  // Initial check setelah page load
+  setTimeout(() => {
+    console.log('🚀 Initial updateActiveSection check');
+    updateActiveSection();
+  }, 100);
+
   // Inisialisasi: Set active state untuk section yang pertama kali terlihat
   const checkInitialActive = () => {
+    console.log('🎯 checkInitialActive called');
     const mainContainer = document.getElementById("main-container");
     if (!mainContainer) return;
 
-    // Cek section mana yang terlihat pertama kali
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      const containerRect = mainContainer.getBoundingClientRect();
-      const isVisible = rect.top >= containerRect.top && rect.top <= containerRect.bottom;
-
-      if (isVisible) {
-        addActiveClass(section.id);
-        return;
-      }
-    });
-
-    // Jika tidak ada yang terlihat, set welcome-section sebagai default
+    // Gunakan updateActiveSection untuk set initial state
+    updateActiveSection();
+    
+    // Fallback: Jika tidak ada yang terlihat, set welcome-section sebagai default
     if (!document.querySelector(".menu-item.active")) {
+      console.log('⚠️ No active menu item, setting welcome-section as default');
       addActiveClass("welcome-section");
     }
   };
 
   // Jalankan setelah navbar muncul
   setTimeout(() => {
+    console.log('⏰ Running checkInitialActive after 500ms');
     checkInitialActive();
   }, 500);
   // --- Logika Navbar Aktif (BERAKHIR DI SINI) ---
