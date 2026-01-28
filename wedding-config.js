@@ -270,7 +270,7 @@ const weddingConfig = {
   // ==================== PRELOADER ====================
   preloader: {
     enabled: true, // Set false untuk disable preloader
-    minimumDisplayTime: 1500, // Minimum waktu tampil preloader (milliseconds)
+    minimumDisplayTime: 3000, // Minimum waktu tampil preloader (milliseconds)
     showProgress: true, // Tampilkan progress bar
     showInitials: true // Tampilkan inisial nama pengantin
   },

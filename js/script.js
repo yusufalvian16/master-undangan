@@ -503,6 +503,18 @@ document.addEventListener("DOMContentLoaded", () => {
               mainNavbar.style.display = "block";
               mainNavbar.style.opacity = "1";
               mainNavbar.style.pointerEvents = "auto";
+              
+              // Trigger updateActiveSection setelah navbar muncul
+              // untuk memastikan Home icon langsung menyala
+              setTimeout(() => {
+                if (window.updateActiveSection) {
+                  console.log('🎯 Triggering updateActiveSection after navbar display');
+                  window.updateActiveSection();
+                } else {
+                  // Fallback jika updateActiveSection belum tersedia
+                  addActiveClass("welcome-section");
+                }
+              }, 100);
             }, 500);
           }
 
