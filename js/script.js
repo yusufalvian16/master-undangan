@@ -89,7 +89,6 @@
  */
 function updateHeadMetaTags() {
   if (!weddingConfig || !weddingConfig.seo) {
-    console.warn('Wedding config or SEO section not found');
     return;
   }
 
@@ -184,8 +183,6 @@ function updateHeadMetaTags() {
   if (favicon && seo.favicon) {
     favicon.setAttribute('href', seo.favicon);
   }
-
-  console.log('✅ Head meta tags updated successfully');
 }
 
 // Call the function immediately when script loads
@@ -208,11 +205,10 @@ function updateLandingGuestName() {
         // Decode and set the guest name
         const decodedName = decodeURIComponent(guestNameFromUrl);
         landingGuestNameElement.textContent = decodedName;
-        console.log('✅ Landing page guest name updated:', decodedName);
       }
     }
   } catch (error) {
-    console.error('Error updating landing guest name:', error);
+    // Silent fail - not critical
   }
 }
 
@@ -462,8 +458,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.addEventListener('scroll', checkVisibility, { passive: true });
                 window.addEventListener('resize', checkVisibility);
                 
-                // 4. Polling for safety - lebih cepat untuk responsivitas lebih baik
-                setInterval(checkVisibility, 100);
+                // 4. Polling for safety - optimized interval
+                setInterval(checkVisibility, 500);
                 
                 // 5. Run checks multiple times to catch all elements
                 checkVisibility();
@@ -508,7 +504,6 @@ document.addEventListener("DOMContentLoaded", () => {
               // untuk memastikan Home icon langsung menyala
               setTimeout(() => {
                 if (window.updateActiveSection) {
-                  console.log('🎯 Triggering updateActiveSection after navbar display');
                   window.updateActiveSection();
                 } else {
                   // Fallback jika updateActiveSection belum tersedia
@@ -599,10 +594,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // agar bisa diakses oleh fungsi updateActiveSection()
   const menuItems = document.querySelectorAll(".menu-item");
   // sections akan diambil secara dinamis saat diperlukan
-  // Fungsi untuk mendapatkan semua sections
+  // Fungsi untuk mendapatkan semua sections (cached for performance)
+  let cachedSections = null;
   const getAllSections = () => {
-    // Query semua section dengan ID, bukan hanya yang punya class .wedding-section
-    return document.querySelectorAll("section[id]");
+    if (!cachedSections) {
+      cachedSections = document.querySelectorAll("section[id]");
+    }
+    return cachedSections;
   };
 
   // Fungsi untuk menghapus kelas 'active' dari semua item menu
@@ -668,9 +666,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Dapatkan semua sections secara dinamis
     const sections = getAllSections();
     
-    // Debug: log jumlah sections
-    console.log('🔍 Checking sections:', sections.length);
-    
     // Cari section yang paling dekat dengan viewport middle
     sections.forEach((section) => {
       const sectionRect = section.getBoundingClientRect();
@@ -682,8 +677,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Hitung jarak dari top section ke viewport middle
         const distance = Math.abs(sectionTop - viewportMiddle);
         
-        console.log(`  Section ${section.id}: distance=${distance.toFixed(0)}px, top=${sectionTop.toFixed(0)}px`);
-        
         // Section dengan jarak terkecil adalah yang aktif
         if (distance < minDistance) {
           minDistance = distance;
@@ -694,11 +687,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Update active state jika ada section yang ditemukan
     if (activeSection) {
-      console.log('✅ Active section:', activeSection.id);
       addActiveClass(activeSection.id);
       history.replaceState(null, "", `#${activeSection.id}`);
-    } else {
-      console.log('⚠️ No active section found');
     }
   };
   
@@ -740,10 +730,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
   if (mainContainerForObserver) {
     mainContainerForObserver.addEventListener("scroll", () => {
-      console.log('📜 Scroll event detected');
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          console.log('🎬 Running updateActiveSection via RAF');
           updateActiveSection();
           ticking = false;
         });
@@ -754,13 +742,11 @@ document.addEventListener("DOMContentLoaded", () => {
   
   // Initial check setelah page load
   setTimeout(() => {
-    console.log('🚀 Initial updateActiveSection check');
     updateActiveSection();
   }, 100);
 
   // Inisialisasi: Set active state untuk section yang pertama kali terlihat
   const checkInitialActive = () => {
-    console.log('🎯 checkInitialActive called');
     const mainContainer = document.getElementById("main-container");
     if (!mainContainer) return;
 
@@ -769,14 +755,12 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Fallback: Jika tidak ada yang terlihat, set welcome-section sebagai default
     if (!document.querySelector(".menu-item.active")) {
-      console.log('⚠️ No active menu item, setting welcome-section as default');
       addActiveClass("welcome-section");
     }
   };
 
   // Jalankan setelah navbar muncul
   setTimeout(() => {
-    console.log('⏰ Running checkInitialActive after 500ms');
     checkInitialActive();
   }, 500);
   // --- Logika Navbar Aktif (BERAKHIR DI SINI) ---

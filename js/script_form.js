@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (guestNameInput) {
       // Decode and set the guest name
       guestNameInput.value = decodeURIComponent(guestNameFromUrl);
-      console.log('✅ Guest name auto-filled from URL:', guestNameFromUrl);
     }
   }
   // ========================================================================
@@ -197,7 +196,6 @@ document.addEventListener("DOMContentLoaded", function () {
           // Reload messages
           loadGuestMessages();
         } catch (error) {
-          console.error("Error submitting form:", error);
           showNotification("Maaf, terjadi kesalahan. Silakan coba lagi.", "error");
         } finally {
           // Restore Button State
@@ -317,7 +315,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       // If append mode and no data, just do nothing (keep existing messages)
     } catch (error) {
-      console.error("Error loading messages:", error);
       if (guestMessagesContainer) {
         guestMessagesContainer.innerHTML =
           '<p class="text-gray-500 text-center py-4">Gagal memuat pesan.</p>';
@@ -474,7 +471,6 @@ document.addEventListener("DOMContentLoaded", function () {
         showNotification("Gagal memperbarui pesan. Anda tidak memiliki izin.", "error");
       }
     } catch (error) {
-      console.error("Error updating message:", error);
       showNotification("Terjadi kesalahan saat memperbarui pesan.", "error");
     } finally {
       // Only restore button if update was not successful
@@ -550,7 +546,6 @@ document.addEventListener("DOMContentLoaded", function () {
           showNotification("Gagal menghapus pesan. Anda tidak memiliki izin.", "error");
         }
       } catch (error) {
-        console.error("Error deleting message:", error);
         closeDeleteConfirmation();
         showNotification("Terjadi kesalahan saat menghapus pesan.", "error");
       }

@@ -22,7 +22,6 @@ function getUserId() {
   if (!userId) {
     userId = generateUserId();
     localStorage.setItem("wedding_user_id", userId);
-    console.log("New user ID created:", userId);
   }
   return userId;
 }
@@ -42,6 +41,5 @@ function isMessageOwner(messageUserId) {
 
 // Initialize user ID on page load
 document.addEventListener("DOMContentLoaded", function () {
-  const userId = getUserId();
-  console.log("User ID initialized:", userId);
+  getUserId();
 });
