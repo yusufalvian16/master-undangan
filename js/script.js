@@ -55,23 +55,32 @@
         const minDisplayTime = preloaderConfig.minimumDisplayTime || 1500;
         const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
         
-        // Remove preloader and show landing cards immediately
+        // Fade out preloader with smooth transition (faster)
         setTimeout(() => {
-          preloader.remove();
+          // Add smooth fade-out transition with cubic-bezier easing
+          preloader.style.transition = 'opacity 0.6s cubic-bezier(0.33, 0.0, 0.2, 1)';
+          preloader.style.opacity = '0';
           
-          // Show landing cards immediately without animation
-          const desktopLandingCard = document.getElementById('desktop-landing-card');
-          const mobileLandingCard = document.getElementById('mobile-landing-card');
-          
-          if (desktopLandingCard) {
-            desktopLandingCard.style.opacity = '1';
-            desktopLandingCard.style.transform = 'translateY(0)';
-          }
-          
-          if (mobileLandingCard) {
-            mobileLandingCard.style.opacity = '1';
-            mobileLandingCard.style.transform = 'translateY(0)';
-          }
+          // Remove preloader after fade-out completes
+          setTimeout(() => {
+            preloader.remove();
+            
+            // Fade in landing cards with smooth transition (faster)
+            const desktopLandingCard = document.getElementById('desktop-landing-card');
+            const mobileLandingCard = document.getElementById('mobile-landing-card');
+            
+            if (desktopLandingCard) {
+              desktopLandingCard.style.transition = 'opacity 0.8s cubic-bezier(0.0, 0.0, 0.15, 1), transform 0.8s cubic-bezier(0.0, 0.0, 0.15, 1)';
+              desktopLandingCard.style.opacity = '1';
+              desktopLandingCard.style.transform = 'translateY(0)';
+            }
+            
+            if (mobileLandingCard) {
+              mobileLandingCard.style.transition = 'opacity 0.8s cubic-bezier(0.0, 0.0, 0.15, 1), transform 0.8s cubic-bezier(0.0, 0.0, 0.15, 1)';
+              mobileLandingCard.style.opacity = '1';
+              mobileLandingCard.style.transform = 'translateY(0)';
+            }
+          }, 600); // Wait for fade-out to complete (600ms)
         }, remainingTime + 300); // Extra 300ms to show 100%
       }
       
@@ -492,11 +501,19 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           }, 5000);
 
-          // Menampilkan navbar setelah halaman utama terbuka
+          // Menampilkan navbar setelah halaman utama terbuka dengan animasi slide-up dari bawah
           const mainNavbar = document.getElementById("main-navbar");
           if (mainNavbar) {
+            // Set initial state - navbar di bawah layar
+            mainNavbar.style.display = "block";
+            mainNavbar.style.transform = "translateY(100%)";
+            mainNavbar.style.opacity = "0";
+            mainNavbar.style.pointerEvents = "none";
+            
             setTimeout(() => {
-              mainNavbar.style.display = "block";
+              // Trigger slide-up animation dengan easing yang sama seperti bunga
+              mainNavbar.style.transition = "transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1.5s cubic-bezier(0.34, 1.56, 0.64, 1)";
+              mainNavbar.style.transform = "translateY(0)";
               mainNavbar.style.opacity = "1";
               mainNavbar.style.pointerEvents = "auto";
               
@@ -510,7 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   addActiveClass("welcome-section");
                 }
               }, 100);
-            }, 500);
+            }, 800); // Delay yang sama dengan corner decorations
           }
 
           // Inisialisasi status aktif navbar setelah halaman utama terbuka

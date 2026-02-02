@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
         data.forEach((msg) => {
           const messageDiv = document.createElement("div");
           messageDiv.className =
-            "bg-white p-4 rounded-lg shadow-md border border-gray-200";
+            "bg-primary-50 p-4 rounded-lg shadow-md border border-gray-200";
           messageDiv.dataset.messageId = msg.id;
           
           const attendanceBadge =
