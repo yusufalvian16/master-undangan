@@ -718,6 +718,7 @@
     will-change: transform;
   }
 
+
   /* Origin points untuk rotasi yang berbeda */
   .origin-top-left {
     transform-origin: top left;
@@ -733,6 +734,23 @@
 
   .origin-bottom-right {
     transform-origin: bottom right;
+  }
+
+
+  /* Animasi rotasi lembut untuk circle decoration */
+  @keyframes gentle-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Class untuk animasi rotasi lembut - tempo sangat lambat (4 menit) */
+  .animate-gentle-rotate {
+    animation: gentle-rotate 240s linear infinite;
+    transform-origin: center center;
   }
 }
 
