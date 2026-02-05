@@ -430,6 +430,9 @@
   .aspect-\[4\/3\] {
     aspect-ratio: 4/3;
   }
+  .h-0\.5 {
+    height: calc(var(--spacing) * 0.5);
+  }
   .h-1\/2 {
     height: calc(1/2 * 100%);
   }
@@ -990,6 +993,9 @@
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
+  }
+  .px-5 {
+    padding-inline: calc(var(--spacing) * 5);
   }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
