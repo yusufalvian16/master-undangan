@@ -913,6 +913,22 @@
     background-color: var(--color-primary-950);
   }
 
+  /* Gradient utility - primary-100 to primary-200 */
+  .bg-primary-gradient {
+    background: linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-primary-200) 100%);
+  }
+
+  /* Border utilities */
+  .border-primary-400 {
+    border-color: var(--color-primary-400);
+  }
+
+  /* Text color utilities */
+  .text-primary-800 {
+    color: var(--color-primary-800);
+  }
+
+
   /* Custom Color Utilities untuk Palet Peach Gold Rose */
   .text-main {
     color: var(--color-text-main);
