@@ -118,7 +118,7 @@ const weddingConfig = {
 
   // ==================== DRESS CODE & THEME ====================
   dressCode: {
-    enabled: false,
+    enabled: true,
     theme: "Garden Wedding",
     colors: ["#E8B4B8", "#C9A9A6", "#8B7D7B"],
     recommendations: {
@@ -134,7 +134,7 @@ const weddingConfig = {
 
   // ==================== PROTOKOL KESEHATAN & ATURAN ACARA ====================
   protocols: {
-    enabled: false,
+    enabled: true,
     healthProtocols: [
       "Tamu diharapkan dalam kondisi sehat",
       "Tersedia hand sanitizer di lokasi",

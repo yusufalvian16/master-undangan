@@ -49,6 +49,11 @@
     font-weight: 600;
   }
 
+  /* Custom background color */
+  .bg-primary-75 {
+    background-color: var(--color-primary-75);
+  }
+
   .font-nama2 {
     font-family: var(--font-secondary);
     font-weight: 600;
@@ -199,6 +204,7 @@
   :host {
     /* Primary Color - Amber Gelap Tembaga Coklat Emas untuk tema pernikahan */
     --color-primary-50: #fef8f0;
+    --color-primary-75: #fbedda;  /* Custom: tengah antara 50 dan 100 */
     --color-primary-100: #f8e2c4;
     --color-primary-200: #f0d4a8;
     --color-primary-300: #e8c68c;
@@ -209,55 +215,6 @@
     --color-primary-800: #8b4a07;
     --color-primary-900: #6d3805;
     --color-primary-950: #4f2603;
-
-    /* Custom Colors untuk Undangan Digital - Palet Amber Gelap Tembaga Coklat Emas */
-    --color-text-main: #3b2406;
-    --color-text-secondary: #5e3b10;
-    --color-heading: #7a4c10;
-    --color-button: #c6700d;
-    --color-button-hover: #a85c09;
-    --color-border: #a86b1c;
-    --color-bg-card: #f8e2c4;
-    --color-bg-card-rgba: rgba(248, 226, 196, 0.85);
-    --color-accent: #d8a24e;
-    --color-accent-gold: #d8a24e;
-
-    /* Secondary Color - Amber Tembaga untuk aksen */
-    --color-secondary-50: #fef8f0;
-    --color-secondary-100: #f8e2c4;
-    --color-secondary-200: #f0d4a8;
-    --color-secondary-300: #e8c68c;
-    --color-secondary-400: #d8a24e;
-    --color-secondary-500: #c6700d;
-    --color-secondary-600: #a85c09;
-    --color-secondary-700: #8b4a07;
-    --color-secondary-800: #6d3805;
-    --color-secondary-900: #4f2603;
-
-    /* Accent Color - Coklat Emas untuk aksen */
-    --color-accent-50: #fef8f0;
-    --color-accent-100: #f8e2c4;
-    --color-accent-200: #d8a24e;
-    --color-accent-300: #e8c68c;
-    --color-accent-400: #d8a24e;
-    --color-accent-500: #c6700d;
-    --color-accent-600: #a85c09;
-    --color-accent-700: #8b4a07;
-    --color-accent-800: #6d3805;
-    --color-accent-900: #4f2603;
-
-    /* Warna Netral - Gray Scale */
-    --color-putih: #ffffff;
-    --color-hitam: #0f0f0f;
-    --color-gray-100: #f2f2f2;
-    --color-gray-200: #e0e0e0;
-    --color-gray-300: #bdbdbd;
-    --color-gray-400: #9e9e9e;
-    --color-gray-500: #757575;
-    --color-gray-600: #555555;
-    --color-gray-700: #3c3c3c;
-    --color-gray-800: #2b2b2b;
-    --color-gray-900: #1a1a1a;
 
     /* Warna Status */
     --color-error: #c44536;
@@ -761,7 +718,7 @@
   /* Button utama - dapat diubah semua propertinya di sini */
   .button-main {
     @apply inline-flex items-center justify-center px-6 py-3 font-semibold text-base leading-normal text-center no-underline border-none rounded-full cursor-pointer transition-all duration-300 ease-in-out;
-    background-color: var(--color-button);
+    background-color: var(--color-primary-500);
     color: #ffffff;
     box-shadow:
       0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -771,7 +728,7 @@
   /* Hover state */
   .button-main:hover {
     @apply -translate-y-0.5;
-    background-color: var(--color-button-hover);
+    background-color: var(--color-primary-700);
     box-shadow:
       0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -801,11 +758,11 @@
   /* Variant: Secondary */
   .button-secondary {
     @apply text-white;
-    background-color: var(--color-secondary-500);
+    background-color: var(--color-primary-500);
   }
 
   .button-secondary:hover {
-    background-color: var(--color-secondary-600);
+    background-color: var(--color-primary-700);
   }
 
   /* Variant: Outline */
@@ -928,39 +885,6 @@
     color: var(--color-primary-800);
   }
 
-
-  /* Custom Color Utilities untuk Palet Peach Gold Rose */
-  .text-main {
-    color: var(--color-text-main);
-  }
-
-  .text-secondary {
-    color: var(--color-text-secondary);
-  }
-
-  .text-heading {
-    color: var(--color-heading);
-  }
-
-  .bg-card {
-    background-color: var(--color-bg-card);
-  }
-
-  .bg-card-rgba {
-    background-color: var(--color-bg-card-rgba);
-  }
-
-  .border-custom {
-    border-color: var(--color-border);
-  }
-
-  .text-accent-gold {
-    color: var(--color-accent-gold);
-  }
-
-  .bg-accent-gold {
-    background-color: var(--color-accent-gold);
-  }
 
   /* Error dan Success Colors */
   .text-error {
@@ -1144,7 +1068,7 @@
     background: linear-gradient(
       135deg,
       var(--color-primary-400),
-      var(--color-accent-400)
+      var(--color-primary-400)
     );
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,

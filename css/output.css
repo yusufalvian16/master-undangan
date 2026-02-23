@@ -62,8 +62,6 @@
     --text-4xl--line-height: calc(2.5 / 2.25);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
-    --text-6xl: 3.75rem;
-    --text-6xl--line-height: 1;
     --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
@@ -451,6 +449,9 @@
   .h-16 {
     height: calc(var(--spacing) * 16);
   }
+  .h-28 {
+    height: calc(var(--spacing) * 28);
+  }
   .h-32 {
     height: calc(var(--spacing) * 32);
   }
@@ -507,9 +508,6 @@
   }
   .w-28 {
     width: calc(var(--spacing) * 28);
-  }
-  .w-32 {
-    width: calc(var(--spacing) * 32);
   }
   .w-36 {
     width: calc(var(--spacing) * 36);
@@ -677,9 +675,6 @@
   .gap-6 {
     gap: calc(var(--spacing) * 6);
   }
-  .gap-9 {
-    gap: calc(var(--spacing) * 9);
-  }
   .space-y-1 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
@@ -717,6 +712,13 @@
   }
   .gap-x-6 {
     column-gap: calc(var(--spacing) * 6);
+  }
+  .space-x-3 {
+    :where(& > :not(:last-child)) {
+      --tw-space-x-reverse: 0;
+      margin-inline-start: calc(calc(var(--spacing) * 3) * var(--tw-space-x-reverse));
+      margin-inline-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-x-reverse)));
+    }
   }
   .space-x-4 {
     :where(& > :not(:last-child)) {
@@ -979,6 +981,9 @@
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
   }
+  .py-1\.5 {
+    padding-block: calc(var(--spacing) * 1.5);
+  }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
@@ -990,6 +995,9 @@
   }
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
+  }
+  .py-6 {
+    padding-block: calc(var(--spacing) * 6);
   }
   .py-8 {
     padding-block: calc(var(--spacing) * 8);
@@ -1644,12 +1652,6 @@
       line-height: var(--tw-leading, var(--text-5xl--line-height));
     }
   }
-  .md\:text-6xl {
-    @media (width >= 48rem) {
-      font-size: var(--text-6xl);
-      line-height: var(--tw-leading, var(--text-6xl--line-height));
-    }
-  }
   .md\:text-base {
     @media (width >= 48rem) {
       font-size: var(--text-base);
@@ -1704,6 +1706,9 @@
   .font-nama {
     font-family: var(--font-primary);
     font-weight: 600;
+  }
+  .bg-primary-75 {
+    background-color: var(--color-primary-75);
   }
   .font-nama2 {
     font-family: var(--font-secondary);
@@ -1821,6 +1826,7 @@
 @layer theme {
   :root, :host {
     --color-primary-50: #fef8f0;
+    --color-primary-75: #fbedda;
     --color-primary-100: #f8e2c4;
     --color-primary-200: #f0d4a8;
     --color-primary-300: #e8c68c;
@@ -1831,47 +1837,6 @@
     --color-primary-800: #8b4a07;
     --color-primary-900: #6d3805;
     --color-primary-950: #4f2603;
-    --color-text-main: #3b2406;
-    --color-text-secondary: #5e3b10;
-    --color-heading: #7a4c10;
-    --color-button: #c6700d;
-    --color-button-hover: #a85c09;
-    --color-border: #a86b1c;
-    --color-bg-card: #f8e2c4;
-    --color-bg-card-rgba: rgba(248, 226, 196, 0.85);
-    --color-accent: #d8a24e;
-    --color-accent-gold: #d8a24e;
-    --color-secondary-50: #fef8f0;
-    --color-secondary-100: #f8e2c4;
-    --color-secondary-200: #f0d4a8;
-    --color-secondary-300: #e8c68c;
-    --color-secondary-400: #d8a24e;
-    --color-secondary-500: #c6700d;
-    --color-secondary-600: #a85c09;
-    --color-secondary-700: #8b4a07;
-    --color-secondary-800: #6d3805;
-    --color-secondary-900: #4f2603;
-    --color-accent-50: #fef8f0;
-    --color-accent-100: #f8e2c4;
-    --color-accent-200: #d8a24e;
-    --color-accent-300: #e8c68c;
-    --color-accent-400: #d8a24e;
-    --color-accent-500: #c6700d;
-    --color-accent-600: #a85c09;
-    --color-accent-700: #8b4a07;
-    --color-accent-800: #6d3805;
-    --color-accent-900: #4f2603;
-    --color-putih: #ffffff;
-    --color-hitam: #0f0f0f;
-    --color-gray-100: #f2f2f2;
-    --color-gray-200: #e0e0e0;
-    --color-gray-300: #bdbdbd;
-    --color-gray-400: #9e9e9e;
-    --color-gray-500: #757575;
-    --color-gray-600: #555555;
-    --color-gray-700: #3c3c3c;
-    --color-gray-800: #2b2b2b;
-    --color-gray-900: #1a1a1a;
     --color-error: #c44536;
     --color-success: #3c8d65;
     --color-abu: #757575;
@@ -2347,14 +2312,14 @@
     transition-duration: 300ms;
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
-    background-color: var(--color-button);
+    background-color: var(--color-primary-500);
     color: #ffffff;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
   .button-main:hover {
     --tw-translate-y: calc(var(--spacing) * -0.5);
     translate: var(--tw-translate-x) var(--tw-translate-y);
-    background-color: var(--color-button-hover);
+    background-color: var(--color-primary-700);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
   .button-main:active {
@@ -2374,10 +2339,10 @@
   }
   .button-secondary {
     color: var(--color-white);
-    background-color: var(--color-secondary-500);
+    background-color: var(--color-primary-500);
   }
   .button-secondary:hover {
-    background-color: var(--color-secondary-600);
+    background-color: var(--color-primary-700);
   }
   .button-outline {
     border-style: var(--tw-border-style);
@@ -2469,30 +2434,6 @@
   }
   .text-primary-800 {
     color: var(--color-primary-800);
-  }
-  .text-main {
-    color: var(--color-text-main);
-  }
-  .text-secondary {
-    color: var(--color-text-secondary);
-  }
-  .text-heading {
-    color: var(--color-heading);
-  }
-  .bg-card {
-    background-color: var(--color-bg-card);
-  }
-  .bg-card-rgba {
-    background-color: var(--color-bg-card-rgba);
-  }
-  .border-custom {
-    border-color: var(--color-border);
-  }
-  .text-accent-gold {
-    color: var(--color-accent-gold);
-  }
-  .bg-accent-gold {
-    background-color: var(--color-accent-gold);
   }
   .text-error {
     color: var(--color-error);
@@ -2643,7 +2584,7 @@
     border-radius: inherit;
     padding: calc(var(--spacing) * 0.5);
     opacity: 50%;
-    background: linear-gradient( 135deg, var(--color-primary-400), var(--color-accent-400) );
+    background: linear-gradient( 135deg, var(--color-primary-400), var(--color-primary-400) );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
