@@ -619,13 +619,24 @@
 
               <div class="flex flex-col gap-6">
                 <div data-aos="fade-right" data-aos-duration="1000" class="text-center">
-                  <img
-                    id="groom-photo"
-                    src="./images/profile/male.webp"
-                    alt="Foto Profil Pengantin Pria"
-                    class="w-28 h-28 rounded-full object-cover mb-3 mx-auto"
-                    style="border: 4px solid #c6700d;"
-                  />
+                  <!-- Foto Pengantin Pria dengan circle17 overlay -->
+                  <div class="relative w-28 h-28 mx-auto mb-3">
+                    <img
+                      id="groom-photo"
+                      src="./images/profile/male.webp"
+                      alt="Foto Profil Pengantin Pria"
+                      class="w-full h-full rounded-full object-cover"
+                    />
+                    <!-- Circle decoration overlay -->
+                    <div class="absolute pointer-events-none" style="width: 115%; height: 115%; top: -7.5%; left: -7.5%; z-index: 10;">
+                      <img
+                        src="./images/furnitur/circle17.png"
+                        alt=""
+                        class="w-full h-full"
+                        style="filter: drop-shadow(0 0 10px rgba(198, 112, 13, 0.35));"
+                      />
+                    </div>
+                  </div>
 
                   <p id="groom-fullname" class="text-xl md:text-2xl font-nama mb-1">Muhammad Aprianto</p>
                   <p id="groom-child-order" class="text-sm md:text-base font-secondary font-semibold mb-1">Putra pertama dari</p>
@@ -636,13 +647,24 @@
                   <p class="font-nama text-3xl">&</p>
                 </div>
                 <div data-aos="fade-left" data-aos-duration="1000" class="text-center">
-                  <img
-                    id="bride-photo"
-                    src="./images/profile/female.webp"
-                    alt="Foto Profil Pengantin Wanita"
-                    class="w-28 h-28 rounded-full object-cover mb-3 mx-auto"
-                    style="border: 4px solid #c6700d;"
-                  />
+                  <!-- Foto Pengantin Wanita dengan circle17 overlay -->
+                  <div class="relative w-28 h-28 mx-auto mb-3">
+                    <img
+                      id="bride-photo"
+                      src="./images/profile/female.webp"
+                      alt="Foto Profil Pengantin Wanita"
+                      class="w-full h-full rounded-full object-cover"
+                    />
+                    <!-- Circle decoration overlay -->
+                    <div class="absolute pointer-events-none" style="width: 115%; height: 115%; top: -7.5%; left: -7.5%; z-index: 10;">
+                      <img
+                        src="./images/furnitur/circle17.png"
+                        alt=""
+                        class="w-full h-full"
+                        style="filter: drop-shadow(0 0 10px rgba(198, 112, 13, 0.35));"
+                      />
+                    </div>
+                  </div>
 
                   <p id="bride-fullname" class="text-xl md:text-2xl font-nama mb-1">Annisa Riski Firmani</p>
                   <p id="bride-child-order" class="text-sm md:text-base font-secondary font-semibold mb-1">Putri pertama dari</p>
