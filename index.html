@@ -1661,92 +1661,147 @@
                   style="max-height: 0; opacity: 0;"
                 >
                 <div class="flex flex-col gap-6 justify-center items-center">
-                  <!-- Gift 1: Transfer Bank -->
-                  <div
-                    class="w-full relative rounded-2xl shadow-lg text-center overflow-hidden"
-                    style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
-                  >
-                    <!-- Overlay sederhana untuk readability -->
-                    <div class="absolute inset-0 bg-black/50"></div>
-                    
+                  <!-- Gift 1: Transfer Bank BCA -->
+                  <div class="w-full relative rounded-2xl overflow-hidden" style="background: linear-gradient(160deg, var(--color-primary-900) 0%, var(--color-primary-800) 60%, var(--color-primary-900) 100%); border: 1.5px solid var(--color-primary-400); box-shadow: 0 12px 40px rgba(109,56,5,0.45), inset 0 1px 0 rgba(240,212,168,0.12);">
+
+                    <!-- Strip emas atas -->
+                    <div style="background: linear-gradient(90deg, var(--color-primary-900), var(--color-primary-400), var(--color-primary-300), var(--color-primary-400), var(--color-primary-900)); height: 3px;"></div>
+
+                    <!-- Decorative glow top-right -->
+                    <div class="absolute top-0 right-0 pointer-events-none" style="width:120px; height:120px; background: radial-gradient(circle at top right, rgba(216,162,78,0.14) 0%, transparent 70%);"></div>
+
                     <!-- Content -->
-                    <div class="p-6 relative z-10">
+                    <div class="px-6 pt-6 pb-5 text-center relative z-10">
+
+                      <!-- Label kategori -->
+                      <div class="flex items-center justify-center gap-2 mb-4">
+                        <div style="height:1px; width:28px; background: linear-gradient(90deg, transparent, var(--color-primary-400));"></div>
+                        <span class="text-xs font-body uppercase tracking-[0.24em]" style="color: var(--color-primary-300);">Transfer Bank</span>
+                        <div style="height:1px; width:28px; background: linear-gradient(90deg, var(--color-primary-400), transparent);"></div>
+                      </div>
+
+                      <!-- Logo ring emas -->
                       <div class="flex justify-center mb-4">
-                        <div class="bg-white p-3 rounded-full shadow-md">
-                          <img
-                            src="./images/logo/logo-bca.png"
-                            alt="BCA"
-                            class="w-28 object-contain"
-                          />
+                        <div class="relative">
+                          <div class="absolute inset-0 rounded-full" style="box-shadow: 0 0 20px rgba(216,162,78,0.4); border-radius: 50%;"></div>
+                          <div class="flex items-center justify-center rounded-full" style="width:96px; height:96px; background: conic-gradient(var(--color-primary-300) 0deg, var(--color-primary-700) 90deg, var(--color-primary-400) 180deg, var(--color-primary-700) 270deg, var(--color-primary-300) 360deg); padding: 3px;">
+                            <div class="rounded-full flex items-center justify-center" style="width:88px; height:88px; background: var(--color-primary-50);">
+                              <img src="./images/logo/logo-bca.png" alt="BCA" class="w-16 object-contain" />
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="mb-2 text-lg md:text-xl font-secondary font-bold text-white">
-                        Bank BCA
+
+                      <!-- Nama bank -->
+                      <div class="font-secondary font-bold text-xl mb-1" style="color: var(--color-primary-100);">Bank BCA</div>
+
+                      <!-- Divider -->
+                      <div class="flex items-center gap-2 my-3">
+                        <div class="flex-1" style="height:1px; background: linear-gradient(90deg, transparent, var(--color-primary-400));"></div>
+                        <i class="bi bi-suit-diamond-fill" style="color: var(--color-primary-400); font-size: 8px;"></i>
+                        <i class="bi bi-gem" style="color: var(--color-primary-300); font-size: 11px;"></i>
+                        <i class="bi bi-suit-diamond-fill" style="color: var(--color-primary-400); font-size: 8px;"></i>
+                        <div class="flex-1" style="height:1px; background: linear-gradient(90deg, var(--color-primary-400), transparent);"></div>
                       </div>
+
+                      <!-- Label nomor -->
+                      <div class="text-xs font-body uppercase tracking-widest mb-2" style="color: var(--color-primary-300); opacity: 0.85;">Nomor Rekening</div>
+
+                      <!-- Nomor rekening -->
                       <div
-                        class="mb-3 text-white tracking-widest text-xl md:text-2xl font-secondary font-bold select-all bg-black/40 px-4 py-3 rounded-lg"
                         id="rekening-bca"
+                        class="select-all font-secondary font-bold text-2xl tracking-[0.13em] mb-2 py-3 px-4 rounded-xl"
+                        style="color: var(--color-primary-200); background: var(--color-primary-950); border: 1.5px solid var(--color-primary-400); letter-spacing: 0.13em;"
                       >
                         1234567890
                       </div>
-                      <div class="mb-4 text-white/90 text-sm md:text-base font-body font-medium">
-                        <span id="gift-account-name-1">a.n. Rian & Nisa</span>
+
+                      <!-- Nama pemilik -->
+                      <div class="flex items-center justify-center gap-1 mb-5" style="color: var(--color-primary-300);">
+                        <i class="bi bi-person-circle" style="font-size:13px;"></i>
+                        <span class="text-sm font-body">a.n. <span id="gift-account-name-1" class="font-semibold" style="color: var(--color-primary-200);">Rian &amp; Nisa</span></span>
                       </div>
-                      <button
-                        id="copy-rekening-btn"
-                        class="button-main button-sm w-full"
-                      >
-                        <i class="bi bi-clipboard-check mr-2"></i>
-                        Salin Nomor Rekening
+
+                      <!-- Tombol -->
+                      <button id="copy-rekening-btn" class="button-main button-sm w-full">
+                        <i class="bi bi-clipboard-check mr-2"></i>Salin Nomor Rekening
                       </button>
-                      <span
-                        id="notif-rekening"
-                        class="text-green-300 text-xs mt-2 font-semibold hidden animate-fade-in-up"
-                        >✓ Nomor berhasil disalin!</span
-                      >
+                      <span id="notif-rekening" class="block text-xs mt-2 font-semibold hidden animate-fade-in-up" style="color: var(--color-success);">✓ Nomor berhasil disalin!</span>
                     </div>
+
+                    <!-- Strip emas bawah -->
+                    <div style="background: linear-gradient(90deg, var(--color-primary-900), var(--color-primary-400), var(--color-primary-300), var(--color-primary-400), var(--color-primary-900)); height: 3px;"></div>
                   </div>
-                  <!-- Gift 2: E-Wallet -->
-                  <div
-                    class="w-full relative rounded-2xl shadow-lg text-center overflow-hidden"
-                    style="background-image: url('./images/furnitur/bgall.png'); background-size: cover; background-position: center center; background-repeat: no-repeat;"
-                  >
-                    <!-- Overlay sederhana untuk readability -->
-                    <div class="absolute inset-0 bg-black/50"></div>
-                    
+
+                  <!-- Gift 2: E-Wallet Dana -->
+                  <div class="w-full relative rounded-2xl overflow-hidden" style="background: linear-gradient(160deg, var(--color-primary-900) 0%, var(--color-primary-800) 60%, var(--color-primary-900) 100%); border: 1.5px solid var(--color-primary-400); box-shadow: 0 12px 40px rgba(109,56,5,0.45), inset 0 1px 0 rgba(240,212,168,0.12);">
+
+                    <!-- Strip emas atas -->
+                    <div style="background: linear-gradient(90deg, var(--color-primary-900), var(--color-primary-400), var(--color-primary-300), var(--color-primary-400), var(--color-primary-900)); height: 3px;"></div>
+
+                    <!-- Decorative glow top-left -->
+                    <div class="absolute top-0 left-0 pointer-events-none" style="width:120px; height:120px; background: radial-gradient(circle at top left, rgba(216,162,78,0.14) 0%, transparent 70%);"></div>
+
                     <!-- Content -->
-                    <div class="p-6 relative z-10">
+                    <div class="px-6 pt-6 pb-5 text-center relative z-10">
+
+                      <!-- Label kategori -->
+                      <div class="flex items-center justify-center gap-2 mb-4">
+                        <div style="height:1px; width:28px; background: linear-gradient(90deg, transparent, var(--color-primary-400));"></div>
+                        <span class="text-xs font-body uppercase tracking-[0.24em]" style="color: var(--color-primary-300);">E-Wallet</span>
+                        <div style="height:1px; width:28px; background: linear-gradient(90deg, var(--color-primary-400), transparent);"></div>
+                      </div>
+
+                      <!-- Logo ring emas -->
                       <div class="flex justify-center mb-4">
-                        <div class="bg-white p-3 rounded-full shadow-md">
-                          <img
-                            src="./images/logo/logo-dana.png"
-                            alt="Dana"
-                            class="w-28 object-contain"
-                          />
+                        <div class="relative">
+                          <div class="absolute inset-0 rounded-full" style="box-shadow: 0 0 20px rgba(216,162,78,0.4); border-radius: 50%;"></div>
+                          <div class="flex items-center justify-center rounded-full" style="width:96px; height:96px; background: conic-gradient(var(--color-primary-300) 0deg, var(--color-primary-700) 90deg, var(--color-primary-400) 180deg, var(--color-primary-700) 270deg, var(--color-primary-300) 360deg); padding: 3px;">
+                            <div class="rounded-full flex items-center justify-center" style="width:88px; height:88px; background: var(--color-primary-50);">
+                              <img src="./images/logo/logo-dana.png" alt="Dana" class="w-16 object-contain" />
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="mb-2 text-lg md:text-xl font-secondary font-bold text-white">
-                        E-Wallet (Dana)
+
+                      <!-- Nama -->
+                      <div class="font-secondary font-bold text-xl mb-1" style="color: var(--color-primary-100);">Dana</div>
+
+                      <!-- Divider -->
+                      <div class="flex items-center gap-2 my-3">
+                        <div class="flex-1" style="height:1px; background: linear-gradient(90deg, transparent, var(--color-primary-400));"></div>
+                        <i class="bi bi-suit-diamond-fill" style="color: var(--color-primary-400); font-size: 8px;"></i>
+                        <i class="bi bi-gem" style="color: var(--color-primary-300); font-size: 11px;"></i>
+                        <i class="bi bi-suit-diamond-fill" style="color: var(--color-primary-400); font-size: 8px;"></i>
+                        <div class="flex-1" style="height:1px; background: linear-gradient(90deg, var(--color-primary-400), transparent);"></div>
                       </div>
-                      <div class="mb-3 text-white text-lg md:text-xl font-secondary font-bold select-all bg-black/40 px-4 py-3 rounded-lg">
+
+                      <!-- Label nomor -->
+                      <div class="text-xs font-body uppercase tracking-widest mb-2" style="color: var(--color-primary-300); opacity: 0.85;">Nomor Dana</div>
+
+                      <!-- Nomor dana -->
+                      <div
+                        class="select-all font-secondary font-bold text-2xl tracking-[0.13em] mb-2 py-3 px-4 rounded-xl"
+                        style="color: var(--color-primary-200); background: var(--color-primary-950); border: 1.5px solid var(--color-primary-400); letter-spacing: 0.13em;"
+                      >
                         0812-3456-7890
                       </div>
-                      <div class="mb-4 text-white/90 text-sm md:text-base font-body font-medium">
-                        <span id="gift-account-name-2">a.n. Rian & Nisa</span>
+
+                      <!-- Nama pemilik -->
+                      <div class="flex items-center justify-center gap-1 mb-5" style="color: var(--color-primary-300);">
+                        <i class="bi bi-person-circle" style="font-size:13px;"></i>
+                        <span class="text-sm font-body">a.n. <span id="gift-account-name-2" class="font-semibold" style="color: var(--color-primary-200);">Rian &amp; Nisa</span></span>
                       </div>
-                      <button
-                        id="copy-dana-btn"
-                        class="button-main button-sm w-full"
-                      >
-                        <i class="bi bi-clipboard-check mr-2"></i>
-                        Salin Nomor
+
+                      <!-- Tombol -->
+                      <button id="copy-dana-btn" class="button-main button-sm w-full">
+                        <i class="bi bi-clipboard-check mr-2"></i>Salin Nomor
                       </button>
-                      <span
-                        id="notif-dana"
-                        class="text-green-300 text-xs mt-2 font-semibold hidden animate-fade-in-up"
-                        >✓ Nomor berhasil disalin!</span
-                      >
+                      <span id="notif-dana" class="block text-xs mt-2 font-semibold hidden animate-fade-in-up" style="color: var(--color-success);">✓ Nomor berhasil disalin!</span>
                     </div>
+
+                    <!-- Strip emas bawah -->
+                    <div style="background: linear-gradient(90deg, var(--color-primary-900), var(--color-primary-400), var(--color-primary-300), var(--color-primary-400), var(--color-primary-900)); height: 3px;"></div>
                   </div>
                   <!-- WhatsApp Confirmation -->
                 <a
