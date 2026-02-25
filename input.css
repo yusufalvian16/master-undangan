@@ -53,11 +53,6 @@
   .bg-primary-75 {
     background-color: var(--color-primary-75);
   }
-
-  .font-nama2 {
-    font-family: var(--font-secondary);
-    font-weight: 600;
-  }
 }
 
 /* ============================================
@@ -204,7 +199,7 @@
   :host {
     /* Primary Color - Amber Gelap Tembaga Coklat Emas untuk tema pernikahan */
     --color-primary-50: #fef8f0;
-    --color-primary-75: #fbedda;  /* Custom: tengah antara 50 dan 100 */
+    --color-primary-75: #fbedda; /* Custom: tengah antara 50 dan 100 */
     --color-primary-100: #f8e2c4;
     --color-primary-200: #f0d4a8;
     --color-primary-300: #e8c68c;
@@ -234,58 +229,7 @@
    WAVE ANIMATION FOR FLOWERS - @layer utilities
    ============================================ */
 @layer utilities {
-  /* Animasi melambai untuk bunga - gerakan halus seperti tertiup angin */
-  @keyframes sway {
-    0%,
-    100% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(-3deg);
-    }
-    50% {
-      transform: rotate(0deg);
-    }
-    75% {
-      transform: rotate(3deg);
-    }
-  }
-
-  @keyframes sway-alt {
-    0%,
-    100% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(3deg);
-    }
-    50% {
-      transform: rotate(0deg);
-    }
-    75% {
-      transform: rotate(-3deg);
-    }
-  }
-
-  /* Class untuk animasi sway dengan timing yang berbeda */
-  .sway {
-    @apply animate-[sway_3s_ease-in-out_infinite];
-    transform-origin: center center;
-  }
-
-  .sway-alt {
-    @apply animate-[sway-alt_3.5s_ease-in-out_infinite];
-    transform-origin: center center;
-  }
-
-  /* Variasi timing untuk efek lebih natural */
-  .sway-slow {
-    @apply animate-[sway_4s_ease-in-out_infinite];
-  }
-
-  .sway-fast {
-    @apply animate-[sway_2s_ease-in-out_infinite];
-  }
+  /* Animasi sway telah digantikan oleh sistem wave-bunga/wave-daun yang lebih halus */
 
   /* ============================================
      WAVE ANIMATION SYSTEM - Smooth & Natural
@@ -675,7 +619,6 @@
     will-change: transform;
   }
 
-
   /* Origin points untuk rotasi yang berbeda */
   .origin-top-left {
     transform-origin: top left;
@@ -692,7 +635,6 @@
   .origin-bottom-right {
     transform-origin: bottom right;
   }
-
 
   /* Animasi rotasi lembut untuk circle decoration */
   @keyframes gentle-rotate {
@@ -870,11 +812,6 @@
     background-color: var(--color-primary-950);
   }
 
-  /* Gradient utility - primary-100 to primary-200 */
-  .bg-primary-gradient {
-    background: linear-gradient(135deg, var(--color-primary-100) 0%, var(--color-primary-200) 100%);
-  }
-
   /* Border utilities */
   .border-primary-400 {
     border-color: var(--color-primary-400);
@@ -884,7 +821,6 @@
   .text-primary-800 {
     color: var(--color-primary-800);
   }
-
 
   /* Error dan Success Colors */
   .text-error {
@@ -1014,7 +950,7 @@
     background: linear-gradient(
       135deg,
       var(--color-primary-600),
-      var(--color-accent-500)
+      var(--color-primary-400)
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1078,26 +1014,6 @@
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     mask-composite: exclude;
-  }
-
-  /* Ornamental divider */
-  .ornamental-divider {
-    @apply relative text-center my-8;
-  }
-
-  .ornamental-divider::before,
-  .ornamental-divider::after {
-    content: "❦";
-    @apply absolute top-1/2 -translate-y-1/2 text-2xl opacity-60;
-    color: var(--color-primary-400);
-  }
-
-  .ornamental-divider::before {
-    @apply left-[20%];
-  }
-
-  .ornamental-divider::after {
-    @apply right-[20%];
   }
 
   /* Sparkle effect */
@@ -1318,192 +1234,7 @@
     animation: fadeIn 1s ease-in-out;
   }
 
-  /* Corner decorations */
-  .preloader-decoration {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    opacity: 0.4;
-    pointer-events: none;
-  }
 
-  .preloader-decoration.top-left {
-    top: 20px;
-    left: 20px;
-    animation: floatTopLeft 6s ease-in-out infinite;
-  }
-
-  .preloader-decoration.top-right {
-    top: 20px;
-    right: 20px;
-    transform: scaleX(-1);
-    animation: floatTopRight 6s ease-in-out infinite;
-  }
-
-  .preloader-decoration.bottom-left {
-    bottom: 20px;
-    left: 20px;
-    transform: rotate(180deg) scaleX(-1);
-    animation: floatBottomLeft 6s ease-in-out infinite;
-  }
-
-  .preloader-decoration.bottom-right {
-    bottom: 20px;
-    right: 20px;
-    transform: rotate(180deg);
-    animation: floatBottomRight 6s ease-in-out infinite;
-  }
-
-  .decoration-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-  }
-
-  @keyframes floatTopLeft {
-    0%,
-    100% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-    50% {
-      transform: translate(-5px, -5px) rotate(-5deg);
-    }
-  }
-
-  @keyframes floatTopRight {
-    0%,
-    100% {
-      transform: scaleX(-1) translate(0, 0) rotate(0deg);
-    }
-    50% {
-      transform: scaleX(-1) translate(5px, -5px) rotate(5deg);
-    }
-  }
-
-  @keyframes floatBottomLeft {
-    0%,
-    100% {
-      transform: rotate(180deg) scaleX(-1) translate(0, 0);
-    }
-    50% {
-      transform: rotate(180deg) scaleX(-1) translate(-5px, 5px) rotate(-5deg);
-    }
-  }
-
-  @keyframes floatBottomRight {
-    0%,
-    100% {
-      transform: rotate(180deg) translate(0, 0);
-    }
-    50% {
-      transform: rotate(180deg) translate(5px, 5px) rotate(5deg);
-    }
-  }
-
-  /* Logo container with rotating ring */
-  .preloader-logo {
-    position: relative;
-    margin-bottom: 1.5rem;
-    display: inline-block;
-  }
-
-  .preloader-ring {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-  }
-
-  .ring-segment {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: rgba(255, 255, 255, 0.8);
-    animation: rotateRing 2s linear infinite;
-  }
-
-  .ring-segment:nth-child(1) {
-    animation-delay: 0s;
-    border-top-color: rgba(255, 255, 255, 0.9);
-  }
-
-  .ring-segment:nth-child(2) {
-    animation-delay: 0.5s;
-    border-top-color: rgba(255, 255, 255, 0.7);
-  }
-
-  .ring-segment:nth-child(3) {
-    animation-delay: 1s;
-    border-top-color: rgba(255, 255, 255, 0.5);
-  }
-
-  .ring-segment:nth-child(4) {
-    animation-delay: 1.5s;
-    border-top-color: rgba(255, 255, 255, 0.3);
-  }
-
-  @keyframes rotateRing {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  /* Initials */
-  .preloader-initials {
-    font-family: var(--font-primary);
-    font-size: 3rem;
-    font-weight: 700;
-    color: white;
-    margin: 0;
-    padding: 0;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    animation: fadeInScale 1s ease-in-out;
-    position: relative;
-    z-index: 2;
-  }
-
-  @keyframes fadeInScale {
-    0% {
-      opacity: 0;
-      transform: scale(0.5);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  /* Subtitle */
-  .preloader-subtitle {
-    font-family: var(--font-secondary);
-    font-size: 1rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 2rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    animation: fadeIn 1s ease-in-out 0.3s both;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
   /* Progress bar */
   .preloader-progress {
@@ -1557,43 +1288,6 @@
 
   /* Mobile responsive */
   @media (max-width: 768px) {
-    .preloader-decoration {
-      width: 60px;
-      height: 60px;
-    }
-
-    .preloader-decoration.top-left,
-    .preloader-decoration.top-right {
-      top: 10px;
-    }
-
-    .preloader-decoration.top-left,
-    .preloader-decoration.bottom-left {
-      left: 10px;
-    }
-
-    .preloader-decoration.top-right,
-    .preloader-decoration.bottom-right {
-      right: 10px;
-    }
-
-    .preloader-decoration.bottom-left,
-    .preloader-decoration.bottom-right {
-      bottom: 10px;
-    }
-
-    .preloader-initials {
-      font-size: 2.5rem;
-    }
-
-    .preloader-ring {
-      width: 120px;
-      height: 120px;
-    }
-
-    .preloader-subtitle {
-      font-size: 0.875rem;
-    }
 
     .preloader-loading-text {
       font-size: 1.25rem;
